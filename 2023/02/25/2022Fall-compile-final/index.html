@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2022秋季学期 编译原理 期末复习笔记 - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="编译&amp;#x2F;assets&amp;#x2F;2022Fall-compile-final算法集合 自上而下LL 针对所有，求first · 范围：初始化 放空 分割 产生式检查 针对所有，求follow 初始化 右端A后缀first 可选左端follow 针对所有产生式，求PS预测集合 first右+可选follow左 消除直接、间接左递归（排序、对每个终结符替代比他序号小的左递归用产生式） 消除左公"><meta property="og:type" content="blog"><meta property="og:title" content="2022秋季学期 编译原理 期末复习笔记"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="编译&amp;#x2F;assets&amp;#x2F;2022Fall-compile-final算法集合 自上而下LL 针对所有，求first · 范围：初始化 放空 分割 产生式检查 针对所有，求follow 初始化 右端A后缀first 可选左端follow 针对所有产生式，求PS预测集合 first右+可选follow左 消除直接、间接左递归（排序、对每个终结符替代比他序号小的左递归用产生式） 消除左公"><meta property="og:locale" content="en_US"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230222174755522-1677325864026-2.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230222180625572-1677325864026-1.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230217224139933.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230217225128273.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230217225632233.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230220000921281.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230219232902032.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221150237726.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221161431912.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221194710707.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221194717178.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221200115867.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221203034284.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230221204825110.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230222170546470.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230222170556084.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230222170602364.png"><meta property="og:image" content="/assets/2022Fall-compile-final.assets/image-20230223215533966.png"><meta property="article:published_time" content="2023-02-25T11:51:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.487Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="/assets/2022Fall-compile-final.assets/image-20230222174755522-1677325864026-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2023/02/25/2022Fall-compile-final/"},"headline":"2022秋季学期 编译原理 期末复习笔记","image":["https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230222174755522-1677325864026-2.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230222180625572-1677325864026-1.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230217224139933.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230217225128273.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230217225632233.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230220000921281.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230219232902032.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221150237726.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221161431912.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221194710707.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221194717178.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221200115867.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221203034284.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230221204825110.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230222170546470.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230222170556084.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230222170602364.png","https://matteoyang.space/assets/2022Fall-compile-final.assets/image-20230223215533966.png"],"datePublished":"2023-02-25T11:51:00.000Z","dateModified":"2024-10-01T11:01:40.487Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"编译&#x2F;assets&#x2F;2022Fall-compile-final算法集合 自上而下LL 针对所有，求first · 范围：初始化 放空 分割 产生式检查 针对所有，求follow 初始化 右端A后缀first 可选左端follow 针对所有产生式，求PS预测集合 first右+可选follow左 消除直接、间接左递归（排序、对每个终结符替代比他序号小的左递归用产生式） 消除左公"}</script><link rel="canonical" href="https://matteoyang.space/2023/02/25/2022Fall-compile-final/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-25T11:51:00.000Z" title="2023/2/25 19:51:00">2023-02-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.487Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">an hour read (About 10654 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2022秋季学期 编译原理 期末复习笔记</h1><div class="content"><h1 id="编译-assets-2022Fall-compile-final"><a href="#编译-assets-2022Fall-compile-final" class="headerlink" title="编译&#x2F;assets&#x2F;2022Fall-compile-final"></a>编译&#x2F;assets&#x2F;2022Fall-compile-final</h1><h3 id="算法集合"><a href="#算法集合" class="headerlink" title="算法集合"></a>算法集合</h3><ul>
+<li>自上而下LL<ul>
+<li>针对所有，求first · 范围：初始化 放空 分割 产生式检查</li>
+<li>针对所有，求follow 初始化 <strong>右端A后缀first 可选左端follow</strong></li>
+<li>针对所有产生式，求PS预测集合 <strong>first右+可选follow左</strong></li>
+<li>消除直接、间接左递归（排序、对每个终结符替代比他序号小的左递归用产生式）</li>
+<li>消除左公因子</li>
+<li>根据预测集合判断是否是LL1文法</li>
+<li>递归下降 ParseX</li>
+<li>表驱动 借助栈，开口向左的栈，初始化放#。根据栈顶和向前查看来不断推导</li>
+<li>错误处理——表驱动：跳过直到同步符号即followA，检测firstA出现的时候恢复分析A</li>
+<li>递归下降：补救集合？？？</li>
+</ul>
+</li>
+<li>符号表：哈希；全局符号表；作用域+单独符号表…</li>
+<li>自下而上LR<ul>
+<li>短语、直接短语和句柄（rm），活前缀（句柄之前的所有前缀）</li>
+<li>向右开口的栈（状态栈+符号栈），输入序列#，分析表，（分析引擎）</li>
+<li><strong>注意reduce的时候，弹出整个一层然后压入符号再压入状态。即被弹出的老状态无用。</strong></li>
+<li>LR0<ul>
+<li>增广文法 项目（归约、移进、接受、待归）</li>
+<li>构造CLOSURE</li>
+<li>构造LR0 FSM，通过转移边</li>
+<li>构造分析表</li>
+<li>——归约就是一个归约，不含移进和其他归约</li>
+</ul>
+</li>
+<li>SLR1<ul>
+<li>解决一部分冲突，通过归约后VN的Follow来区分，移进就看移进什么东西，不相交就好</li>
+</ul>
+</li>
+<li>LR1<ul>
+<li>新项目 &#x3D; 项目+搜索符</li>
+<li>构造CLOSURE：搜索符的传递，是βa的first</li>
+<li>构造LR1 FSM 通过转移边，初始化的搜索符为#</li>
+<li>构造分析表，<strong>搜索符只在归约项目中使用</strong></li>
+</ul>
+</li>
+<li>LALR1<ul>
+<li>没那么复杂，合并同芯状态</li>
+<li>合并同芯状态的后继状态也同芯…合并之</li>
+</ul>
+</li>
+<li>二义文法限制给定优先级比较简单，如算符匹配</li>
+<li>错误处理技巧</li>
+</ul>
+</li>
+<li>语义计算<ul>
+<li>属性文法：语义规则都在最后<ul>
+<li>树遍历<ul>
+<li>构造分析树</li>
+<li>标记节点——节点是属性</li>
+<li>标记依赖关系</li>
+<li>拓扑排序</li>
+<li>计算标注</li>
+</ul>
+</li>
+<li>借助语法分析的单遍<ul>
+<li>S属性文法：自下而上，在LR分析中增加语义栈，根据栈顶的几个元素计算。注意lexval</li>
+<li>L属性文法：要求综合属性+只使用产生式左边的继承属性。<ul>
+<li><strong>深度后续遍历</strong>即可，dfs每个节点都先继承给孩子属性。然后访问每一个孩子。最后再从计算完的孩子身上获得综合属性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>翻译模式：语义规则在符号前，综合在P后。都是单遍<ul>
+<li>做限制：<ul>
+<li>类似S 全综合</li>
+<li>类似L 继承属性使用的只能是左边的东西，且如果用左端则只能用继承。</li>
+</ul>
+</li>
+<li>自上而下：熟悉的parseX，通过参数传递继承属性，返回值传递综合属性。每个Parse内就按照产生式往下写就好。记得给好继承，保存好综合。<ul>
+<li><strong>消除左递归</strong>，消除的同时需要变换语义规则集。</li>
+</ul>
+</li>
+<li>自下而上：<ul>
+<li>首先消除除了最后之外的奇奇怪怪东西，包括数字赋值，print，以及复杂函数。通过引入变量把他们都换成简单复写</li>
+<li>然后在转化成栈形式，只转化句子末尾的综合属性。如果需要访问继承属性，就一直向前倒到综合属性。不一致就引入调整到一致。</li>
+<li>注意数栈的时候的推空式，以及跨箭头top不变。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>静态语义检查</li>
+<li>中间代码生成<ul>
+<li>偏移量标注：width子树规模，综合上去；offset从头部继承下来；在底部声明的时候使用enter函数在符号表中标注偏移。函数局部标注也差不多，注意参数也占位置。</li>
+<li>内情向量<ul>
+<li>静态数组放在符号表：每个维度上下界；类型；首地址；维数；C；</li>
+<li>动态数组放在运行时组织栈|堆</li>
+<li>地址计算：行优先时，从第一维开始往后乘…索引减去下标，乘后续维度的空间。addr - C + V<img src="/assets/2022Fall-compile-final.assets/image-20230222174755522-1677325864026-2.png" alt="image-20230222174755522"></li>
+</ul>
+</li>
+<li>TAC生成“声明数组”、翻译各种语句等等。<ul>
+<li>大致过程：place申请Temp；计算子语句；code &#x3D; 子code||gen（某句Temp）</li>
+<li>翻译TAC时候，本句Code可以并上需要的子句code</li>
+<li>place是存储位置</li>
+<li>arglist 实参列表 makelist创建实参地址节点 append往这个列表中添加节点<img src="/assets/2022Fall-compile-final.assets/image-20230222180625572-1677325864026-1.png" alt="image-20230222180625572"></li>
+</ul>
+</li>
+<li>布尔表达式翻译<ul>
+<li>直接求值<ul>
+<li>逻辑运算：先取子code，然后放上去</li>
+<li>关系比较：用0和1表示取值，用goto nextstat+x表达跳几条语句</li>
+</ul>
+</li>
+<li>控制流语句中布尔的语义——短路<ul>
+<li>生成目标：按照or and等等往下顺序写，如果随时能判断整个正误就直接跳转。</li>
+<li>相当于每个E都有true和false的继承属性。需要我们得到子表达式xxx就能马上判断父亲的正误。随时能判断就gengoto。</li>
+<li>rop：两句，都是跳转</li>
+<li>且：如果E1错就赶紧跳E错。所以E1错&#x3D;E错，E1对&#x3D;newlabel；E2错也可以跳E错，E2对才是E对。code部分，先E1，这样可能短路跳走了，然后E1truelabel，然后E2一定跳走</li>
+<li>非：全相反</li>
+<li>括号：不变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>条件语句翻译<ul>
+<li>先条件code，再label，再中间code，再label…</li>
+</ul>
+</li>
+<li>顺序复合<ul>
+<li>用到next属性都表示整块紧邻的下一句</li>
+</ul>
+</li>
+<li>break continue<ul>
+<li>能产生break的地方，特意标注break。比如while中的内部S…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>运行存储组织<ul>
+<li>默认float8</li>
+<li>栈结构<ul>
+<li>临时单元</li>
+<li>动态数组</li>
+<li>动态数组（动态数组的存储位置，比如float的话就是2N的空间）</li>
+<li>固定局部数据（动态数组：底下放内情向量4B，然后addr ptr4B指向上面的动态区）</li>
+<li>过程参数（先参数个数）</li>
+<li>（reg保存）</li>
+<li>控制数据（SL DL RA ）</li>
+<li>（返回值）</li>
+</ul>
+</li>
+<li>嵌套过程语言，区别于函数递归。</li>
+<li>动态链：一定指向caller即上一层</li>
+<li>静态链：指向嵌套过程的直接外层</li>
+<li>Display<ul>
+<li>保存全部在栈帧中</li>
+<li>保存被自己替换的那条</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基本块流图和循环<ul>
+<li>划分基本块<ul>
+<li>三入三出条件</li>
+</ul>
+</li>
+<li>支配（必过） 回边——循环</li>
+</ul>
+</li>
+<li>数据流分析<ul>
+<li>经典方程</li>
+<li>到达定值分析，方程<ul>
+<li>过程</li>
+</ul>
+</li>
+<li>活跃变量分析，方程<ul>
+<li>标记</li>
+</ul>
+</li>
+<li>UD和DU链</li>
+<li>待用信息和活跃信息</li>
+</ul>
+</li>
+<li>DAG局部优化<ul>
+<li>三种子图</li>
+<li>重复利用，可确定常数直接创建，不知道初值需要标0</li>
+<li>拓扑排序翻译</li>
+</ul>
+</li>
+<li>寄存器分配<ul>
+<li>Ershov 和 Sethi：针对表达式，从底层往上标记</li>
+<li>相干图<ul>
+<li>变量（伪寄存器）为节点</li>
+<li>定值点紧随的活跃变量集合，和定值连线</li>
+</ul>
+</li>
+<li>K着色…</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lec0-考试信息"><a href="#Lec0-考试信息" class="headerlink" title="Lec0 考试信息"></a>Lec0 考试信息</h2><p> a）语法分析 + 词法分析 + 编译基础知识 40%左右<br>        （slide01 + slide02 + slide 03 + slide05） </p>
+<p>​     b）语法制导的语义计算 + 静态语义分析与中间代码生成   30%左右<br>​        （slide 06 + slide07）</p>
+<p>​     a）和 b）共计70%</p>
+<p>​     c）符号表+运行时存贮组织  10~15%<br>​        （slide04 + slide08）</p>
+<p>​     d）代码生成 + 代码优化  15~20%<br>​        （slide09）</p>
+<p>​     c）和 d）共计30%</p>
+<p>2）不出题范围</p>
+<p>​     a）Slide或Lecture文件中所有标有“选讲”的内容</p>
+<p>​     b）Lecture09 中 3.1, 3.3 和 3.4</p>
+<p>​     c）Lecture09 中 4.1 和 4.2      </p>
+<h2 id="Lec1"><a href="#Lec1" class="headerlink" title="Lec1"></a>Lec1</h2><p>分析，综合 两大阶段</p>
+<h4 id="编程语言范型"><a href="#编程语言范型" class="headerlink" title="编程语言范型"></a>编程语言范型</h4><p>命令语言 描述问题如何实现 有状态并改变</p>
+<p>陈述声明语言 描述问题做什么，没有状态</p>
+<p>OO </p>
+<p>并发、分布式语言</p>
+<p>同步、数据库、脚本</p>
+<ul>
+<li>前端 分析，首次生成中间代码</li>
+<li>中端 中间代码生成优化</li>
+<li>后端 综合，生成优化目标代码</li>
+</ul>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230217224139933.png" alt="image-20230217224139933"></p>
+<p>字符流-单词流-AST语法分析树-中间代码1~n-目标代码和优化</p>
+<p>词法、语法、语义，中间代码生成与优化，目标代码生成与优化</p>
+<p>辅助以符号表管理和错误处理</p>
+<p>pass|Phase 从头到尾扫描一遍，单或多遍，常有逻辑先后</p>
+<p>有Interpreter 不产生目标程序，不区别翻译执行，直接翻译完就执行，解释程序一直守候，直接出结果，用于实现虚拟机。区别于编译程序。</p>
+<p>预处理程序，处理掉扩展信息再送进编译程序。</p>
+<p>装入与链接程序，用来对可重定向的机器语言程序修改，合并多个并加入库，以产生最终可执行的低级程序。</p>
+<p>调试程序，接受编译出的调试信息以及程序，来给出更多运行时的信息</p>
+<h4 id="T型图"><a href="#T型图" class="headerlink" title="T型图"></a>T型图</h4><p>用底下的程序把左编译成右。</p>
+<p>本地编译器指的是，用M把A编译成M</p>
+<p>交叉编译器，用M把L编译成N</p>
+<p>如果想用已有语言A实现新语言B，则相当于已有M下A编M的编译器。我需要拿A设计一个把B编译成M的编译器，并编译成M。就得到了在M下把B编译成M的编译器。</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230217225128273.png" alt="image-20230217225128273"></p>
+<p>A的L语言移植到B机器，需要用L写L转B。然后来回编译</p>
+<p>用编译器编译就是把T放到右下</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230217225632233.png" alt="image-20230217225632233"></p>
+<h2 id="Lect2-词法分析"><a href="#Lect2-词法分析" class="headerlink" title="Lect2 词法分析"></a>Lect2 词法分析</h2><p><strong>识别单词</strong> 返回Token流（Token和属性值），或者错误信息。</p>
+<p>经常由语法分析程序调用，不断获取下一个单词记录</p>
+<h4 id="单词描述工具"><a href="#单词描述工具" class="headerlink" title="单词描述工具"></a>单词描述工具</h4><p><strong>扩展巴克斯EBNF</strong> 类似正规表达式的形式表示单词类别</p>
+<p>用::&#x3D; {表示0个及以上个} &lt;非终结符&gt;</p>
+<p>{}0或多次 []0或一次</p>
+<p>状态转移|有限状态机 来表示词法分析过程，结束态是识别完当前单词给出的类别。</p>
+<p>正规表达式 有限状态机</p>
+<p>标识符vs保留字，保留字表。</p>
+<p><strong>字符退还</strong> 读取&lt;下一个不是&#x3D;，则一定是小于号单词，但是下一个已经读取的要退还。</p>
+<ul>
+<li>每一类词法单元都对应正规表达式</li>
+<li>转换成有限自动机，比如<strong>Thompson构造</strong>成ε-NFA</li>
+<li>增加一个开始状态，转移到每一个初态</li>
+<li>可以使用<strong>子集构造法</strong>得到确定化的DFA</li>
+<li>可能会最小化，等价获得小状态DFA</li>
+<li>如果没有连一起的自动机，则分别依次模拟运行每一个词法单元的自动机。</li>
+</ul>
+<h2 id="Lect3-自顶向下语法分析-91"><a href="#Lect3-自顶向下语法分析-91" class="headerlink" title="Lect3 自顶向下语法分析 91"></a>Lect3 自顶向下语法分析 91</h2><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>识别和解析，对于任意CFG和句子，判断这句是否在语言中。如果在给出分析树或者最左推导，否则报错。</p>
+<p>从文法开始符号S出发来推导，每一步都获得句型，最终句子正好是终结符串。即每一步都是用产生式换一个非终结符。</p>
+<p><strong>非确定</strong> 非终结符的不确定 所用产生式的不确定</p>
+<p><strong>改进</strong> 一定替换最左边的非终结符，产生式不确定，则一定产生最左推导。</p>
+<p><strong>更加确定</strong> 产生式选择是确定的，所以无回溯。怎么选？向前查看lookahead一定量的单词。这样很爽但对文法有限制。</p>
+<p><strong>限制文法</strong></p>
+<ul>
+<li><p>不含左递归</p>
+<ul>
+<li><p>直接左递归 P-P1|2</p>
+<ul>
+<li><p>最后最左边肯定是2，引入P-2Q	Q-1Q|ε</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230220000921281.png" alt="image-20230220000921281"></p>
+</li>
+</ul>
+</li>
+<li><p>间接左递归 P-Aa A-Pb</p>
+<ul>
+<li><img src="/assets/2022Fall-compile-final.assets/image-20230219232902032.png" alt="image-20230219232902032"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>不含左公因子？？ S-aAb|aAc 或者A-a|aA</p>
+<ul>
+<li>引入新的VT替换掉公因子右边</li>
+</ul>
+</li>
+</ul>
+<p>不含左递归和左公因子也不一定是LL1文法捏</p>
+<p>但是不是LL1如果有有限产生式也可以使用LL1来分析</p>
+<h3 id="LL1文法"><a href="#LL1文法" class="headerlink" title="LL1文法"></a>LL1文法</h3><p>左到右扫描单词，最左推导，向前查看1个即可</p>
+<h4 id="First集合"><a href="#First集合" class="headerlink" title="First集合"></a>First集合</h4><p>first(某短语) &#x3D; 这个短语能推出的所有最左终结符，包括ε</p>
+<p><strong>计算First</strong></p>
+<ul>
+<li><p>范围是所有产生式右端的所有后缀，ε和单字符。</p>
+</li>
+<li><p>包括ε的所有终结符都放上自己。</p>
+</li>
+<li><p>LOOP</p>
+<ul>
+<li><p>【放空】非终结符可以推ε，把ε放入。</p>
+</li>
+<li><p>【分割】对所有后缀（两个以上字符）的集合，考虑</p>
+<p>其实是找第一个不含空的，并到它。如果都含就全并加上ε</p>
+<ul>
+<li>存在一个i位置的first不含ε，但它之前字符的first都含ε。则这个后缀的first为1~i的广义并去掉ε。</li>
+<li>否则，如果所有字符first都含ε，直接广义并。</li>
+</ul>
+</li>
+<li><p>【产生式检查】对所有产生式左边的VT，都加入右边整个的first。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Follow集合"><a href="#Follow集合" class="headerlink" title="Follow集合"></a>Follow集合</h4><p>Follow（非终结符A）&#x3D; 合法句型中所有可能跟在这个A后面的非终结符或者结束符#</p>
+<p><strong>计算</strong></p>
+<ul>
+<li>S放入#</li>
+<li>LOOP<ul>
+<li>【检查尾缀，放入first，可能放入左边的Follow】对所有产生式右端中的每一个VN B。把他后面后缀部分的First集合去ε之后加入FollowB。如果有空，就把产生式左边的Follow加入</li>
+</ul>
+</li>
+</ul>
+<h4 id="预测集合"><a href="#预测集合" class="headerlink" title="预测集合"></a>预测集合</h4><p>PS（产生式P）</p>
+<ul>
+<li>如果ε不在右端的first，则就是first</li>
+<li>否则是first去空加上follow</li>
+</ul>
+<h4 id="LL1判断"><a href="#LL1判断" class="headerlink" title="LL1判断"></a>LL1判断</h4><p>每个非终结符的任何两个不同产生式，其预测集合不相交。</p>
+<h3 id="LL1分析"><a href="#LL1分析" class="headerlink" title="LL1分析"></a>LL1分析</h3><h4 id="递归下降LL1"><a href="#递归下降LL1" class="headerlink" title="递归下降LL1"></a>递归下降LL1</h4><p>每个VT对应子程序（函数），根据语法描述来明确：根据下一个符号选择产生式处理。产生式处理就是非终结符调用子程序，终结符读入字符判断合规与否。</p>
+<p>void parseS</p>
+<p>{</p>
+<p>如果需要查看则看lookahead，可以switch来选择产生式，根据PS集合来判断</p>
+<p>matchtoken表示终结符</p>
+<p>ParseXXX表示非终结符</p>
+<p>}</p>
+<h4 id="表驱动"><a href="#表驱动" class="headerlink" title="表驱动"></a>表驱动</h4><p>预测分析表+下推栈</p>
+<p>分析表为VT*VN，即非终结符+向前查看（PS）得到产生式右端。</p>
+<ul>
+<li>开始时候栈中有#</li>
+<li>S入栈，S#</li>
+<li>终结符则读入消除</li>
+<li>非终结符则查表对应产生式，换成产生式</li>
+</ul>
+<h4 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h4><p>大胆并First…</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p><strong>表驱动</strong> Aa查表没有产生式可用，跳过输入串一些符号直到同步符号为之。</p>
+<ul>
+<li>FollowA中所有作为A的同步符号，遇到了之后弹出A，大概表示A已经过去</li>
+<li>把FirstA加入A的同步符号集合，出现时候根据A恢复分析</li>
+</ul>
+<p><strong>递归下降</strong> </p>
+<p>进入parse的时候检查下lookahead，补救集合定义为Begin∪End</p>
+<p>如果没有合法的非终结符，则跳过所有单词直到合法符号或者EndSym</p>
+<p>出parse的时候再检查下matchtoken，如果不在endsym，就跳过等待开始符号</p>
+<h4 id="LLk文法结论"><a href="#LLk文法结论" class="headerlink" title="LLk文法结论"></a>LLk文法结论</h4><ul>
+<li>可判定：CFG是不是LLK文法；两个LLK是否相等</li>
+<li>不可判定：一个CFG是否存在K，使得LLK；或者说存在等价的LLK</li>
+<li>LLK无二义，不存在左递归</li>
+<li>不含ε产生式的话，LLK一定在LLk+1里面</li>
+</ul>
+<h2 id="Lect4-符号表-17-7"><a href="#Lect4-符号表-17-7" class="headerlink" title="Lect4 符号表 17 7"></a>Lect4 符号表 17 7</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>静态语义检查、中间代码生成</p>
+<h3 id="常见属性"><a href="#常见属性" class="headerlink" title="常见属性"></a>常见属性</h3><p>名、类别和类型、储存类别和分配、作用域、其他（内情、结构成员、形参）</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>线性表、有序表、二叉搜索树、Hash</p>
+<p>全局符号表+作用域各自符号表</p>
+<h3 id="作用域和可见性"><a href="#作用域和可见性" class="headerlink" title="作用域和可见性"></a>作用域和可见性</h3><p>当前作用域，开闭。</p>
+<p>某一点的开作用域中声明的名字才可访问。</p>
+<p>单符号表：一个大符号表，所有嵌套作用域共用</p>
+<p>多符号表：作用域栈，每个作用域维护自己的符号表 在                               </p>
+<h2 id="Lect5-自底向上语法分析-113-1"><a href="#Lect5-自底向上语法分析-113-1" class="headerlink" title="Lect5 自底向上语法分析 113 1"></a>Lect5 自底向上语法分析 113 1</h2><h3 id="自底向上分析思想"><a href="#自底向上分析思想" class="headerlink" title="自底向上分析思想"></a>自底向上分析思想</h3><p><strong>识别</strong>与<strong>解析</strong> </p>
+<p>自顶向下是从S开始，相当于推导分析。而自底向上就是从终结符串开始规约到S，P右到P左，找不到就回退。</p>
+<h4 id="改进-选择可归约串-归约"><a href="#改进-选择可归约串-归约" class="headerlink" title="改进 选择可归约串 归约"></a>改进 选择可归约串 归约</h4><p>减少回溯，句型来说，可规约串一定是<strong>短语</strong></p>
+<p><strong>从S开始推导的过程中，任何一个非终结符A能产生的串β就是短语。</strong>是句型αβγ相对于A的短语。</p>
+<p>在树里看，就是以非终结符为节点下面的东西随便拼出来就好。</p>
+<p><strong>直接短语</strong> 短语里能被一步推出的。就是所有产生式的右端？</p>
+<p>千万注意空字符。特殊判断一下这个句型里有没有空字符存在，是否属于直接短语。</p>
+<p><strong>句柄</strong> S最右推导出（右句型）αAw且A一步到β。就是说最右推导到这里右边已经推出一些终结符了，下一个马上该一步可归约的串。</p>
+<p>短语是可归约性串，不一定一步不一定在哪</p>
+<p>直接短语是一步可规约串，不一定在哪</p>
+<p>句柄是在最靠左的一步可规约串，因为是最左推导中出现的A</p>
+<p>句柄不一定唯一，可能有多个（二义文法）</p>
+<h3 id="移进-规约分析"><a href="#移进-规约分析" class="headerlink" title="移进-规约分析"></a>移进-规约分析</h3><p><strong>功能强大</strong>，推导的时候只观察可推导出的输入串的部分，归约时候输入全部出现。</p>
+<p><strong>利于出错处理</strong>：输入符号查看后移进</p>
+<p><strong>构造复杂</strong></p>
+<p>输入序列#+<strong>下推分析栈+有限状态引擎+分析表</strong>，对应rm推导（规范推导）</p>
+<p>根据引擎状态、下推栈内容、剩余序列来确定动作和新状态</p>
+<p>reduce 归约 shift 移进 error错误 accept成功</p>
+<h4 id="移进归约冲突"><a href="#移进归约冲突" class="headerlink" title="移进归约冲突"></a>移进归约冲突</h4><p>不确定移动还是归约</p>
+<h4 id="归约归约冲突"><a href="#归约归约冲突" class="headerlink" title="归约归约冲突"></a>归约归约冲突</h4><p>多于一个短语可以归约</p>
+<p>借助分析表查询，LR分析表or算符优先分析表</p>
+<h3 id="LR分析"><a href="#LR分析" class="headerlink" title="LR分析"></a>LR分析</h3><h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>从左到右扫描，最右推导。以下四种共享分析表。</p>
+<p>分析栈中存在的是各种状态。</p>
+<p>分析表ACTION表是横坐标是当前输入串，纵坐标当前栈顶状态。表内有s r acc，由栈顶和输入串找动作。</p>
+<h5 id="不带符号栈"><a href="#不带符号栈" class="headerlink" title="不带符号栈"></a>不带符号栈</h5><p>有移进新状态和归约并转到两种操作。</p>
+<p>移进新状态就是把状态压入栈顶。</p>
+<p>归约并转到就是输入串消除一部分然后根据得到的非终结符替换状态。</p>
+<h5 id="带符号栈"><a href="#带符号栈" class="headerlink" title="带符号栈"></a>带符号栈</h5><p>移入的时候把符号也移入</p>
+<p>归约的时候弹出几个符号和状态</p>
+<h4 id="LR0"><a href="#LR0" class="headerlink" title="LR0"></a>LR0</h4><p>向前查看0个</p>
+<h5 id="增广文法"><a href="#增广文法" class="headerlink" title="增广文法"></a>增广文法</h5><p>增加一个开始符号的开始符号。</p>
+<h5 id="活前缀"><a href="#活前缀" class="headerlink" title="活前缀"></a>活前缀</h5><p>β是右句型的句柄，则αβ的所有前缀（包括epsilon）都是G的活前缀。</p>
+<p>大概是在最左归约句型的句柄（下一步要被归约的部分），前面连起来的部分就是活前缀。即最左归约的时候所有不要被归约的前面的东西？</p>
+<p><strong>增广文法的活前缀</strong> S 是 G’ 的活前缀</p>
+<p>活前缀一定是右句型的前缀且不超过句柄。</p>
+<p>活前缀含有句柄的所有符号：产生式右部完全到栈顶</p>
+<p>一部分符号：右子部到了，期待左子部</p>
+<p>没有，期待全部右部</p>
+<h5 id="LR0-FSM"><a href="#LR0-FSM" class="headerlink" title="LR0 FSM"></a>LR0 FSM</h5><p>任何CFG都对应一个，由增广构造。看做一个字母表的DFA</p>
+<p>是特殊的LR0项目（产生式右边加. ，标志着已经分析过的串和产生式匹配的位置）集，分为</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230221150237726.png" alt="image-20230221150237726"></p>
+<p>每个状态都是项目集的闭包CLOSURE，计算CLOSURE I</p>
+<ul>
+<li>每一个J中的<strong>待约项目</strong>和B的产生式，把B的产生式加进来并把点放在最左边。</li>
+<li>循环直到没有新项目</li>
+</ul>
+<p>构造方法</p>
+<ul>
+<li>初态为增广CLOSURE（{S’ -&gt; .S}）</li>
+<li>状态转移函数为 GO(状态I，符号X) &#x3D; CLOSURE J，J是I的状态中走一个X。即从初态0开始，尝试把里面每个状态都往后走来构造新的闭包状态。值得一提的是走的一样的符号状态算一起的。</li>
+</ul>
+<p>这个FSM是根据VTVN转移的自动机，每个状态都是终态。</p>
+<p><strong>这个DFA的语言是G’所有活前缀的集合。</strong> 即通过构造增广文法的FSM，找到了G’的所有活前缀的语言。所以我们不会错过任何最右推导。</p>
+<p>增广文法的每个活前缀都对应其中的一个状态，从初态开始就好。</p>
+<p><strong>从这个FSM构造LR0分析表</strong> </p>
+<ul>
+<li>所有状态即为栈顶的状态，作为纵坐标放在左边。所有字符（包括#）放在上面。</li>
+<li>根据项目的不同标记字符即可<ul>
+<li>先在增广接受项目的状态上标注#acc</li>
+<li>然后根据每个状态的转移边标记s，根据归约项目把所有VT标记r，这样归约的状态相当于不查看无脑归约。</li>
+<li>每一格子动作都唯一的就是LR0文法，其每个状态都：<ul>
+<li>不同时含有归约和移进，即.a和x.不同时出现——移进归约冲突</li>
+<li>最多有一个归约——归约归约冲突</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="SLR1"><a href="#SLR1" class="headerlink" title="SLR1"></a>SLR1</h4><p>FSM中有状态有归约同时还有移进。即不止含有一个点在最后的状态。</p>
+<p>向前查看，根据下一个输入符号是否是归约后VN的follow来解决冲突。</p>
+<p><strong>归约归约：</strong>所有归约后VT的follow不相交即可。</p>
+<p><strong>移进归约：</strong>归约VTFollow和移进符号集不相交即可。</p>
+<p>修改为，对所有含有归约项目的状态。求出Follow后只在follow内标归约即可。</p>
+<h4 id="LR1"><a href="#LR1" class="headerlink" title="LR1"></a>LR1</h4><p>SLR不能解决的，移进归约冲突。只考虑了归约VT的follow，也应该考虑是否是句柄的Follow。</p>
+<p><strong>修改项目格式，增加向前搜索符</strong> 表示产生式右端完整匹配后允许在余留符号串中的下一个终结符或者#。 用逗号分隔，</p>
+<p>这样的归约项目，只有后面是a才能归约，相当于进一步强化条件缩小可归约范围。<img src="/assets/2022Fall-compile-final.assets/image-20230221161431912.png" alt="image-20230221161431912"></p>
+<p><strong>LR1FSM</strong></p>
+<ol>
+<li>闭包构造<ol>
+<li>闭包补全中，新加入的产生式的搜索符为First βa。即老产生式后面东西的first集。</li>
+</ol>
+</li>
+<li>状态转移构造<ol>
+<li>开始状态为S‘到S，搜索符号是#。</li>
+<li>状态转移方法不变。</li>
+</ol>
+</li>
+<li>构造分析表<ol>
+<li>注意向前搜索符只在归约的时候用。</li>
+</ol>
+</li>
+</ol>
+<h4 id="LALR1"><a href="#LALR1" class="headerlink" title="LALR1"></a>LALR1</h4><p>LookAhead LR1</p>
+<p>合并LR1中的<strong>同芯状态</strong>，得到和LR0FSM相同的状态，但保留更强的能力。芯指的是不包含向前搜索符的部分。</p>
+<p>合并同芯状态后如果没有归约-归约冲突，就是LALR1文法。只需检查新合并状态即可。</p>
+<ul>
+<li>构造LR1FSM</li>
+<li>合并同芯，搜索符号用斜杠&#x2F;合并</li>
+<li>合并之后的GO后继，也把原来的后继状态合并。</li>
+</ul>
+<h3 id="二义文法在LR分析"><a href="#二义文法在LR分析" class="headerlink" title="二义文法在LR分析"></a>二义文法在LR分析</h3><p>二义文法一定不是LR文法，但是可能人为限定之后相当高效。</p>
+<p>在一些冲突状态中，人为规定优先级</p>
+<p>左结合的相同符号，优先归约</p>
+<p>不同符号，优先级高的先归约，优先级低的等待高的移进。</p>
+<h3 id="LR分析出错处理"><a href="#LR分析出错处理" class="headerlink" title="LR分析出错处理"></a>LR分析出错处理</h3><p>根据堆栈状态和输入符号设置报错信息。恢复措施？</p>
+<p>应急恢复：从符号栈和剩下的输入前端找一块能被某个VN最右推导出来的句型，且VN的follow包含输入符号串后面的符号。然后符号栈强行归约换成VN，状态栈弹出一定状态后根据归约的VN GOTO。</p>
+<p>即兴恢复：对于每个error都确定场景。。</p>
+<p>比如多了个右括号，没有左括号可以匹配了，就删了它</p>
+<h2 id="Lect6-语法制导的语义计算-81-2"><a href="#Lect6-语法制导的语义计算-81-2" class="headerlink" title="Lect6 语法制导的语义计算 81 2"></a>Lect6 语法制导的语义计算 81 2</h2><p>语义计算：语义检查，中间代码生成等</p>
+<h3 id="属性文法"><a href="#属性文法" class="headerlink" title="属性文法"></a>属性文法</h3><p>在CFG上扩展：文法符号可以有<strong>属性Attr</strong>，产生式有<strong>语义动作</strong>，是<strong>语义规则</strong>的集合。</p>
+<p>常见动作，赋值:&#x3D; ，特定语义函数，可以很灵活</p>
+<h4 id="继承和综合"><a href="#继承和综合" class="headerlink" title="继承和综合"></a>继承和综合</h4><p>综合|继承：自底向上传递，被赋值的属性属于产生式左边的VNA还是右边的符号。</p>
+<p>综合属性：可以自底向上后序遍历，得到求值过程。</p>
+<p>继承属性：同时存在继承和综合属性的话，需要深度优先遍历？反复上下？自下而上综合，自上而下继承，可能多变和多遍。。。</p>
+<h3 id="属性文法的语义计算——树遍历"><a href="#属性文法的语义计算——树遍历" class="headerlink" title="属性文法的语义计算——树遍历"></a>属性文法的语义计算——树遍历</h3><ul>
+<li>构造语法分析树</li>
+<li>依赖图<ul>
+<li>对树里每个节点的属性都建立一个节点。如果有非赋值的函数，但是也有依赖的属性，则也建立虚节点。</li>
+<li>根据依赖关系标记有向边，前驱为先计算的值。</li>
+</ul>
+</li>
+<li>无圈图的拓扑排序来遍历分析树，计算所有属性<ul>
+<li>拓扑排序：取绝对前驱进行排序…</li>
+<li><strong>标注|修饰</strong> 来表示计算结果</li>
+</ul>
+</li>
+</ul>
+<p>有圈不可这么算，不是良定义（规则集合能为所有分析树中的属性集确定唯一的值集）</p>
+<h3 id="属性文法的语义计算——单遍，语法分析的同时"><a href="#属性文法的语义计算——单遍，语法分析的同时" class="headerlink" title="属性文法的语义计算——单遍，语法分析的同时"></a>属性文法的语义计算——单遍，语法分析的同时</h3><h4 id="S属性文法——只包含综合属性"><a href="#S属性文法——只包含综合属性" class="headerlink" title="S属性文法——只包含综合属性"></a>S属性文法——只包含综合属性</h4><p>自下而上，LR分析正好也是，扩展分析栈的域（语义栈来存放综合属性）计算综合属性正好就是每一步归约之前</p>
+<p>状态、符号和语义栈。计算的时候靠栈顶计算即可。</p>
+<p>注意有些lexval是自带的，压入栈的时候就带着了，是lex词法的时候准备好的。</p>
+<h4 id="L属性文法——可综合可继承"><a href="#L属性文法——可综合可继承" class="headerlink" title="L属性文法——可综合可继承"></a>L属性文法——可综合可继承</h4><p>右边文法符号属性的计算只取决于左边文法符号的属性，不依赖其他。</p>
+<p>左边属性当然是综合。即要么综合，继承就只继承VNA</p>
+<p><strong>自上而下</strong> 深度优先后序遍历的方法，其实是先深搜到底，把继承属性传递下去，再自底向上计算综合属性。</p>
+<p>对每个节点而言，先传给孩子继承属性并深度访问孩子，最后通过孩子综合自己。一定注意递归返回的时候的综合计算。</p>
+<p>procedure dfvisit (Node n)</p>
+<p>for m in n.children 左到右:</p>
+<p>​	calc m继承属性</p>
+<p>​	visit m</p>
+<p>calc n综合属性</p>
+<h3 id="翻译模式的语义计算"><a href="#翻译模式的语义计算" class="headerlink" title="翻译模式的语义计算"></a>翻译模式的语义计算</h3><p>语法制导语义计算的另一种描述，类似属性文法但是{}语义规则集出现在任何地方。显示表达动作和运算次序。</p>
+<p>必须<strong>受限</strong> 才能保证访问的时候存在</p>
+<h4 id="类似S属性文法"><a href="#类似S属性文法" class="headerlink" title="类似S属性文法"></a>类似S属性文法</h4><p>仅需要综合的翻译模式 放在右端末尾即可</p>
+<h4 id="类似L属性文法"><a href="#类似L属性文法" class="headerlink" title="类似L属性文法"></a>类似L属性文法</h4><ol>
+<li>右端符号的继承属性计算位于该符号之前——所以压入的时候一定计算完成</li>
+<li>继承属性的动作不访问右边符号的属性，只依赖左边（如果用P左的VN属性只能用其继承，不能用其综合）。——所以要压入自己的时候，使用的东西都已经在了。</li>
+<li>左边综合属性放在最后，大家都算完了之后，放在产生式尾部。</li>
+</ol>
+<h4 id="单遍——自上而下的预测分析"><a href="#单遍——自上而下的预测分析" class="headerlink" title="单遍——自上而下的预测分析"></a>单遍——自上而下的预测分析</h4><p>经典的ParseX模式，参数是继承属性，返回值为其综合值。</p>
+<p>函数中按照查看来选择产生式，根据产生式慢慢parse，产生式里面说白了就是给他继承属性，保存好他的综合属性。</p>
+<ul>
+<li>对于终结符，保存（绑定）其综合属性，调用matchtoken和nexttoken</li>
+<li>对于非终结符，把他要的东西给他去parse并保存综合属性</li>
+</ul>
+<p><strong>如何在带有语义规则时候消除左递归？</strong></p>
+<p>原来：从下往上套</p>
+<p>现在：从上往下套，从下往上传</p>
+<p>用R.i一步步嵌套继承下来，最后翻转成综合属性R.s，一步步综合上去。</p>
+<p>原来最后一步的综合，变成第一步的继承。</p>
+<p>原来左递归的综合，变成右递归的继承。</p>
+<p>最后的戛然而止，把继承转换为综合开始上传。</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230221194710707.png" alt="image-20230221194710707"></p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230221194717178.png" alt="image-20230221194717178"></p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230221200115867.png" alt="image-20230221200115867"></p>
+<h4 id="单遍——自下而上的移进归约分析"><a href="#单遍——自下而上的移进归约分析" class="headerlink" title="单遍——自下而上的移进归约分析"></a>单遍——自下而上的移进归约分析</h4><ol>
+<li><p>去掉中间的语义动作——除了复写规则以外的语义规则都在P的末端，方便计算综合属性。</p>
+<ol>
+<li>单纯函数，没有保存值。——引入新VN A-&gt;ε，A代替原来的这个函数，print函数放在A后面。</li>
+<li>（不急）保存值了——引入新VN A-&gt;ε，A代替原来的这个函数，函数放在A后面。<strong>增加一些复写规则（单纯复制值）。</strong></li>
+</ol>
+</li>
+<li><p>分析栈<strong>继承属性访问</strong>和模拟求值</p>
+<ol>
+<li><p>指的是所有继承属性的访问，在任何位置。</p>
+</li>
+<li><p>继承属性是简单复写，且使用P右端前面的综合属性是OK的。</p>
+</li>
+<li><p>继承属性访问通过已有符号的综合属性间接进行（往前倒，总能找到但是可能不唯一），保证总可以通过某个符号的综合属性来体现</p>
+</li>
+<li><p>常常增加新的符号和规则来达到目的——针对不唯一情况</p>
+<ol>
+<li><p>引入新推空VN，来把位置造到相对栈顶相同。把前面有用的值继承下来，然后综合上去。</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230221203034284.png" alt="image-20230221203034284"></p>
+</li>
+<li><p>非简单复写，如1.2中所述。把需要的参数继承下来，在推空计算中综合后，给到后面的继承。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>用综合属性代替继承属性</p>
+</li>
+<li><p><strong>把print和单独赋值的继承单拿出来，即不是两边有数的。</strong></p>
+</li>
+<li><p><strong>复杂函数单拿出来做成简单复写</strong>——中间的语义规则全是简单复写</p>
+</li>
+<li><p><strong>在翻译成栈语言的过程中，只管综合而忽略其他。综合属性放在左端位置，访问的属性一直向前倒直到综合，如果不一致访问，就做成唯一的。</strong></p>
+</li>
+</ol>
+<p>注意空字符的top位置。</p>
+<p>注意往前数top的时候，箭头是不减一的。</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230221204825110.png" alt="image-20230221204825110"></p>
+<p>有时候，自己想用的属性不在自己的子树里，就没法综合。可能还要用后面的继承。试试变换等价文法，把这些东西放到自己的子树里。。。</p>
+<h2 id="Lect7-静态语义分析与中间代码生成-66-2"><a href="#Lect7-静态语义分析与中间代码生成-66-2" class="headerlink" title="Lect7 静态语义分析与中间代码生成 66 2"></a>Lect7 静态语义分析与中间代码生成 66 2</h2><h3 id="静态语义分析"><a href="#静态语义分析" class="headerlink" title="静态语义分析"></a>静态语义分析</h3><p>静态检查：类型；作用域；控制流；唯一性；上下文相关性</p>
+<h3 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h3><p>借助翻译模式，将类型表达式作为属性赋给程序部分。</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230222170546470.png" alt="image-20230222170546470"><img src="/assets/2022Fall-compile-final.assets/image-20230222170556084.png" alt="image-20230222170556084"><img src="/assets/2022Fall-compile-final.assets/image-20230222170602364.png" alt="image-20230222170602364"></p>
+<p>大概是，在最底层通过lex确认字面值和type类型。然后需要赋值的语句进行检查。利用子节点的ok或者指定类型来判断合法与否。</p>
+<p>typeerr。变量一直标记type。</p>
+<p>声明语句需要addtype(id.entry, T.type)，即添加符号表。ident也可以lookuptype来查找类型。Expression是带着类型属性的。</p>
+<p>Call则要检查参数数量、类型是否一直。所以para里面是ok而不是具体type。</p>
+<p>Statement中 Stype多为ok，由下层s和E的合法得到。</p>
+<ul>
+<li>检查break和continue在内部：在非循环的时候，S传承inloop或者初始化0.循环的inloop为 1.在break中检查S是不是inloop。相当于继承属性</li>
+</ul>
+<h3 id="中间代码生成"><a href="#中间代码生成" class="headerlink" title="中间代码生成"></a>中间代码生成</h3><p>利于重定向，缩小跨度，利于优化 AST也是中间代码</p>
+<p><strong>有向无圈DAG</strong> 只考虑计算，把AST分析树中相同结构子树合并</p>
+<h4 id="语法制导AST"><a href="#语法制导AST" class="headerlink" title="语法制导AST"></a>语法制导AST</h4><p>采用产生式时，构造VN节点，同时VT节点也构造好。</p>
+<p>offset：存储区变量偏移地址</p>
+<p>width 占用字节数</p>
+<p>enter(id.name, Decl.offset) 符号表中id的偏移量设置为..</p>
+<h4 id="保存偏移信息"><a href="#保存偏移信息" class="headerlink" title="保存偏移信息"></a>保存偏移信息</h4><p>全局空间：P在不断生成D和F。每个东西有width和offset参数。F不占空间，offset是继承属性，width是综合属性。</p>
+<p>所以width从声明底层T D获取标注好之后一直向上传递，则P的width就是自己这课子树的整个width字数规模。一直向上综合。</p>
+<p>然后通过继承属性向下分配偏移，继承就好了。右P偏移为父亲加左孩子偏移</p>
+<h2 id="Lect8-运行时存储组织-43-3"><a href="#Lect8-运行时存储组织-43-3" class="headerlink" title="Lect8 运行时存储组织 43 3"></a>Lect8 运行时存储组织 43 3</h2><p>基本类型：char1 integer4 float8 boolean1 pointer4</p>
+<p>array struct object</p>
+<p><strong>表达式计算</strong> 栈区or专门运算数栈</p>
+<p>低地址：保留——code——静态数据（Initdata、bss0）——共享库——堆++ ++栈——保留——OS</p>
+<h3 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h3><p>编译可确定大小，有些语言只支持这样，如static const global</p>
+<h3 id="栈分配"><a href="#栈分配" class="headerlink" title="栈分配"></a>栈分配</h3><p>递归、活动记录（栈帧）</p>
+<p>frame pointer指向帧底（高） sp指向栈顶（低）</p>
+<p>offset以word为单位</p>
+<ul>
+<li>临时单元</li>
+<li>动态数组（动态数组的存储位置，比如float的话就是2N的空间）</li>
+<li>固定局部数据（动态数组：底下放内情向量4B，然后addr ptr4B指向上面的动态区）</li>
+<li>过程参数（先参数个数）</li>
+<li>（reg保存）</li>
+<li>控制数据（SL DL RA ）</li>
+<li>（返回值）</li>
+</ul>
+<h3 id="堆分配"><a href="#堆分配" class="headerlink" title="堆分配"></a>堆分配</h3><p>不限时间次序，需要显式释放delete new，用户清理，野指针</p>
+<p>java隐释放，用户不清理</p>
+<p>分配算法：最佳适应、最先适应、循环最先、碎片整理</p>
+<h3 id="嵌套过程语言的栈分配"><a href="#嵌套过程语言的栈分配" class="headerlink" title="嵌套过程语言的栈分配"></a>嵌套过程语言的栈分配</h3><p>解决对非局部量的引用、存取</p>
+<p>注意区别于函数递归，嵌套可以访问外层的活动记录。而R call R后并不算嵌套，还是同一空间</p>
+<p>解决：Display表+活动记录静态链</p>
+<p>链都指向底，毕竟是base+offset模式</p>
+<h4 id="动态链DL"><a href="#动态链DL" class="headerlink" title="动态链DL"></a>动态链DL</h4><p>指向调用该过程前的最新活动记录地址，就是caller</p>
+<h4 id="静态链SL"><a href="#静态链SL" class="headerlink" title="静态链SL"></a>静态链SL</h4><p>指向静态<strong>直接外层（能访问外层数据来说，有过程嵌套语言）</strong>最新活动记录地址，用来访问非局部数据,在动态链底下</p>
+<h4 id="（全局）Display表"><a href="#（全局）Display表" class="headerlink" title="（全局）Display表"></a>（全局）Display表</h4><p>嵌套层活动记录在运行栈上的基地址，主层次为0，当前层次为K，display有K+1单元。</p>
+<ol>
+<li>在每个活动记录存入完整表，每次call时候从caller抄几个再加自己</li>
+<li>存一个表项即保存被替换的Dn。在静态存储or专用reg维护全局display表</li>
+<li>用<strong>静态链</strong>，指向自己的直接外过程。更容易实现，但是效率低</li>
+</ol>
+<p><strong>对于动态块的非局部量</strong> 1要么类似函数单独有活动记录 2单个活动记录内随时扔，作用域结束即无用可覆盖。</p>
+<p><strong>动态作用域</strong> 变量被认为是最近的调用中声明的，类似动态链的效果。之前有就行。</p>
+<h2 id="Lect9-目标代码生成和优化-70-3"><a href="#Lect9-目标代码生成和优化-70-3" class="headerlink" title="Lect9 目标代码生成和优化 70 3"></a>Lect9 目标代码生成和优化 70 3</h2><p>独立于不断变化的主过程，从TAC开始有流图并不断改进和优化</p>
+<h3 id="基本块-流图-循环"><a href="#基本块-流图-循环" class="headerlink" title="基本块 流图 循环"></a>基本块 流图 循环</h3><h4 id="基本块"><a href="#基本块" class="headerlink" title="基本块"></a>基本块</h4><p>顺序执行的语句序列，只有一个出入口，只有入口label和出口转移or停止</p>
+<p>入口：程序第一句or转移的目标句or条件转移紧挨着的</p>
+<h4 id="划分基本块"><a href="#划分基本块" class="headerlink" title="划分基本块"></a>划分基本块</h4><ul>
+<li>找到每个入口</li>
+<li>根据入口构造：从入口到下一入口or转移or停</li>
+<li>没在基本块的是无法到达的</li>
+</ul>
+<p>流图：CFG，基本块为节点，连线条件：</p>
+<p>1 条件转移连两条线</p>
+<p>2 转移连一条线</p>
+<p>3 顺序出口连一条线</p>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p><strong>支配</strong> 首节点到n的任意通路都过m，则m支配n。m dom n，domn &#x3D; 所有支配节点，即所有必过点。</p>
+<p><strong>回边</strong> d dom n但是n指向d。我可以回到我的必经之路。</p>
+<p><strong>（自然）循环</strong>  回边两端+能够不过d到n的节点。显然d可以到循环的任何点——直观理解，如果这些点不能由d到达，则d不是domn了</p>
+<h3 id="数据流分析基础"><a href="#数据流分析基础" class="headerlink" title="数据流分析基础"></a>数据流分析基础</h3><p>典型方程</p>
+<p>out &#x3D; gen∪（in - kill）</p>
+<p>出口信息 &#x3D; 内部新生信息+（进来的信息-已死亡信息）</p>
+<h4 id="到达-定值分析"><a href="#到达-定值分析" class="headerlink" title="到达-定值分析"></a>到达-定值分析</h4><p>定值语句，可能给A赋值</p>
+<p>定值点到达：流图中从定值点d有路径到p且过程中没有被重新定值</p>
+<p>outB &#x3D; genB ∪ (inB - killB), inB &#x3D; ∪outb</p>
+<ol>
+<li><p>gen是定值且能到出口的所有定值点</p>
+</li>
+<li><p>kill B B外能到B入口，但是定值变量在B内被重新定值</p>
+</li>
+<li><p>in为所有前驱out信息的并</p>
+</li>
+</ol>
+<p><strong>算法</strong></p>
+<ul>
+<li>标注gen，out&#x3D;gen</li>
+<li>标注kill：找定值变量的其他定值点，看看那个能“到达”此块，即中间没有被kill。</li>
+<li>一直循环到不变<ul>
+<li>从1开始对节点</li>
+<li>newin &#x3D; 前驱out，如果和老in不一样<ul>
+<li>改变，更新老in</li>
+<li>更新out &#x3D; gen+in-kill</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="活跃变量分析"><a href="#活跃变量分析" class="headerlink" title="活跃变量分析"></a>活跃变量分析</h4><p>活跃变量——从某点p开始后面用过A在p的值，A在p是活跃的。如果存在路径在变量被重新定值之前还要被引用</p>
+<p>方程：livein &#x3D; liveuse用的前面的 ∪ (liveout - def)，out &#x3D; 后继In的并</p>
+<p>其实是从后向前，入口活跃 &#x3D; 用了的+（出口活跃-定值且之前没被用）</p>
+<ul>
+<li>标注use，in &#x3D; use</li>
+<li>标注def，定值且之前没被引用</li>
+<li>一直循环到不变，从1开始对节点<ul>
+<li>newout &#x3D; 后继in</li>
+<li>如果不同，则更新newout；按照方程更新in</li>
+</ul>
+</li>
+</ul>
+<h3 id="UD链和DU链"><a href="#UD链和DU链" class="headerlink" title="UD链和DU链"></a>UD链和DU链</h3><p>ud：u的全部d点。借助到达-定值：本块自己有定值orIN中的所有A的定值</p>
+<p>DU：D的所有U点，那就是？？</p>
+<p>待用信息：D的待用信息，DU链最近引用点</p>
+<p>活跃信息</p>
+<h3 id="基本块的DAG表示-局部优化"><a href="#基本块的DAG表示-局部优化" class="headerlink" title="基本块的DAG表示 局部优化"></a>基本块的DAG表示 局部优化</h3><p>有向无圈图 </p>
+<p>叶节点是变量名或者常数，x0代表x初值</p>
+<p>内部节点是运算符号</p>
+<p>只考虑赋值 单双目运算三种子图</p>
+<p><img src="/assets/2022Fall-compile-final.assets/image-20230223215533966.png" alt="image-20230223215533966"></p>
+<p>画图就好</p>
+<ul>
+<li>可确定的常数，就直接写成新节点赋值</li>
+<li>没被赋值直接使用的，假设初值为A0</li>
+<li>最后拓扑排序，写出优化代码</li>
+</ul>
+<h3 id="寄存器分配"><a href="#寄存器分配" class="headerlink" title="寄存器分配"></a>寄存器分配</h3><p>Ershov数——SethiUllman</p>
+<p>表达式求值，从底层开始，孩子相等加一，孩子不等取大？ 写汇编</p>
+<h4 id="图着色分配"><a href="#图着色分配" class="headerlink" title="图着色分配"></a>图着色分配</h4><ol>
+<li>假定无限reg，完成指令选择和生成</li>
+<li>物理寄存器指派到伪寄存器。不足时伪寄存器泄露到内存，尽量减少</li>
+</ol>
+<h4 id="寄存器相干图"><a href="#寄存器相干图" class="headerlink" title="寄存器相干图"></a>寄存器相干图</h4><p>伪寄存器（变量）为节点</p>
+<p>如果节点在程序某点被定义，而另一个节点在紧靠该定值之后的点是活跃的，则连线？</p>
+<p>即，定值之后活跃的所有变量，连接这个节点。需要知道每句之间的活跃变量。</p>
+<p><strong>着色</strong> 启发算法</p>
+<p>选一个颜色数k，一个一个节点删除度数小于k的节点即可。</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/06/07/2023Spring-nct-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2023春季学期 网络编程技术 期末复习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/02/25/2022Fall-net-final/"><span class="level-item">2022秋季学期 计算机网络原理 期末复习笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

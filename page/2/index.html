@@ -1,0 +1,1352 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="A personal blog for Tianao Yang"><meta property="og:type" content="blog"><meta property="og:title" content="MatteoYang&#039;s Space"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="A personal blog for Tianao Yang"><meta property="og:locale" content="en_US"><meta property="og:image" content="/img/og_image.png"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space"},"headline":"MatteoYang's Space","image":["https://matteoyang.space/img/og_image.png"],"author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"A personal blog for Tianao Yang"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-18T08:42:00.000Z" title="2022/6/18 16:42:00">2022-06-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.488Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">an hour read (About 9355 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/18/2022Spring-dlc-final/">2022纯季学期 数字逻辑电路 期末复习笔记</a></p><div class="content"><p><strong>markdown丢失图片，可直接下载<a href="/pdf/2022Spring-dlc-final.pdf">pdf版</a></strong></p>
+<h3 id="Lect02"><a href="#Lect02" class="headerlink" title="Lect02"></a>Lect02</h3><h4 id="码制"><a href="#码制" class="headerlink" title="码制"></a>码制</h4><p><strong>8421 BCD 有权</strong> 权为8421 后六个数不允许出现表示十进制 一个一个转</p>
+<p><strong>5421 有权</strong> 5 &#x3D; 1000 一半以后首位是1</p>
+<p><strong>2421 有权</strong> 只能表示0-9 一半以后首位是1 4&#x3D;0100 5&#x3D;1011</p>
+<p><strong>余3</strong> 无权 &#x3D; 8421+0011 相加时注意和减3 进位则加3</p>
+<p>为什么？4位才是1个10进制位 直接相加并没有道理 其他有权码甚至不能正确判断相加的进位。余3因为两个余3就是一个6,10+6&#x3D;16可以进位并且抵消低位的余3<img src="/typora-user-images%5Cimage-20220616131433804.png" alt="image-20220616131433804"></p>
+<p><strong>格雷码</strong> 无权码 多形式 ：任何相邻的十进制数格雷码仅有1位不同</p>
+<p>减少代码变化中电路书瞬间产生的错误，可靠性高<img src="/typora-user-images%5Cimage-20220616131548032.png" alt="image-20220616131548032"></p>
+<p>典型格雷不能9回1，修改格雷不从0000开始</p>
+<ul>
+<li><p>格雷码1：除最高位之外中线对称 45 36 27 18 90</p>
+</li>
+<li><p>典型格雷码：对任意长的二进制数编码（除10进制是对BCD）</p>
+<p>G&#x3D;B_i+1 xor Bi 每个位都是<strong>自己异或高位</strong> 最高位直接拿来用（或者假设虚高位是0）</p>
+<p>解码？</p>
+</li>
+<li><p>修改格雷码：从余3开始编典型格雷码，为了前后循环 3和12衔接，也可满足中线对称。</p>
+</li>
+</ul>
+<p>字符编码</p>
+<p><strong>7位ASCII</strong> 教材P13	高3位区分控制字符、数字符号、大写英文、小写</p>
+<h3 id="Chap-2-逻辑代数"><a href="#Chap-2-逻辑代数" class="headerlink" title="Chap 2 逻辑代数"></a>Chap 2 逻辑代数</h3><h4 id="2-1-基本运算公式"><a href="#2-1-基本运算公式" class="headerlink" title="2.1 基本运算公式"></a>2.1 基本运算公式</h4><ul>
+<li>n输入的不同逻辑共有多少种？</li>
+</ul>
+<p>​		相当于对于定义域在所有输入组合上，有多少种不同的函数关系？<strong>2^2^n</strong> </p>
+<p>同或：not（xor） 相同取1，不同为0 AB+!A!B</p>
+<p><img src="/typora-user-images%5Cimage-20220616132840673.png" alt="image-20220616132840673"></p>
+<p><img src="/typora-user-images%5Cimage-20220616132931893.png" alt="image-20220616132931893"></p>
+<p>互补——A与!A 1律 0律 重叠律A A 双非（对合）</p>
+<p>交换 结合 分配 不加括号也是&amp;先算，即使在后面也可以&amp;对|分配<br><img src="/typora-user-images%5Cimage-20220616133125129.png" alt="image-20220616133125129"></p>
+<p>自己+自己求反&amp;条件B &#x3D; 自己+条件B<br>自己+自己&amp;条件B &#x3D; 自己<br><img src="/typora-user-images%5Cimage-20220616133249173.png" alt="image-20220616133249173"></p>
+<p><img src="/typora-user-images%5Cimage-20220616133257627.png" alt="image-20220616133257627"></p>
+<p><img src="/typora-user-images%5Cimage-20220616133306312.png" alt="image-20220616133306312"><img src="/typora-user-images%5Cimage-20220616133840636.png" alt="image-20220616133840636"></p>
+<p><strong>反演规则反函数</strong> 与或互换；变量求反；01互换即可 得到反函数</p>
+<p><strong>对偶规则</strong> 与或互换；01互换；得到对偶式 （F’’&#x3D;F; F&#x3D;G &#x3D;&gt; F’ &#x3D; G’)</p>
+<h4 id="2-2-公式法化简——吸收！包含！"><a href="#2-2-公式法化简——吸收！包含！" class="headerlink" title="2.2 公式法化简——吸收！包含！"></a>2.2 公式法化简——吸收！包含！</h4><p><img src="/typora-user-images%5Cimage-20220616134142961.png" alt="image-20220616134142961"></p>
+<p><img src="/typora-user-images%5Cimage-20220616134816149.png" alt="image-20220616134816149"></p>
+<p>貌似还是用与或去化简然后狄摩根成或与。。</p>
+<p>化简不动的时候试试拆分一个假1变成A+!A的形式：</p>
+<p>尤其是在很对称工整的形式里面化简，化成不对称不公整但是可以凑一起的形式</p>
+<p><img src="/typora-user-images%5Cimage-20220616135237721.png" alt="image-20220616135237721"></p>
+<p><img src="/typora-user-images%5Cimage-20220616135753628.png" alt="image-20220616135753628"></p>
+<h3 id="Lect-3"><a href="#Lect-3" class="headerlink" title="Lect 3"></a>Lect 3</h3><p><strong>最小项</strong> n个变量与 从000开始到111排序 三变量0-7 C是最高位</p>
+<p>只有一组取值为1剩下都是0 任何逻辑函数表示为唯一一组最小项的或</p>
+<p>某个最小项不是在F中就是在F的反函数中，用m_i 来表示 下图0-7 <img src="/typora-user-images%5Cimage-20220616135958004.png" alt="image-20220616135958004"></p>
+<p><strong>最大项</strong> n个变量或一起，唯一一组为0 从0到7 C最高位 </p>
+<p>任何F都是最大项之积（与），标准或与 大家与一起必为0</p>
+<p><img src="/typora-user-images%5Cimage-20220616140236012.png" alt="image-20220616140236012"></p>
+<p>m和M之间是求反的关系 M_i &#x3D; ! m_i</p>
+<p>而sigmami和paiMi为对偶式</p>
+<p><img src="/typora-user-images%5Cimage-20220616140635842.png" alt="image-20220616140635842"></p>
+<p>按循环码顺序，首尾满足格雷性质，00 01 11 10 110 111 101 100</p>
+<ol>
+<li>画图</li>
+<li>填数</li>
+<li>合并</li>
+<li>先大后小，能大就大——多检查上下左右边界</li>
+<li>不重不漏</li>
+</ol>
+<p>多输出化简：在与或中尽量找公共或项让多个函数共享，容易最简，并不是单个最简</p>
+<p>无关项：打X，可以1</p>
+<h3 id="Lect4-与非门与外特征"><a href="#Lect4-与非门与外特征" class="headerlink" title="Lect4 与非门与外特征"></a>Lect4 与非门与外特征</h3><h4 id="3-1-引言"><a href="#3-1-引言" class="headerlink" title="3.1 引言"></a>3.1 引言</h4><p>输出取决于输入逻辑组合，和过去状态无关，只有关于当前</p>
+<p>实际情况：前后沿存在延迟且不相等</p>
+<p><img src="/typora-user-images%5Cimage-20220616142053976.png" alt="image-20220616142053976"></p>
+<p>集成电路？<img src="/typora-user-images%5Cimage-20220616142149598.png" alt="image-20220616142149598"></p>
+<p><img src="/typora-user-images%5Cimage-20220616142221118.png" alt="image-20220616142221118"></p>
+<p>集成度18月翻一番（Moore Law）XXSI 0S\12 M\100 L\10,000 VL \1,000,000 UL</p>
+<p>三维集成延续摩尔定律——功耗太高（电力、热问题、延迟、可靠性</p>
+<p>系统功耗是关键因素，低功耗设计环节，优化、封装</p>
+<h4 id="3-2-门电路"><a href="#3-2-门电路" class="headerlink" title="3.2 门电路"></a>3.2 门电路</h4><p>74LSXX元件速查 00 30<img src="/typora-user-images%5Cimage-20220616142628182.png" alt="image-20220616142628182"></p>
+<p>74LS139 138 154 LECT5 P37</p>
+<p>74LS85 四位比较器 2*4bitAB输入，前面大小等于输入以及后面大小等于输出</p>
+<p>76163 标准四位二进制计数器<img src="/typora-user-images%5Cimage-20220618003455536.png" alt="image-20220618003455536"></p>
+<p>与非门的封锁 0即封锁为1</p>
+<p>与或非门的封锁 1即封锁为0</p>
+<p>与或非的数据选择，在两路数据分别与上C和!C即可控制，1为选择端</p>
+<p>正逻辑和负逻辑，用1表示高电平为正逻辑</p>
+<p><strong>简单二值逻辑</strong></p>
+<ul>
+<li>开关：闭合为L 打开H 输出在Vcc一侧</li>
+<li>晶体管：截止、放大、饱和、倒置（不用）<strong>Lect4 P50</strong></li>
+</ul>
+<p><strong>与非门的外部特性</strong> </p>
+<ul>
+<li><p>开关特性：扇入（可用输入）、扇出（驱动数）、传输延迟（输入传输到输出的时间，速度和最大传输延迟反比）、功耗</p>
+<ul>
+<li>传输延迟：一般参考HL的中间电平来参考时间点，t_PHL t_PLH不同，t_pd&#x3D;max(t_PHL, t_PLH)</li>
+<li>测量延迟时间？一个输入即可，tpd &#x3D; （tpd1+tpd2）&#x2F;2n</li>
+<li>自激励震荡电路：奇数个非门串联，周期为n*单个总延迟</li>
+</ul>
+</li>
+<li><p>转移特性：门电路中输出电压随输入电压的变化特性Vin-Vout</p>
+<ul>
+<li>Vout急剧改变的门槛电压、阈值电压VT</li>
+</ul>
+</li>
+<li><p>直流参数：0输入电流&lt;&#x3D;1.6mA 1输出IOH&lt;&#x3D;400uA Voh&gt;&#x3D;3V…</p>
+<p>一般高电压H的时候要求的电流比较小，在几十几百uA左右 输入电流比输入小上十倍差不多（因为正常负载能力在10）</p>
+</li>
+<li><p>*技术参数：噪音容限</p>
+<ul>
+<li><p>叠加到正常输入的外部噪声电压，不会造成不可预料变化</p>
+<p><img src="/typora-user-images%5Cimage-20220616144721117.png" alt="image-20220616144721117"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>与非门电路级联</strong> </p>
+<ul>
+<li><p>负载计算</p>
+<ul>
+<li><p>计算负载能力？N&#x3D;IOH&#x2F;IIH &#x3D; 400uA&#x2F;40uA &#x3D; 10 输出1的情况</p>
+<p>输入0 则IOL&#x2F;IIL &#x3D; 16&#x2F;1.6mA &#x3D; 10 输出0的情况，电流方向反</p>
+</li>
+<li><p>负载太大？非正常 低电平变高 高电平变低整个逻辑工作异常</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>电路设计的“线与”问题</strong> 需要多个外设输出连接一个输入总线，要求一个发送数据D时候其他都为1，线与在一起为1*1*D 即可</p>
+<p>普通与非门：不能线与，Vcc和GND形成通路有50mA的电流损坏T4,5</p>
+<p>图腾结构不能线与的理解：有H有L会有大电流流过烧坏</p>
+<ol>
+<li><p>使用OC门（集电极开路输出的门电路）？？？速度慢</p>
+</li>
+<li><p>三态门TSC 保留totem输出结构但是可以输出线与的特点，速度快</p>
+<p><img src="/typora-user-images%5Cimage-20220616145231140.png" alt="image-20220616145231140"></p>
+</li>
+</ol>
+<p><img src="/typora-user-images%5Cimage-20220616145244231.png" alt="image-20220616145244231"></p>
+<p>叫G非的控制端，为0的时候切换为高组态，平时1的时候正常与非门</p>
+<p>有的时候G非为0阻断，有时候是1阻断切换高阻态，看有无圈圈。总的来说是在与门接受0的时候阻断</p>
+<p>多个三台门线与的时候：要先都到高阻态再有个别到正常态否则出现“浪涌电流”影响工作<img src="/typora-user-images%5Cimage-20220616145717602.png" alt="image-20220616145717602"></p>
+<p><img src="/typora-user-images%5Cimage-20220616145728437.png" alt="image-20220616145728437"></p>
+<p>电流方向！&#x3D;数据流向</p>
+<h3 id="Lect5-译码器-数据选择器"><a href="#Lect5-译码器-数据选择器" class="headerlink" title="Lect5 译码器 数据选择器"></a>Lect5 译码器 数据选择器</h3><h4 id="3-3-常用的中规模组合逻辑电路"><a href="#3-3-常用的中规模组合逻辑电路" class="headerlink" title="3.3 常用的中规模组合逻辑电路"></a>3.3 常用的中规模组合逻辑电路</h4><p><strong>3.3.1 译码器</strong> 变量译码（所有组合2-4 3-8 4-16)、码制译码、显示译码</p>
+<p><strong>变量译码器</strong> 只有一个输入为0 </p>
+<p><img src="/typora-user-images%5Cimage-20220616153400455.png" alt="image-20220616153400455">输入只能接1个负载，所以加1级缓冲之后再译码。用的都是与非门所以化简之后的表达式要加大非。</p>
+<p><strong>应用</strong> CPU2bit控制信号到译码器，连接4bit控制信号到4个设备上</p>
+<p><strong>有使能端的2-4译码</strong> E非&#x3D;1时 所有Y为1 E非的时候为disable而不是enable 则输入为1时候连到与门里面是0封锁 ——扩展、选通</p>
+<p><strong>多片2-4扩展3-8</strong> 高位输入C选片 AB译码</p>
+<p><strong>5片2-4扩展4-16</strong> 用高位CD来接入2-4选片，剩下AB译码</p>
+<p><strong>选通——解决竞争与冒险</strong> A和A非输入，与非产生负向<strong>尖峰Spike</strong> 或非会出现正向<strong>尖峰</strong>：用EN解决</p>
+<p>有时还会有<strong>“0”重叠Overlap</strong>现象，就同一时刻选择器中产生两个0，因为A’B’这种会有两极延迟相比于AB，导致AB和A’B’产生0重叠的危险</p>
+<p>注意画尖峰的时候不光前面的延迟，产生尖峰本身也要有延迟</p>
+<p><img src="/typora-user-images%5Cimage-20220616160909702.png" alt="image-20220616160909702"></p>
+<p>如果AB的改变没有同时到来存在skew的偏移，尖峰更宽 overlap两段</p>
+<p>t_spike &#x3D; t_skew+delay*1		t_overlap &#x3D; delay*1<img src="/typora-user-images%5Cimage-20220616162236841.png" alt="image-20220616162236841"></p>
+<p>用使能端消除 AB变化中覆盖变化的EN非 &#x3D; 1 强制Y0 &#x3D; Y3 &#x3D; 1 消干扰</p>
+<p>这个使能信号要早于等于变量变化到来，对晚变化的信号至少滞后1级门延迟<img src="/typora-user-images%5Cimage-20220616162641950.png" alt="image-20220616162641950"></p>
+<p><img src="/typora-user-images%5Cimage-20220616162750720.png" alt="image-20220616162750720">记得覆盖掉变化，但是会使得输出有效波形变窄（有效时间短)</p>
+<p><strong>3-8译码器</strong> 一样的写ABC连接三输入与非门即可</p>
+<p>扩展4-16？ 用高位D选片，低三位译码。。</p>
+<p>多使能端的译码器？3EN的3-8：E2A+E2B为使不能1封锁&#x2F;&#x2F;E1是使能0封锁</p>
+<p>这样的选片更方便，直接使能和使不能连接高位D，总的使不能连接到分片的使不能上。</p>
+<p><strong>3-8译码分配地址</strong>0<del>7 256 CPU地址换算到每个ROM中的0</del>4共32地址空间</p>
+<p>cpu高三位用来选片（CE非），低5位用来寻址</p>
+<p><img src="/typora-user-images%5Cimage-20220616163615413.png" alt="image-20220616163615413"></p>
+<p><strong>译码器作为数据分配器（一分多）</strong> 使能端为Data，C1C2控制多输出</p>
+<p>Data变，C1C2选择把当前位分配给哪一个通道，如果通道恒1则被封锁</p>
+<p><strong>4-16译码器</strong> 真值表&#x2F;功能表 组合逻辑中差不多，列所有输入和对应的输出</p>
+<p>有两个使不能端，有一个1就锁死全1</p>
+<p>问题：负载大，A非要负载9（2^n&#x2F;2+1)个门，A要负载8个门2^n&#x2F;2，使能端负载16门2^n</p>
+<p>当输入变量增多，单级译码器不好实现，负载太大了。一般采用<strong>多级译码</strong></p>
+<p><strong>4-16的多级译码，先前后翻译两个</strong> </p>
+<p>先把四位输入翻译成EFGH WXYZ的两组合共8种有效值，再解码2-4</p>
+<p><img src="/typora-user-images%5Cimage-20220616164943718.png" alt="image-20220616164943718"></p>
+<p>每个A只有4个负载降低了一半，每个与门也是4负载。相当于先粗分类成4+4类打包，然后讨论这4+4的两两组合每个对应一种结果</p>
+<p><strong>8-256的分级？</strong> 划分为（4-4）对四输入粗分类成（16-16）然后讨论16*16的组合结果 每个A带8个负载 A非带9个 每个与门16个</p>
+<p><strong>码制译码器</strong> 编码换编码，如二换十进制译码（8421BCD to 1 bit Dec)</p>
+<p>不完全译码比较简单，有不少X项用来化简但是完全的必须每个连4位</p>
+<p><strong>显示译码器</strong> 以共阳极，Low亮为例 4bit BCD转换为7bit亮灯（码制）对每一个输出都化简表达式即得。。</p>
+<h4 id="3-3-2-数据选择器（多选一-多选多）"><a href="#3-3-2-数据选择器（多选一-多选多）" class="headerlink" title="3.3.2 数据选择器（多选一\多选多）"></a>3.3.2 数据选择器（多选一\多选多）</h4><p><strong>4选1 四个D 两个控制S 一个输出Y</strong> 写出（化简）Y 连接即得</p>
+<p>EN为1的时候使不能，输出恒为0<img src="/typora-user-images%5Cimage-20220616170240473.png" alt="image-20220616170240473"></p>
+<p><img src="/typora-user-images%5Cimage-20220616170229738.png" alt="image-20220616170229738"></p>
+<p>有两个EN的双4选1，提供正反两个输出，用3个双4选1得到一个16选4<img src="/typora-user-images%5Cimage-20220616171058380.png" alt="image-20220616171058380"></p>
+<p>16路输入，4个控制，这个选择 的过程是从输出到入的。从1分成4然后每个都是一个1分4（无EN）<img src="/typora-user-images%5Cimage-20220616171348134.png" alt="image-20220616171348134"></p>
+<p>有使能端时候，S23译码成四个选择器的EN，然后同时3个使不能，这样四个四选一其中三个都是0，如果三态门可以直接“线与”</p>
+<p><strong>总线发送控制</strong> </p>
+<p>译码器是CPU往多个外设分配信息，这个是多个外设向CPU发送数据选择</p>
+<p><strong>译码器</strong>：看成N个输入组成的2^N个最小项。加一层与非即可实现与或逻辑</p>
+<p>可以实现与或表达式的逻辑 一个译码器选择几个最小项接入与非即可</p>
+<p><strong>数据选择器</strong> 逻辑是与或表达 N个控制端的2^N最小项 和2^N个输入组成的与或，可以用数据来调节01。只需把含有的最小项对应的D进1就好。</p>
+<p>甚至8选1可以实现四变量函数：三个控制+一个数据输入</p>
+<p>把对应的ABC代入函数得到1 0 或者D D非，然后把这个结果放到对应Di上</p>
+<h3 id="Lect6-编码器-比较器-奇偶校验"><a href="#Lect6-编码器-比较器-奇偶校验" class="headerlink" title="Lect6 编码器 比较器 奇偶校验"></a>Lect6 编码器 比较器 奇偶校验</h3><h4 id="3-3-3编码器"><a href="#3-3-3编码器" class="headerlink" title="3.3.3编码器"></a>3.3.3编码器</h4><ul>
+<li>编码器原理</li>
+</ul>
+<p>反向译码，对应编码如4-2 8-3 10-BCD等等</p>
+<p><strong>应用</strong>在CPU控制端告诉那个外设在上传数据（只一个0 其他都1）</p>
+<p>键盘的输入检测，哪个键被按下…</p>
+<p><img src="/typora-user-images%5Cimage-20220616203353864.png" alt="image-20220616203353864"></p>
+<p>2-4编码的时候，如果取大非可以直接对里面的取补 8-3类似？？？</p>
+<p>8421编码器 0-9的十个信号转成4 bit 8421码 L6 P12</p>
+<p>A+B+C+D &#x3D; AB或非 CD或非再与非到一起</p>
+<ul>
+<li>优先编码器：两条及以上为0的时候，优先输出高位编码</li>
+</ul>
+<p><img src="/typora-user-images%5Cimage-20220616205002210.png" alt="image-20220616205002210"></p>
+<p>模拟键盘，如果同时被按下输出高位编码，以3-8编码为例</p>
+<p>除了8个输入，还需要 <strong>使不能Ei非</strong>，</p>
+<p><strong>输出有效Gs</strong>（当本八位有有效输出的时候为0，可以区分是0被按下还是没有按键被按下的状态），<strong>输出级联E0</strong>（如果是0则允许级联，意思是没有按键被按下且没有使不能）</p>
+<p>如果7是0则剩下无所谓，一定翻译000出去（反码编码，平时111）</p>
+<p>由于反码编码，化简表达式也是化简Ai非&#x3D;找0行</p>
+<p><strong>级联</strong> 高位板子允许低位级联把Eo连到低位Ei使不能 允许0的时候低位使能正常工作。<strong>高位级联接低位使能</strong> <strong>两个有效与为总的有效</strong></p>
+<p>注意还是个3-8编码，编码结果只能接低三位，高位要高位板子的是否按下的有效Gs判断。切换的是提供低三位的片<img src="/typora-user-images%5Cimage-20220616205221331.png" alt="image-20220616205221331"></p>
+<p><strong>应用</strong> 按照优先级编码，中断相应，键盘输入读取等</p>
+<h4 id="3-3-4数据比较器"><a href="#3-3-4数据比较器" class="headerlink" title="3.3.4数据比较器"></a>3.3.4数据比较器</h4><p><img src="/typora-user-images%5Cimage-20220616210038402.png" alt="image-20220616210038402">可以级联，以4位为例，高位比不出来才比低位</p>
+<p>单bit比较：&gt;10  &lt;01 not xor同或为1</p>
+<p>设计的级联是低位连接高位，即最高的四位作为最终输出</p>
+<p>如果当前片比不出来才会去读取输入结果，否则以当前片结果为准</p>
+<h4 id="3-3-5-奇偶校验"><a href="#3-3-5-奇偶校验" class="headerlink" title="3.3.5 奇偶校验"></a>3.3.5 奇偶校验</h4><p>8个输入xor到4个xor到2个xor到一个即为结果，1是奇数 如果多位则在对应层级补进去</p>
+<h4 id="组合逻辑电路的竞争冒险"><a href="#组合逻辑电路的竞争冒险" class="headerlink" title="组合逻辑电路的竞争冒险"></a>组合逻辑电路的竞争冒险</h4><p><strong>竞争</strong> 输入信号由于延迟，走不同路影响到输出的时间不同。</p>
+<ul>
+<li>非临界 不产生错误输出 临界 产生错误输出</li>
+</ul>
+<p><strong>冒险</strong> 由竞争导致了错误信号</p>
+<p>！组合电路中的险象是瞬态、暂时的尖脉冲，稳定后可恢复正常逻辑关系</p>
+<p><strong>判断存在险象</strong> <strong>代数法</strong>：函数表达式可能存在X和X非 尝试消除其他变量得到X+X非或者X*X非的形式</p>
+<p><strong>卡诺图</strong> 把函数表达式化成卡诺圈进去，如果有圈相切（相邻但是不被同圈包含) 那这两个相邻项就是危险的</p>
+<p><strong>避免险象</strong> </p>
+<ul>
+<li><p><strong>增加冗余项</strong> 卡诺圈相切的时候手动把他们圈一起，冗余项可以保证当只有一个输入量变化的时候不再产生险象。在代数上理解是：把化简到A+A非 时候限制的其他条件加这么一项</p>
+</li>
+<li><p><strong>电容滤波</strong> 过滤高频信号 要求惯性环节时间常数τ大于尖脉冲 不要太大否则畸变严重 <img src="/typora-user-images%5Cimage-20220616212115268.png" alt="image-20220616212115268"><img src="/typora-user-images%5Cimage-20220616212022099.png" alt="image-20220616212022099"></p>
+</li>
+<li><p><strong>选通</strong> 在最终结果的与门上再增加一路选通脉冲的输入，我只在电路稳定之后出现选通高电平脉冲，避开险象脉冲</p>
+</li>
+</ul>
+<h4 id="3-3-6-可编程逻辑器件PLD"><a href="#3-3-6-可编程逻辑器件PLD" class="headerlink" title="3.3.6 可编程逻辑器件PLD"></a>3.3.6 可编程逻辑器件PLD</h4><p>包括ROM PLA逻辑阵列 PAL 阵列逻辑 GAL通用阵列逻辑 ）<strong>L6 P60</strong></p>
+<ul>
+<li>ROM 写入后只读（简单、规律、大容量） 区别可读可写RAM</li>
+</ul>
+<p>与阵列+或阵列，输入后与阵列附近只有一条是1的其他都0</p>
+<p>然后每个输出都是或阵列，可以直接出</p>
+<p>其实本质上是对不同输入的分情况讨论，上面按照从小到大排列输入，下面每一列都是一种输出结果。讨论好标上对应点出去就好了<img src="/typora-user-images%5Cimage-20220616213053380.png" alt="image-20220616213053380"></p>
+<p><strong>应用</strong> 比如翻译8421到格雷码之类 </p>
+<p>3输入4输出的rom为8<em>4的rom 可以*<em>实现0-7的平方</em></em></p>
+<p>储存计算机程序，每个地址（一列）为一个字节8bit</p>
+<ul>
+<li>PLA可编程逻辑阵列 逻辑压缩 PROM或阵列可编程 </li>
+<li>PAL是与阵列可编程或阵列固定，分组合的和时序的</li>
+<li>GAL是可以同时实现组合+时序的芯片</li>
+</ul>
+<p>rom是完全讨论的，输入相当于是地址需要完全寻址2^N</p>
+<p>PLA是压缩的，逻辑函数需要什么我们才保留什么，我们需要最简与或表达式。</p>
+<p>每一列代表输出中的一项，上面是项的与表示，下面输出的或<img src="/typora-user-images%5Cimage-20220616214011685.png" alt="image-20220616214011685"></p>
+<p>储存讨论的信息的时候也可以压缩最简单的输出项表达式，然后用每一列代表一个乘积项最后或在一起。一组地址多个P ok<img src="/typora-user-images%5Cimage-20220616214429147.png" alt="image-20220616214429147"></p>
+<h3 id="Lect7-运算器"><a href="#Lect7-运算器" class="headerlink" title="Lect7 运算器"></a>Lect7 运算器</h3><h4 id="3-3-6-加法器"><a href="#3-3-6-加法器" class="headerlink" title="3.3.6 加法器"></a>3.3.6 加法器</h4><p>半加器：不考虑进位，异或就好了</p>
+<p><strong>一位全加器</strong> 写出表达式不化简直接得<img src="/typora-user-images%5Cimage-20220616214811608.png" alt="image-20220616214811608"></p>
+<p>卡诺图化简一下 都表示成与非、与或非等形式。直接找的是F非和C非（找0）这样都是2级门延迟<img src="/typora-user-images%5Cimage-20220616215017114.png" alt="image-20220616215017114"></p>
+<p>尝试用Cn表示Fn，即先把Cn算出来之后用其结果和ABC组合得Fn</p>
+<p>注意这里一种思路是写Cn和Fn，另一种是写Cn非和Fn非</p>
+<p><img src="/typora-user-images%5Cimage-20220616215522846.png" alt="image-20220616215522846"></p>
+<p><img src="/typora-user-images%5Cimage-20220616215540150.png" alt="image-20220616215540150"></p>
+<p><strong>四位串行加法器</strong> </p>
+<p>如果都用方案2 最终F4 C4都是8级门延迟</p>
+<p>都用方案3，最终为F4 9级 C4 8级</p>
+<p>方案34 交叉串联呢？C1两级但是C1非其实1级就好直接扔D得到C2也是2级。C3非一级就好C3  C4都是4级 那么C5就是5级</p>
+<p>这种方式主要是交替利用C和C非作为传递使得C的计算飞快。F总是当前的C+1级即可</p>
+<p><strong>超前进位加法器</strong> 提前算出C1234 在表达式中看出：</p>
+<p>搞一个产生进位函数G&#x3D;XY 传递进位函数P&#x3D;X+Y 记得写表达式的时候直接找C &#x3D; 大非（XXX） XXX为C非的表达式<img src="/typora-user-images%5Cimage-20220616221302739.png" alt="image-20220616221302739"><img src="/typora-user-images%5Cimage-20220616221251932.png" alt="image-20220616221251932"><img src="/typora-user-images%5Cimage-20220616221619605.png" alt="image-20220616221619605"></p>
+<p>Ci都是2级 Fi都是3级</p>
+<p><strong>16位加法器</strong> 记得算延迟都要先算各级的C再算F</p>
+<p>4个超前进位4位加法器也可以再加一个超前进位器 P34为构成方法</p>
+<p>这时C4 8 12 16的延迟都是3 F1-4是3 后面都是6级<img src="/typora-user-images%5Cimage-20220616222527657.png" alt="image-20220616222527657"></p>
+<p>p146 SN74182 超前进位扩展器专用器件</p>
+<h4 id="3-3-7-算术运算逻辑单元-4位"><a href="#3-3-7-算术运算逻辑单元-4位" class="headerlink" title="3.3.7 算术运算逻辑单元 4位"></a>3.3.7 算术运算逻辑单元 4位</h4><p>功能控制：加减 比较 与或非 移位 核心是四位并行加法器</p>
+<ul>
+<li>控制进位逻辑（简单但少<ul>
+<li>10得同或结果时：X+Y （非00即可）和 !(XY) （非11即可）与 然后和1进行异或。</li>
+<li>11得与结果时： !(XY) 和1取异或</li>
+</ul>
+</li>
+<li>改变Gi 和 Pi获得多种运算能力（多但复杂<ul>
+<li>四个S是控制如何产生Gi和Pi的</li>
+<li>M状态控制 ，是否进行逻辑运算</li>
+</ul>
+</li>
+</ul>
+<p>L7 P51 有各种16种的运算 书P141 的元件74181</p>
+<h3 id="Lect9"><a href="#Lect9" class="headerlink" title="Lect9"></a>Lect9</h3><p>RS基本触发器 问题：0 0时非正常状态（本时刻一定是11，下一时刻如果11读取 就为不定状态了） 11读取 两个与非交叉</p>
+<p><img src="/typora-user-images%5Cimage-20220616235817684.png" alt="image-20220616235817684"></p>
+<p>时钟控制方式：电位触发、边沿触发、主从触发器</p>
+<p>功能分类：D、R-S、J-K、T（Toggle）</p>
+<p>重点：边沿触发的D和JK触发器</p>
+<p>如何解决00时的异常？限制输入or保持稳定不坏</p>
+<h4 id="电位方式触发-Clock-Pulse"><a href="#电位方式触发-Clock-Pulse" class="headerlink" title="电位方式触发 Clock Pulse"></a>电位方式触发 Clock Pulse</h4><p>修改R-S的输入，增加使能端，就EN&#x3D;1的时候一定是保持状态，优化成与非，E成为真正使能，0的时候一定是11保持</p>
+<p>这时候的修改RS电位触发器变成了00保持 11异常</p>
+<p>改进？单端输入，一定控制两个输入是相反的，改成D<img src="/typora-user-images%5Cimage-20220617000835894.png" alt="image-20220617000835894"></p>
+<p>但是延迟太大了吧，D到Q非最大要4级，再改进得到</p>
+<p><strong>电位D触发器</strong>  E仍然是使能，0的时候是保持（读取）<img src="/typora-user-images%5Cimage-20220617000932548.png" alt="image-20220617000932548"></p>
+<p>问题：抗干扰差 使能脉冲某个跳变来时，输出才变化为输入的值</p>
+<p><strong>正边沿D触发器</strong> 某个约定跳变来才接受数据，没约定跳变就保持</p>
+<p><img src="/typora-user-images%5Cimage-20220617001909754.png" alt="image-20220617001909754"></p>
+<p>CP &#x3D; 0 时 上面为基本RS的11状态，保持</p>
+<p>如果正边沿到来，在信号到来产生一级门作用的时候改变状态</p>
+<p><img src="/typora-user-images%5Cimage-20220617213002511.png" alt="image-20220617213002511"></p>
+<p><img src="/typora-user-images%5Cimage-20220617213053734.png" alt="image-20220617213053734"><img src="/typora-user-images%5Cimage-20220617213105154.png" alt="image-20220617213105154"></p>
+<p>其余情况在CP &#x3D; 1 的时候D发生两种改变都不能改变上面的电路状态。分别由两根锁死<strong>阻塞线</strong>来限制</p>
+<p>CP负边沿跳变的时候，34门都输出11为传统RS的保持状态</p>
+<p><strong>开关特性</strong> </p>
+<ul>
+<li><p>数据建立时间tsu &#x3D; set up</p>
+<p>数据接受的时候要稳定保证门3、4接受好数据(尤其门4要56处理完之后），有tsu&gt;&#x3D;tpd5+tpd6 2*delay</p>
+</li>
+<li><p>数据保持时间th &#x3D; hold 要等待阻塞线正常工作之后才能撤除这个有效的Data值</p>
+<p>如D &#x3D; 1，必须等门4的阻塞线封锁住3和6才好则</p>
+<p>th&gt;&#x3D;max(tpd3,tpd4) 1*delay</p>
+</li>
+<li><p>传输延迟参数tpd &#x3D; pass delay</p>
+<p>分别讨论输出HL还是LH CP到Q还是Q非 共四种</p>
+</li>
+<li><p>主要看两条阻塞线，CP&#x3D;1时有一条为0则代表一种状态，D只能被阻塞在5或者6门。当低电平两条线都是1时候56都打开才允许数据进入。</p>
+<p>故低电平要保证D通过5和6就位在34门口，低电平&gt;&#x3D;tsu且tsu只能在低电平区间</p>
+<p>高电平要保证thold形成好封锁&gt;&#x3D;thold在高电平期间</p>
+<p>tpd cpQ 也需要在高电平时间，在高电平让输出稳定下来47 为的是给下一个器件就位比如下一个触发器的输入就位。所以如果两个触发器之间有组合逻辑电路，这里的延迟仍需要算在tpdcp-&gt;Q上。</p>
+</li>
+</ul>
+<p><strong>多个FF最高时钟频率？</strong> </p>
+<p>Tcp-min &#x3D; tsu</p>
+<p>Tcp+min &#x3D; max(th , tpdcp-&gt;Q+tpdG（组合逻辑电路延迟）)</p>
+<h3 id="Lect10-负边沿JK，主从触发器"><a href="#Lect10-负边沿JK，主从触发器" class="headerlink" title="Lect10 负边沿JK，主从触发器"></a>Lect10 负边沿JK，主从触发器</h3><p><img src="/typora-user-images%5Cimage-20220617215202117.png" alt="image-20220617215202117"></p>
+<p>00保持11翻转 JK分别为Set Reset P4-P9 为操作的结构原理</p>
+<p>异步是不需要等CP的强制清零，0是选中态，正常为11</p>
+<p><strong>主从触发器</strong> 两极电位串联	CP&#x3D;1主触发器接受从封锁(+电位)</p>
+<p>负跳变主封锁从触发器接受主触发器的状态（负跳变）</p>
+<p><strong>主从RS触发器</strong> 17为加入异步 21有划归到主从RS的方法</p>
+<p><img src="/typora-user-images%5Cimage-20220617215926900.png" alt="image-20220617215926900"></p>
+<p><img src="/typora-user-images%5Cimage-20220617220126799.png" alt="image-20220617220126799"></p>
+<p><img src="/typora-user-images%5Cimage-20220617220230542.png" alt="image-20220617220230542"></p>
+<p>主从JK功能表与主从RS相同，只是11支持翻转</p>
+<p>只是在正时钟周期中JK不变化的前提下给出，不然能不满足功能表，<strong>抗干扰差</strong></p>
+<p><strong>主从VS边沿</strong> 主从似乎是负边沿因为正边沿接受负跳变才状态变化，但是触发方式不同。主从在负跳变时反应的是从触发器的状态可不一定是JK等输入的状态</p>
+<p>经常从触发器在负边沿读主的时候，反应的是正边沿中的第一次<strong>变化</strong>（第二次有时候由于从触发器QQ非没变导致JQ非&#x3D;0 KQ&#x3D;0而不发生变化，即<strong>最多可以发生和原来Q不同的一次变化</strong>比如把Q的1换成0，但是不能变第二次了会hold） 分析具体变化看下面这张图（注意从的之前状态）<img src="/typora-user-images%5Cimage-20220617221115739.png" alt="image-20220617221115739"></p>
+<p>所以主从适合正脉冲窄，短高电平的情况</p>
+<p><strong>T触发器 Trigger</strong> cp来就翻转，一般都是边沿（由DorJK构成）</p>
+<p>D的翻转需要Q非接D		JK&#x3D;11自带翻转</p>
+<p>CP由功能控制T和真实时钟cp与成，T&#x3D;1时Toggle模式</p>
+<p><strong>触发器的功能互换？</strong> 功能需求&#x3D;》用卡诺图写出Qn+1与Qn和输入之间的关系，再转换成激励表达式接入电路即可。</p>
+<p>D转JK<img src="/typora-user-images%5Cimage-20220617221951564.png" alt="image-20220617221951564"></p>
+<h3 id="Lect11-同步时序电路的分析与设计"><a href="#Lect11-同步时序电路的分析与设计" class="headerlink" title="Lect11 同步时序电路的分析与设计"></a>Lect11 同步时序电路的分析与设计</h3><p><img src="/typora-user-images%5Cimage-20220617222131649.png" alt="image-20220617222131649"></p>
+<p>统一CP，约定脉冲改变整体的状态且只改变一次</p>
+<p><strong>功能表（含Q真值表）</strong> 输入（激励）+Qn	得到	输出+Qn+1</p>
+<p>现在的状态+不同的激励能造成什么样的结果（未来状态）</p>
+<p><strong>状态表</strong> 卡诺图中一维是激励，一维是Qn  表中内容是Qn+1</p>
+<p>现在状态+不同的激励造成什么样的未来状态</p>
+<p><strong>状态图</strong> 圈里面是状态（Qn）转移边上有	输入&#x2F;输出</p>
+<p><strong>状态方程</strong> Qn+1 &#x3D; 激励条件（D)</p>
+<p>下一个状态的决定方程</p>
+<p><strong>激励表</strong>Qn Qn+1	得到	激励项（例如D、JK）</p>
+<p>状态的不同转移需要什么样的激励条件</p>
+<p>逻辑图——状态图——文字描述（设计为逆）</p>
+<h3 id="同步时序电路分析"><a href="#同步时序电路分析" class="headerlink" title="同步时序电路分析"></a>同步时序电路分析</h3><ol>
+<li><p>根据电路图列出触发器激励函数表达式<strong>D&#x3D;</strong> 和电路输出函数**F&#x3D;**f（Q)</p>
+<p>输入怎么影响D Q怎么影响输出</p>
+</li>
+<li><p>建立<strong>Qn+1</strong>表达式（根据上面的激励）以及<strong>状态表</strong>（类似真值功能表，Qn和输入得到激励得到次态和输出的表格）</p>
+<p>常用Qn+1 &#x3D; D	&#x2F;&#x2F;	Qn+1 &#x3D; J !Qn + !K Qn</p>
+</li>
+<li><p><strong>状态（转移）图</strong> 记得画完整</p>
+</li>
+<li><p>由状态图和次态、输出表达式带来的<strong>时序图</strong>（规定cp和输入，画Qn和输出的波形）</p>
+</li>
+<li><p>分析输出和输入的关系说明逻辑功能</p>
+</li>
+</ol>
+<p>可以先明确里面状态、中间态的含义（如保存上一位的进位结果）</p>
+<p>不完全的（6状态集合）也可以叫<strong>3位格雷码计数器</strong> 两个状态互换为clk的2分频 这样属于<strong>不能自启动</strong>的格雷码计数器（<strong>不保证一定能进入主循环</strong>）</p>
+<p>这是<strong>能够自启动的4位二进制计数器</strong> JK更方便实现“取反“<img src="/typora-user-images%5Cimage-20220617230222268.png" alt="image-20220617230222268"><img src="/typora-user-images%5Cimage-20220617230300567.png" alt="image-20220617230300567"></p>
+<p>把几个D触发器串行接好，低Q进高D，最高！Q进最低D得计数器 <strong>如何修复自启动？？？</strong></p>
+<h3 id="同步时序电路设计"><a href="#同步时序电路设计" class="headerlink" title="同步时序电路设计"></a>同步时序电路设计</h3><ol>
+<li><p>确定输入输出变量</p>
+</li>
+<li><p>原始状态图和状态表（可能并不最简）状态表：<img src="/typora-user-images%5Cimage-20220617232606708.png" alt="image-20220617232606708"></p>
+</li>
+<li><p>状态化简，画出最简的<strong>状态图</strong>和<strong>状态表</strong></p>
+<p>对于完全相同的行，合并其状态，直至不能这么做，</p>
+<p>状态表和状态图：一般每个转移边对应表中一行</p>
+</li>
+<li><p>状态分配：给每个状态用一串<strong>二进制来编码</strong></p>
+</li>
+<li><p>求出<strong>激励函数</strong>和<strong>输出函数</strong> 化简前就检查好能否自启动</p>
+<p>根据状态图	画一个<strong>大号的功能表</strong>（真值）分别为</p>
+<p>输入 Qn| Qn+1|激励DorJK（由Qn+1）|输出（由Qn和输入）</p>
+<p>根据后两列可以求出激励的表达式和Z的表达式</p>
+<p>这时候可以用<strong>卡诺图</strong>来化简 横纵二维都是输入和各位Qn，里面是各个Qn+1。能直接写出来的就直接写<img src="/typora-user-images%5Cimage-20220618001545343.png" alt="image-20220618001545343"></p>
+</li>
+<li><p>画（电路）逻辑图</p>
+</li>
+</ol>
+<h4 id="计数器-对CP脉冲计数，每次变化一次状态"><a href="#计数器-对CP脉冲计数，每次变化一次状态" class="headerlink" title="计数器 对CP脉冲计数，每次变化一次状态"></a>计数器 对CP脉冲计数，每次变化一次状态</h4><p>同步、异步；加法、减法、可逆；二进制、十进制、任意进制；</p>
+<p><strong>同步四位二进制计数器</strong> 偶尔需要“实用” 这里的Q0Q1都是二、四分频</p>
+<p><img src="/typora-user-images%5Cimage-20220618001311015.png" alt="image-20220618001311015">用JK触发器设计时，经常统一JK即可，而<img src="/typora-user-images%5Cimage-20220618001649022.png" alt="image-20220618001649022"></p>
+<p><strong>十进制计数器</strong></p>
+<p>编码、化简即可</p>
+<p><strong>可逆计数器</strong>		一个输入X表示是否正向计数  满1111之后进位Z为1</p>
+<p>用X表示模式的时候，经常可以两边化简完之后用XF1+!XF2来调节</p>
+<p><strong>设计计数器的问题——自启动</strong>	修正状态图，改变激励表</p>
+<h3 id="Lect13-集成化的4位二进制计数器"><a href="#Lect13-集成化的4位二进制计数器" class="headerlink" title="Lect13 集成化的4位二进制计数器"></a>Lect13 集成化的4位二进制计数器</h3><p>需要：异步、同步清零；同步置数；计数；保持；扩展；进位</p>
+<p>仍然是0是确认态，常态为111 RC是进位在1111or1001时，这样下一时刻cp来了可以一起动。</p>
+<p>T 串行控制：低位RC接入高位的T，常态是0即FFHold状态</p>
+<p>片间的进位RC逐片传递导致计数频率不能太高，RC每一片都要延迟<img src="/typora-user-images%5Cimage-20220618003756551.png" alt="image-20220618003756551"></p>
+<p>P并行控制：即快速扩展，分析进位条件是所有低位片都是1111</p>
+<p>只有当TP都是1的时候本片才进位，最低位RC连各个P，然后T都是RC（次低片可以直接1）当最低片1111（RC&#x3D;1）且上一位RC&#x3D;1时本片进入进位预备状态。</p>
+<p>这样就是除了最低位，每片到1111之后就已经在RC—HighT预备好了</p>
+<p>随时等待最低位的1111就位得到P&#x3D;1时候进入预备，只需一个延迟</p>
+<p>但是最高位的RC并不代表整体的进位。。</p>
+<p><img src="/typora-user-images%5Cimage-20220618004258361.png" alt="image-20220618004258361"></p>
+<p>集成化的标准计数器接口与功能表：</p>
+<p><img src="/typora-user-images%5Cimage-20220618002457731.png" alt="image-20220618002457731"><img src="/typora-user-images%5Cimage-20220618002518601.png" alt="image-20220618002518601"></p>
+<p>Rd!：触发器提供or（谨慎）组合逻辑直接清零Rd*Q这种</p>
+<p>CLR：从激励方程入手，直接在D上修改，下次检测就可以改了</p>
+<p>Load：接着改激励方程，L!(输入)+L（Q）</p>
+<p>TP:接着改激励方程记得改RC，保持的时候D取自己的Q</p>
+<p><img src="/typora-user-images%5Cimage-20220618004358354.png" alt="image-20220618004358354"></p>
+<p><strong>用76163自动循环状态</strong>  在到一定值之后启动置数预备Load，置0000<img src="/typora-user-images%5Cimage-20220618004541188.png" alt="image-20220618004541188"></p>
+<p><strong>产生固定序列信号如101001</strong> </p>
+<ol>
+<li><p>用上面自动循环状态的计数器</p>
+</li>
+<li><p>常规方法，用DorJK</p>
+</li>
+<li><p>循环移位设计，用QQQ表示长3子串然后循环起来（记得循环到下一个的前三位），注意不能一对多 101001101001</p>
+<p>输出随便接其中一个Q即可</p>
+</li>
+</ol>
+<h3 id="Lect14-1-寄存器——存储"><a href="#Lect14-1-寄存器——存储" class="headerlink" title="Lect14-1 寄存器——存储"></a>Lect14-1 寄存器——存储</h3><h4 id="基本寄存器"><a href="#基本寄存器" class="headerlink" title="基本寄存器"></a>基本寄存器</h4><ul>
+<li><p>基本4D寄存器，需要异步清零（!Rd&#x3D;0）和置数（!Rd&#x3D;1) </p>
+<p>记得减少对外负载，但是数据不在的时候不能保留了呜呜呜</p>
+</li>
+<li><p>!Rd异步清零 !E置数 CP时钟 11的时候Qn+1 &#x3D; Qn否则Dn<img src="/typora-user-images%5Cimage-20220618010035888.png" alt="image-20220618010035888"><img src="/typora-user-images%5Cimage-20220618010124271.png" alt="image-20220618010124271"></p>
+</li>
+<li><p>置数、保持还能选择？加Select输入可以选择数据源<img src="/typora-user-images%5Cimage-20220618010230692.png" alt="image-20220618010230692"></p>
+</li>
+<li><p>再加个使不能 !OE &#x3D; 1的时候为高阻态P13</p>
+</li>
+</ul>
+<p>两个相反的寄存器作为输入输出，让两个E和OE相反来控制<img src="/typora-user-images%5Cimage-20220618010422524.png" alt="image-20220618010422524"></p>
+<h4 id="移位寄存器"><a href="#移位寄存器" class="headerlink" title="移位寄存器"></a>移位寄存器</h4><p>需要寄存器有移位功能，每一个cp脉冲，寄存器数据顺序向左（右）移动一位，要采用边沿触发（or主从触发器）</p>
+<p><strong>串入变并出的移位</strong>，每一个Q接高位D，但是不循环移位（叫右移其实是左移。。）</p>
+<p><strong>并入并出的双向移位Reg</strong> 双向用S0S1控制	1就是哪个方向，11置数<img src="/typora-user-images%5Cimage-20220618093822452.png" alt="image-20220618093822452"><img src="/typora-user-images%5Cimage-20220618093958084.png" alt="image-20220618093958084"></p>
+<p><strong>应用：用移位寄存器设计信号发生器101000</strong> 选用串进并出的</p>
+<p>取n&#x3D;3得到 101 010 100 000 001 010有重复010无法区分，增加位数</p>
+<p>n&#x3D;4得到 1010 0100 1000 0001 0010 0101无重复，每次通过Q0123讨论出一个下一位要移进去的数字，做出6&#x2F;16的卡诺图化简D，下一个是Q0讨论即可。</p>
+<p>发现<strong>并不能自启动</strong>。有3个非工作循环。对非工作循环中任取一个状态，让次态进入工作循环比如0000&#x3D;&gt;0001进入（移入1）卡诺图7&#x2F;16</p>
+<p>记得考虑怎么样比较好<strong>通过移位方式进入工作循环</strong></p>
+<h3 id="Lect14-2-Ch5可编程逻辑电路"><a href="#Lect14-2-Ch5可编程逻辑电路" class="headerlink" title="Lect14-2 Ch5可编程逻辑电路"></a>Lect14-2 Ch5可编程逻辑电路</h3><h4 id="ROM只读存储器-40"><a href="#ROM只读存储器-40" class="headerlink" title="ROM只读存储器 40"></a>ROM只读存储器 40</h4><p>PROM与阵列固定（地址译码固定）或可编程（储存信息可以改）</p>
+<p>就是全部的输入情况来<strong>分情况讨论</strong> 计算点数的时候记得与阵列算非</p>
+<h4 id="PLA可编程逻辑阵列-47-与或均可编程-组合逻辑表示D"><a href="#PLA可编程逻辑阵列-47-与或均可编程-组合逻辑表示D" class="headerlink" title="PLA可编程逻辑阵列 47 与或均可编程 组合逻辑表示D"></a>PLA可编程逻辑阵列 47 与或均可编程 组合逻辑表示D</h4><p>压缩，只表示最小项甚至只表示<strong>乘积项</strong>即可，不是最小项</p>
+<p>先找Fi的最简与或表达式然后找乘积项，一条竖线表示一个乘积项上面与上乘积项的表达式。下面每个输出（一行）自取乘积的sum</p>
+<p>计算点数（交叉）：2*输入*P+输出*P</p>
+<p>计算容量：输入数目* P项数目*输出数 4*</p>
+<h4 id="PAL可编程阵列逻辑-与可编程或固定-72"><a href="#PAL可编程阵列逻辑-与可编程或固定-72" class="headerlink" title="PAL可编程阵列逻辑 与可编程或固定 72"></a>PAL可编程阵列逻辑 与可编程或固定 72</h4><p>决定好了每个输出取哪几个P项然后自己编写P项</p>
+<p>有反馈的寄存器PAL可以实现时序逻辑但不能组合</p>
+<p>演变过程P78</p>
+<h4 id="GAL通用可编程阵列逻辑-80-与可编程或固定"><a href="#GAL通用可编程阵列逻辑-80-与可编程或固定" class="headerlink" title="GAL通用可编程阵列逻辑 80 与可编程或固定"></a>GAL通用可编程阵列逻辑 80 与可编程或固定</h4><p>输出控制OLMC+反馈结构+多次可编程+集成度++</p>
+<p>需要：输入、输出、与阵列、输出逻辑宏单元</p>
+<p>GAL16V8@20pin 16入（右侧8个在OLMC下通用出入）</p>
+<p>8出 8个OLMC（或阵列in it）	P86逻辑图 </p>
+<h2 id="总的电路经验"><a href="#总的电路经验" class="headerlink" title="总的电路经验"></a>总的电路经验</h2><p> <strong>xor</strong>：想逐位加法、01个数等等，化简的时候多用xor简化，逐位判同（尤其是计数、加法）</p>
+<p>每两位xor：典型<strong>格雷码</strong></p>
+<p>分析组合电路：不一定顺着看输入，试试<strong>顺着看输出</strong>？</p>
+<p>模式控制：多在激励方程上之际修改，如置数、清零、数据选择。优先的放外面</p>
+<p>组合逻辑电路分析与设计：表达式、功能表、描述</p>
+<p>对BCD分级译码：先译AD，因为1xx0和1xx1唯一为8和9</p>
+<p>分级选数据和分级译码都一样，一定看好怎么分、分谁</p>
+<p>比如S3210选D0~9，可以先用S3区别0123和89XX互换 </p>
+<p>其实BCD译码和数据选择都是对控制端的讨论和翻译</p>
+<p>组合电路的开关参数：XX输入到XX输出的延时</p>
+<p>2个四选一模拟3输入函数？<img src="/typora-user-images%5Cimage-20220618143223330.png" alt="image-20220618143223330"><img src="/typora-user-images%5Cimage-20220618143159958.png" alt="image-20220618143159958"></p>
+<p>16并4并1：算大PG需2，算C4 8 12 16需3 各片算C需要2 算F1共6</p>
+<p>状态表：</p>
+<p><img src="/typora-user-images%5Cimage-20220618175655568.png" alt="image-20220618175655568"></p>
+<p>时序图没有初始状态就假设一个</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-01-06T10:13:00.000Z" title="2022/1/6 18:13:00">2022-01-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.487Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">an hour read (About 7726 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/01/06/2021Fall-FLA-final/">2021秋季学期 形式语言与自动机 期末复习</a></p><div class="content"><p><strong>丢失图片，没有渲染后的pdf版。。。</strong></p>
+<h1 id="FLA-Final-Review"><a href="#FLA-Final-Review" class="headerlink" title="FLA Final Review"></a>FLA Final Review</h1><h2 id="Slides-Review"><a href="#Slides-Review" class="headerlink" title="Slides Review"></a>Slides Review</h2><h4 id="lect1"><a href="#lect1" class="headerlink" title="lect1"></a>lect1</h4><ul>
+<li><p>字母表，形式符号的非空有限集合</p>
+</li>
+<li><p>字符串或字 </p>
+</li>
+<li><p>字母表的0次方为{epsilon}，递推定义<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220104212613395.png" alt="image-20220104212613395"></p>
+</li>
+<li><p>语言：任何字母表星闭包的子集</p>
+</li>
+<li><p>证明：逆否证明，反证、互归纳，提出多个原子命题互相证明，一般具有某正对称性和推论关系</p>
+</li>
+<li><p>归纳定义：基础、归纳递推规则、极小声明</p>
+</li>
+</ul>
+<h4 id="lect2"><a href="#lect2" class="headerlink" title="lect2"></a>lect2</h4><ul>
+<li><p>上下文无关文法 T V S P  自下而上递归推理叫归约，自上而下叫推导</p>
+</li>
+<li><p>推导传递闭包，通过归纳定义，递归基是自己推自己 最左：总是替换最左非终结符，推导加*</p>
+</li>
+<li><p>句型：能够由S推出来的状态，有左右句型之分，全是终结符叫句子</p>
+</li>
+<li><p>def 上下文无关文法的语言为上下文无关语言</p>
+</li>
+<li><p>构造：对称拆分不等关系变大于小于 控制范围的可以两边夹</p>
+</li>
+<li><p>计数题：找唯一分割点 count a&#x3D;b S-&gt;aSbS|bSaS|epsilon 差2的找轴点切分 计数不等于：第一次a比b多停下，前面相等，中间a，后面a不少于b（通过可以单增a实现</p>
+</li>
+<li><p>证明文法和语言等价：归纳w的长度和推导步数（讨论第一步所使用的产生式）</p>
+</li>
+<li><p>经常互归纳一些中间状态的含义。。<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105095015925.png" alt="image-20220105095015925"></p>
+</li>
+<li><p>chomsky 0：图灵机 α推β α中至少一个非终结符</p>
+</li>
+<li><p>1 α长度小于等于β（可以S推epsilon） S不出现在任何P右边 上下文有关 线性有界自动机</p>
+</li>
+<li><p>2 一个非终结符号推β 上下文无关 下推自动机</p>
+</li>
+<li><p>3 A推aB 或者A推a 正规文法 正规语言 有限状态自动机</p>
+</li>
+<li><p>语法分析树，内部非终结 叶子可终结可不终结or空 产生式是父子关系 果实是连接叶子的句型</p>
+</li>
+<li><p>可归约 存在推导 存在最左 存在最右 存在根节点A分析树果实为w  等价</p>
+</li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105095722168.png" alt="image-20220105095722168"></p>
+<p>归约：归纳步数讨论其最后一步产生式（其实为推导的第一个产生式）</p>
+<p>归纳分析树的高度，递归的时候归纳第一层的产生式 		证明推导到归约 归纳于步数</p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105100046970.png" alt="image-20220105100046970"></p>
+<p>二义性文法：对某个w存在两颗不同的分析树or存在两个不同的最左推导，二者等价</p>
+<p>不可判定的，不存在算法</p>
+<p>如果语言的所有文法都是二义的，则L是固有二义的 <strong>什么是最左推导？</strong></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105101009429.png" alt="image-20220105101009429"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105101200757.png" alt="image-20220105101200757"></p>
+<h4 id="lect3"><a href="#lect3" class="headerlink" title="lect3"></a>lect3</h4><ul>
+<li><p>正规表达式的语言是正规语言 可以联合并集+ 连接· 星闭包</p>
+</li>
+<li><p>定义正规表达式集合：字母表都是，空字符和空集都是，变量（可以包含任意的其他变量和递归基础符号和字母）都是 归纳：可+ 接 星闭包和括号</p>
+<p>？是空+L  L零次方为空字符</p>
+<p>定义正规语言 {epsilon}和空语言是正规的，单字母正规，正规之间的并 接和星闭包正规</p>
+</li>
+<li><p>设计时一定考虑边界情况，讨论结尾，关注长度限制！空，单0单1等等 利用空字符达成位置的位移“前x位至少包含x个1”</p>
+</li>
+<li><p>代数定律：语言之间的运算可以直接全部替换成简单符号表达式。</p>
+</li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105103024411.png" alt="image-20220105103024411"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105103035952.png" alt="image-20220105103035952"></p>
+<p>应该不考的证明。。</p>
+<p>推论：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105103134051.png" alt="image-20220105103134051"></p>
+<p>应用：证明语言运算之间的代数定律直接用具体字符替换之后证明即可</p>
+<h4 id="lect4"><a href="#lect4" class="headerlink" title="lect4"></a>lect4</h4><ul>
+<li><p>有限状态自动机PDA 状态集、输入符号集、转移函数、开始态、终态集合 </p>
+</li>
+<li><p>记得转移图、转移表上标Start、箭头，终态双圈、星号   对每个状态都要有全部的接受符号转移</p>
+</li>
+<li><p>这里的转移函数只有q和a&#x3D;新q，拓展到多步a变w。定义拓展时候w&#x3D;xa拆开的最后一个符号</p>
+</li>
+<li><p>可以证明DFA的语言是正规语言：一般可以互归纳证明中间状态的含义，从初态到某个状态当且仅当转移函数的w包含，需要证两个方向。。</p>
+</li>
+<li><p>构造PDA：不包含就把包含的终态调换，箭头调换为回文，设置垃圾桶节点</p>
+</li>
+<li><p>非确定自动机NFA，可以转多个或不转，转移函数的值是状态集合，扩展转移函数是所有可能在的状态尝试转移之后再并集。所以w转移之后与F交不为空即可接受。</p>
+</li>
+<li><p>设计：随时都可以尝试xxx</p>
+</li>
+<li><p>NFA DFA的等价性：D转N把每个转移函数的结果都加上{}变成集合  两者都是归纳于字长</p>
+<p>N转D  子集构造法 一定想着标记开始和结束。从起始状态开始走到哪写哪。意义在于<strong>可能到达的状态</strong>，正确性证明：任意w代入初态开始的转移函数在两个自动机中得到的值都一样。最坏2^n个状态</p>
+</li>
+<li><p><strong>文本搜索的NFA和转DFA规则</strong>？？借题复习</p>
+</li>
+<li><p>带空转移的NDA，可以用转移图、转移表表示    特殊的空闭包ECLOSE就是自己和自己空转移的可达状态，转移函数则为每一步都要ECLOSE闭包，算的时候闭包和转移间隔着算</p>
+</li>
+<li><p>语言：仍然和DFA等价：DFA转空NFA—没有空转移则但可接受空字符到自己，每一个转移函数结果变为集合   空NFA转DFA：自己构造法，每一步都需要做闭包。证明正确性归纳于字长：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105133613383.png" alt="image-20220105133613383"></p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105133905696.png" alt="image-20220105133905696"></p>
+</li>
+<li><p>构造空NFA处理那种“前几个里面至少有一个x” 合理运用空转移等价于(0+1+epsi)^x</p>
+</li>
+<li><p>特定子串情况时尤其考虑好子串的重叠</p>
+</li>
+<li><p>填表法确定状态偶对，如果状态可区别则其共同前驱可区别，先区别所有终态非终态。之后看表的疏密程度选择由转移表填图还是按图找转移表。在题目里面复习<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105134748736.png" alt="image-20220105134748736"></p>
+</li>
+<li><p>优化DFA：删除不可达，填表找偶对，删除该删除的等价类只保留一个，构造</p>
+</li>
+</ul>
+<h4 id="lect5"><a href="#lect5" class="headerlink" title="lect5"></a>lect5</h4><ul>
+<li><p>证明DFA是正规语言：给DFA转re和RE转空NFA</p>
+</li>
+<li><p>Thompson构造：相加：左边两空右边两空，新增两个状态四条边</p>
+<p>拼接：新增一条空转移边</p>
+<p>星闭包：画飞碟上回下进，新增四条空转移和两个新状态</p>
+</li>
+<li><p>DFA转RE：KLEENE构造和路径消去</p>
+<ul>
+<li><p>Kleene：计算Rkij，k&#x3D;0为中间不经过任何节点，不同节点没弧线为空集，有弧线为a，多条相加		ij相同空加所有a</p>
+<p>迭代Rkij在k！&#x3D;0时候：一步过不经过k和经过k转几圈再过去</p>
+</li>
+<li><p>状态消去：消去两入两出带自环的中间态：到该节点转几圈过去，对每一个终态都消到只剩下该终态以及初态。最后要么剩两个要么剩一个。剩一个就是自环的星闭包，剩两个就是（自转+过去转几圈回来）*过去在终态转圈* 这两种都是n^3 * 4^n的复杂度</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Lect6"><a href="#Lect6" class="headerlink" title="Lect6"></a>Lect6</h4><ul>
+<li><p>Pumping 用来证明不是正规语言</p>
+<p>pumping特性，任何一个长度不小于状态数目的字符串所标记的路径上必然出现重复状态，n长度涉及n次转移共n+1个状态。</p>
+<p>引理：正规语言L，存在常数n&gt;&#x3D;1，使得任意长度不小于n的字符串w在L中，都可以分成三个部分满足以下条件：y不是空，xy小于等于n，对任何k&gt;&#x3D;0都有xykz在L中</p>
+<p>证明不是正规语言：如果是正规语言，则存在一个n，随便取一个长度大于等于n的串，证明其任意符合y非空，xy&lt;&#x3D;n的分割，都没有xykz一定属于L</p>
+</li>
+<li><p>一些判定算法</p>
+<ul>
+<li>判定是否非空：DFA递推求出所有可达状态，若包含任何终态则非空  RE 特殊的<strong>空语言的0次方应该是空语言</strong> 根据正规的四种运算从小的判定起，复杂度On</li>
+<li>判断是否包含特定字符串：DFA：处理看在不在终态，NFA转化DFAor处理看集合中有没有终态 RE：转化空NFA执行</li>
+<li>判定两个正规语言相等：都转DFA之后重命名使之不重名，两个相并，终态仍终态，转移边不变。<strong>取任何状态为初态？？</strong>填表算法看原来的初态是否可区别 On4可降On2</li>
+</ul>
+</li>
+<li><p>正规封闭运算：并星闭包连接都可以由RE证明</p>
+<p>补：也是正规语言，DFA的所有终态和非终态对调即可</p>
+<p>交：也是正规语言，就是L补并上M补再整体取补orDFA：使用状态的笛卡尔二元积，<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105142336532.png" alt="image-20220105142336532"></p>
+</li>
+</ul>
+<ul>
+<li><p>差：也是正规语言，是M取补再和L交</p>
+</li>
+<li><p>反向：也是正规语言：分别对RE中的三个基础（空语言 空字符和单字符）四种运算证明or构造DFA把转移弧反向，初态为终态，所有终态空字符连接至超起点</p>
+</li>
+<li><p>同态：正规语言同态后依然是正规语言     <strong>这个T*是嘛玩意？</strong>  <img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105142747528.png" alt="image-20220105142747528"></p>
+</li>
+<li><p>归纳证明于RE的三个基础与四种运算<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105142854777.png" alt="image-20220105142854777"></p>
+</li>
+<li><p>反同态w为什么不直接是字母表而是星闭包？？仍然也是正规语言，用DFA证明：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105143545409.png" alt="image-20220105143545409"></p>
+</li>
+</ul>
+<p>构造一个状态集合以及始末都相同的DFA B，字母表改成h的定义域表，转移函数为这边的a是那边的h（a）构造好DFA即可，可以归纳与w字长证明正确性 q0经过w&#x3D;&#x3D;q0经过h（w)</p>
+<p>构造反同态dfa相当于构造原集合的转移，先按字母表讨论再去DFAA中找这条路径能到哪</p>
+<h4 id="Lect7"><a href="#Lect7" class="headerlink" title="Lect7"></a>Lect7</h4><ul>
+<li><p>Push Down Automaton PDA带有堆栈的有限状态自动机 七元组{状态集合，接受字符，堆栈符号，转移函数，起始状态，开始堆栈符号，终态集合}   其中状态转移可以接受epsilon，不用给全所有可能（默认不写的转移函数值为空集），但栈顶和输入符号确定时值唯一  </p>
+<p>状态转移函数接受δ（状态、字符、栈顶）&#x3D;状态+栈顶 新压入的放左边（左边栈顶）</p>
+</li>
+<li><p>ID表达格局（q，w，γ）状态，剩余串和栈内容 定义ID推导关系<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105152652801.png" alt="image-20220105152652801"></p>
+</li>
+<li><p>定义自反传递闭包* ，自己推自己，且可传递。。 这里可以归纳于步数证明，自反传递闭包的推导中字符后面带东西和栈底有东西都不影响</p>
+</li>
+<li><p>终态接受语言：ID处理完w后能到终态，栈无所谓</p>
+<p>空战接受语言：ID处理完能到空栈，可以不规定终态</p>
+</li>
+<li><p>从空栈到终态：新增栈底元素X0，增加超起点用来压入原空栈的栈底元素并进入空栈PDA的起始点。对空栈PDA的每个状态都增加一个空转移可以把新栈底元素无偿弹出成空连接到超收点。</p>
+<p>相当于：在原来空栈接受的栈低下垫了一层新的栈底元素，原来的栈只要空了就有机会从任意状态直接弹出新栈底干到终态去。</p>
+</li>
+<li><p>从终态到空栈：同样增加新的栈底元素，新起点连接老起点负责压入原栈底，在每个终态都可以直接空转移弹出所有到超收点。超收点也是无条件空转移弹出所有栈元素</p>
+</li>
+<li><p>构造PDA：“任意前缀中a至少是2倍b：a压1个b弹两个才能回来<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105154144136.png" alt="image-20220105154144136"></p>
+</li>
+<li><p>a数目和b数目的累计：记录栈中是a多还是b多多几个，a每多一个栈多一个X，b Y，b遇到X弹出…… 最后要求栈里面不空就空字符+X（Y)才能转到终态。</p>
+</li>
+<li><p>a&#x3D;b且不含连续c：处理连续c—不入栈但把状态拐出去下一个一定得是a或者b</p>
+<p>思考：对于计数来说多用栈解决，对于正规就能搞定的连续之类的问题多用状态（包括压栈时候的一些二倍关系）搞定。最后检测栈里面必须只剩下Z0</p>
+</li>
+<li><p>可以一次性压入两个但是不能弹出两个，因为只能更换栈顶那L7P23压两个不行吗？</p>
+</li>
+<li><p>三个阶段的时候比如一定是若干a若干b若干c，阶段间转移建议用空字符+不变栈顶 为了表示“随时可以开始下一阶段”比如判断回文，不知道中点的时候需要尝试</p>
+</li>
+</ul>
+<h4 id="lect08"><a href="#lect08" class="headerlink" title="lect08"></a>lect08</h4><ul>
+<li><p>从CFG到EPDA</p>
+<p>一个状态，接受Terminals，栈里面非终结终结都有，开始符号就是栈底元素</p>
+<p>所有的产生式都是空转移读栈顶替换成新的，所有的终结符都可以与栈顶对应之后消掉。非终结符只处理栈，终结符的处理字符串同时消栈直到非终结符在栈顶</p>
+<p><strong>“PDA的转移函数右端可以是个集合有多个不同结果吗？？？空字符看来一定可以，具体字符呢？”</strong></p>
+<p>证明正确性：归纳于最左推导的步数n ，讨论第一步所用的产生式</p>
+<p>归纳于ID推导的步数n，讨论第一步产生式</p>
+</li>
+</ul>
+<ul>
+<li>从EPDA到CFG<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105161032888.png" alt="image-20220105161032888"></li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105160957763.png" alt="image-20220105160957763"></p>
+<ol>
+<li><p>初态能到任何[初态，栈底符号，any状态]</p>
+</li>
+<li><p>对原PDA中任何产生式，都有[<strong>p</strong> <strong>X</strong> pk]–&gt;<strong>a</strong>[<strong>q</strong> <strong>X1</strong> any] [any <strong>X2</strong> any]…… [any <strong>Xk</strong> pk] 每个转移函数对应：新栈顶*状态总数</p>
+<p>特别的 弹出操作新栈顶为epsilon时only a on right </p>
+<p>特别的 新栈为空+转移字符为空时候左边为空</p>
+<p>证明正确性：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105163605434.png" alt="image-20220105163605434"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105163615022.png" alt="image-20220105163615022"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105163625493.png" alt="image-20220105163625493"></p>
+</li>
+</ol>
+<h4 id="LEct9-确定下推自动机"><a href="#LEct9-确定下推自动机" class="headerlink" title="LEct9 确定下推自动机"></a>LEct9 确定下推自动机</h4><ul>
+<li><p>默认是终态接受的DPDA 确定的栈顶、字符转移函数的值只有一个元素即集合只有一个元素但仍为集合+如果有非空字符的转移则不能有相同状态相同栈顶的空转移</p>
+</li>
+<li><p>判断回文的经典自动机DPDA的话中间得有个标志，不然没法实现“随时都可以尝试进入下一阶段的处理”中的随时。但是虽然确定也不用每个状态写满</p>
+<p>结论：正规语言一定存在DPDA的表示，从对应的DPA继承过来即可，可以对w的字长归纳证明<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105164151822.png" alt="image-20220105164151822"></p>
+<p>归纳时候拆成了w&#x3D;x a ，先用归纳假设干掉x之后 根据继承产生式干掉a</p>
+</li>
+<li><p>DPDA的能力强于DFA 如WcWR不是正规语言（by pumping）</p>
+</li>
+<li><p>前缀性质：不存在互异的x y串在L中且x是y的前缀 L$一定具有前缀性质</p>
+</li>
+<li><p>一个语言L是某个空栈接受的EDPDA P的语言 iff L具有前缀性质且是某个FDPDA P‘ 的语言？比如经典的回文，具有前缀性质且L是某个DPDA的语言，则L也一定是某个空战接受的EDPDA的语言</p>
+</li>
+<li><p>存在上下文无关语言不是任何DPDA的语言（确定的上下文无关语言）不需证明 例： WWR</p>
+</li>
+<li><p>语言是空栈接受的DPDA的语言时L存在一个无二义文法（参考空栈PDA构CFG的方法，且有唯一的最左推导。。）</p>
+</li>
+<li><p>L是某个DPDA P的语言则L存在一个无二义的文法</p>
+<p>Proof：使用L$构造一个具有前缀性质的语言，根据上一性质得到无二义的G’，把$作为非终结符加上产生式$推epsilon</p>
+</li>
+<li><p>由上两条：固有二义语言不是任何DPDA的语言  但是也有非固有二义语言不是任何DPDA的语言比如WWR<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105165431985.png" alt="image-20220105165431985"></p>
+</li>
+</ul>
+<h4 id="Lect-10-CFG简化与chomsky范式"><a href="#Lect-10-CFG简化与chomsky范式" class="headerlink" title="Lect 10 CFG简化与chomsky范式"></a>Lect 10 CFG简化与chomsky范式</h4><ul>
+<li><p>符号（包括V和T）：生成符号（能推出w）、可达符号 （能被S推出的一部分）在一起是有用符号？不一定，可能有一个生成又可达的但是和一个无用绑定在一起被生成，为无用符号</p>
+<p><strong>消去所有非生成 再消去所有非可达，就剩下都是有用</strong>且与原文法等价。<strong>计算生成，删除，计算可达，删除。</strong></p>
+<p>如何计算生成符号？所有T都是生成符号，如果右面都生成则前面的A一定生成。不重不漏Proof？</p>
+<p>计算可达？S可达，左面可达则右面所有皆可达 不重不漏 Proof？</p>
+<p>可以为了简洁把V换名字</p>
+</li>
+<li><p><strong>消去epsilon产生式</strong>，可致空符号能推导出epsilon：基础，右边都是可致空则左边也是 不重不漏 先计算所有可致空符号 在可致空符号出现的地方<strong>讨论其出现或者不出现</strong>。特别的，单推空的直接删去。这样的与原来相比不能产生epsilon别的不受影响4</p>
+</li>
+<li><p>Unit产生式 A-》B unit偶对当且仅当A能在*步推出B且该推导只使用了unit产生式 需要计算所有unit偶对：每个字母和自己一定是unit偶对；如果AB是偶对，B-》C则AC也是偶对。不重不漏</p>
+<p><strong>计算偶对；对每个偶对找到最后那个非偶对的</strong>V比如A-》B B-》α 则<strong>加入A-》α删去unit产生式</strong></p>
+<p>但是保留B推α，可能产生不可达！ 最后在偶对的推导链上把前面的都连到最后一个</p>
+</li>
+<li><p><strong>简化CFG：消除空产生式、消除Unit产生式、消除非生成符号、消除非可达符号</strong>。这样的与原G只差空字符</p>
+</li>
+<li><p>Chomsky范式：任何不含空字符的非空上下文无关语言都存在一个CFG G产生式只有两种：一推二非终结符、非终结符推终结符。这样的文法叫做。。。</p>
+<p>对前文的工作（右边长度1的只有终结符）之后再：</p>
+<ol>
+<li><p>如果有非终结符a出现在右边长度大于1的，则引入新的非终结符替换掉，并加上A-&gt;a 至此右边长度大于1的产生式只有非终结符</p>
+</li>
+<li><p>对于右边长度大于2的采用级连cascade方法转变为——对A推出k个，引入k-2个新V替换掉</p>
+<p>实质上是对此在二叉化。。 与原L只差空字符</p>
+</li>
+</ol>
+</li>
+<li><p>CKY算法：判断某个串 属于某个CFG和分析树<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105194206387.png" alt="image-20220105194206387"></p>
+<p>先左再上，手指指着更新的时候（紧下列向下滑，右下向左上滑）</p>
+</li>
+</ul>
+<h4 id="Lect-11-上下文无关语言的计算"><a href="#Lect-11-上下文无关语言的计算" class="headerlink" title="Lect 11 上下文无关语言的计算"></a>Lect 11 上下文无关语言的计算</h4><ul>
+<li><p>Pumping引理：设非终结符数量m，取字长不小于n&#x3D;2^m的字符串z，考察其分析树：</p>
+<p>CNF后为二叉，叶节点为n个，则h-1&gt;&#x3D;log2,|z|&gt;&#x3D;m，设从根节点S的一条最长路径S A1……Ak 至少为m+1 必有重复节点在A这条路中。划分为uvwxy，<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105195058905.png" alt="image-20220105195058905">则一定可以pump v和x，其i次方都应该合格</p>
+<p>理解为某个广义产生式（推导关系）可以递归</p>
+<p>Lemma：存在正常数n，使得任意长度不小于n的字符串z在L内，都可以分成uvwxy五部分且满足：vx不空，|vwx|&lt;&#x3D;n 对任何k&gt;&#x3D;0 都可以pump v与x</p>
+</li>
+<li><p>用来否定</p>
+<ol>
+<li>假设是CFG，则存在一个整数n满足pumping引理，取一个串&gt;n</li>
+<li>讨论符合规则的五段划分，证明其都不能pump起来（都存在一个pump次数k使得串不再是L中）</li>
+</ol>
+</li>
+<li><p>判定CFL是否为空：计算生成符号之后看S在不在，On方降On</p>
+</li>
+<li><p>判定是否包含特定字符串：chomsky之后CKY On3</p>
+</li>
+<li><p>不可判定问题：无二义？固有二义？两个CFG相交为空？相等？给定CFG是否是字母表*</p>
+</li>
+<li><p>封闭运算</p>
+<ul>
+<li><p><strong>替换</strong>：如果任何字母表中的a，s（a）是CFL且L是CFL则替换后s（L）也是上下文无关。</p>
+<p>证明：分析树每个叶节点a替换成s（a）的分析树</p>
+<p>映射每一种字母表中字符到一个语言称为替换，可以替换a，w（拼接替换字符）甚至L（w的替换并集）   </p>
+</li>
+<li><p>并：两个CFL并也是CFL 替换{0,1}中0为L1,1为L2 ，即得</p>
+</li>
+<li><p>*闭包和+闭包：都是CFL 也是替换掉{1*}中的1为L则得</p>
+</li>
+<li><p>连接：{01}分别替换为L1 L2</p>
+</li>
+<li><p>同态：替换s（a）&#x3D;{h（a}}，则s（L)&#x3D;h（L)</p>
+</li>
+<li><p>反向：L是则LR也是（每一个都Reverse），证明：构造G后尝试构造G’</p>
+<p>产生式中每个右端都reverse掉，这样的G‘就是LR <strong>归纳于推导长度证明？</strong></p>
+</li>
+<li><p>交 补 差 都不一定 交出0^n 1^n 2^n后不是CFL但是n n i 和 i n n都是</p>
+</li>
+<li><p>CFL与RL正规语言的交一定是CFL 、</p>
+<p>根据DFA和FPDA构造<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105202626364.png" alt="image-20220105202626364"></p>
+</li>
+<li><p>反同态仍然是CFL：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105202714752.png" alt="image-20220105202714752"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Lect-12-Turing-Machine"><a href="#Lect-12-Turing-Machine" class="headerlink" title="Lect 12 Turing Machine"></a>Lect 12 Turing Machine</h4><ul>
+<li><p>基本图灵机：带与带头，空白符B 七元组{状态集合，接受字符集合、带符号集合、转移函数集合、开始状态、空白符、终态集合}  转移函数为偏函数从状态和带符映射到状态、带符和方向</p>
+</li>
+<li><p>ID表达格局：带头表示为当前状态，后面是正在扫描的单元格cell 前后需要空白之中的符号串但是也可以有B串</p>
+</li>
+<li><p>ID推导，特殊的可以往两边推，如果带头到了B上则写B，如果把最右&#x2F;左端写成B则可以省略</p>
+</li>
+<li><p>一般计数的思想为匹配：从左往右跑一趟就是匹配了一组数，再回去再跑。。</p>
+</li>
+<li><p>可<strong>被图灵机接受的是递归可枚举语言</strong>REL 定义TM的语言是使得q0w 推出 终态的串w集合</p>
+</li>
+<li><p>halt：不存在下一个移动，与原来的图灵机语言相通但是接受w之后停机不再移动。总是假定图灵机到达终态之后停机（对于可接受的w）</p>
+</li>
+<li><p><strong>递归语言：当且仅当存在TM M使得LM&#x3D;L且如果语言中的w，M接受自然会停机，非语言中的w输入M中也会停机（但是无法到达终态） ——对应的问题是可判定的</strong></p>
+</li>
+<li><p>带存储区的状态：状态有有限个取值，其实是带头有个存储区可以在移动的时候改变。适用于一些分类的情况如 与经典图灵机等价（状态变成了二元组而已）<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105210253098.png" alt="image-20220105210253098"></p>
+</li>
+<li><p>多道图灵机：也是基本图灵机但是纸带是原来的三倍宽，即每个带单元格可以表示为三元组</p>
+</li>
+<li><p>编程技巧：在图灵机中融入子例程干一件特定的事情</p>
+</li>
+<li><p>多带图灵机：初始输入符号串在第一条带上，其他所有带的单元格都是B；有限控制位于初态；第一条带头在输入串最左，其余不定。可以有3（多个）带头。每一个move中，控制进入新的状态，每条带上正在被扫描的符号被替换为新带符，每个带头独立的向左、右、不动。</p>
+<p>其能力等价于单带图灵机：用2k道模拟k带图灵机。<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105210824345.png" alt="image-20220105210824345"></p>
+</li>
+<li><p>非确定TM：转移函数右边是三元组的集合，仍与确定图灵机等价。双带图灵机可以模拟非确定。广度优先的方式模拟非确定性图灵机的整个ID‘s空间树<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105210953681.png" alt="image-20220105210953681"></p>
+</li>
+<li><p>受限图灵机（都与基本TM等价）：半无穷带（双道半无穷即为双无穷）、多栈机（k个下推栈可以用k+1条带的多带TM模拟（一条扫描，剩下k条下推），两个下推栈就可以模拟一般图灵机，其中一个是带头左边单元格，另一个是当前以及右边单元格）、k计数器机（多个非负整数的计数器，控制时只知道是否非零——特殊k多栈机，一个计数器就是DPDA,两个以上就是TM</p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211419937.png" alt="image-20220105211419937"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211430937.png" alt="image-20220105211430937"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211439718.png" alt="image-20220105211439718"></p>
+</li>
+<li><p>普通计算机模拟图灵机，说明计算机不弱于图灵</p>
+</li>
+<li><p>以多带图灵机模拟普通计算机（TM不弱于现行冯诺依曼计算机）：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211534159.png" alt="image-20220105211534159"></p>
+</li>
+</ul>
+<h4 id="Lect-13-Computing-Theory"><a href="#Lect-13-Computing-Theory" class="headerlink" title="Lect 13 Computing Theory"></a>Lect 13 Computing Theory</h4><ul>
+<li><p><strong>图灵机与输入串的二进制编码</strong>：假定输入01串，有限状态1~k，规定始末态12，带符号X1到Xm且X1为0 X2为1 X3为B 假定带头移动为D1D2分别LR</p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211847110.png" alt="image-20220105211847110"></p>
+<p>单1间隔转移规则中的元素，双1间隔转移规则，三1前面是输入串编码（前面需要加个1？）后面是图灵机编码</p>
+</li>
+<li><p>编码01串：任何01串编码为1w比如  &#x2F; 空：1&#x2F;  1:11 &#x2F; 0:10  &#x2F; 00:100   L13P6？<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105212609235.png" alt="image-20220105212609235"></p>
+</li>
+<li><p>对角语言——不是递归可枚举</p>
+<p>按照上述编码每个TM对应整数i 即其二进制编码是第i个0 1字符串，但不是每个整数都有图灵机对应。认为第j个图灵机不接受任何串，这样定义对角语言：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105212754850.png" alt="image-20220105212754850"></p>
+</li>
+<li><p>递归语言补运算封闭，递归语言的补也是递归语言。<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213137269.png" alt="image-20220105213137269"></p>
+</li>
+<li><p>递归可枚举语言的补运算不封闭：反例：通用语言</p>
+<p>如果语言和语言的补都是递归可枚举的，则一定都是递归的<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213235015.png" alt="image-20220105213235015"></p>
+</li>
+<li><p>通用语言——递归可枚举但是非递归，<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213353787.png" alt="image-20220105213353787"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213401861.png" alt="image-20220105213401861"></p>
+</li>
+<li><p>语言对应的问题：“任意给一个串w在字母表*内，判定w是否是L内？”</p>
+<p>通用语言对应的问题：“任给图灵机M和输入串w，判定w是否被M接受？“</p>
+<p>图灵机停机问题：任给TM M，以及输入串w试问对w，M是否停机？——<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213646238.png" alt="image-20220105213646238"></p>
+</li>
+<li><p>如果问题所对应语言是递归的，则该问题可判定，否则不可判定。语言递归可枚举贼该问题部分可判定，否则非部分可判定</p>
+</li>
+<li><p>问题的归约？<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213808681.png" alt="image-20220105213808681"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213858952.png" alt="image-20220105213858952"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213908332.png" alt="image-20220105213908332"></p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213918441.png" alt="image-20220105213918441"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213926063.png" alt="image-20220105213926063"></p>
+</li>
+<li><p>TM的时间复杂度，最多T（n）步停机，无论是否有w是M的语言。则为Tn</p>
+</li>
+<li><p>非确定的时间复杂度：任何转移序列</p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105235651637.png" alt="image-20220105235651637"></p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-01-02T05:44:00.000Z" title="2022/1/2 13:44:00">2022-01-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.486Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">32 minutes read (About 4809 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/01/02/2021Fall-DSA-cheatsheet/">2021秋季学期 数据结构与算法 Cheat Sheet</a></p><div class="content"><p><strong>word三栏复制到markdown很乱，渲染后的<a href="/pdf/2021Fall-DSA-cheatsheet.pdf">pdf版</a></strong></p>
+<p><strong>正确性：保持某性质，单调能中止</strong></p>
+<p><strong>CH1</strong>最大子段和——从后剪负和更新 公共子序列——DP打表 渐进复杂度——够大，平均（期望复杂度）：</p>
+<p>独立考察、各种操作概率加权 &amp; 分摊复杂度：连续足够多操作后，总体成本摊还给单次操作</p>
+<p><strong>CH2</strong> 二分while(lo&lt;hi){mi&#x3D;&#x2F;2; e&lt;S[mi]?hi&#x3D;mi:lo&#x3D;mi+1;</p>
+<p>ret lo-1; 插值最慢On 字长到n^1&#x2F;2后为loglogn </p>
+<p>Bubble优化：大趟无误停止；大趟中表明last（最后逆序对可能出现的位置，后面一定有序，hi更新为last</p>
+<p><strong>Bitmap</strong> 掩码位置0x80&gt;&gt;(k&amp;0x07) <strong>校验环</strong> 等长intF[]和一个stack，使得stack添加的时候辅助F记录位置，del：交换为栈顶，懒惰删除 Read:k&#x3D;&#x3D;T[F[k]] </p>
+<p><strong>列表</strong>去重：相邻对相同删除后者</p>
+<p><strong>选择排序</strong>稳定性:选择大于等于保证稳定性，后者优先</p>
+<p>循环节 A[k] A[r(k)] A[r(r(k))]回到A[k]互不交 不超n</p>
+<p>交换法使M脱离原循环节自成且原来减小1 无需交换次数等效于最初的循环节个数 <strong>插入排序</strong> 就地在线输入敏感 最坏n^2 [3-10] <strong>归并</strong>排序 适于并行外部</p>
+<p>逆序对：上界On^2 冒泡交换逆序减一 归并可计数</p>
+<p><strong>游标列表</strong> 一组数据等长游标，空数据指向下一个可插入位置，非空指向下一个可删除位置（头方向）</p>
+<p>CH4 Stack尾递归<strong>进制转换</strong>：while{模入栈，数&#x2F;&#x3D;进制}</p>
+<p>D括号匹配：规定通用，不能失配，最后为空</p>
+<p>E 栈混洗：只允许原入辅助，辅助入目标。本质是等量PopPush序列，等价于括号匹配。混洗数卡特兰（S第一次变空的时候——A首元素S弹出）(2n)!&#x2F;(n+1)!n!，SPn&#x3D;sum(1<del>k</del>n)（SP（k-1）*SP(n-k)）</p>
+<p>充要：没有312，没有j+1,i,j，模拟验证：从另一个栈底开始匹配，对上了就pop，否则push成功则对。</p>
+<p>F 中缀表达式求值：维护数和符号栈，读符号若读入高push，栈顶高开算直到栈顶低，相等（右括号或\0）脱括号进入下一字符;左括号全&lt; 右括号全&gt;从来不入栈</p>
+<p>G <strong>RPN</strong> 数压入，符直接算 生成：操作数直接接入RPN，也放到栈中；运算符执行计算时接入RPN。</p>
+<p>J <strong>双栈当队</strong> 裹进两个底对底的栈，enq压入R，deq弹出F，若无F则把所有R都装过来。<strong>分摊分析</strong>针对每一个输入对他们的不同状态提出不同的开销，再根据假设情况计算上界最后总开销摊还给这种假设情况 d次deq和e次enq之后。。势能：原开销+动态势能&#x3D;定</p>
+<p>K <strong>Steap Queap</strong> Def辅助序列：每一个元素都是原序列中后缀最大者——从尾端扫描“顶”起非降。栈push新元素与辅助栈顶较大的。队列push要向前撑到够不到为止。优化：只计那几个撑起来的index</p>
+<p><strong>直方图最大矩形</strong> for&lt;n{while(!empty&amp;&amp;H[top]&gt;&#x3D;H[r]) S.pop(); &#x2F;&#x2F;until H[top]&lt;H[r] S[r]&#x3D;empty? 0:1+H[top]; push(r); }pop all..栈顶小于扫描就入栈，栈顶大时就一直POP+计算更新直到栈顶小。继续扫描。分摊O（n）？</p>
+<p>CH5 A 空树H取-1，RB取0 <strong>真</strong>:全二度 <strong>完全</strong>只剩最后一层不满 <strong>满</strong>为全满 长子左孩与兄弟右孩—<strong>多叉树</strong></p>
+<p>E 先序：维护栈while: pop访问+push rc lc while{访问左藤（loop: visit x+push x-&gt;rc+x&#x3D;x-&gt;lc until !x），栈空退出，否则弹出子树循环.}</p>
+<p>F中序：深入左藤（从上到下依次入栈），栈空退出，否则pop一个节点visit后转向其右子树..节点出栈时左子树不存在或完成，右子树未入栈。是否O（n）</p>
+<p>Succ()：有右孩子，右孩子一路向左深入。否则一路作为右孩子(向左上)找爹，停止后再找一个爹。</p>
+<p>G后序：若栈顶不是x的爹，就去找其子树中最左的叶子（while栈顶x非空(if lc，（if rc,push rc）push lc) else(push rc).返回前pop()）。Pop and visit 每个节点出栈时以它为根的子树已经遍历，且右兄弟如果存在一定在栈顶。正可以遍历右兄弟。验证复杂度？</p>
+<p>等价于表达式树的计算~RPN</p>
+<p>H 层次遍历：deq visit enq lc rc，其中队列最大规模n&#x2F;2的ceiling。前面都出1入2.向量紧凑表示完全树</p>
+<p>I重构 中序+先序|后序 or先序+后序&amp;&amp;真 增强序列allNULL输出 <strong>PFC</strong> 文件长度正比于平均带权深度wald。必有叶子在底两层 不断贪心合并最小树直到只剩一棵 正确：内节点必双子、兄弟可换、层次 归纳 定差</p>
+<p>CH6 图 A 简单图：无自环重边 简单路径没有重点 带权网络即各边带权重的图 </p>
+<p>B <strong>邻接矩阵</strong> n<em>n记录边 关联矩阵n</em>e structV中有出入度、状态、dftime、遍历树parent、priority structE中有type（undetermined、tree、cross\forward\backward）</p>
+<p>实现：线性Vs、双vec嵌套构成二维边指针集合。枚举所有邻居O(n) 邻接表为Ooutdeg+1 <strong>addedge</strong>：new</p>
+<p>表并更新关联点的出入度。Deledge类似 addvertex：Vs push新、每个已有的外层vec都要push一个null并且加一个整个的外层vec。删除：del出边（入度）和那一列vec，删除顶点后再删除所有的入边（出度）。</p>
+<p><strong>性能分析</strong> 适稠密图 θn^2空间 用vec后透明地处理空间溢出等 平面图有点-边+区域-连通支&#x3D;1</p>
+<p>C <strong>邻接表</strong> 每个点作表头连接自己所有邻居（所有后继），有向图只记录作为前驱\后继的边，适稀疏</p>
+<p>空间On+e 平面图On 时间：构造n+e 枚举所有以v为尾（头）的弧1+degv （n+e，可建立逆邻接表改进） 维护后查deg+-都是O1 但exists需要搜索Oe，选用散列可期望O1 适遍历、顶点数目不定，算deg相关</p>
+<p><strong>D bfs</strong> 树的层次遍历 维护Queue，每次dTime&#x3D;++clock，对于所有邻居开始处理{如果尚未发现则改为发现并加入Q中，标记为Tree边和parent，如果已经被发现标记为跨边}标记访问完毕</p>
+<p>用于：寻找连通支和可达分量，对连通支的遍历包一层小写的bfs，reset并重置clock，对所有节点做遍历一旦未发现就做BFS(v,clock)。</p>
+<p>复杂度：无向图reset n+e 每个顶点内枚举邻居需要1+deg，共需要n+2e</p>
+<p>性质应用：最短路径即为深度 周星驰数</p>
+<p>​      E <strong>dfs</strong> 先序遍历支撑树 DFS{标记开始时钟; 发现当前v 考察每个邻居{未被发现：标树，递归DFS它；dis—指向了祖先，backward；visited—比较发现时间，自己早则forward 否则cross} v已经访问完毕；标记结束时钟}</p>
+<p>无向图中只有TREE和BACKWARD 有向图 也包装</p>
+<p>遍历树所有边取反向 <strong>括号引理</strong>：后代活跃期包含于祖先，无关则不相交，没有别的情况。Backward一定有回路但！&#x3D;回路forward是我的孩子，cross和我无关。有向图环路检测dfs 欧拉回路拓扑排序双联通分量dfs</p>
+<p>F <strong>拓扑排序</strong>DAG有向无环图 构造与偏序相容的全序 可以拓扑排序一定无环，无环一定可拓扑排序。因为“有向无环图中必有零入度节点不唯一m”若去掉m可排序则加入m的排序为m在最前 m。</p>
+<p>顺序：所有零入度入Stack，取空Q，while S不空{栈顶入Q，如果v邻接u入度1则入栈，并删除v及其关联}最后G删空当且仅当成功拓扑排序</p>
+<p>逆序：DFS中每当visited加入S，有backward not dag。结束后顺序弹出S已经ftime由大到小  <strong>CH7APP</strong></p>
+<p>A 双连通分量 关节点删了之后连通分量增多，无关节点为双连通图，极大的双连通子图为双连通分量BCC 找关节点？—通过dfs根至少两子树，内部节点有某个孩子u且这颗子树不能由任何backward连接到v的真祖先（可以backward到v）。这时BCC父亲和BCCu的关节点。记录Highest Connected Ancestor：hca(v) &#x3D; subtree(v) 经过backward连接的最高祖先。DFS中一旦发现backward v,u，取hca v&#x3D;min(hca(v),dtime(u))最后标记的是dtime。如果dfsu完成返回v时若有hcau&lt;dtimev则hca(v)&#x3D;min(hca(v),hca(u))。否则u子树的最高祖先不超过v即可断定v是关节点。而v+子树u为一个BCC</p>
+<p>Dfs找bcc：额外围护Stack，将当前v入栈。枚举邻居{未发现Evu—标树边，递归遍历u、讨论hca关系确定关节点后持续弹出S直到u弹出这些就是一个BCC；见上}同O(n+e) 推广到强联通分量？618</p>
+<p>B <strong>pfs</strong> 存放顶点并维护priority(v)越小越先 框架{枚举邻居更新优先级和父节点；从undis节点中挑出pri最小的点作为下一个s；标记为访问以及标记好树边（特别的，s的爹已确定）</p>
+<p>C Dijkstra 均正最短路径树!&#x3D;MST 更新时发现比较路径长度松弛长的（by set new parent）</p>
+<p>D prim—MST 允负0 Cayley完全图有n^(n-2)</p>
+<p>uv是该割的一条极短跨边则一定存在包含uv的MST。反证证明。任何MST都通过极短跨边连接割。若支撑树添一条边的环路中存在其他边为极长边。则原T-f+e为新图的MST。构造中把当前树看成割。正确性：每一条都属于某一MST 6-28？</p>
+<p>实现：比较老pri和权重，后者小则更新pri和parent</p>
+<p>E Kruskal MST 每个节点都是一棵树，按照边权排序依次尝试使森林变为一棵树。找e来自不同树时可以合并。Proof 引入的每条边都属于某颗MST e一定是割</p>
+<p>T的极短跨边。归纳证明。。</p>
+<p>并查集union-find问题：维护group[]所属子集快找慢合并。维护parent法：合并时指向新爹即可680？</p>
+<p>F Floydwarshall 允负边但不能负环路。For k for u for v A[u][v]&#x3D;min(A[u][v],A[u][k]+A[k][v])  <strong>8****二叉搜索树</strong></p>
+<p>A 中序有序 归纳树高可证中序遍历单调</p>
+<p>B 查找—返回引用，可能为空节点表示该插入的位置 插入—查找确定位置，插入后向上更新高度 删除—分类删除{单分支时删除自身让孩子替换，双分支与直接后继交换数值！删除其直接后继}向上更新高度</p>
+<p>C 期望树高 全随机排列的平均高度θlognBST越低的权重越大 n个互异节点的不同BST共有catalan(n)棵&#x3D;sum(S(k-1)*S(n-k)&#x3D;(2n)!&#x2F;(n+1)!n! BST等概率θsqrtn</p>
+<p>理想平衡：n个节点高度在log2n 渐进平衡—渐进不超过Ologn即为BBST 等价BST可On互转</p>
+<p>   D AVL树渐进平衡 定义平衡因子&#x3D;H(lc)-H(rc)&lt;&#x3D;1 h高度至少包含S(h)&#x3D;fib(h+3)-1个节点此为最瘦的情况 S(h)&#x3D;1+S(h-1)+S(h-2)配成fib</p>
+<p>插入可能从祖父向上一整路失衡，找到最低失衡节点(一边updH)和儿孙考虑。同向一次zigzag用34实现,异向两次等价于34重构。高度复原，全树复衡。</p>
+<p>删除：单旋、双旋情况可能祖先继续失衡高度减小，可能需要logn次调整、            可能全树高度下降 kunth: 0.21次</p>
+<p><strong>1D****查区间</strong> 二分查右边界后向前检查+输出Or+logn</p>
+<p><strong>2D</strong>：利用容斥原理n方时间的预处理，矩阵每个点中包含其左下的点的个数，答案正对角线-反对角线</p>
+<p>   预处理和空间为n^2，每次queryOlogn</p>
+<p>B <strong>kdtree</strong>1D—完全二叉each key&#x3D;Minkey in Rsubtree，即右边区间的左端点。仅最底两层的叶节点是1D点集</p>
+<p><strong>2D</strong> 每个region左下开右上闭 等价于四叉树划分</p>
+<p>递归建树P：如果只剩一个，创造叶节点返回;</p>
+<p>Root&#x3D;createKdNode();splitDirection&#x3D;even(d)? ver|hori; root-&gt;splitline&#x3D;findmedian(direction,P);</p>
+<p>分隔开子点集，并左右递归建树 所属region往左下移</p>
+<p>Query：如果是叶区间，判断是否在；左右分别{整个region都在搜索中，report，否则如果有交集则继续递归搜索}</p>
+<p>复杂度：预处理Onlogn 储存On 查询Or+sqrtn</p>
+<p>Q(1)&#x3D;O1; Q(n)&#x3D;2+2Q(n&#x2F;4) 节点的四个孙子不超过两个会继续递归。更高维度？O(r+n^(1-1&#x2F;d)) </p>
+<p>C MultiLevelSearchTree 按维度搜索范围，最坏——x搜出了所有点但y拒绝了所有点 On</p>
+<p>嵌套树实现 O(r+(logn)^2) 二维建树时空Onlogn</p>
+<p>二维以上建树储存都是nlog（d-1）n 查询为r+logdn</p>
+<p>A 逐层<strong>伸展</strong> 对v的父亲做zigzag，最坏时分摊Ωn</p>
+<p>双层伸展 向上追溯两层， 在双zig或zag时先转祖父再转父亲。使最坏情况的单条路径也能收缩一半。【8-2】分摊Ologn每次旋转之后都要对三代updH</p>
+<p>搜索：标准搜索+splay+返回根</p>
+<p>插入：搜索后决定在根的左上还是右上插入新根</p>
+<p>删除：搜索后删除，在R里面做失败查找Rmin来当根 评价：无需高度和平衡，分摊Ologn近AVL且反复顺序访问子集分摊仅常数</p>
+<p>分摊分析：定义势能φT&#x3D;sum(log(sizev))平衡小倾侧大</p>
+<p>单链logn!&#x3D;Onlogn 满树On 不妨仅考察search</p>
+<p>连续m&gt;&gt;n次访问，记Ak&#x3D;Tk+△φk</p>
+<p>则显然T&#x3D;A-△φ在A+-Onlogn区间内若能证明   A&#x3D;Omlogn则一定有T&#x3D;Omlogn</p>
+<p>​         讨论A在单zig&#x2F;zag中Ai&lt;1+rankiV-randi-1V</p>
+<p><strong>B BTree</strong> d代合并 m&#x3D;2^d出路和2^d-1个关键码 多级存储中减少外部查找的IO，批量访问一组关键码</p>
+<p>外部节点深度相等为树高，叶节点为h-1，内部节点关键码&lt;&#x3D;m-1&amp;&amp;分支出路：ceiling m&#x2F;2&lt;&#x3D;n+1&lt;&#x3D;m（root&gt;&#x3D;2）成为(m&#x2F;2，m)-树 典型(2,4)-树</p>
+<p>内部都是vec装关键码和孩子</p>
+<p>查找 vec，不成功标记_hot，v&#x3D;v-&gt;child[r+1]每一深度最多一次IO运行时间Ologn</p>
+<p>插入上溢 在_hot中插关键码和空指针，检查上溢：上溢节点中位数归入父节点的子树位置并分裂指针分别指向中位数左边右边，仍然可继续分裂。。到根仍上溢则提升中位数为新根，是B树增高唯一途径  O（h）</p>
+<p>删除下溢：如果不是叶子，在右子树中找直接后继交换</p>
+<p>1.若有左兄弟且够大，则p节点分界key作为最小，左兄弟最小作为p节点分界。2.右兄弟借父亲旋转修复</p>
+<p>3.左右兄弟必有其一但不够用则把父亲的分解key降下来粘接自己与兄弟。但父亲仍继续下溢，不超过Oh</p>
+<p>Max Height时内部节点尽量瘦<strong>logmN+1 &lt;&#x3D; h&lt;&#x3D; 1+ log (ceiling(m&#x2F;2), grounding ((N+1)&#x2F;2))</strong></p>
+<p>C <strong>红黑树</strong> 减少结构变化，相邻版本差不超过O1 </p>
+<p>1树根和外节点为黑 2.红节点只有黑孩子父亲 3.外部节点黑深度相等 即根的黑高度 等价于2,4 B树证明其平衡h&lt;&#x3D;R+H&lt;&#x3D;2H 黑高度上界log2,n+1故Ologn</p>
+<p><strong>插入</strong>：红节点黑高度0修双红{爹是红则一定有黑祖父，1.叔父黑，则局部34重构+染色RBR 2.叔父红，pu转黑（BH++）g转红。分裂节点g上移但g仍可能双红 若已经抵达树根则强行转黑、黑高度++}</p>
+<p><strong>删除</strong>：仅分析实际删除的，单分支被接替的情况。删除者和接替者一个红时，接替者染黑即可。</p>
+<p>​         删除者接替者都黑需修正 如果删除根则新根置黑，更新高度即可。若父亲平衡则好，替代节点为红染黑即可，接替和删除均黑（此时接替者为null）{接替者父亲p和兄弟s </p>
+<p>​      <strong>BB-1</strong>兄弟黑且至少有一个红孩子t{ s继承pcolor, tp to black} 等效于关键码旋转消除下溢 转下p转上s </p>
+<p>​      <strong>BB2-R</strong> s黑且两个孩子都黑p红 下溢节点与兄弟合并顺便向父节点借了一个红色</p>
+<p>​      <strong>BB2-B</strong> s黑两个孩子都黑 p黑 合并兄弟和空空的自己和爹，父节点变空继续上溢 solve（p）</p>
+<p><strong>BB-3S</strong> 红孩子必黑</p>
+<p>绕p单旋继续solve （r）下一步必恢复</p>
+<p>1~2旋转 3染色&#x2F;2染色&#x2F;1染色上升一层&#x2F;1转2染色</p>
+<p>A <strong>hash</strong>() key-&gt;&amp;entry 期望O1不是O1</p>
+<p>   B 散列函数 确定快速(期望O1)满射均匀少聚集取质</p>
+<p>数模：不动点0，相关性(相邻映射也相邻) MAD  (ax+b)%primeM 还有数字分析、平方取中间几位，折叠取和、按位异或、伪随机数、多项式{循环移位异或之后相加，最后模表长}</p>
+<p>C 冲突排解 开放散列 多槽位、独立链空间不连续无法缓存、公共溢出区处理冲突正比于溢出区规模</p>
+<p>封闭散列+开放定址可出借 </p>
+<p><strong>线性试探</strong>：非同义词也会冲突，数据堆积严重、局部性良好。标记以懒惰删除—后查找时为不匹配的非空桶，插入时为空桶</p>
+<p>平方试探：表长素数且装填因子小于0.5一定能找到出空桶——n方%M取值为ceiling(M&#x2F;2)且前面就能取遍</p>
+<p><strong>双向平方试探</strong> 表长取4n+3素数就不重不漏</p>
+<p>素数p表示为平方和等价4k+1 自然数表示成平方和等价于每一个4k+3素因子都是偶次方</p>
+<p>再散列：约定冲突后再hash一次为每次的偏移增量</p>
+<p>重散列：懒惰标记过多或者装填因子太大</p>
+<p><strong>桶排序</strong> 初始化置0，扫描标记Om、顺序输出On。允许重复时桶里维护链表和表长空间变Om+n</p>
+<p>N个互异点在实轴上的最大缝隙？1.找出最左最有并划分n-1个桶 2.模余归入对应的桶并在每个桶中动态记录最左最右点（可相同可没有） 3.计算相邻非空桶的距离 Proof Maxgap至少跨过两桶 但mingap？</p>
+<p><strong>基数排序</strong> 从低位开始分别桶排序 Proof会保持前i-1趟的顺序复杂度为O(t*(m+n))m为取值范围，t为数域位数 且有稳定性。。二进制时1扔到尾巴0不管</p>
+<p><strong>整数排序</strong> n进制d位 比如六十四位整数的n&gt;2^16即可 在0~n^d中n个数转换进制后排序时间为Odn</p>
+<p>转换进制的复杂度。。？</p>
+<p><strong>计数排序</strong> 大数据小取值——已经按数字排序的牌再按花色排序：归到四个花色桶中，得到各个桶内的最大rank（向后累加桶内个数）。从后向前扫描原序列并相应桶的–最大rank即为位置。。</p>
+<p>   <strong>跳转表</strong> 期望塔高2解决空间On</p>
+<p>   查找：每一层向后到更大的key or溢出，命中则返回否则向下一层继续。。纵向跳转不超过期望<strong>Ologn</strong>  </p>
+<p>横向跳转一定抵达塔顶Thm Ey&#x3D;(1-p)&#x2F;p&#x3D;1次，同层不超过两次，每次查找都在期望2h即Ologn内</p>
+<p>插入：查找位置（雷同降落）插入底层后后扔硬币长高 删除时从高到低拆塔</p>
+<p>   A 支持取删插(sorted) vector list BBST都可实现</p>
+<p>B 完全二叉堆借助Vector</p>
+<p>插入：末尾插入后逐层上滤，大了就换，不需则停</p>
+<p>删除：删头补脚后逐层下滤，找堪为父者交换或停止</p>
+<p>建堆：按个上滤时最坏Onlogn-&gt;自下而上的下滤Floyd 从n&#x2F;2-1开始向上的下滤 </p>
+<p>C <strong>堆排序</strong> 改进selecttion的发动机选最大值，就地算法{建堆后swap头元素和elem[n–]，下滤堆头}</p>
+<p>D <strong>胜者树</strong> 叶节点待排序内部为胜者 createOn removeOlogn insertOlogn 树根是全局冠军。用于排序时建堆后排一个数就下去删除然后向上重赛。。Onlogn</p>
+<p>选取最小的k个 n+klogn</p>
+<p>败者树：根的父节点是冠军，重构时和败者比赢得向上输的留下。构造时相当于n次重构</p>
+<p>E <strong>优先级队列</strong> 堆装满顶点 delmax nlogn increase更新关联顶点距离需要elogn   <strong>d****叉</strong>par**:**k-1&#x2F;d， child&#x3D;kd+i </p>
+<p>上滤logdn 下滤dlogdn 运行时间为ndlogdn+elogdn</p>
+<p>取d&#x3D;e&#x2F;n+2时达到O(elog((e&#x2F;n+2),n))自适应达到最优</p>
+<p>左式堆后O(e+nlogn) 插入合并inc接口分摊O1</p>
+<p>F <strong>左式堆</strong>(knuth修订命名) 沿藤合并 基于二叉树</p>
+<p>引入all外部节点 定义NPL为到外节点的<strong>最近距离</strong>且规定npl左孩子&gt;&#x3D;npl右孩子 自己npl&#x3D;1+npl(rc)</p>
+<p>根右侧链(长度d)的终点为最浅外部节点，存在以r为根高度为d的满子树 至少有2^d-1个内部节点和2^(d+1)-1个节点 反之n节点左式堆一定小于grounding（log(2n+1)）&#x3D;Ologn</p>
+<p>合并：{把较大的堆的右子堆与另一堆合并后连接到较大的堆顶，并根据npl可能交换左右子堆，更新npl1116</p>
+<p>插入 merge原树和新节点 删除 merge左右子树</p>
+<p>B 暴力 i(原串) j都要回退</p>
+<p>C <strong>KMP</strong>(Knuth+Morris+Parrt) i永不回退 失败时j变小并继续，记录j回到的next表：前缀&#x3D;后缀的最大前缀右点 while(j&lt;m&amp;&amp;i&lt;n){ if (j&lt;0||T[i]&#x3D;&#x3D;p[j]) i,j++ else j&#x3D;next[j]} <strong>分摊分析</strong>：K&#x3D;2*i-j 成功失败k都会至少加1，结束时k&lt;&#x3D;2n+1</p>
+<p>Next表：失败前的后缀&#x3D;原串前缀len</p>
+<p>mamammia-10012310 -1 0 -1 1 0 -1 3 1 0 </p>
+<p>   <strong>Boyer &amp; Moore****算法</strong>BC从末字符开始比对，BC怀字符，遍历Pstr标记字符的最右出现 </p>
+<p><strong>偏好</strong>概率小P长字母表大 <strong>策略</strong>移动到那里&#x2F;没出现整个移过去&#x2F;出现太靠右移动一个</p>
+<p>最好n&#x2F;m 最坏n*m worst: 100in000000？</p>
+<p>Gs表好后缀 最好n&#x2F;m最差n+m 改良kmp反过来找P[j:m]&#x3D;P[k:m-j]把j-k记录在j里 </p>
+<p>构造：MS&#x2F;ss&#x3D;P[0:j]的某个后缀&#x3D;&#x3D;P的某个后缀&lt;&#x3D;j+1</p>
+<p>Ssj&#x3D;j+1: gs[i]&#x3D;m-j-1任i&lt;m-j-1&#x2F;gs[m-ss[j]-1]&#x3D;m-j-1</p>
+<p>ms[n-1] &#x3D; n; int lower &#x3D; n-1, upper &#x3D; n-1;</p>
+<p>KarpRabin d进制数编号 匹配则一定子串相等 将指纹用散列压缩（相邻两次散列，O1内获得下一个指纹） 哈希值相等后仍需精确比对 </p>
+<p>A <strong>快排</strong>mi**&#x3D;**Partition(lo,hi),递归快排两边</p>
+<p>LUG版 随机选一个轴点swap到lo并备份，向内交替移动hi lo 把有效的指向空的后变为空的。最后轴点归位 期望logn 取消递归时维护栈小贪心，大任务优先入栈。保证递归深度不超过logn <strong>落在λn试试</strong>，一条递归路径最多log(2&#x2F;(1+λ),n)个准居中，λ&gt;1&#x2F;3时有1-1&#x2F;pown的概率深度不超3log3&#x2F;2,n <strong>比较次数</strong>1.386</p>
+<p>LUG‘解决重复，if(lo&lt;hi)elem[lo++]&#x3D;elem[hi];</p>
+<p>DUP’版 松LUG’的交换条件，多交换轴点居中 DUP</p>
+<p>LGU稳定：从第二个往后如果小于轴点就与++mi交换</p>
+<p><strong>众数</strong>for{ifc&#x3D;&#x3D;0 maj&#x3D;A[i];c&#x3D;1;else maj&#x3D;&#x3D;A[i]?c++:c–}</p>
+<p>Median(vec &amp;S1,int lo1,Vec &amp;S2,int lo2,int n){</p>
+<p>If(n&lt;3)return trivialmedian(~~~~~)</p>
+<p>Int mi1&#x3D;lo1+n&#x2F;2;mi2&#x3D;lo2+(n-1)&#x2F;2;</p>
+<p>If(S1[mi1]&lt;S2[mi2])return median(mi1,lo2,n+lo1-mi1)</p>
+<p>Else if{} else return S1[mi1] 任意子向量Ologmin(n1,n2)</p>
+<p>   <strong>第k+1小</strong> 选pivot进行LUG后缩小范围继续猜</p>
+<p>Linearselect:Q是小常量，如果序列小于Q为trivial，划分子序列；各自On*n排序找到中位数；递归找到全局中位数；划分LEQ计数；每轮缩减到3&#x2F;4子问题</p>
+<p>​      <strong>希尔排序</strong> 矩阵变窄，每次对各列排序。对希尔序列的最坏情况 6 7 8 52 3 1 4</p>
+<p>g有序在h排序后仍g有序 </p>
+<p>当gh互质时，最小组不出来为gh-g+h 则gh有序后其线性组合依然有序 gh互质时for all elems: i-j&gt;x(g,h) only if S[j]&lt;&#x3D;S[i] 不超过n*x(g,h)个inversions</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-06-10T10:38:00.000Z" title="2021/6/10 18:38:00">2021-06-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.487Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">32 minutes read (About 4765 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/06/10/2021Spring-OOP-review/">2021春季学期 面向对象程序设计基础 期末复习笔记</a></p><div class="content"><h4 id="My-Object-Oriented-Programming-Habits"><a href="#My-Object-Oriented-Programming-Habits" class="headerlink" title="My Object Oriented Programming Habits"></a>My Object Oriented Programming Habits</h4><ul>
+<li>class中的数据变量英文命名写全并且每个单词首字母大写，构造函数传参数时参数名称全大写</li>
+<li>private数据成员在public中获得函数用get_Data（）命名</li>
+</ul>
+<h3 id="记录期末之前上课-题目"><a href="#记录期末之前上课-题目" class="headerlink" title="记录期末之前上课&amp;题目"></a>记录期末之前上课&amp;题目</h3><h5 id="5-24-W14-1-1"><a href="#5-24-W14-1-1" class="headerlink" title="5.24 W14 1-1"></a>5.24 W14 1-1</h5><ul>
+<li>function&lt;returntype(parameters)&gt; 类型可以统一函数指针和函数对象，如果将function&lt;int(int)&gt;作为函数参数则可以将所有以int返回值int参数的函数或者int返回值int参数的对象都可以传入并不违法【&#x2F;<em>统一了函数对象和函数指针</em>&#x2F;】</li>
+</ul>
+<h5 id="5-29-HW14-15"><a href="#5-29-HW14-15" class="headerlink" title="5.29 HW14-15"></a>5.29 HW14-15</h5><ul>
+<li>string.c_str() 返回一个<code>const char*</code>为string内部存储的数组结尾是<code>\0</code>，为了保证不用外部char指针修改string这个const无法初始化<code>char*</code>类型。将string转换成<code>char*</code>应该用<code>int copy(char* tar,int lenth,int pos=0)</code>返回实际拷贝的字符数目。</li>
+<li>string类的拼接操作<code>+</code>时间复杂度为生成的字符串长度，用<code>+=</code>更快</li>
+</ul>
+<h5 id="5-31-W15-1-1"><a href="#5-31-W15-1-1" class="headerlink" title="5.31 W15 1-1"></a>5.31 W15 1-1</h5><ul>
+<li>string拼接操作速度：+&#x3D; &gt; string.append( string) &gt; stringstream &gt; +</li>
+</ul>
+<h5 id="5-31-Review-L1-L3"><a href="#5-31-Review-L1-L3" class="headerlink" title="5.31 Review L1-L3"></a>5.31 Review L1-L3</h5><ul>
+<li>带缺省值参数函数不算参数个数，去掉缺省值参数后如果其他参数都一样会产生歧义被拒绝</li>
+<li>auto后面定义的变量要同一类型</li>
+<li><code>auto i=0;  and  decltype(i) b;</code> 即decltype（） xxx为类型说明符，后面可以带个参数为“定义一个和这个参数一样类型的变量xxx”</li>
+<li>auto作为函数返回值类型要在参数列表后面加<code>-&gt;decltype(returnvalue表达式)</code></li>
+<li>NULL是int型常量0 nullptr是严格空指针</li>
+<li>Function <code>f1(int a,int b=1)</code>and <code>f1(int a=2)</code>即使一个是private不许访问但是仍然会ambiguous二义性错误。</li>
+<li>inline ReturnType Function();</li>
+<li>遍历某个范围的for循环</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> e : arr) <span class="comment">// auto e:arr 也可以</span></span><br><span class="line">			cout &lt;&lt; e &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">如下程序无法过编译会导致二义性</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> i=<span class="number">2</span>)</span> </span>&#123; a = i; &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j=<span class="number">2</span>)</span> </span>&#123; a = i + j; &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get_a</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> a; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    A aa;</span><br><span class="line">    aa.<span class="built_in">f</span>(<span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; aa.<span class="built_in">get_a</span>() &lt;&lt; endl;<span class="comment">//二义性</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-31-Review-L4"><a href="#5-31-Review-L4" class="headerlink" title="5.31 Review L4"></a>5.31 Review L4</h5><ul>
+<li><p>初始化列表顺序并不是初始化顺序，初始化列表时应用声明顺序进行初始化</p>
+</li>
+<li><p>后缀运算符++需要哑元dummy，要把原本的数据增加之后返回的值仍然是增加前的，可以先复制原对象然后给原对象++，最后返回原对象的复制。</p>
+</li>
+<li><p>&#x3D;，【】，（），-&gt;这些只能通过成员函数来重载</p>
+</li>
+<li><p>流运算符重载</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">istream&amp; <span class="keyword">operator</span>&gt;&gt; (istream&amp; in, Obj&amp; dst );</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; out, <span class="type">const</span> Obj&amp; src );</span><br><span class="line">需要声明为类的友元以便访问私有对象，在类外（全局）进行重载的定义</span><br><span class="line"><span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span>&gt;&gt;(istream&amp; in, Obj&amp; dst);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="5-31-Review-L5"><a href="#5-31-Review-L5" class="headerlink" title="5.31 Review L5"></a>5.31 Review L5</h5><ul>
+<li><p>友元函数可以是其他类的构造、析构函数，也可以是其他类，也可以是全局函数</p>
+</li>
+<li><p>static普通静态变量与函数：初定义要初始化仅一次，内部可链接，作用域仅限声明文件cpp不能被其他cpp所用</p>
+</li>
+<li><p>static静态成员变量：归属于类而不是具体对象，所有对象可共享。通过<code>obj.var</code>和<code>classname::var</code>均可访问。在实现文件赋初值<code>VarType ClassName::static_var=Value</code>.</p>
+<p>需要在h中声明cpp中定义，h定义会导致包含h后重复定义</p>
+</li>
+<li><p>static静态成员函数：static关键字在ReturnType前，类和obj都可以访问，<strong>不能访问非静态成员</strong>，即<strong>属于整个类的函数只能访问类变量</strong></p>
+</li>
+<li><p>常量数据成员：初始化后在该obj整个生命周期中不能改变</p>
+</li>
+<li><p>常量成员函数：<code>const</code>关键字在函数体前<code>Function（） const&#123;...&#125;</code>不能修改class的成员，只读而不可写入，常量对象只能调用const成员函数</p>
+</li>
+<li><p>拷贝（传递参数）时如果有指针成员容易出错，直接位拷贝指针不变而同一块内存会释放两次</p>
+</li>
+</ul>
+<h5 id="5-31-Review-L6"><a href="#5-31-Review-L6" class="headerlink" title="5.31 Review L6"></a>5.31 Review L6</h5><ul>
+<li><p>不想给某个函数修改值的权限则使用const参数</p>
+</li>
+<li><p><strong>拷贝构造函数</strong>参数：同类对象的常量引用 自动合成为Bitwise Copy遇指针出错</p>
+</li>
+<li><p>常（左值）引用可以绑定右值，引用本身为左值</p>
+</li>
+<li><p>右值引用在延续即将销毁变量的声明，提升处理效率，即把本要销毁的变量引用了变成了不销毁的左值——移动构造函数参数：同类右值引用</p>
+<p>移动构造函数需要：<strong>1.复制指针地址或者值 2.将原指针地址改0避免释放</strong></p>
+<p>使得生成的临时对象被保留下来，本该释放（析构）时发现指针为空，不能释放内存，而真正有意义的指针（数据）被移动保留了下来</p>
+<p>原则：<strong>不浪费任何右值</strong>（创造右值之后不销毁，及时利用）</p>
+</li>
+<li><p>std::move(左值)，把左值当做右值用，需要<strong>这个左值不再被使用</strong>或者<strong>即将被改</strong>（swap）</p>
+</li>
+<li><p>类型转换函数的自定义 从Src到Dst类</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Src</span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">Dst</span><span class="params">()</span> <span class="type">const</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">或者在目标Dst类中定义常量引用为参数的构造函数</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dst</span>&#123;</span><br><span class="line"><span class="built_in">Dst</span>(<span class="type">const</span> Src&amp; s)&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="5-31-Review-L7"><a href="#5-31-Review-L7" class="headerlink" title="5.31 Review L7"></a>5.31 Review L7</h5><ul>
+<li>构造函数和析构函数，复制运算、友元不能被继承</li>
+<li>use <code>using</code>关键字来使用基类的（所有）构造函数</li>
+<li>基类的私有成员在派生类函数中也不能访问，只有基类的成员函数中被访问。而公有成员成为派生类共有成员可以被访问。<strong>protected成员可以在派生类成员函数中访问但不能在外部函数访问</strong></li>
+<li>重载Overload，函数名必须相同，函数参数必须不同，作用域相同。（编译多态或者属于静多态）</li>
+<li>重写隐藏其实就是Redefining，重新定义基类函数实现特殊功能，屏蔽了所有同名函数，参数可以同可以不同（运行时多态、动态多态）using 类::成员函数来解除屏蔽）</li>
+</ul>
+<h5 id="6-1-Review-L8"><a href="#6-1-Review-L8" class="headerlink" title="6.1 Review L8"></a>6.1 Review L8</h5><ul>
+<li>凡是可以接受基类ptr或obj，都可以直接接受派生类，会自动切片</li>
+<li>通过对象的向上类型转换可以访问private继承无法访问的基类成员变量coz<strong>向上类型转换只可以Public继承</strong>，不允许私有继承向上转换</li>
+<li>带有虚函数的class，对象大小会加上一个指针（8），多个虚函数也只有一个Vptr指向vtable</li>
+<li>虚函数机制在构造、析构函数中不工作，构造不能虚而析构经常是虚的<strong>总是将基类的析构函数设置为虚</strong></li>
+<li>虚函数Feature重写覆盖必须要函数名参数表一模一样，这样会根据运行时实际类型进行动态晚绑定</li>
+<li>在函数体前面加override关键字检查是否成功重写覆盖</li>
+<li>函数体前加final关键字——禁止继承后再覆盖，已经是最终版本的函数实现</li>
+</ul>
+<h5 id="6-1-Review-L9"><a href="#6-1-Review-L9" class="headerlink" title="6.1 Review L9"></a>6.1 Review L9</h5><ul>
+<li>（形参）之后加<code>=0</code>声明为纯虚函数，含有一个纯虚即为抽象类无法具象化出对象，只为了之后的继承类实现共性“接口”或者“方法”。一般是<strong>没有实际物理意义的抽象</strong>（shape，creature）</li>
+<li>纯虚函数必须被之后要使用的继承类重写覆盖，不然仍然是纯虚函数而该类为抽象类，即必须<strong>把所有纯虚函数实现一遍</strong></li>
+<li>纯虚析构函数仍需要函数体，即声明纯虚<code>=0</code>之后还要写一个空实现函数体，后面不用显式地重写覆盖</li>
+<li>使用基类指针数组管理具体派生类对象，具体处理时转化成专用指针调用专用接口</li>
+<li>使用<code>dynamic_cast&lt;tar*or&amp;&gt;(obj_p or obj_r)</code>如果失败返回nullptr，<strong>用来判断实际类型</strong></li>
+<li><code>static_cast</code>不检查实际类型，只要有继承关系就转，dynamic会动态检查，慢但是安全</li>
+<li>向上类型转换：指针和引用时不改变虚函数表（晚绑定，仍按实际类型调用继承重写函数）而直接切片为基类对象会丢失增加数据和方法</li>
+<li>dynamic_cast正是通过虚函数表判断是否安全地进行向下类型转换</li>
+<li>多重继承：Best Practice 最多继承一个非抽象类，可以继承多个抽象类（接口）</li>
+<li>多态（接口函数根据实际派生类而不同表现）效果条件：继承&amp;&amp;虚函数&amp;&amp;（引用or指针）</li>
+<li>模板：算法实现与参数类型无关，则将<strong>函数的参数类型</strong>定义为一种特殊的“参数”</li>
+<li>调用函数模板时，可以手动输入“模板参数”也可以让编译器自己认。实现原理：编译期将模板替换为需要的类型生成一份对应的函数代码，需要多少不同的就生成多少</li>
+<li>模板使用：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tmplate &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">tmplate &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="function">ReturnType <span class="title">Function</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>类模板中成员函数类外定义前要声明一下同样的模板，模板参数编译期确定不可使用变量</li>
+<li>模板也是同一段代码实现不同的相似功能，但是在编译期处理为“静多态”</li>
+<li><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601195810985.png" alt="image-20210601195810985"></li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601195823314.png" alt="image-20210601195823314"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601195839453.png" alt="image-20210601195839453"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601195846178.png" alt="image-20210601195846178"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601195853777.png" alt="image-20210601195853777"></p>
+<h5 id="6-1-Review-L10"><a href="#6-1-Review-L10" class="headerlink" title="6.1 Review L10"></a>6.1 Review L10</h5><ul>
+<li>标准C++库所有内容都在标准命名空间std里，包括stl标准库</li>
+<li>不同命名空间中的同名函数、变量等命名不会互相冲突</li>
+<li>自定义命名空间<code>namespace A&#123;int x,y;&#125;</code>使用时<code>A::x and A::y</code>，用using namespace直接使用这个命名空间的所有成员，也可以using namespace::var or ::func 直接使用某几个函数</li>
+<li>Containers: 简单、序列vec,list、关系set,map</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T1</span>, <span class="keyword">class</span> <span class="title class_">T2</span>&gt; <span class="keyword">struct</span> <span class="title class_">pair</span>&#123;</span><br><span class="line">T1 first;</span><br><span class="line">T2 second;</span><br><span class="line"><span class="comment">//若干其它函数</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>支持 .first .second make_pair(  ,  )  &lt; &gt; 按照第一第二比较</p>
+</li>
+<li><p>tuple：类似pair，无限长，使用v0&#x3D;get<pos>(tuple_var)且pos需要编译确定，不能使用变量</p>
+<p>支持make_tuple(,,,)  tie(x,y,z)&#x3D;make_tuple(xx,yy,zz)即tie返回左值引用的元组，可以利用右侧的tuple来一次性多重赋值</p>
+</li>
+<li><p>vector支持：vec[pos]   vector<T> vec0  .size()  .clear()  .push_back( xx) .pop_back(xx)  use iterator to .erase(x.begin()+1,num) .insert(iterator)而iterator支持*，可以直接sort，支持++ – +&#x3D; -&#x3D;支持减法运算</p>
+</li>
+<li><p>迭代器失效：insert和erase，和改变大小时可能会扩展capacity而整体迁移所有it失效，<strong>修改过容器后不使用之前的迭代器</strong></p>
+</li>
+<li><p>list：快速的增减push_front() push_back() find(l.begin(),l.end(),tar)  l.insert(it,tar) 不支持下标，插入和删除时不相关迭代器不失效</p>
+</li>
+<li><p>set：不重复元素构成的无序集合，只是不保持加入顺序，内部按大小排列</p>
+<p>支持insert（） 查询find（）返回迭代器 erase（s.find(val)） count(val)只有0或1</p>
+</li>
+<li><p>map：关联映射 其实为&lt;Key，T&gt; Key必须互不相同 通过下标map[key]访问val如果不存在则创建对应映射   支持insert(pair)插入  查询find(key)返回it  统计count(key)要么0要么1  支持erase(it)</p>
+</li>
+</ul>
+<h5 id="6-1-Review-L12"><a href="#6-1-Review-L12" class="headerlink" title="6.1 Review L12"></a>6.1 Review L12</h5><ul>
+<li>构造方式s3(“string”,num)num为截取的长度（num,’x‘）赋值num个x，（it1，it2）迭代器</li>
+<li>string.c_str()返回一个<code>const char*</code>不能修改，涉及底层实现，不能赋值给<code>char*</code>需要copy(ptr,n,pos&#x3D;0)</li>
+<li>size()orlength()  clear()  empty()  push_back(‘a’) or append(s2)  字典序比较</li>
+<li>cin&gt;&gt;读到空格 getline（cin，str）读一行不包括&#x2F;n  getline(cin,str,’#’)可以读换行一直到终止符#</li>
+<li>stoi（“2001”）  stoi（“50 cats”，&amp;sz）sz为读入长度  stoi（string，nullptr，进制&#x3D;0）默认自动检查进制，可以stod转化double</li>
+<li><iomanip>库中格式控制函数fixed scientific  setprecision（2）  oct  dec  setw（3） setfill（’<em>‘）设置对齐长度为3且填充字符</em></li>
+<li>使用stringstream拼接字符串，也是stream可以赋值于var ss&gt;&gt;a&gt;&gt;b</li>
+<li><strong>正则表达式</strong><a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-intro.html%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8Bhttps://blog.csdn.net/bgzclxqq/article/details/90262904">https://www.runoob.com/regexp/regexp-intro.html菜鸟教程https://blog.csdn.net/bgzclxqq/article/details/90262904</a> CSDN关于C++的正则式</li>
+</ul>
+<h5 id="6-1-Review-L13"><a href="#6-1-Review-L13" class="headerlink" title="6.1 Review L13"></a>6.1 Review L13</h5><ul>
+<li><p>声明函数指针 <code>ReturnType (*ptrvar)(parameters)</code>，可以直接赋值，甚至可以直接auto指定类型</p>
+</li>
+<li><p>less<int>()和greater<int>()为自带的比较函数,其实是个对象，长得像个函数</p>
+</li>
+<li><p>greater是一个模板类</p>
+<p>greater<int> 用int实例化的类</p>
+<p>greater<int>() 该类的一个对象</p>
+</li>
+<li><p>函数对象需要public重载()运算符</p>
+</li>
+<li><p>把函数当参数需要声明：<code>template &lt;class Compare&gt; void sort(Compare comp)</code>可以接受函数指针和函数对象</p>
+</li>
+<li><p>智能指针<code>shared_ptr&lt;T&gt; p1(new int (1))</code>也可以make_shared<T>(2) 或者拷贝构造同类</p>
+<p>重载了*运算符直接访问对象 也可以-&gt;访问成员</p>
+</li>
+<li><p>自带引用计数use_count()引用全归0才自动销毁对象</p>
+</li>
+<li><p>实现原理：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601211114941.png" alt="image-20210601211114941"></p>
+</li>
+<li><p>获取常规指针.get()  清楚并减少引用.reset（） 可以用static或dynamic_cast&lt;&gt;(p)</p>
+</li>
+<li><p>不<strong>能使用同一个裸指针初始化多个智能指针</strong> 即<strong>辅助指针U_ptr只能有一个</strong>不然<strong>多次释放</strong></p>
+</li>
+<li><p>存在循环引用永不析构问题weak_ptr指向对象但是不计数wp.lock()转换智能指针</p>
+</li>
+<li><p>unique_ptr确保一个对象只能被一个指针指向（引用） 不能赋值指针，可以移动up2&#x3D;std::move(up1) 使用release放弃up控制权并返回裸指针</p>
+</li>
+</ul>
+<h5 id="6-1-Review-L14"><a href="#6-1-Review-L14" class="headerlink" title="6.1 Review L14"></a>6.1 Review L14</h5><ul>
+<li><p>模板方法：抽象出不同具体类的骨架，写出通用的基类并且将步骤的实现延迟到子类中（设置为纯虚函数）。不改变算法结构而重新定义一些实现步骤。</p>
+</li>
+<li><p>父类定义骨架，子类实现细节，需要新的实现重新继承即可</p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601214723704.png" alt="image-20210601214723704"></p>
+</li>
+<li><p>策略模式（strategy）：定义一系列算法并封装，可以互相替换</p>
+</li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601215008527.png" alt="image-20210601215008527"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20210601215017697.png" alt="image-20210601215017697"></p>
+<ul>
+<li>对不同的每个子任务（方法）都写出基类Strategy然后继承出具体实现类，实际调用的框架中只需要管理（存储）这些方法的基类Strategy指针即可</li>
+<li>策略模式符合“单一责任”原则：一个类or接口只负责一项职责，功能层面解耦</li>
+<li>.迭代器模式：基于Iterator基类，实现不同聚合对象的顺序访问，使得接口统一而使用方法统一</li>
+</ul>
+<h5 id="6-8-Review-L15"><a href="#6-8-Review-L15" class="headerlink" title="6.8 Review L15"></a>6.8 Review L15</h5><ul>
+<li><p>结构性模式——适配器Adapter、代理委托Proxy、装饰器Decorator</p>
+</li>
+<li><p><strong>适配器模式</strong>：客户期待接口基类Stack中有各种接口，现在有一个写好的类似功能类Vector，想加一层Adaptec使得代码继续复用</p>
+<p>Adaptee——Adapter——Target——Client</p>
+<p>实现：</p>
+<p>组合——把Adaptee放到Adapter中当成员，继承Tar基类，挨个实现要求的函数</p>
+<p>继承——公有继承Tar和私有继承Adaptee类，即er类就是ee和tar类，实现函数时直接调用ee中继承过来的函数即可</p>
+</li>
+<li><p><strong>代理委托Proxy</strong>：客户要求的基类接口，有一个RealSubject继承了基类接口可以满足需求，但是需要更多功能和控制操作</p>
+<p>Client—BaseSub—Realsub&lt;—Proxy：BaseSub</p>
+<p>Programer—ProxySub（derived from BaseSub）has a RealSubPtr</p>
+<p>实现BaseSub中的函数，函数体{Ptr-&gt;Request; other commands;}实现了包装并增加。</p>
+</li>
+<li><p><strong>装饰器Decorator</strong>：无限的增加新功能，每次增加几个功能并可以无限进行这个装饰的过程。装饰器是定义一种递归模式，方便之后的功能继承这种模式</p>
+<p>实现：装饰器:public  Base 私有基类指针，构造函数接受一个基类指针（这一层装饰之前的类的指针）并存储。定义虚函数addon（）为每一层装饰的新功能，定义常规需求函数Draw{add（），ptr-&gt;draw（）}。具体增加功能的时候需要功能类继承装饰器类然后实现add函数为新功能</p>
+<p>魔兽争霸学技能：学技能类（Decorator） 具体学了什么（继承Decorator的类）构造，一级级学技能上去。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Decorator</span>::<span class="keyword">public</span> base&#123;</span><br><span class="line">	base* upper;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> ReturnType <span class="title">addon</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="function">ReturnType <span class="title">Request</span><span class="params">(parameters)</span></span>&#123;</span><br><span class="line">        <span class="built_in">addon</span>();</span><br><span class="line">        upper-&gt;Request;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//crearte a decorator pattern</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>构造：基类—装饰递归结构—装饰1—装饰12—装饰123</p>
+<p>调用过程（解嵌套）：装饰123—3Draw，指针变为装饰12—2Draw指针变为1—1Draw，指针变为基类Draw</p>
+</li>
+</ul>
+<h5 id="6-10-FinalExample："><a href="#6-10-FinalExample：" class="headerlink" title="6.10 FinalExample："></a>6.10 FinalExample：</h5><ul>
+<li><p>不能继续使用（using）纯虚基类的构造函数</p>
+</li>
+<li><p>使用虚函数机制时把基类析构函数生命为virtual</p>
+</li>
+<li><p>list的迭代器是双向的，甚至可以反向迭代。反向迭代器rbegin（）和rend（）其自增运算++为向头变换</p>
+</li>
+<li><p>迭代器失效仅有erase操作的迭代器，其他任何迭代器不受影响。而且list迭代器太牛了，锁定自己的元素不变，也就是说指向链表中的某一个元素。头迭代器和尾迭代器在中间插入元素后依然是头尾不需要改变。</p>
+</li>
+<li><p>list中的insert是在迭代器it之前的位置插入元素，并且迭代器仍然指向原来元素（链表特性）</p>
+</li>
+<li><p>list为空时，用insert比较危险——头尾迭代器相等并且会一起指向尾空元素。不要把list想象成动态数组，还是想象成链表安全些。</p>
+</li>
+<li><p>关于<strong>Strategy模式</strong>：管理一堆Strategy_x基类，每个决定单独的x1、x2、x3</p>
+</li>
+<li><p>关于map类，声明：typedef map&lt;int,string&gt; num2name; 使用时可以用数组符号修改key值也可insert（），但是insert不支持已经存在的key，数组下标[]会覆盖。</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="1969-12-31T16:00:00.000Z" title="1970/1/1 00:00:00">1970-01-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.513Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Auto/">Auto</a></span><span class="level-item">a minute read (About 123 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/1970/01/01/hello-world-by-hexo/">Hello World by hexo</a></p><div class="content"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

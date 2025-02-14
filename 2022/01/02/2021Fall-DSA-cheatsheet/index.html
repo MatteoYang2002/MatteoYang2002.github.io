@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2021秋季学期 数据结构与算法 Cheat Sheet - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="word三栏复制到markdown很乱，渲染后的pdf版 正确性：保持某性质，单调能中止 CH1最大子段和——从后剪负和更新 公共子序列——DP打表 渐进复杂度——够大，平均（期望复杂度）： 独立考察、各种操作概率加权 &amp;amp; 分摊复杂度：连续足够多操作后，总体成本摊还给单次操作 CH2 二分while(lo&amp;lt;hi){mi&amp;#x3D;&amp;#x2F;2; e&amp;lt;S[mi]?hi&amp;amp;#x3D"><meta property="og:type" content="blog"><meta property="og:title" content="2021秋季学期 数据结构与算法 Cheat Sheet"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="word三栏复制到markdown很乱，渲染后的pdf版 正确性：保持某性质，单调能中止 CH1最大子段和——从后剪负和更新 公共子序列——DP打表 渐进复杂度——够大，平均（期望复杂度）： 独立考察、各种操作概率加权 &amp;amp; 分摊复杂度：连续足够多操作后，总体成本摊还给单次操作 CH2 二分while(lo&amp;lt;hi){mi&amp;#x3D;&amp;#x2F;2; e&amp;lt;S[mi]?hi&amp;amp;#x3D"><meta property="og:locale" content="en_US"><meta property="og:image" content="/img/og_image.png"><meta property="article:published_time" content="2022-01-02T05:44:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.486Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2022/01/02/2021Fall-DSA-cheatsheet/"},"headline":"2021秋季学期 数据结构与算法 Cheat Sheet","image":["https://matteoyang.space/img/og_image.png"],"datePublished":"2022-01-02T05:44:00.000Z","dateModified":"2024-10-01T11:01:40.486Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"word三栏复制到markdown很乱，渲染后的pdf版 正确性：保持某性质，单调能中止 CH1最大子段和——从后剪负和更新 公共子序列——DP打表 渐进复杂度——够大，平均（期望复杂度）： 独立考察、各种操作概率加权 &amp; 分摊复杂度：连续足够多操作后，总体成本摊还给单次操作 CH2 二分while(lo&lt;hi){mi&#x3D;&#x2F;2; e&lt;S[mi]?hi&amp;#x3D"}</script><link rel="canonical" href="https://matteoyang.space/2022/01/02/2021Fall-DSA-cheatsheet/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-01-02T05:44:00.000Z" title="2022/1/2 13:44:00">2022-01-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.486Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">32 minutes read (About 4809 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2021秋季学期 数据结构与算法 Cheat Sheet</h1><div class="content"><p><strong>word三栏复制到markdown很乱，渲染后的<a href="/pdf/2021Fall-DSA-cheatsheet.pdf">pdf版</a></strong></p>
+<p><strong>正确性：保持某性质，单调能中止</strong></p>
+<p><strong>CH1</strong>最大子段和——从后剪负和更新 公共子序列——DP打表 渐进复杂度——够大，平均（期望复杂度）：</p>
+<p>独立考察、各种操作概率加权 &amp; 分摊复杂度：连续足够多操作后，总体成本摊还给单次操作</p>
+<p><strong>CH2</strong> 二分while(lo&lt;hi){mi&#x3D;&#x2F;2; e&lt;S[mi]?hi&#x3D;mi:lo&#x3D;mi+1;</p>
+<p>ret lo-1; 插值最慢On 字长到n^1&#x2F;2后为loglogn </p>
+<p>Bubble优化：大趟无误停止；大趟中表明last（最后逆序对可能出现的位置，后面一定有序，hi更新为last</p>
+<p><strong>Bitmap</strong> 掩码位置0x80&gt;&gt;(k&amp;0x07) <strong>校验环</strong> 等长intF[]和一个stack，使得stack添加的时候辅助F记录位置，del：交换为栈顶，懒惰删除 Read:k&#x3D;&#x3D;T[F[k]] </p>
+<p><strong>列表</strong>去重：相邻对相同删除后者</p>
+<p><strong>选择排序</strong>稳定性:选择大于等于保证稳定性，后者优先</p>
+<p>循环节 A[k] A[r(k)] A[r(r(k))]回到A[k]互不交 不超n</p>
+<p>交换法使M脱离原循环节自成且原来减小1 无需交换次数等效于最初的循环节个数 <strong>插入排序</strong> 就地在线输入敏感 最坏n^2 [3-10] <strong>归并</strong>排序 适于并行外部</p>
+<p>逆序对：上界On^2 冒泡交换逆序减一 归并可计数</p>
+<p><strong>游标列表</strong> 一组数据等长游标，空数据指向下一个可插入位置，非空指向下一个可删除位置（头方向）</p>
+<p>CH4 Stack尾递归<strong>进制转换</strong>：while{模入栈，数&#x2F;&#x3D;进制}</p>
+<p>D括号匹配：规定通用，不能失配，最后为空</p>
+<p>E 栈混洗：只允许原入辅助，辅助入目标。本质是等量PopPush序列，等价于括号匹配。混洗数卡特兰（S第一次变空的时候——A首元素S弹出）(2n)!&#x2F;(n+1)!n!，SPn&#x3D;sum(1<del>k</del>n)（SP（k-1）*SP(n-k)）</p>
+<p>充要：没有312，没有j+1,i,j，模拟验证：从另一个栈底开始匹配，对上了就pop，否则push成功则对。</p>
+<p>F 中缀表达式求值：维护数和符号栈，读符号若读入高push，栈顶高开算直到栈顶低，相等（右括号或\0）脱括号进入下一字符;左括号全&lt; 右括号全&gt;从来不入栈</p>
+<p>G <strong>RPN</strong> 数压入，符直接算 生成：操作数直接接入RPN，也放到栈中；运算符执行计算时接入RPN。</p>
+<p>J <strong>双栈当队</strong> 裹进两个底对底的栈，enq压入R，deq弹出F，若无F则把所有R都装过来。<strong>分摊分析</strong>针对每一个输入对他们的不同状态提出不同的开销，再根据假设情况计算上界最后总开销摊还给这种假设情况 d次deq和e次enq之后。。势能：原开销+动态势能&#x3D;定</p>
+<p>K <strong>Steap Queap</strong> Def辅助序列：每一个元素都是原序列中后缀最大者——从尾端扫描“顶”起非降。栈push新元素与辅助栈顶较大的。队列push要向前撑到够不到为止。优化：只计那几个撑起来的index</p>
+<p><strong>直方图最大矩形</strong> for&lt;n{while(!empty&amp;&amp;H[top]&gt;&#x3D;H[r]) S.pop(); &#x2F;&#x2F;until H[top]&lt;H[r] S[r]&#x3D;empty? 0:1+H[top]; push(r); }pop all..栈顶小于扫描就入栈，栈顶大时就一直POP+计算更新直到栈顶小。继续扫描。分摊O（n）？</p>
+<p>CH5 A 空树H取-1，RB取0 <strong>真</strong>:全二度 <strong>完全</strong>只剩最后一层不满 <strong>满</strong>为全满 长子左孩与兄弟右孩—<strong>多叉树</strong></p>
+<p>E 先序：维护栈while: pop访问+push rc lc while{访问左藤（loop: visit x+push x-&gt;rc+x&#x3D;x-&gt;lc until !x），栈空退出，否则弹出子树循环.}</p>
+<p>F中序：深入左藤（从上到下依次入栈），栈空退出，否则pop一个节点visit后转向其右子树..节点出栈时左子树不存在或完成，右子树未入栈。是否O（n）</p>
+<p>Succ()：有右孩子，右孩子一路向左深入。否则一路作为右孩子(向左上)找爹，停止后再找一个爹。</p>
+<p>G后序：若栈顶不是x的爹，就去找其子树中最左的叶子（while栈顶x非空(if lc，（if rc,push rc）push lc) else(push rc).返回前pop()）。Pop and visit 每个节点出栈时以它为根的子树已经遍历，且右兄弟如果存在一定在栈顶。正可以遍历右兄弟。验证复杂度？</p>
+<p>等价于表达式树的计算~RPN</p>
+<p>H 层次遍历：deq visit enq lc rc，其中队列最大规模n&#x2F;2的ceiling。前面都出1入2.向量紧凑表示完全树</p>
+<p>I重构 中序+先序|后序 or先序+后序&amp;&amp;真 增强序列allNULL输出 <strong>PFC</strong> 文件长度正比于平均带权深度wald。必有叶子在底两层 不断贪心合并最小树直到只剩一棵 正确：内节点必双子、兄弟可换、层次 归纳 定差</p>
+<p>CH6 图 A 简单图：无自环重边 简单路径没有重点 带权网络即各边带权重的图 </p>
+<p>B <strong>邻接矩阵</strong> n<em>n记录边 关联矩阵n</em>e structV中有出入度、状态、dftime、遍历树parent、priority structE中有type（undetermined、tree、cross\forward\backward）</p>
+<p>实现：线性Vs、双vec嵌套构成二维边指针集合。枚举所有邻居O(n) 邻接表为Ooutdeg+1 <strong>addedge</strong>：new</p>
+<p>表并更新关联点的出入度。Deledge类似 addvertex：Vs push新、每个已有的外层vec都要push一个null并且加一个整个的外层vec。删除：del出边（入度）和那一列vec，删除顶点后再删除所有的入边（出度）。</p>
+<p><strong>性能分析</strong> 适稠密图 θn^2空间 用vec后透明地处理空间溢出等 平面图有点-边+区域-连通支&#x3D;1</p>
+<p>C <strong>邻接表</strong> 每个点作表头连接自己所有邻居（所有后继），有向图只记录作为前驱\后继的边，适稀疏</p>
+<p>空间On+e 平面图On 时间：构造n+e 枚举所有以v为尾（头）的弧1+degv （n+e，可建立逆邻接表改进） 维护后查deg+-都是O1 但exists需要搜索Oe，选用散列可期望O1 适遍历、顶点数目不定，算deg相关</p>
+<p><strong>D bfs</strong> 树的层次遍历 维护Queue，每次dTime&#x3D;++clock，对于所有邻居开始处理{如果尚未发现则改为发现并加入Q中，标记为Tree边和parent，如果已经被发现标记为跨边}标记访问完毕</p>
+<p>用于：寻找连通支和可达分量，对连通支的遍历包一层小写的bfs，reset并重置clock，对所有节点做遍历一旦未发现就做BFS(v,clock)。</p>
+<p>复杂度：无向图reset n+e 每个顶点内枚举邻居需要1+deg，共需要n+2e</p>
+<p>性质应用：最短路径即为深度 周星驰数</p>
+<p>​      E <strong>dfs</strong> 先序遍历支撑树 DFS{标记开始时钟; 发现当前v 考察每个邻居{未被发现：标树，递归DFS它；dis—指向了祖先，backward；visited—比较发现时间，自己早则forward 否则cross} v已经访问完毕；标记结束时钟}</p>
+<p>无向图中只有TREE和BACKWARD 有向图 也包装</p>
+<p>遍历树所有边取反向 <strong>括号引理</strong>：后代活跃期包含于祖先，无关则不相交，没有别的情况。Backward一定有回路但！&#x3D;回路forward是我的孩子，cross和我无关。有向图环路检测dfs 欧拉回路拓扑排序双联通分量dfs</p>
+<p>F <strong>拓扑排序</strong>DAG有向无环图 构造与偏序相容的全序 可以拓扑排序一定无环，无环一定可拓扑排序。因为“有向无环图中必有零入度节点不唯一m”若去掉m可排序则加入m的排序为m在最前 m。</p>
+<p>顺序：所有零入度入Stack，取空Q，while S不空{栈顶入Q，如果v邻接u入度1则入栈，并删除v及其关联}最后G删空当且仅当成功拓扑排序</p>
+<p>逆序：DFS中每当visited加入S，有backward not dag。结束后顺序弹出S已经ftime由大到小  <strong>CH7APP</strong></p>
+<p>A 双连通分量 关节点删了之后连通分量增多，无关节点为双连通图，极大的双连通子图为双连通分量BCC 找关节点？—通过dfs根至少两子树，内部节点有某个孩子u且这颗子树不能由任何backward连接到v的真祖先（可以backward到v）。这时BCC父亲和BCCu的关节点。记录Highest Connected Ancestor：hca(v) &#x3D; subtree(v) 经过backward连接的最高祖先。DFS中一旦发现backward v,u，取hca v&#x3D;min(hca(v),dtime(u))最后标记的是dtime。如果dfsu完成返回v时若有hcau&lt;dtimev则hca(v)&#x3D;min(hca(v),hca(u))。否则u子树的最高祖先不超过v即可断定v是关节点。而v+子树u为一个BCC</p>
+<p>Dfs找bcc：额外围护Stack，将当前v入栈。枚举邻居{未发现Evu—标树边，递归遍历u、讨论hca关系确定关节点后持续弹出S直到u弹出这些就是一个BCC；见上}同O(n+e) 推广到强联通分量？618</p>
+<p>B <strong>pfs</strong> 存放顶点并维护priority(v)越小越先 框架{枚举邻居更新优先级和父节点；从undis节点中挑出pri最小的点作为下一个s；标记为访问以及标记好树边（特别的，s的爹已确定）</p>
+<p>C Dijkstra 均正最短路径树!&#x3D;MST 更新时发现比较路径长度松弛长的（by set new parent）</p>
+<p>D prim—MST 允负0 Cayley完全图有n^(n-2)</p>
+<p>uv是该割的一条极短跨边则一定存在包含uv的MST。反证证明。任何MST都通过极短跨边连接割。若支撑树添一条边的环路中存在其他边为极长边。则原T-f+e为新图的MST。构造中把当前树看成割。正确性：每一条都属于某一MST 6-28？</p>
+<p>实现：比较老pri和权重，后者小则更新pri和parent</p>
+<p>E Kruskal MST 每个节点都是一棵树，按照边权排序依次尝试使森林变为一棵树。找e来自不同树时可以合并。Proof 引入的每条边都属于某颗MST e一定是割</p>
+<p>T的极短跨边。归纳证明。。</p>
+<p>并查集union-find问题：维护group[]所属子集快找慢合并。维护parent法：合并时指向新爹即可680？</p>
+<p>F Floydwarshall 允负边但不能负环路。For k for u for v A[u][v]&#x3D;min(A[u][v],A[u][k]+A[k][v])  <strong>8****二叉搜索树</strong></p>
+<p>A 中序有序 归纳树高可证中序遍历单调</p>
+<p>B 查找—返回引用，可能为空节点表示该插入的位置 插入—查找确定位置，插入后向上更新高度 删除—分类删除{单分支时删除自身让孩子替换，双分支与直接后继交换数值！删除其直接后继}向上更新高度</p>
+<p>C 期望树高 全随机排列的平均高度θlognBST越低的权重越大 n个互异节点的不同BST共有catalan(n)棵&#x3D;sum(S(k-1)*S(n-k)&#x3D;(2n)!&#x2F;(n+1)!n! BST等概率θsqrtn</p>
+<p>理想平衡：n个节点高度在log2n 渐进平衡—渐进不超过Ologn即为BBST 等价BST可On互转</p>
+<p>   D AVL树渐进平衡 定义平衡因子&#x3D;H(lc)-H(rc)&lt;&#x3D;1 h高度至少包含S(h)&#x3D;fib(h+3)-1个节点此为最瘦的情况 S(h)&#x3D;1+S(h-1)+S(h-2)配成fib</p>
+<p>插入可能从祖父向上一整路失衡，找到最低失衡节点(一边updH)和儿孙考虑。同向一次zigzag用34实现,异向两次等价于34重构。高度复原，全树复衡。</p>
+<p>删除：单旋、双旋情况可能祖先继续失衡高度减小，可能需要logn次调整、            可能全树高度下降 kunth: 0.21次</p>
+<p><strong>1D****查区间</strong> 二分查右边界后向前检查+输出Or+logn</p>
+<p><strong>2D</strong>：利用容斥原理n方时间的预处理，矩阵每个点中包含其左下的点的个数，答案正对角线-反对角线</p>
+<p>   预处理和空间为n^2，每次queryOlogn</p>
+<p>B <strong>kdtree</strong>1D—完全二叉each key&#x3D;Minkey in Rsubtree，即右边区间的左端点。仅最底两层的叶节点是1D点集</p>
+<p><strong>2D</strong> 每个region左下开右上闭 等价于四叉树划分</p>
+<p>递归建树P：如果只剩一个，创造叶节点返回;</p>
+<p>Root&#x3D;createKdNode();splitDirection&#x3D;even(d)? ver|hori; root-&gt;splitline&#x3D;findmedian(direction,P);</p>
+<p>分隔开子点集，并左右递归建树 所属region往左下移</p>
+<p>Query：如果是叶区间，判断是否在；左右分别{整个region都在搜索中，report，否则如果有交集则继续递归搜索}</p>
+<p>复杂度：预处理Onlogn 储存On 查询Or+sqrtn</p>
+<p>Q(1)&#x3D;O1; Q(n)&#x3D;2+2Q(n&#x2F;4) 节点的四个孙子不超过两个会继续递归。更高维度？O(r+n^(1-1&#x2F;d)) </p>
+<p>C MultiLevelSearchTree 按维度搜索范围，最坏——x搜出了所有点但y拒绝了所有点 On</p>
+<p>嵌套树实现 O(r+(logn)^2) 二维建树时空Onlogn</p>
+<p>二维以上建树储存都是nlog（d-1）n 查询为r+logdn</p>
+<p>A 逐层<strong>伸展</strong> 对v的父亲做zigzag，最坏时分摊Ωn</p>
+<p>双层伸展 向上追溯两层， 在双zig或zag时先转祖父再转父亲。使最坏情况的单条路径也能收缩一半。【8-2】分摊Ologn每次旋转之后都要对三代updH</p>
+<p>搜索：标准搜索+splay+返回根</p>
+<p>插入：搜索后决定在根的左上还是右上插入新根</p>
+<p>删除：搜索后删除，在R里面做失败查找Rmin来当根 评价：无需高度和平衡，分摊Ologn近AVL且反复顺序访问子集分摊仅常数</p>
+<p>分摊分析：定义势能φT&#x3D;sum(log(sizev))平衡小倾侧大</p>
+<p>单链logn!&#x3D;Onlogn 满树On 不妨仅考察search</p>
+<p>连续m&gt;&gt;n次访问，记Ak&#x3D;Tk+△φk</p>
+<p>则显然T&#x3D;A-△φ在A+-Onlogn区间内若能证明   A&#x3D;Omlogn则一定有T&#x3D;Omlogn</p>
+<p>​         讨论A在单zig&#x2F;zag中Ai&lt;1+rankiV-randi-1V</p>
+<p><strong>B BTree</strong> d代合并 m&#x3D;2^d出路和2^d-1个关键码 多级存储中减少外部查找的IO，批量访问一组关键码</p>
+<p>外部节点深度相等为树高，叶节点为h-1，内部节点关键码&lt;&#x3D;m-1&amp;&amp;分支出路：ceiling m&#x2F;2&lt;&#x3D;n+1&lt;&#x3D;m（root&gt;&#x3D;2）成为(m&#x2F;2，m)-树 典型(2,4)-树</p>
+<p>内部都是vec装关键码和孩子</p>
+<p>查找 vec，不成功标记_hot，v&#x3D;v-&gt;child[r+1]每一深度最多一次IO运行时间Ologn</p>
+<p>插入上溢 在_hot中插关键码和空指针，检查上溢：上溢节点中位数归入父节点的子树位置并分裂指针分别指向中位数左边右边，仍然可继续分裂。。到根仍上溢则提升中位数为新根，是B树增高唯一途径  O（h）</p>
+<p>删除下溢：如果不是叶子，在右子树中找直接后继交换</p>
+<p>1.若有左兄弟且够大，则p节点分界key作为最小，左兄弟最小作为p节点分界。2.右兄弟借父亲旋转修复</p>
+<p>3.左右兄弟必有其一但不够用则把父亲的分解key降下来粘接自己与兄弟。但父亲仍继续下溢，不超过Oh</p>
+<p>Max Height时内部节点尽量瘦<strong>logmN+1 &lt;&#x3D; h&lt;&#x3D; 1+ log (ceiling(m&#x2F;2), grounding ((N+1)&#x2F;2))</strong></p>
+<p>C <strong>红黑树</strong> 减少结构变化，相邻版本差不超过O1 </p>
+<p>1树根和外节点为黑 2.红节点只有黑孩子父亲 3.外部节点黑深度相等 即根的黑高度 等价于2,4 B树证明其平衡h&lt;&#x3D;R+H&lt;&#x3D;2H 黑高度上界log2,n+1故Ologn</p>
+<p><strong>插入</strong>：红节点黑高度0修双红{爹是红则一定有黑祖父，1.叔父黑，则局部34重构+染色RBR 2.叔父红，pu转黑（BH++）g转红。分裂节点g上移但g仍可能双红 若已经抵达树根则强行转黑、黑高度++}</p>
+<p><strong>删除</strong>：仅分析实际删除的，单分支被接替的情况。删除者和接替者一个红时，接替者染黑即可。</p>
+<p>​         删除者接替者都黑需修正 如果删除根则新根置黑，更新高度即可。若父亲平衡则好，替代节点为红染黑即可，接替和删除均黑（此时接替者为null）{接替者父亲p和兄弟s </p>
+<p>​      <strong>BB-1</strong>兄弟黑且至少有一个红孩子t{ s继承pcolor, tp to black} 等效于关键码旋转消除下溢 转下p转上s </p>
+<p>​      <strong>BB2-R</strong> s黑且两个孩子都黑p红 下溢节点与兄弟合并顺便向父节点借了一个红色</p>
+<p>​      <strong>BB2-B</strong> s黑两个孩子都黑 p黑 合并兄弟和空空的自己和爹，父节点变空继续上溢 solve（p）</p>
+<p><strong>BB-3S</strong> 红孩子必黑</p>
+<p>绕p单旋继续solve （r）下一步必恢复</p>
+<p>1~2旋转 3染色&#x2F;2染色&#x2F;1染色上升一层&#x2F;1转2染色</p>
+<p>A <strong>hash</strong>() key-&gt;&amp;entry 期望O1不是O1</p>
+<p>   B 散列函数 确定快速(期望O1)满射均匀少聚集取质</p>
+<p>数模：不动点0，相关性(相邻映射也相邻) MAD  (ax+b)%primeM 还有数字分析、平方取中间几位，折叠取和、按位异或、伪随机数、多项式{循环移位异或之后相加，最后模表长}</p>
+<p>C 冲突排解 开放散列 多槽位、独立链空间不连续无法缓存、公共溢出区处理冲突正比于溢出区规模</p>
+<p>封闭散列+开放定址可出借 </p>
+<p><strong>线性试探</strong>：非同义词也会冲突，数据堆积严重、局部性良好。标记以懒惰删除—后查找时为不匹配的非空桶，插入时为空桶</p>
+<p>平方试探：表长素数且装填因子小于0.5一定能找到出空桶——n方%M取值为ceiling(M&#x2F;2)且前面就能取遍</p>
+<p><strong>双向平方试探</strong> 表长取4n+3素数就不重不漏</p>
+<p>素数p表示为平方和等价4k+1 自然数表示成平方和等价于每一个4k+3素因子都是偶次方</p>
+<p>再散列：约定冲突后再hash一次为每次的偏移增量</p>
+<p>重散列：懒惰标记过多或者装填因子太大</p>
+<p><strong>桶排序</strong> 初始化置0，扫描标记Om、顺序输出On。允许重复时桶里维护链表和表长空间变Om+n</p>
+<p>N个互异点在实轴上的最大缝隙？1.找出最左最有并划分n-1个桶 2.模余归入对应的桶并在每个桶中动态记录最左最右点（可相同可没有） 3.计算相邻非空桶的距离 Proof Maxgap至少跨过两桶 但mingap？</p>
+<p><strong>基数排序</strong> 从低位开始分别桶排序 Proof会保持前i-1趟的顺序复杂度为O(t*(m+n))m为取值范围，t为数域位数 且有稳定性。。二进制时1扔到尾巴0不管</p>
+<p><strong>整数排序</strong> n进制d位 比如六十四位整数的n&gt;2^16即可 在0~n^d中n个数转换进制后排序时间为Odn</p>
+<p>转换进制的复杂度。。？</p>
+<p><strong>计数排序</strong> 大数据小取值——已经按数字排序的牌再按花色排序：归到四个花色桶中，得到各个桶内的最大rank（向后累加桶内个数）。从后向前扫描原序列并相应桶的–最大rank即为位置。。</p>
+<p>   <strong>跳转表</strong> 期望塔高2解决空间On</p>
+<p>   查找：每一层向后到更大的key or溢出，命中则返回否则向下一层继续。。纵向跳转不超过期望<strong>Ologn</strong>  </p>
+<p>横向跳转一定抵达塔顶Thm Ey&#x3D;(1-p)&#x2F;p&#x3D;1次，同层不超过两次，每次查找都在期望2h即Ologn内</p>
+<p>插入：查找位置（雷同降落）插入底层后后扔硬币长高 删除时从高到低拆塔</p>
+<p>   A 支持取删插(sorted) vector list BBST都可实现</p>
+<p>B 完全二叉堆借助Vector</p>
+<p>插入：末尾插入后逐层上滤，大了就换，不需则停</p>
+<p>删除：删头补脚后逐层下滤，找堪为父者交换或停止</p>
+<p>建堆：按个上滤时最坏Onlogn-&gt;自下而上的下滤Floyd 从n&#x2F;2-1开始向上的下滤 </p>
+<p>C <strong>堆排序</strong> 改进selecttion的发动机选最大值，就地算法{建堆后swap头元素和elem[n–]，下滤堆头}</p>
+<p>D <strong>胜者树</strong> 叶节点待排序内部为胜者 createOn removeOlogn insertOlogn 树根是全局冠军。用于排序时建堆后排一个数就下去删除然后向上重赛。。Onlogn</p>
+<p>选取最小的k个 n+klogn</p>
+<p>败者树：根的父节点是冠军，重构时和败者比赢得向上输的留下。构造时相当于n次重构</p>
+<p>E <strong>优先级队列</strong> 堆装满顶点 delmax nlogn increase更新关联顶点距离需要elogn   <strong>d****叉</strong>par**:**k-1&#x2F;d， child&#x3D;kd+i </p>
+<p>上滤logdn 下滤dlogdn 运行时间为ndlogdn+elogdn</p>
+<p>取d&#x3D;e&#x2F;n+2时达到O(elog((e&#x2F;n+2),n))自适应达到最优</p>
+<p>左式堆后O(e+nlogn) 插入合并inc接口分摊O1</p>
+<p>F <strong>左式堆</strong>(knuth修订命名) 沿藤合并 基于二叉树</p>
+<p>引入all外部节点 定义NPL为到外节点的<strong>最近距离</strong>且规定npl左孩子&gt;&#x3D;npl右孩子 自己npl&#x3D;1+npl(rc)</p>
+<p>根右侧链(长度d)的终点为最浅外部节点，存在以r为根高度为d的满子树 至少有2^d-1个内部节点和2^(d+1)-1个节点 反之n节点左式堆一定小于grounding（log(2n+1)）&#x3D;Ologn</p>
+<p>合并：{把较大的堆的右子堆与另一堆合并后连接到较大的堆顶，并根据npl可能交换左右子堆，更新npl1116</p>
+<p>插入 merge原树和新节点 删除 merge左右子树</p>
+<p>B 暴力 i(原串) j都要回退</p>
+<p>C <strong>KMP</strong>(Knuth+Morris+Parrt) i永不回退 失败时j变小并继续，记录j回到的next表：前缀&#x3D;后缀的最大前缀右点 while(j&lt;m&amp;&amp;i&lt;n){ if (j&lt;0||T[i]&#x3D;&#x3D;p[j]) i,j++ else j&#x3D;next[j]} <strong>分摊分析</strong>：K&#x3D;2*i-j 成功失败k都会至少加1，结束时k&lt;&#x3D;2n+1</p>
+<p>Next表：失败前的后缀&#x3D;原串前缀len</p>
+<p>mamammia-10012310 -1 0 -1 1 0 -1 3 1 0 </p>
+<p>   <strong>Boyer &amp; Moore****算法</strong>BC从末字符开始比对，BC怀字符，遍历Pstr标记字符的最右出现 </p>
+<p><strong>偏好</strong>概率小P长字母表大 <strong>策略</strong>移动到那里&#x2F;没出现整个移过去&#x2F;出现太靠右移动一个</p>
+<p>最好n&#x2F;m 最坏n*m worst: 100in000000？</p>
+<p>Gs表好后缀 最好n&#x2F;m最差n+m 改良kmp反过来找P[j:m]&#x3D;P[k:m-j]把j-k记录在j里 </p>
+<p>构造：MS&#x2F;ss&#x3D;P[0:j]的某个后缀&#x3D;&#x3D;P的某个后缀&lt;&#x3D;j+1</p>
+<p>Ssj&#x3D;j+1: gs[i]&#x3D;m-j-1任i&lt;m-j-1&#x2F;gs[m-ss[j]-1]&#x3D;m-j-1</p>
+<p>ms[n-1] &#x3D; n; int lower &#x3D; n-1, upper &#x3D; n-1;</p>
+<p>KarpRabin d进制数编号 匹配则一定子串相等 将指纹用散列压缩（相邻两次散列，O1内获得下一个指纹） 哈希值相等后仍需精确比对 </p>
+<p>A <strong>快排</strong>mi**&#x3D;**Partition(lo,hi),递归快排两边</p>
+<p>LUG版 随机选一个轴点swap到lo并备份，向内交替移动hi lo 把有效的指向空的后变为空的。最后轴点归位 期望logn 取消递归时维护栈小贪心，大任务优先入栈。保证递归深度不超过logn <strong>落在λn试试</strong>，一条递归路径最多log(2&#x2F;(1+λ),n)个准居中，λ&gt;1&#x2F;3时有1-1&#x2F;pown的概率深度不超3log3&#x2F;2,n <strong>比较次数</strong>1.386</p>
+<p>LUG‘解决重复，if(lo&lt;hi)elem[lo++]&#x3D;elem[hi];</p>
+<p>DUP’版 松LUG’的交换条件，多交换轴点居中 DUP</p>
+<p>LGU稳定：从第二个往后如果小于轴点就与++mi交换</p>
+<p><strong>众数</strong>for{ifc&#x3D;&#x3D;0 maj&#x3D;A[i];c&#x3D;1;else maj&#x3D;&#x3D;A[i]?c++:c–}</p>
+<p>Median(vec &amp;S1,int lo1,Vec &amp;S2,int lo2,int n){</p>
+<p>If(n&lt;3)return trivialmedian(~~~~~)</p>
+<p>Int mi1&#x3D;lo1+n&#x2F;2;mi2&#x3D;lo2+(n-1)&#x2F;2;</p>
+<p>If(S1[mi1]&lt;S2[mi2])return median(mi1,lo2,n+lo1-mi1)</p>
+<p>Else if{} else return S1[mi1] 任意子向量Ologmin(n1,n2)</p>
+<p>   <strong>第k+1小</strong> 选pivot进行LUG后缩小范围继续猜</p>
+<p>Linearselect:Q是小常量，如果序列小于Q为trivial，划分子序列；各自On*n排序找到中位数；递归找到全局中位数；划分LEQ计数；每轮缩减到3&#x2F;4子问题</p>
+<p>​      <strong>希尔排序</strong> 矩阵变窄，每次对各列排序。对希尔序列的最坏情况 6 7 8 52 3 1 4</p>
+<p>g有序在h排序后仍g有序 </p>
+<p>当gh互质时，最小组不出来为gh-g+h 则gh有序后其线性组合依然有序 gh互质时for all elems: i-j&gt;x(g,h) only if S[j]&lt;&#x3D;S[i] 不超过n*x(g,h)个inversions</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/01/06/2021Fall-FLA-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2021秋季学期 形式语言与自动机 期末复习</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/06/10/2021Spring-OOP-review/"><span class="level-item">2021春季学期 面向对象程序设计基础 期末复习笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

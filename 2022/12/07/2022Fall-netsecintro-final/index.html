@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2022秋季学期 计算机网络安全技术 期末复习笔记 - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="markdown丢失图片，可直接下载pdf版 网安期末复习lect1 为什么学 通信 电信和计网历史 网安概述攻击与防御 Enigma 密码概念 发展 Casear 单表 PF Hill Vigenere Verman OTP 列置换 破译 SDES Feistal 公钥原理 RSA DH DSA概念 密钥分配 KDC 公钥分配 概念 攻击与认证 加密 MAC HASH MDSHA 数字签名DSS"><meta property="og:type" content="blog"><meta property="og:title" content="2022秋季学期 计算机网络安全技术 期末复习笔记"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="markdown丢失图片，可直接下载pdf版 网安期末复习lect1 为什么学 通信 电信和计网历史 网安概述攻击与防御 Enigma 密码概念 发展 Casear 单表 PF Hill Vigenere Verman OTP 列置换 破译 SDES Feistal 公钥原理 RSA DH DSA概念 密钥分配 KDC 公钥分配 概念 攻击与认证 加密 MAC HASH MDSHA 数字签名DSS"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/b811e7d1-bada-4fd9-bfc6-032cafc6e522.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/e8ef512b-1e3f-4fc1-84d4-7cab64a251a5.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/71de7101-9dec-4ddf-a9c0-ed415f400019.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/c8e155c5-2a6f-4440-9ba8-09bc05ac5602.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/09c3a237-dfe2-46a5-bf44-3eb00f66b360.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/88bba91c-75c8-42df-8a63-74f7fee11ceb.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/eecc8c1a-7204-435c-be8a-92a07d6f63c3.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/2576450b-3621-40e0-ab68-650c26dc03e2.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/278ff211-0be0-45a9-9865-6ea00b4f13b5.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/148e229c-d554-4943-a107-b7e440940495.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/31514985-bcb3-4072-abcd-5c4a54560e22.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/f1a2ad45-c48c-4c25-be19-a6e775f8b3c6.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/413b67f4-41e9-4ca3-87ca-00b963be4c2b.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/b81c0148-094d-4e52-b5ae-4d0eda606b57.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/35a473d2-b210-4335-8856-89d958ef5ffc.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/2407479a-f637-4813-8130-77b9831101e5.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/f927e62b-eabc-48a2-b8cd-756ec466d4b9.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/e5cf421f-33f0-41a7-9826-0b2548b2927b.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/e649e44a-2f5f-4f60-a87b-8c4084951bd1.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/6c00e76d-b89e-48c7-aea3-36389fe5f4d7.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/9a4bf730-1faa-4f12-8f9a-3f332bd6209f.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/382c8b88-6d56-4718-bca8-e967b498dd74.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/3c98e1ff-1365-4539-932e-79d3da4e8248.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/c26169dd-bd61-437e-843f-f0bbb1a21d31.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/ac3c87ed-1481-4330-951e-559ccd44f4d9.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/867a93a7-56a6-49a5-9dbb-65e64587522c.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/9e5fb604-619a-4077-aa12-52d258ac9eef.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/bb0919d2-6f10-4c52-8faa-22813bed6bd4.png"><meta property="og:image" content="/"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/f021b178-c7f6-4a7a-9a8b-1149ab5acd01.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/8ccb9c43-3b6a-4f24-9ec6-7beeef05c617.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/bcf32136-3b84-45d5-ad65-7ec0858d7329.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/6322186e-47c7-405d-9dc2-37ae58d1417d.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/e0677ea1-245a-43bf-b2cb-29d9229b4c3b.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/9cfbe57b-6b43-42d5-b020-d6f2813bfefc.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/6f724b2d-4153-457b-bd41-2716a18c0035.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/4ea93e19-657e-43d8-aef6-3084fd7a3e57.png"><meta property="og:image" content="https://codimd.s3.shivering-isles.com/demo/uploads/72bd2821-3d93-470f-9770-1e767b4c59aa.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127155306580.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127162253593.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127162307071.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127164042087.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127164322540.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127164807390.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127165201337.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127170707306.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127170713711.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127174314014.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127194002537.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127194256055.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127194727845.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127195206509.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127195955849.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127200223678.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127200233996.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127201646975.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127203124090.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127204922718.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127205426006.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127203238280.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127215257903.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127215707707.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127220308464.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127220411749.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127221358395.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127221444561.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127222812676.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127233742765.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221127235106263.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128000015783.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128002431521.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128002723427.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128003002525.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128003706035.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128005320953.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128124623749.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128125503195.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128131720148.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128131835833.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128132040491.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128133406257.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128133625982.png"><meta property="og:image" content="/assets/2022Fall-netsecintro-final.assets/image-20221128133703505.png"><meta property="article:published_time" content="2022-12-07T09:26:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.488Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://codimd.s3.shivering-isles.com/demo/uploads/b811e7d1-bada-4fd9-bfc6-032cafc6e522.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2022/12/07/2022Fall-netsecintro-final/"},"headline":"2022秋季学期 计算机网络安全技术 期末复习笔记","image":["https://codimd.s3.shivering-isles.com/demo/uploads/b811e7d1-bada-4fd9-bfc6-032cafc6e522.png","https://codimd.s3.shivering-isles.com/demo/uploads/e8ef512b-1e3f-4fc1-84d4-7cab64a251a5.png","https://codimd.s3.shivering-isles.com/demo/uploads/71de7101-9dec-4ddf-a9c0-ed415f400019.png","https://codimd.s3.shivering-isles.com/demo/uploads/c8e155c5-2a6f-4440-9ba8-09bc05ac5602.png","https://codimd.s3.shivering-isles.com/demo/uploads/09c3a237-dfe2-46a5-bf44-3eb00f66b360.png","https://codimd.s3.shivering-isles.com/demo/uploads/88bba91c-75c8-42df-8a63-74f7fee11ceb.png","https://codimd.s3.shivering-isles.com/demo/uploads/eecc8c1a-7204-435c-be8a-92a07d6f63c3.png","https://codimd.s3.shivering-isles.com/demo/uploads/2576450b-3621-40e0-ab68-650c26dc03e2.png","https://codimd.s3.shivering-isles.com/demo/uploads/278ff211-0be0-45a9-9865-6ea00b4f13b5.png","https://codimd.s3.shivering-isles.com/demo/uploads/148e229c-d554-4943-a107-b7e440940495.png","https://codimd.s3.shivering-isles.com/demo/uploads/31514985-bcb3-4072-abcd-5c4a54560e22.png","https://codimd.s3.shivering-isles.com/demo/uploads/f1a2ad45-c48c-4c25-be19-a6e775f8b3c6.png","https://codimd.s3.shivering-isles.com/demo/uploads/413b67f4-41e9-4ca3-87ca-00b963be4c2b.png","https://codimd.s3.shivering-isles.com/demo/uploads/b81c0148-094d-4e52-b5ae-4d0eda606b57.png","https://codimd.s3.shivering-isles.com/demo/uploads/35a473d2-b210-4335-8856-89d958ef5ffc.png","https://codimd.s3.shivering-isles.com/demo/uploads/2407479a-f637-4813-8130-77b9831101e5.png","https://codimd.s3.shivering-isles.com/demo/uploads/f927e62b-eabc-48a2-b8cd-756ec466d4b9.png","https://codimd.s3.shivering-isles.com/demo/uploads/e5cf421f-33f0-41a7-9826-0b2548b2927b.png","https://codimd.s3.shivering-isles.com/demo/uploads/e649e44a-2f5f-4f60-a87b-8c4084951bd1.png","https://codimd.s3.shivering-isles.com/demo/uploads/6c00e76d-b89e-48c7-aea3-36389fe5f4d7.png","https://codimd.s3.shivering-isles.com/demo/uploads/9a4bf730-1faa-4f12-8f9a-3f332bd6209f.png","https://codimd.s3.shivering-isles.com/demo/uploads/382c8b88-6d56-4718-bca8-e967b498dd74.png","https://codimd.s3.shivering-isles.com/demo/uploads/3c98e1ff-1365-4539-932e-79d3da4e8248.png","https://codimd.s3.shivering-isles.com/demo/uploads/c26169dd-bd61-437e-843f-f0bbb1a21d31.png","https://codimd.s3.shivering-isles.com/demo/uploads/ac3c87ed-1481-4330-951e-559ccd44f4d9.png","https://codimd.s3.shivering-isles.com/demo/uploads/867a93a7-56a6-49a5-9dbb-65e64587522c.png","https://codimd.s3.shivering-isles.com/demo/uploads/9e5fb604-619a-4077-aa12-52d258ac9eef.png","https://codimd.s3.shivering-isles.com/demo/uploads/bb0919d2-6f10-4c52-8faa-22813bed6bd4.png","https://codimd.s3.shivering-isles.com/demo/uploads/f021b178-c7f6-4a7a-9a8b-1149ab5acd01.png","https://codimd.s3.shivering-isles.com/demo/uploads/8ccb9c43-3b6a-4f24-9ec6-7beeef05c617.png","https://codimd.s3.shivering-isles.com/demo/uploads/bcf32136-3b84-45d5-ad65-7ec0858d7329.png","https://codimd.s3.shivering-isles.com/demo/uploads/6322186e-47c7-405d-9dc2-37ae58d1417d.png","https://codimd.s3.shivering-isles.com/demo/uploads/e0677ea1-245a-43bf-b2cb-29d9229b4c3b.png","https://codimd.s3.shivering-isles.com/demo/uploads/9cfbe57b-6b43-42d5-b020-d6f2813bfefc.png","https://codimd.s3.shivering-isles.com/demo/uploads/6f724b2d-4153-457b-bd41-2716a18c0035.png","https://codimd.s3.shivering-isles.com/demo/uploads/4ea93e19-657e-43d8-aef6-3084fd7a3e57.png","https://codimd.s3.shivering-isles.com/demo/uploads/72bd2821-3d93-470f-9770-1e767b4c59aa.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127155306580.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127162253593.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127162307071.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127164042087.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127164322540.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127164807390.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127165201337.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127170707306.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127170713711.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127174314014.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127194002537.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127194256055.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127194727845.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127195206509.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127195955849.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127200223678.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127200233996.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127201646975.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127203124090.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127204922718.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127205426006.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127203238280.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127215257903.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127215707707.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127220308464.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127220411749.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127221358395.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127221444561.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127222812676.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127233742765.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221127235106263.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128000015783.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128002431521.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128002723427.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128003002525.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128003706035.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128005320953.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128124623749.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128125503195.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128131720148.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128131835833.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128132040491.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128133406257.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128133625982.png","https://matteoyang.space/assets/2022Fall-netsecintro-final.assets/image-20221128133703505.png"],"datePublished":"2022-12-07T09:26:00.000Z","dateModified":"2024-10-01T11:01:40.488Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"markdown丢失图片，可直接下载pdf版 网安期末复习lect1 为什么学 通信 电信和计网历史 网安概述攻击与防御 Enigma 密码概念 发展 Casear 单表 PF Hill Vigenere Verman OTP 列置换 破译 SDES Feistal 公钥原理 RSA DH DSA概念 密钥分配 KDC 公钥分配 概念 攻击与认证 加密 MAC HASH MDSHA 数字签名DSS"}</script><link rel="canonical" href="https://matteoyang.space/2022/12/07/2022Fall-netsecintro-final/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-07T09:26:00.000Z" title="2022/12/7 17:26:00">2022-12-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.488Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">2 hours read (About 15013 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2022秋季学期 计算机网络安全技术 期末复习笔记</h1><div class="content"><p><strong>markdown丢失图片，可直接下载<a href="/pdf/2022Fall-netsecintro-final">pdf版</a></strong></p>
+<h1 id="网安期末复习"><a href="#网安期末复习" class="headerlink" title="网安期末复习"></a>网安期末复习</h1><h2 id="lect1-为什么学"><a href="#lect1-为什么学" class="headerlink" title="lect1 为什么学"></a>lect1 为什么学</h2><ol>
+<li>通信 电信和计网历史 网安概述攻击与防御 Enigma</li>
+<li>密码概念 发展 Casear 单表 PF Hill Vigenere Verman OTP 列置换 破译 SDES Feistal</li>
+<li>公钥原理 RSA DH DSA概念 密钥分配 KDC 公钥分配</li>
+<li>概念 攻击与认证 加密 MAC HASH MDSHA 数字签名DSS 身份认证 basic 表单 session 证书</li>
+<li>无线网 历史标准 威胁 WEP WPA12 TKIP 802.1x</li>
+<li>CIA OSI 安全目标-服务-机制-算法 认证保密完整访问控制等服务 特定机制 VPN源路由攻击</li>
+<li>IP级安全 IPSEC 实现层次 文档 服务 SASP AH-ESP SA组合 IKE密钥交换 工作模式</li>
+<li>SSL 连接共享会话 握手-记录 HTTPS WEB HTTP攻击ARP DNS 电子商务SET 双签名</li>
+</ol>
+<h3 id="无处不在的通信"><a href="#无处不在的通信" class="headerlink" title="无处不在的通信"></a>无处不在的通信</h3><p>基本要素：信源、信道、信宿<br>一个世纪前电信网 半个世纪计算机网络 单向广播有线电视网————三网合一</p>
+<h4 id="电信网的发展历程"><a href="#电信网的发展历程" class="headerlink" title="电信网的发展历程"></a>电信网的发展历程</h4><p>有线电报、电话；无线电报；寻呼；蜂窝移动；手机<br><strong>1830s 电磁电报机</strong><br><strong>morse code</strong><br>滴、答、空。1、3、滴答间1字符间3单词中7</p>
+<p>送话器：麦克风，电磁感应震动金属片or液体电阻or活性炭震动<br>铜线传输；1876贝尔专利，双绞线</p>
+<p>1878 交换机从一对一到一对多，人工接续<br>1879 电话号码，1893步进交换 1938纵横交换<br>1946 电子计算机 1965程序控制交换机<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/b811e7d1-bada-4fd9-bfc6-032cafc6e522.png"></p>
+<p>俄国人波波夫和意大利人马可尼各自独立完成了无线电通信</p>
+<p>蜂窝移动通信系统主要是由交换网路子系统（NSS）、无线基站子系统（BSS）和移动台（MS）三大部分组成</p>
+<h3 id="无处不在的网络安全"><a href="#无处不在的网络安全" class="headerlink" title="无处不在的网络安全"></a>无处不在的网络安全</h3><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/e8ef512b-1e3f-4fc1-84d4-7cab64a251a5.png"></p>
+<h4 id="信息窃取攻击"><a href="#信息窃取攻击" class="headerlink" title="信息窃取攻击"></a>信息窃取攻击</h4><p><strong>蛮力</strong> 常用密码做字典，撞库：用获取的账户密码去登陆更大型的信息系统<br><strong>中间人</strong> 在受害者网络链路中数据监听和篡改；链路传输截取，并修改来欺骗两端<br><strong>拒绝服务</strong> 使计算机崩溃压垮来组织服务，最容易有效，最多，影响网络可用性。SYN洪泛；UDP<br>洪泛；DNS反射<br><strong>病毒、恶意软件</strong> 传播到用户系统上，有时利用漏洞偷偷运行，伪装成正常程序欺骗用户。浏览、email、移动介质、下载</p>
+<h4 id="防守技术"><a href="#防守技术" class="headerlink" title="防守技术"></a>防守技术</h4><ul>
+<li>加解密：中间人攻击</li>
+<li>访问控制、身份认证：阻止非法访问</li>
+<li>防火墙：阻止大部分外来非法请求</li>
+<li>防病毒：识别坏东西并阻止</li>
+<li>补丁：修复漏洞</li>
+</ul>
+<h3 id="揭开现象看本质"><a href="#揭开现象看本质" class="headerlink" title="揭开现象看本质"></a>揭开现象看本质</h3><p>Enigma 一战用于战争，1926装备德国军队<br>有键盘转轮和显示器，没有空格和标点<br>制造：1918,Arthur Scherbius<br>破译：Alan Turing，Bomber<br>转轮机——防止字频统计<br><strong>代换密码算法</strong>多表代换<br>每次输入后转轮转动一格，同一输入对应的密文不同<br>三个转轮后反射器，反射器不转动且字母为绑定的双射。相当于划分26字母到正反两个空间<br>加解密对应转轮情况一样，即表一样<br>加密：三次正翻译，取反，三次反翻译<br>解密：三次正翻译，取反，三次反翻译<br>使得译码和编码过程相同</p>
+<h4 id="使用过程"><a href="#使用过程" class="headerlink" title="使用过程"></a>使用过程</h4><ul>
+<li>调节三个转轮初始方向</li>
+<li>明文打键盘到显示器的密文闪亮并记录，电报发出</li>
+<li>接收方打开同样的Enigma，转轮初始化键入密文出现明文</li>
+</ul>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><ul>
+<li>初始化转轮。</li>
+<li>输入A，转轮向前（左，反字典序）转动，七次查表翻译D</li>
+<li>再次输入A，转三个轮，七次查表得H</li>
+<li>这个例子只有第一个轮在转动？</li>
+</ul>
+<h4 id="加强"><a href="#加强" class="headerlink" title="加强"></a>加强</h4><ul>
+<li>如果得到机器（三个固定表）则秘钥为初始方向，可以蛮力</li>
+<li>滚轮可拆卸并组合</li>
+<li>键盘和转轮1之间有“连接板”，错位连接一些字母成为另外的信号。最多相当于两两交换六对字母</li>
+</ul>
+<h2 id="lect2-密码学-I"><a href="#lect2-密码学-I" class="headerlink" title="lect2 密码学 I"></a>lect2 密码学 I</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>不同于隐藏（保险柜和密信），不同于访问控制（口令没有加密安全性很弱）</p>
+<h4 id="加密形式"><a href="#加密形式" class="headerlink" title="加密形式"></a>加密形式</h4><ul>
+<li>传统（对称、单钥）<ul>
+<li>代换、置换、二者组合</li>
+<li>安全性在于保持算法本身保密<ul>
+<li>不适于大规模生产以及变动大</li>
+<li>用户不了解算法安全</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>公钥（现代、非对称）<ul>
+<li>算法公开；密钥保密</li>
+<li>安全性在于密钥的保密性</li>
+</ul>
+</li>
+</ul>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li><p>密文cipher 明文message有时候为passage</p>
+</li>
+<li><p>密码算法：Encoder Decoder</p>
+</li>
+<li><p>密钥Key，在ED中作为下标变量</p>
+</li>
+<li><p>编码学与分析学：加密方案和破译</p>
+</li>
+<li><p>编码学的独立特征</p>
+<ul>
+<li>转换明文为密文的运算类型<ul>
+<li>基于置换：重新排列明文元素</li>
+<li>代换：映射成另外的元素</li>
+<li>不允许丢失信息，运算可逆</li>
+</ul>
+</li>
+<li>所用的密钥数<ul>
+<li>发送接收相同密钥：对称、传统</li>
+<li>不同：非对称，公钥</li>
+</ul>
+</li>
+<li>处理明文的方法<ul>
+<li>分组密码、块密码：每次处理一个输入分组对应一个输出分组</li>
+<li>流密码，序列密码：连续处理输入元素，每次输出一个元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>简单加密：异或。CPK任何两个异或求出另一个</p>
+<ul>
+<li>无条件安全（信息论安全）：有多少密文（无限的计算能力）都不能唯一确定由该体制产生密文所对应的明文<ul>
+<li>每次都换密钥，绝对安全</li>
+</ul>
+</li>
+<li>计算安全<ul>
+<li>破译密码代价大于数据价值</li>
+<li>破译时间超过信息声明期</li>
+</ul>
+</li>
+</ul>
+<h3 id="发展周期"><a href="#发展周期" class="headerlink" title="发展周期"></a>发展周期</h3><ul>
+<li>古典密码：艺术，需要算法保密。都是针对字符的代换置换，简单的分析手段</li>
+<li>近代密码：有计算机；成为科学；有线电报产生现代编码学；无线电报产生现代密码分析学；<ul>
+<li>加密体系安全性不依赖加密方法本身，而是依赖于所使用的的密钥</li>
+<li>shannon发表论文成为科学</li>
+</ul>
+</li>
+<li>1976 新方向：公钥密码体制，从DES开始</li>
+</ul>
+<h3 id="古典密码（代换）"><a href="#古典密码（代换）" class="headerlink" title="古典密码（代换）"></a>古典密码（代换）</h3><h4 id="Caesar-凯撒密码"><a href="#Caesar-凯撒密码" class="headerlink" title="Caesar 凯撒密码"></a>Caesar 凯撒密码</h4><p>每个字母换成后面第三个字母<br>key：往后换key个，25种穷举即可<br><strong>升级</strong></p>
+<ul>
+<li>密钥次密码：一个密钥次放前面剩下按顺序。<img src="https://codimd.s3.shivering-isles.com/demo/uploads/71de7101-9dec-4ddf-a9c0-ed415f400019.png"><br>单表代换<br><strong>评价</strong> 明文的语法模式和结构有多少保留在密文，减少这样的保留信息：</li>
+<li>对多个字母一起加密</li>
+<li>多表代换</li>
+</ul>
+<h4 id="Playfair密码"><a href="#Playfair密码" class="headerlink" title="Playfair密码"></a>Playfair密码</h4><p>多表代换<br>key：密钥词构成5*5字母矩阵，IJ合并，按行填写。<img src="https://codimd.s3.shivering-isles.com/demo/uploads/c8e155c5-2a6f-4440-9ba8-09bc05ac5602.png"><br>加密：一次两个，相同字母ll变成lx（x为填充字符）</p>
+<ul>
+<li>同行，向右一个单位</li>
+<li>同列，向下一个单位</li>
+<li>四方对角线替换<br>？如果是ij密文输出什么？<br><strong>评价</strong> 完整保留了明文语言结构，几百个密文可以分析规律</li>
+</ul>
+<h4 id="Hill密码"><a href="#Hill密码" class="headerlink" title="Hill密码"></a>Hill密码</h4><p>多表代换<br>m个连续的明文字母带换成m个密文，由m线性等式决定，每个字母都是数字0~25。<br>key：m*m矩阵，解密用K逆矩阵——并不所有矩阵都可逆。<br><strong>评价</strong> 隐蔽单字母频率，矩阵越大隐藏信息越多。33矩阵隐藏了双字母的频率</p>
+<h4 id="Vigenere密码"><a href="#Vigenere密码" class="headerlink" title="Vigenere密码"></a>Vigenere密码</h4><p>一系列凯撒，多表代换</p>
+<ul>
+<li>相关的单标代换规则集，由密钥决定具体变换<br>加密过程<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/09c3a237-dfe2-46a5-bf44-3eb00f66b360.png"><br>第一个密钥字母加密明文的第一个字母，第二个密钥字母加密明文的第二个字母，等所有密钥字母使用完后，密钥又再循环使用。<br>第一步可以先将密钥的长度拓展到（或者缩减到）和明文长度一样。<br>查表 or 计算（Mi+Pi即可）<br><strong>评价</strong> 强度在于每个明文对应多个密文，且使用唯一字母作为密钥，来掩盖频率。</li>
+<li>字母频率隐藏</li>
+<li>并非所有明文结构信息都被隐藏</li>
+</ul>
+<h4 id="Vernam密码和一次一密"><a href="#Vernam密码和一次一密" class="headerlink" title="Vernam密码和一次一密"></a>Vernam密码和一次一密</h4><p>与明文毫无统计关系且一样长，基于位的二进制异或运算得到密文。<br>改进：与消息一样长且无重复的随机密钥——一次一密OTP，直接相加mod26就好<br>评价：不可攻破但是没屁用</p>
+<ul>
+<li>大规模随机密钥很难</li>
+<li>密钥的保护和分配很难（安全信道&amp;用后销毁）</li>
+</ul>
+<h3 id="古典密码（置换）"><a href="#古典密码（置换）" class="headerlink" title="古典密码（置换）"></a>古典密码（置换）</h3><p>新的排列<br>简单栅栏技术：对角线写入明文，行读出为密文<br>写成矩阵块，按列读出并打乱列次序。列次序为密钥。<br>单步or多步置换</p>
+<h4 id="简单置换"><a href="#简单置换" class="headerlink" title="简单置换"></a>简单置换</h4><p>逐行写入矩阵块（不足行补进随便字母xyz），按列次序读出<br>key：列次序如4312567，即先读1所在列…<br>多换几次后，没什么规律了</p>
+<h4 id="转轮机（多层加密）"><a href="#转轮机（多层加密）" class="headerlink" title="转轮机（多层加密）"></a>转轮机（多层加密）</h4><p>包括一组相互独立的旋转轮，电脉冲可以通过；每个圆筒有26个输入引脚和26个输出引脚，并且一一相连<br>每个圆筒就定义了一个单表代换，多个圆筒就是多表代换<br>三轮\四轮Enigma</p>
+<h3 id="古典密码破译举例"><a href="#古典密码破译举例" class="headerlink" title="古典密码破译举例"></a>古典密码破译举例</h3><p>穷举、蛮力：不适用一次一密，单纯尝试看明文有无意义<br>频率分析：猜字，最常出现e，q后面u，还有双码、多码统计特性等等<br>单表代换破译过程举例：</p>
+<ul>
+<li>词频统计，先换最高为e，t</li>
+<li>开始根据三元组（the）、语法规则was been等猜词</li>
+</ul>
+<h3 id="对称密码算法"><a href="#对称密码算法" class="headerlink" title="对称密码算法"></a>对称密码算法</h3><p>加解密密钥相同，密钥用保密信道分配<br>常用：DES、IDEA、RC245、AES、CAST-128、Blowfish</p>
+<h4 id="对称密钥密码S-DES（简化DES）"><a href="#对称密钥密码S-DES（简化DES）" class="headerlink" title="对称密钥密码S-DES（简化DES）"></a>对称密钥密码S-DES（简化DES）</h4><p>输入：10bit key 8bit明文组<br>输出：8bit密文组，破译过程相反<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/88bba91c-75c8-42df-8a63-74f7fee11ceb.png"><br>包含函数：</p>
+<ul>
+<li>初始置换IP</li>
+<li>复杂函数fk：包含置换代换，依赖key</li>
+<li>简单置换SW</li>
+<li>复杂函数fk</li>
+<li>初始置换地函数IP^-1</li>
+</ul>
+<p>密钥拆分：其实是把10位key拆成两组8bit K1K2用：<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/eecc8c1a-7204-435c-be8a-92a07d6f63c3.png"></p>
+<ul>
+<li>10bit K 置换P10</li>
+<li>前后两组循环左移1位，放入P8得K1</li>
+<li>前后两组循环左移2位，放入P8得K2</li>
+</ul>
+<p>加密过程：IP fk SW fk IP^-1<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/2576450b-3621-40e0-ab68-650c26dc03e2.png"></p>
+<ul>
+<li>先IP，初始八位置换26314857</li>
+<li>K1作fk：fk(L,R) &#x3D;{(L xor F(R,Key)) ,R},F(R,key) &#x3D; P4(S0S1{EP(R) xor key})</li>
+<li>扩展，密钥，S盒，4置换<ul>
+<li>L4R4拆分，R4为输出后4</li>
+<li>R4作扩展置换EP：41232341</li>
+<li>与K异或</li>
+<li>L4R4拆分，分别放入S盒得2*2位输出，合并为4bit<ul>
+<li><strong>S盒</strong> 4x4矩阵，取值在0~3,1、4位决定行，2、3位决定列，查表</li>
+</ul>
+</li>
+<li>置换P4：2431</li>
+<li>与刚开始L4异或为输出的前半边，后半边为R4</li>
+</ul>
+</li>
+<li>交换函数SW，前后4互换</li>
+<li>用K2重复fk</li>
+<li>末尾置换IP^-1:41357286<ul>
+<li>置换求逆：排列回来</li>
+</ul>
+</li>
+</ul>
+<p>加解密过程完全一样且对称</p>
+<h4 id="Feistel密码结构"><a href="#Feistel密码结构" class="headerlink" title="Feistel密码结构"></a>Feistel密码结构</h4><p>Vigenere和Vernam为流密码<br>验证：改变分组大小不改结果，不整除分组也不用补字母<br>分组密码：64|128bits，基于网络</p>
+<p>Feistel建议：</p>
+<ul>
+<li>使用<strong>乘积密码</strong>来逼近简单代换密码：依次使用两个或以上的基本密码，所得密码强度将强于所有单个密码的强度</li>
+<li>交替使用代换置换</li>
+</ul>
+<p>shannon：</p>
+<ul>
+<li><strong>扩散</strong> 明文统计特征消散在密文中，每个明文影响多个密文</li>
+<li><strong>混淆</strong> 密文和密钥的统计关系复杂，难以推导密钥</li>
+</ul>
+<p>输入：2w bit明文组，密钥w bit Ki</p>
+<ul>
+<li>明文分开为wbit L0R0，经过n轮迭代组合成密文</li>
+<li>每轮迭代的输入都是上层的输出，但结构相同<ul>
+<li>L0和F（K1 R0）异或成R1</li>
+<li>R0直接成为L1</li>
+</ul>
+</li>
+<li>子密钥Ki由K推出，有Ki生成算法<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/278ff211-0be0-45a9-9865-6ea00b4f13b5.png"><br>评价：</li>
+<li>分组长度和密钥长度：越长越安全，但是慢</li>
+<li>迭代轮数：多轮安全</li>
+<li>子密钥产生越复杂越难以密码分析攻击</li>
+<li>轮函数复杂，抗攻击强</li>
+</ul>
+<h4 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h4><p>分组加密，对称密钥，56bits Key（奇偶校验后写成64bits），分组64bits，标准算数逻辑运算<br>加密过程：<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/148e229c-d554-4943-a107-b7e440940495.png"></p>
+<ul>
+<li>密钥生成器：<ul>
+<li>56+8的密钥，拆分为28+28</li>
+<li>两个28根据16轮，不同循环左移1or2位</li>
+<li>置换选择PC-2 56选48bits成为Ki</li>
+<li>两个28根据16轮，不同循环左移1or2位</li>
+<li>置换选择PC-2 56选48bits成为Ki+1</li>
+</ul>
+</li>
+<li>明文分64bits块m</li>
+<li>IP初始置换64换64</li>
+<li>T1，16轮迭代过程和Feistel相同<ul>
+<li>具体：R0直接成为L1</li>
+<li>F（R0，K）E扩展，K异或，S选择，P置换<ul>
+<li>32bR0 E盒扩展至 48b<ul>
+<li>输入一位影响下一步的两个替换，输出对输入依赖传播快，密文每一位都依赖明文的每一位</li>
+</ul>
+</li>
+<li>和K1异或</li>
+<li>S盒代换选择，48选到32b<ul>
+<li>8个6选4的S盒</li>
+<li>首尾决定行，中间4b决定列</li>
+<li>需要4x8矩阵，取值0~15</li>
+</ul>
+</li>
+<li>P盒置换为32</li>
+</ul>
+</li>
+<li>和L0异或成为R1</li>
+</ul>
+</li>
+<li>T2</li>
+<li>…</li>
+<li>T16</li>
+<li>IP-1末尾置换64换64</li>
+</ul>
+<p>解密：IP T16：1 IP-1，完全对称过程</p>
+<h3 id="其他常用对称密码"><a href="#其他常用对称密码" class="headerlink" title="其他常用对称密码"></a>其他常用对称密码</h3><p>3DES，blowfis，RC5，AES（取代DES）</p>
+<ul>
+<li>高密码强度</li>
+<li>广泛用于Internet</li>
+<li>代表DES以来的对称密码</li>
+</ul>
+<h4 id="3DES"><a href="#3DES" class="headerlink" title="3DES"></a>3DES</h4><p>两密钥112bit三重DES，明文攻击代价2^112<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/31514985-bcb3-4072-abcd-5c4a54560e22.png"></p>
+<h4 id="blowfish"><a href="#blowfish" class="headerlink" title="blowfish"></a>blowfish</h4><p>快速紧凑简单安全可变<br>64bit分组，密钥32-448bit<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/f1a2ad45-c48c-4c25-be19-a6e775f8b3c6.png"></p>
+<ul>
+<li>子密钥和S盒都是blowfish本身生成，数据不可辨认，密钥分析困难</li>
+<li>每轮对数据左右同时运算，和古典feistel不同，密码强度增强</li>
+<li>448bit密码抵抗穷举</li>
+</ul>
+<h4 id="RC5"><a href="#RC5" class="headerlink" title="RC5"></a>RC5</h4><p>快速；迭代和key长可变；简单；高安全<br>分组32、64、128<br>密钥0~2040b<br>由分组长度，迭代次数，密钥的byte数决定的算法族<br>使用：</p>
+<ul>
+<li>字的模2^w假发</li>
+<li>xor</li>
+<li>循环左移</li>
+</ul>
+<p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/413b67f4-41e9-4ca3-87ca-00b963be4c2b.png"></p>
+<h4 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h4><p>3des太慢，分组太短——分组128支持128192256密钥的AES<br>w 128 key128</p>
+<ul>
+<li>免疫所有已知攻击</li>
+<li>所有平台执行快代码紧凑</li>
+<li>密钥被扩展为44个wordlen &#x3D; uint32的数组，每轮有4个字参与</li>
+<li>轮密钥加是vernam密码</li>
+<li>设计结构简单，<ul>
+<li>轮密钥加</li>
+<li>九轮迭代<ul>
+<li>字节代换</li>
+<li>行移位</li>
+<li>列混淆</li>
+<li>轮密钥加</li>
+</ul>
+</li>
+<li>最后一轮<ul>
+<li>字节代换</li>
+<li>行移位</li>
+<li>轮密钥加</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不是Feistel结构</li>
+<li>每轮四个阶段，一个置换3个代换，均可逆<ul>
+<li>字节代换：用一个S盒完成分组中的字节代换</li>
+<li>行移位：一个简单的置换</li>
+<li>列混淆：算术代换</li>
+<li>轮密钥加：利用当前分组和扩展密钥的一部分进行按位异或<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/b81c0148-094d-4e52-b5ae-4d0eda606b57.png"><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/35a473d2-b210-4335-8856-89d958ef5ffc.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="lect3-密码学-II"><a href="#lect3-密码学-II" class="headerlink" title="lect3 密码学 II"></a>lect3 密码学 II</h2><h3 id="非对称密码原理"><a href="#非对称密码原理" class="headerlink" title="非对称密码原理"></a>非对称密码原理</h3><p>缺陷：</p>
+<ul>
+<li>密钥需要安全信道分配</li>
+<li>无法用于数字签名？</li>
+<li>密钥管理复杂，O(n^2)的数量</li>
+</ul>
+<p>基于数学函数而非代换置换<br>概念：</p>
+<ul>
+<li>明文、密文</li>
+<li>会话密钥Ks：对称密钥</li>
+<li>加密、解密算法</li>
+<li>公钥U 公开，用来加密和验证签名</li>
+<li>私钥R 保密，用于解密和签名</li>
+</ul>
+<p>加密：</p>
+<ul>
+<li>每个实体有一对密钥，接收方的公钥加密信息，私钥解密。</li>
+<li>每方持有所有公钥和自己的私钥，向谁发就用接收方的公钥加密</li>
+</ul>
+<p>签名：</p>
+<ul>
+<li>发送方用自己的私钥加密签名发出</li>
+<li>接收方用发送方的公钥解密验证发送方</li>
+</ul>
+<p>密钥交换：</p>
+<ul>
+<li>协商会话密钥来对称加密</li>
+</ul>
+<p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/2407479a-f637-4813-8130-77b9831101e5.png"></p>
+<p>可同时使用加密和签名——先自己私签再对公加密<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/f927e62b-eabc-48a2-b8cd-756ec466d4b9.png"></p>
+<p>数学原理：陷门单向函数<br>不知道陷门信息求逆困难，知道后容易实现</p>
+<ul>
+<li>给定x，计算y&#x3D;fx容易</li>
+<li>给定y，计算x为y&#x3D;fx困难</li>
+<li>存在δ，有δ对y容易计算x（陷门性）</li>
+<li>对于加解密，f为公钥δ为私钥<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/e5cf421f-33f0-41a7-9826-0b2548b2927b.png"></li>
+</ul>
+<p>密码分析：</p>
+<ul>
+<li>容易被穷举，利用公钥对所有可能的密钥加密，尝试密文是否一致<ul>
+<li>应对：长密钥，不能太长</li>
+</ul>
+</li>
+<li>函数复杂性不是密钥长度的线性增长，指数或更快</li>
+<li>仅用于密钥管理和数字签名</li>
+</ul>
+<p>非对称vs对称比较</p>
+<ul>
+<li>公钥并不更安全，安全取决于计算量</li>
+<li>公钥并不通用，传统并不过时：公钥计算量太大，仅限于密钥管理和签名，不可能取代传统密码</li>
+<li>公钥密钥分配很简单：也需要协议、中心代理，并不比传统密码更简单</li>
+</ul>
+<h3 id="数论基础"><a href="#数论基础" class="headerlink" title="数论基础"></a>数论基础</h3><p><strong>任意正整数可以唯一表示为一组素数的乘积</strong><br>模运算，对加法乘法可交换结合分配（需再mod）</p>
+<h4 id="欧拉函数与欧拉定理"><a href="#欧拉函数与欧拉定理" class="headerlink" title="欧拉函数与欧拉定理"></a>欧拉函数与欧拉定理</h4><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/e649e44a-2f5f-4f60-a87b-8c4084951bd1.png"><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/6c00e76d-b89e-48c7-aea3-36389fe5f4d7.png"></p>
+<h3 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h3><p>分组密码，明文密文0~n-1，常用1024bit或309dec<br><strong>密钥产生</strong><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/9a4bf730-1faa-4f12-8f9a-3f332bd6209f.png"><br>公钥：小互素整数e，私钥：de&#x3D;kφ+1<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/382c8b88-6d56-4718-bca8-e967b498dd74.png"><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/3c98e1ff-1365-4539-932e-79d3da4e8248.png"><br><strong>攻击</strong><br>蛮力：尝试所有密钥<br>数学：素数乘积的因子分解<br>计时：记录计算机解密时长猜私钥，可以攻击很多公钥系统，仅依赖明文<br><strong>安全性</strong><br>大数素因子分解很难的<br><strong>性能</strong><br>软件硬件分别比DES慢100、1000倍</p>
+<h3 id="DH密钥交换"><a href="#DH密钥交换" class="headerlink" title="DH密钥交换"></a>DH密钥交换</h3><p>两个用户安全的交换密钥，仅此<br>原理：计算离散对数非常难，<strong>本原根</strong> a几次方mod 素数p可以从1~p-1排列<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/c26169dd-bd61-437e-843f-f0bbb1a21d31.png"></p>
+<p>密钥交换过程：</p>
+<ol start="0">
+<li>其中的a p Xa Xb中素数p最大</li>
+<li>选择底数a和素数p公开</li>
+<li>Alice和Bob各生成一个自己的私钥XaXb保密</li>
+<li>计算a^(Xa)mod p and b^(Xb)mod p 公开</li>
+<li>用对方的公钥乘以私钥次方得到共同密钥a^(XaXb)mod p</li>
+</ol>
+<h3 id="其他非对称密钥算法"><a href="#其他非对称密钥算法" class="headerlink" title="其他非对称密钥算法"></a>其他非对称密钥算法</h3><h4 id="DSA数字签名算法"><a href="#DSA数字签名算法" class="headerlink" title="DSA数字签名算法"></a>DSA数字签名算法</h4><p>也基于计算离散对数的难度</p>
+<ul>
+<li>不能用于加密、密钥分配</li>
+<li>NIST有后门</li>
+<li>选择不公开，分析不充分</li>
+<li>比RSA慢10-40倍</li>
+<li>密钥512位太短</li>
+<li>侵犯其他专利</li>
+</ul>
+<h4 id="椭圆曲线密码"><a href="#椭圆曲线密码" class="headerlink" title="椭圆曲线密码"></a>椭圆曲线密码</h4><ul>
+<li>有限域、容易构造运算器</li>
+<li>加密快，小密钥高安全性</li>
+</ul>
+<h3 id="密码加密"><a href="#密码加密" class="headerlink" title="密码加密"></a>密码加密</h3><p>加密选择：链路or端到端<br>链路：</p>
+<ul>
+<li>数据链路层，在传输的每个相邻节点都加密再解密，使用不同密钥，</li>
+<li>分配难度不大；无需额外数据；对用户透明</li>
+<li>不适用于广播；链路节点中以明文存在；</li>
+</ul>
+<p>端到端：</p>
+<ul>
+<li>中间不解密，灵活的应用和层次选择</li>
+<li>广播网可用；节点损坏不怕；便宜可靠；容易死设计实现维护；没有同步问题；</li>
+<li>容易被通信量攻击；分配密钥更难；不能掩盖地址</li>
+</ul>
+<h3 id="密钥分配"><a href="#密钥分配" class="headerlink" title="密钥分配"></a>密钥分配</h3><h4 id="传统对称密码分配"><a href="#传统对称密码分配" class="headerlink" title="传统对称密码分配"></a>传统对称密码分配</h4><ol>
+<li>A选择并亲自给B</li>
+<li>第三方选并亲自交AB</li>
+<li>AB最近使用的密钥，加密一个新密钥发给对方</li>
+<li>C与AB有秘密渠道，分别秘密发给AB</li>
+</ol>
+<p>12人工传送适用链路</p>
+<h4 id="密钥分配中心KDC"><a href="#密钥分配中心KDC" class="headerlink" title="密钥分配中心KDC"></a>密钥分配中心KDC</h4><p>AB想连接，都分别有自己和中心知道的密钥（主密钥）</p>
+<ol>
+<li>A请求会话密钥保护与B的逻辑连接，有AB信息和N1</li>
+<li>KDC用Ka加密消息响应A：一次性会话Ks；原始请求N1便于A响应；两项用Kb加密的给B内容（Ks和IDa）。</li>
+<li>A存下Ks把后两项发给B（也可以理解为KDC发给A和B），结束</li>
+</ol>
+<p>层次式KDC减少主密钥分配代价，本地KDC攻击破坏更小</p>
+<h4 id="公钥分配"><a href="#公钥分配" class="headerlink" title="公钥分配"></a>公钥分配</h4><ul>
+<li>用于分配公钥</li>
+<li>公钥密码用于传统密码体制的密钥分配</li>
+</ul>
+<h5 id="公开发布"><a href="#公开发布" class="headerlink" title="公开发布"></a>公开发布</h5><p>公钥直接发或者广播，方便但容易伪造</p>
+<h5 id="公开可访问目录"><a href="#公开可访问目录" class="headerlink" title="公开可访问目录"></a>公开可访问目录</h5><p>可信的实体组织维护、分配公钥目录</p>
+<ul>
+<li>通讯方目录项 &lt;name,ku&gt;</li>
+<li>通讯方可以注册、更新自己的公钥项；访问通讯录<br>目录管理员的私钥破坏很大</li>
+</ul>
+<h5 id="公钥授权"><a href="#公钥授权" class="headerlink" title="公钥授权"></a>公钥授权</h5><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/ac3c87ed-1481-4330-951e-559ccd44f4d9.png"></p>
+<h5 id="公钥证书"><a href="#公钥证书" class="headerlink" title="公钥证书"></a>公钥证书</h5><p>证书管理员<br>证书：公钥和其他信息，发给相应私钥的通讯方<br>通信方传递证书来传递密钥信息，其他方验证这个证书由管理员发出</p>
+<ul>
+<li>任何通信方可以读取证书确定证书的拥有者的姓名和公钥；可以验证证书出自管理员而非伪造</li>
+<li>only管理员可以更新证书</li>
+<li>各方可验证当前性（过期证书）</li>
+</ul>
+<h4 id="公钥分配传统密码"><a href="#公钥分配传统密码" class="headerlink" title="公钥分配传统密码"></a>公钥分配传统密码</h4><p>公钥太慢</p>
+<h5 id="最简单（树洞）"><a href="#最简单（树洞）" class="headerlink" title="最简单（树洞）"></a>最简单（树洞）</h5><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/867a93a7-56a6-49a5-9dbb-65e64587522c.png"><br>被主动攻击</p>
+<h5 id="保密真实"><a href="#保密真实" class="headerlink" title="保密真实"></a>保密真实</h5><p>“要真的是你就把我给你的信息再给我发回来~”<br>3次握手，AN1,N1N2,N2;</p>
+<ol>
+<li>互有公钥</li>
+<li>A用B公加密（A，N1）给B</li>
+<li>B私钥解密，用A公加密发送（<strong>N1</strong>，N2）给A</li>
+<li>A解密看到N1，确认对方是B，B公加密个N2发给B</li>
+<li>B解密看到N2确认是A</li>
+<li>A可以选个Ks用Ub加密发过去<br>公钥密码分配密钥也需要KDC？通过主密钥实现会话密钥分配</li>
+</ol>
+<h2 id="lect4-认证"><a href="#lect4-认证" class="headerlink" title="lect4 认证"></a>lect4 认证</h2><p>凡认证必比较</p>
+<h3 id="消息认证基本概念"><a href="#消息认证基本概念" class="headerlink" title="消息认证基本概念"></a>消息认证基本概念</h3><p>传输分析：双方通信模式<br>面向连接：频率和持续时间；<br>通用：消息数量和长度</p>
+<p>伪装：欺诈者向网络插入消息<br>攻击者产生消息并声称来自合法实体<br>非接收方应答（收到或者未收到）</p>
+<p>攻击很多：内容、顺序、计时、否认<br>泄密与传输分析——消息保密<br>伪装修改——认证<br>发送方否认——数字签名<br>接收方否认——数字签名和专门协议</p>
+<p><strong>消息认证</strong> 验证消息来源且未被修改<br>也验证顺序和及时，数字签名和协议技术等等<br>下层：产生认证符的函数<br>上层：将函数作为原语使接收方验证消息真实性</p>
+<p>三类认证函数：</p>
+<ul>
+<li>消息加密：整个密文</li>
+<li>认证码MAC：消息和密钥的公开函数，产生定长值为认证符</li>
+<li>Hash函数，映射为hash值的公开函数</li>
+</ul>
+<h3 id="认证函数1：消息加密"><a href="#认证函数1：消息加密" class="headerlink" title="认证函数1：消息加密"></a>认证函数1：消息加密</h3><p>AB共享密钥K，没人知道密钥就有保密性，解密后确认由A发出——并不绝对，容易伪造<br>要求明文有易识别结构，不通过加密函数不能重复</p>
+<p>加密前附加错误检测码（帧校验序列FCSor校验和）<br>先FCS后加密，解密后重算FCS：可认证（有效）<br>先加密再FCS，可混淆</p>
+<p>TCP：<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/9e5fb604-619a-4077-aa12-52d258ac9eef.png"></p>
+<p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/bb0919d2-6f10-4c52-8faa-22813bed6bd4.png"></p>
+<h3 id="认证函数2：MAC码"><a href="#认证函数2：MAC码" class="headerlink" title="认证函数2：MAC码"></a>认证函数2：MAC码</h3><p>定长MAC &#x3D; C(sharedK,Message),不需可逆<br>共享密钥，可认证，不能签名</p>
+<p>消息+MAC后，整体加密：认证明文为持有K的人发出<br>消息加密后，计算MAC附加：认证密文为持有K的人发出，裸奔的MAC？很好篡改MAC</p>
+<p>app：</p>
+<ul>
+<li>组广播，一个接受者验证并告知其他人</li>
+<li>接受者随机进行消息认证</li>
+<li>明文的计算机程序，不需要加解密，保护完整性来验证MAC</li>
+<li>关心认证而非保密性</li>
+<li>保密和认证分开，层次灵活：应用层认证，传输层保密性</li>
+</ul>
+<h3 id="认证函数3：Hash"><a href="#认证函数3：Hash" class="headerlink" title="认证函数3：Hash"></a>认证函数3：Hash</h3><p>单向hash类似mac，为message digest，具有检错能力</p>
+<ul>
+<li>附加hash值后对称加密：一定来自A且未篡改，也保密</li>
+<li>不要求保密时：仅对hash值加密，代价小，也可以认证。</li>
+<li>用私钥对hash加密：认证和签名</li>
+<li>私钥加密hash，对称密码加密整个：认证、签名、保密</li>
+<li>含有共享salt：M加盐后哈希，附加在后面，明文传输：只有有盐的人可以验证通过，也认证</li>
+<li>加盐的哈希后对称加密：保密+认证</li>
+</ul>
+<p>加密的代价：</p>
+<ul>
+<li>慢</li>
+<li>硬件成本</li>
+<li>小数据块更难以优化</li>
+<li>加密算法专利</li>
+<li>美国限制</li>
+</ul>
+<p>Hash要求：杂凑散列<br>输入长度不限但输出固定<br>单向寻找<br>扛弱碰撞:找一个b与a哈希值相等<br>抗强碰撞：找xy，哈希相等</p>
+<h3 id="hash一般结构"><a href="#hash一般结构" class="headerlink" title="hash一般结构"></a>hash一般结构</h3><p>L个b长分组，最后不足就填充——包含长度信息<br>每个单元输入是之前的n位哈希（连接变量CV），b长度输入分组(Y)，通过压缩函数输出n为分组<br>连接变量的初始值(CV0&#x3D;IV)又算法开始指定，终值就是哈希<br>一般分组长度b&gt;n所以是压缩<br><img src="/"><a target="_blank" rel="noopener" href="https://codimd.s3.shivering-isles.com/demo/uploads/0d2a0805-246a-49b4-9891-af1d5ccccefc.png">https://codimd.s3.shivering-isles.com/demo/uploads/0d2a0805-246a-49b4-9891-af1d5ccccefc.png</a><br>压缩函数抗碰撞——hash抗碰撞</p>
+<h3 id="主要hash算法"><a href="#主要hash算法" class="headerlink" title="主要hash算法"></a>主要hash算法</h3><p>MD组，产生128bit的md<br>MD2：补成16bit倍数，加16bit校验和算hash<br>MD4：碰撞 几分钟碰撞<br>MD5：王小云攻破</p>
+<p>SHA：Secure Hash Algorithm改MD45，有012方案<br>RIPEMD-128&#x2F;160&#x2F;320<br>Haval<br>Gost</p>
+<h4 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h4><p>512bit分组<br>128bit输出<br>简单，32位容易<br>步骤：</p>
+<ul>
+<li>填充位到mod512&#x3D;448，少64到整，一个1后面0</li>
+<li>填充64位为 消息长度mod2^64</li>
+<li>初始化md缓存128bit 0<del>f f</del>0</li>
+<li>以512分组处理，4论*16迭代<ul>
+<li>每个压缩函数分四轮，128的连接变量向下传递，结合512 16字的输入</li>
+<li>T[i] &#x3D; 2^32abs(sini)</li>
+<li>每轮中再进行16迭代 ：b根据a变化，其他向右挪一位<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/f021b178-c7f6-4a7a-9a8b-1149ab5acd01.png"><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/8ccb9c43-3b6a-4f24-9ec6-7beeef05c617.png"></li>
+<li>最后一轮+CV为下一CV<br>s？</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<p><strong>强度</strong> 输入依赖小，强棚64弱128</p>
+<h4 id="SHA"><a href="#SHA" class="headerlink" title="SHA"></a>SHA</h4><p>建立在MD4<br>512bit 分组<br>SHA1 message&lt;264  –&gt; 160md<br>sha1算法</p>
+<ul>
+<li>补充到mod512&#x3D;64</li>
+<li>补充64位报文长度</li>
+<li>初始化5个32寄存器缓存</li>
+<li>分组处理，两组*五轮*16迭代<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/bcf32136-3b84-45d5-ad65-7ec0858d7329.png"></li>
+</ul>
+<h4 id="RIPEMD-160"><a href="#RIPEMD-160" class="headerlink" title="RIPEMD-160"></a>RIPEMD-160</h4><p>512分组输出160md</p>
+<ul>
+<li>填充到mod 512 &#x3D; 64</li>
+<li>填充长度 </li>
+<li>初始化5*32</li>
+<li>2组*五轮*16步</li>
+</ul>
+<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p><img src="https://codimd.s3.shivering-isles.com/demo/uploads/6322186e-47c7-405d-9dc2-37ae58d1417d.png"></p>
+<ul>
+<li>都不受弱碰撞，md5容易被强碰，另外俩在将来还安全</li>
+<li>抗分析：MD5最差 RIPEMD最好</li>
+<li>速度：都是32位加和位逻辑，MD5最快</li>
+<li>只有sha1高位在前</li>
+</ul>
+<h3 id="数字签名DSS"><a href="#数字签名DSS" class="headerlink" title="数字签名DSS"></a>数字签名DSS</h3><p>防止通信双方自身攻击</p>
+<ul>
+<li>B伪造发自A的</li>
+<li>A否认发过的</li>
+</ul>
+<p>签名需要</p>
+<ul>
+<li>验证 签名者、日期时间</li>
+<li>认证被签名的消息内容</li>
+<li>第三方可仲裁</li>
+</ul>
+<p>分为：直接&amp;仲裁</p>
+<ul>
+<li>直接<ul>
+<li>用自己私钥对消息orhash加密签名</li>
+<li>接收方公钥加密or对称密码得到保密性</li>
+<li>依赖发送方的私钥安全性</li>
+</ul>
+</li>
+<li>仲裁<ul>
+<li>X到Y的签名消息先给A</li>
+<li>A检查消息内容和签名来源，然后加上时间戳发给Y，表示仲裁通过</li>
+</ul>
+</li>
+</ul>
+<p>数字签名标准DSS，使用SHA-1，定义DSA<br>不能加密和分配，只签名<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/e0677ea1-245a-43bf-b2cb-29d9229b4c3b.png"><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/9cfbe57b-6b43-42d5-b020-d6f2813bfefc.png"><br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/6f724b2d-4153-457b-bd41-2716a18c0035.png"></p>
+<h3 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h3><p>确定你是你——信息（口令密码）、拥有东西（钥匙，盾）、身体特征（生物特征验证）<br>安全网站：认证授权审计+修bug</p>
+<h3 id="网站身份认证"><a href="#网站身份认证" class="headerlink" title="网站身份认证"></a>网站身份认证</h3><p>HTTP：一次连接，无状态</p>
+<h4 id="Basic认证"><a href="#Basic认证" class="headerlink" title="Basic认证"></a>Basic认证</h4><p>每次发送携带凭证明文（账号+口令），与服务端用户凭证比较<br>Base64编解码<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/4ea93e19-657e-43d8-aef6-3084fd7a3e57.png"><br>每次传递容易被监听窃取；<br>本地需要保存账号口令，安全隐患；<br>每个请求都需要验证，低效；</p>
+<p><strong>改进</strong></p>
+<ol>
+<li>加密传输，消息认证——监听窃取；表单验证+session？——本地保存和每次检查</li>
+<li>对称加密U，口令就是密钥k，传输U和EkU——被重放攻击？</li>
+<li>MAC认证<br><img src="https://codimd.s3.shivering-isles.com/demo/uploads/72bd2821-3d93-470f-9770-1e767b4c59aa.png"><br>第一次服务器只给你随机挑战码M<br>第二次用K加密后发回来，服务器加密认证正确</li>
+</ol>
+<h4 id="表单身份"><a href="#表单身份" class="headerlink" title="表单身份"></a>表单身份</h4><p>针对：账号口令本地保存；每次都进行账号口令验证；<br>Session原理：客户端、服务器和时间段</p>
+<ul>
+<li>服务器产生唯一的标识符发到客户端</li>
+<li>客户端把此随机串存在Cookie中or本地文件，作用域和有效时间…</li>
+<li>Session存活时候，每次请求都有标识符，服务器关联起</li>
+<li>结束后销毁标识符</li>
+</ul>
+<p>表单认证过程：</p>
+<ul>
+<li>客户端发请求，服务端返回表单页面</li>
+<li>用户填写表单（账户密码），服务端验证通过启动Session返回</li>
+<li>客户后面请求携带Session的标识符，服务端验证。一般基于以标识符为key的哈希表</li>
+</ul>
+<p>优点：简单；方便；易用<br>缺点：账号口令裸奔</p>
+<p>改进：</p>
+<ul>
+<li>引入挑战机制，避免明文传输和重放攻击<ul>
+<li>挑战为字符串+时间戳,为U</li>
+<li>口令为密钥加密Ek(M||U)，发送U和Ek(M||U)，服务器用存储的k加密M||U来比较</li>
+</ul>
+</li>
+<li>传输账号口令时用传输层SSL来传输请求，在传输层加密并验证身份。启动SSL就是Https</li>
+</ul>
+<p>不安全：——泄露，重放攻击</p>
+<ul>
+<li>验证后cookie存放账号口令</li>
+<li>账号口令加密后Ek（UP）放Cookie<br>可以加上时间戳t，每次服务端验证时间戳</li>
+</ul>
+<h4 id="增强认证"><a href="#增强认证" class="headerlink" title="增强认证"></a>增强认证</h4><p>动态方式！<br>短信、动态（时间同步or计数器）、USBkey、数字证书<br><strong>动态安全令</strong><br>服务器和令牌段共享key和sn，对t进行划分取整。计算F(H(t||key||sn))，H为hash，F为压缩<br><strong>USB</strong><br>私钥不可导出，在里面加密签名</p>
+<h4 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h4><p>证书授权中心发行，用来数字签名的文件<br>包含：拥有者公钥，名称和中心的数字签名，对应私钥妥善存储。</p>
+<h2 id="lect5-WLAN"><a href="#lect5-WLAN" class="headerlink" title="lect5 WLAN"></a>lect5 WLAN</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>5W6A的梦想，TDMA，CDMA，GSM，3g，4g</p>
+<p>最早的无线计算机通信：ALOHA</p>
+<h3 id="安全威胁"><a href="#安全威胁" class="headerlink" title="安全威胁"></a>安全威胁</h3><p>无线射频电波传输，无法物理隔离，只能广播</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127155306580.png" alt="image-20221127155306580"></p>
+<ul>
+<li>窃听：开放信道——泄露身份和位置——跟踪</li>
+<li>假冒：截获身份信息后，假冒其入网</li>
+<li>篡改：修改窃听信息并发送</li>
+<li>重放，重路由：复制有效消息再发送or重用；改变路由来捕获</li>
+<li>错误路由：路由到错误目的地</li>
+<li>删除：截取删除</li>
+<li>洪泛：发送大量无关、伪造消息耗尽资源</li>
+</ul>
+<h3 id="加密认证技术"><a href="#加密认证技术" class="headerlink" title="加密认证技术"></a>加密认证技术</h3><h4 id="无加密认证"><a href="#无加密认证" class="headerlink" title="无加密认证"></a>无加密认证</h4><p>AP 无线网络创建者，相当于无线路由器</p>
+<p>STA 连接到无线网络的终端设备站点</p>
+<p>SSID Service Set Identifier 便于用户识别的AP标志名，WIFI名。使用者提出正确SSID，AP就接受登入。SSID会被广播，禁用提高安全性</p>
+<h4 id="有线对等保密协议WEP"><a href="#有线对等保密协议WEP" class="headerlink" title="有线对等保密协议WEP"></a>有线对等保密协议WEP</h4><p>802.11b RC4流加密，访问控制+保护隐私。有挑战机制，四次握手</p>
+<p>开放系统认证——默认认证方式，对请求认证的人提供明文认证</p>
+<p>RC4：流密码，40&#x2F;112bit的key，用CRC32循环冗余校验</p>
+<p>设备和接入点共享默认密钥，每个设备和其他设备要有密钥对关系，分发困难。</p>
+<p><strong>WEP加密</strong> </p>
+<ul>
+<li>CRC32算校验和ICV，串接在明文P后。</li>
+<li>24位初始向量IV和40位key连接得到64位数据，输入到虚拟随机数生成器产生一次性密钥KE</li>
+<li>KE和第一步异或得Y</li>
+<li>IV||Y传输</li>
+</ul>
+<p><strong>WEP解密</strong></p>
+<ul>
+<li>24位初始向量IV和40位key连接得到64位数据，输入到虚拟随机数生成器产生一次性密钥KE</li>
+<li>把密文和KE做异或得到明文P和校验和ICV</li>
+<li>计算明文的CRC32，比较；接受或丢弃</li>
+</ul>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127162253593.png" alt="image-20221127162253593"></p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127162307071.png" alt="image-20221127162307071"></p>
+<p>安全性？</p>
+<ul>
+<li>SSID下所有STA和AP共享密钥，容易泄露</li>
+<li>RC4密码流的IV明文发送，且24位IV太短容易重复</li>
+<li>CRC线性非加密，不是安全的杂凑函数（hash）不能认证</li>
+<li>RC4位序列密码加密，太容易被攻破</li>
+<li>不含序列号，没有帧顺序，重放攻击</li>
+</ul>
+<h4 id="WPA1-过渡性，核心是1x和TKIP"><a href="#WPA1-过渡性，核心是1x和TKIP" class="headerlink" title="WPA1 过渡性，核心是1x和TKIP"></a>WPA1 过渡性，核心是1x和TKIP</h4><p>TKIP认证，WEP包装</p>
+<ul>
+<li><p>企业：802.1x认证</p>
+</li>
+<li><p>个人：Pre-shared key模式</p>
+</li>
+<li><p>RC4流密码 128bitkey</p>
+</li>
+<li><p>动态变化每个数据包的密钥，混合生成不能轻易破译</p>
+</li>
+<li><p>每个包有独特的48位序列号防范重放</p>
+</li>
+<li><p>Michael消息认证码MIC，包含帧计数抵抗重放</p>
+</li>
+</ul>
+<p><strong>802.1x</strong> CS模式，在终端和AP建立连接之前验证用户身份，需要上层EAP配合认证和分发密钥</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127164042087.png" alt="image-20221127164042087"></p>
+<h4 id="WPA2"><a href="#WPA2" class="headerlink" title="WPA2"></a>WPA2</h4><ul>
+<li>更安全的CCMP消息认证替代Michael</li>
+<li>更安全的AES对称加密替代RC4</li>
+<li>支持11g以上</li>
+</ul>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127164322540.png" alt="image-20221127164322540"></p>
+<h2 id="lect6-CIA，VPN"><a href="#lect6-CIA，VPN" class="headerlink" title="lect6 CIA，VPN"></a>lect6 CIA，VPN</h2><h3 id="网安体系结构"><a href="#网安体系结构" class="headerlink" title="网安体系结构"></a>网安体系结构</h3><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127164807390.png" alt="image-20221127164807390"></p>
+<p>Confidentialit 保密、机密</p>
+<p>信息不泄露；数据拓扑流量都需要保密；防止被动攻击；</p>
+<p>Integrity 完整性</p>
+<p>不被篡改or可以检测篡改、插入、重放；防止主动攻击；</p>
+<p>Availability 可用性</p>
+<p>授权用户得到应得资源服务，防止拒绝服务攻击；</p>
+<p>对信息系统可用性的攻击；</p>
+<p>对路由设备处理能力，buf和链路带宽攻击</p>
+<h4 id="X-800：OSI安全框架，定义系统方法提供给网络管理员"><a href="#X-800：OSI安全框架，定义系统方法提供给网络管理员" class="headerlink" title="X.800：OSI安全框架，定义系统方法提供给网络管理员"></a>X.800：OSI安全框架，定义系统方法提供给网络管理员</h4><p>安全服务：由系统提供的对系统资源特殊处理或通信，通过安全机制实现安全策略</p>
+<p>安全机制：免收监听；组织攻击；恢复系统</p>
+<p>安全攻击：主被动</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127165201337.png" alt="image-20221127165201337"></p>
+<h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><table>
+<thead>
+<tr>
+<th>服务</th>
+<th>机说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>认证</td>
+<td>单条：保证发送方真实；通信：保证双方真实+不受干扰和伪装</td>
+</tr>
+<tr>
+<td>对等实体认证</td>
+<td>保证实体身份；禁止伪装和非授权重放；面向连接</td>
+</tr>
+<tr>
+<td>数据源认证</td>
+<td>保证来源是来源；保证来源身份合法；不保护数据复制修改；面向无连接</td>
+</tr>
+<tr>
+<td>保密</td>
+<td>连接or无连接；力度：流、消息、选择字段</td>
+</tr>
+<tr>
+<td></td>
+<td>防止流量分析（src dst freq len等特征</td>
+</tr>
+<tr>
+<td>完整性保护</td>
+<td>连接：收发一致；无连接：不被篡改；<strong>主动攻击</strong>检测而非阻止攻击？</td>
+</tr>
+<tr>
+<td>访问控制</td>
+<td>合法才可访问</td>
+</tr>
+<tr>
+<td>抗抵赖</td>
+<td>接收方证明消息只能由发送方发出；发送方证明消息确实被接收到</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>根据系统性能说明，按照授权系统实体要求使用系统和其资源</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h4><p>普通&amp;特定</p>
+<p>普通：不属于任何协议层or安全服务的机制</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127170707306.png" alt="image-20221127170707306"></p>
+<p>特定：特定协议层实现的</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127170713711.png" alt="image-20221127170713711"></p>
+<h3 id="VPN-Virtual-Private-Netword-虚拟专用网"><a href="#VPN-Virtual-Private-Netword-虚拟专用网" class="headerlink" title="VPN  Virtual Private Netword 虚拟专用网"></a>VPN  Virtual Private Netword 虚拟专用网</h3><p>BG TCPIP安全缺陷</p>
+<ul>
+<li>容易监听，篡改，重放，修改IP</li>
+<li>源发可以指定中间路由——源路由攻击</li>
+<li>序列号猜测，缓冲区溢出</li>
+</ul>
+<p>概念：逻辑等价于一条物理的专用长途数据线路，定制化。在公共网络上仿真一条点对点的私有链接。</p>
+<p>安全功能</p>
+<ul>
+<li>数据机密性</li>
+<li>数据完整性</li>
+<li>数据源身份认证</li>
+<li>重放保护</li>
+</ul>
+<p>解决方案（安全协议）</p>
+<ul>
+<li>链路层：L2TP PPTP L2F 很少使用<ul>
+<li>认证终端实体而非流入报文，无法抵抗插入和地址欺骗</li>
+<li>没有完整性校验，可能拒绝服务攻击</li>
+<li>PPP报文加密但是不支持自动产生、刷新密钥，会被破译</li>
+</ul>
+</li>
+<li>网络层：IPsec IKE</li>
+<li>传输层：SSL<ul>
+<li>零客户端，任何B&#x2F;S结构（browser和Server）</li>
+<li>SSL和IPsec结合，网关也常被集成</li>
+<li>SSL低成本，但是视频会议非BS无法用ssl vpn</li>
+</ul>
+</li>
+<li>应用层（无法VPN）<ul>
+<li>https ： http+ssl</li>
+<li>S&#x2F;MIME 安全邮件</li>
+<li>SET 安全交易</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127174314014.png" alt="image-20221127174314014"></p>
+<h2 id="lect7-IPsec和IKE"><a href="#lect7-IPsec和IKE" class="headerlink" title="lect7 IPsec和IKE"></a>lect7 IPsec和IKE</h2><p>网络层：IPsec安全，IKE管理密钥</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127194002537.png" alt="image-20221127194002537"></p>
+<p>IPsec保证IP级别的安全性</p>
+<ul>
+<li>认证：确保从源发出且未被篡改</li>
+<li>保密：加密防止窃听</li>
+<li>管理密钥</li>
+</ul>
+<p>原来IP：<strong>无连接</strong>，无顺序（重复、丢失）设备简单<strong>无状态</strong></p>
+<p>不认证、不完整、不保密，通过IP地址有一些访问控制</p>
+<p>威胁：窃听、伪造地址、篡改、重发</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127194256055.png" alt="image-20221127194256055"></p>
+<p>实现：</p>
+<ul>
+<li>主机实现（OS）：端到端安全；针对每个会话提供安全保障；对应用和用户透明</li>
+<li>防火墙上实现：不改OS，为所有应用提供安全服务。在网络层以下</li>
+<li>路由器：</li>
+</ul>
+<h3 id="IPSec体系结构"><a href="#IPSec体系结构" class="headerlink" title="IPSec体系结构"></a>IPSec体系结构</h3><h4 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h4><p>认证和加密——通过主IP包头使用扩展包头实现安全特性。</p>
+<p>认证扩展头：认证头AH</p>
+<p>加密头扩展：封装安全载荷ESP(也认证也加密)</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127194727845.png" alt="image-20221127194727845"></p>
+<h4 id="服务-1"><a href="#服务-1" class="headerlink" title="服务"></a>服务</h4><p>为IP层提供安全服务，系统选择协议和算法，并提供密钥</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127195206509.png" alt="image-20221127195206509"></p>
+<h4 id="安全关联SA-Security-Association"><a href="#安全关联SA-Security-Association" class="headerlink" title="安全关联SA Security Association"></a>安全关联SA Security Association</h4><p>通信双方对要素的协商，一些安全信息参数集合比如</p>
+<p>协议；操作模式；密码算法；认证算法；密钥及有效期；</p>
+<p>是<strong>单向关系</strong> 发到收的，如果交换需要建立两个SA。</p>
+<p>安全服务可由AHorESP提供但不能二者都提供？</p>
+<p>SA由三个参数唯一确定：</p>
+<ul>
+<li><p>安全参数索引SPI parameters index</p>
+<ul>
+<li>和SA相关仅在本地有意义</li>
+<li>AH和ESP携带，接收方选择合适的SA来处理</li>
+</ul>
+</li>
+<li><p>IP目的地址IPDA</p>
+<ul>
+<li>单一地址表示SA目的地址</li>
+<li>可以是用户端、防火墙or路由</li>
+</ul>
+</li>
+<li><p>安全协议标识符：是AH or ESP的SA</p>
+</li>
+</ul>
+<p>任何IPsec实现端，都得有<strong>SADB</strong>来定义每个SA相关的参数。用上述三元组来索引。</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127195955849.png" alt="image-20221127195955849"></p>
+<h4 id="SA参数列表"><a href="#SA参数列表" class="headerlink" title="SA参数列表"></a>SA参数列表</h4><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127200223678.png" alt="image-20221127200223678"></p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127200233996.png" alt="image-20221127200233996"></p>
+<p>收发IP包时的操作：</p>
+<ul>
+<li><p>在<strong>SPDB</strong>中通过比较对应域的值（dstsrc的地址和端口 用户标识 数据敏感级别 传输层协议 IPsec协议 IPv6报类、流标签、服务类型）寻找匹配的entry，0或多个。</p>
+</li>
+<li><p>根据策略来操作：丢弃；bypass IPsec；apply IPsec等</p>
+</li>
+<li><p>如果存在SA则选定SA和对应的SPI，AH或ESP的选择。。</p>
+</li>
+<li><p>收到数据包，解析出三元素SPI，DSTaddr和AH|ESP</p>
+</li>
+<li><p>查找本地的<strong>SADB</strong></p>
+<ul>
+<li>找到SA条目，把参数和包头中的域比较。</li>
+<li>没有查到，输入包丢弃，输出包创建并存入SADB</li>
+</ul>
+</li>
+</ul>
+<h4 id="SA的两个库"><a href="#SA的两个库" class="headerlink" title="SA的两个库"></a>SA的两个库</h4><p>存在OS kernel</p>
+<p>通信前必须建立SA，先查SPDB找信息流和联系的SA。有的丢弃有的不加密有的加密；再关联or找SADB选择参数。</p>
+<p>多种方式实现IP通信的sec服务；</p>
+<p>对于需不需要保护的流量<strong>大粒度</strong>区分；</p>
+<p>IP流量和SA相关是通过安全策略数据库<strong>SPDB</strong>定义的</p>
+<ul>
+<li><p>定义IP流量子集的entry</p>
+</li>
+<li><p>指向流量对应SA的指针</p>
+</li>
+<li><p>多个entry和同一个SA相连</p>
+</li>
+<li><p>多个SA和同一个SPDB entry 相连</p>
+</li>
+</ul>
+<p>每一条SPDB entry由IP集合和上层协议定义，成为选择子SAselector</p>
+<ul>
+<li>过滤输出流量，映射到某个SA</li>
+</ul>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127201646975.png" alt="image-20221127201646975"></p>
+<h4 id="IPsec-传输模式"><a href="#IPsec-传输模式" class="headerlink" title="IPsec 传输模式"></a>IPsec 传输模式</h4><p>提供上层协议保护，增加IP包载荷保护。用于两台主机的端到端通信，放到IP头后面和TCP&#x2F;UDP头前面</p>
+<ul>
+<li><p>ESP加密和认证IP载荷，不包括报头</p>
+</li>
+<li><p>AH认证IP载荷和部分报头</p>
+</li>
+</ul>
+<h4 id="IPsec-隧道模式"><a href="#IPsec-隧道模式" class="headerlink" title="IPsec 隧道模式"></a>IPsec 隧道模式</h4><p>原来的包被看成数据直接抱起来成新的大IP包</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127203124090.png" alt="image-20221127203124090"></p>
+<p>保护整个IP包，整个数据包被当做新的IP载荷拥有新IP报头，利用隧道传播，中途路由器不能查内部IP报头</p>
+<ul>
+<li>ESP加密和认证整个内部IP包</li>
+<li>AH认证整个内部IP包和外部IP报头的部分</li>
+</ul>
+<h3 id="认证头AH"><a href="#认证头AH" class="headerlink" title="认证头AH"></a>认证头AH</h3><p>基于消息认证码MAC，双方共享公钥</p>
+<ul>
+<li>SN不能允许循环计数，到头就中止SA再次协商，可以反重放。要求按照这个序号建立窗口W（64）</li>
+</ul>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127204922718.png" alt="image-20221127204922718"></p>
+<p>AD变长域，是4B整数倍。包含完整性校验值ICV或者包的MAC，可以用HMAC-MD5|SHA1-96 取<strong>前96位</strong></p>
+<p>IP头的不变部分，AH中终点可预测部分参与计算MAC。其他全0<img src="/assets/2022Fall-netsecintro-final.assets/image-20221127205426006.png" alt="image-20221127205426006"></p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127203238280.png" alt="image-20221127203238280"></p>
+<p>途径1 直接在服务器和客户站之间使用传输模式认证。只要共享同一个key就好，这个key用在哪了？</p>
+<blockquote>
+<p> 好像在MAC中也需要独特的公钥Key</p>
+</blockquote>
+<p>途径2 服务器不支持认证，工作站需要向防火墙证明自己身份并访问整个内部网络，用隧道模式SA</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127215257903.png" alt="image-20221127215257903"></p>
+<h4 id="隧道模式AH-通常在防火墙-路由器上实现"><a href="#隧道模式AH-通常在防火墙-路由器上实现" class="headerlink" title="隧道模式AH 通常在防火墙|路由器上实现"></a>隧道模式AH 通常在防火墙|路由器上实现</h4><p>前面包裹上新的IP头和AH，没有尾巴</p>
+<h4 id="对接受包的处理"><a href="#对接受包的处理" class="headerlink" title="对接受包的处理"></a>对接受包的处理</h4><ul>
+<li>解析SA的三元组，在SADB里<strong>匹配SA参数</strong>，不一致就扔了，找不到也扔了</li>
+<li>（opt）滑动窗口的检查序列号</li>
+<li>计算<strong>ICV比较</strong>，不相等扔了，相等交由IP协议栈处理，继续路由…</li>
+</ul>
+<p>随时不相符扔了+记录审计</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127215707707.png" alt="image-20221127215707707"></p>
+<h4 id="对出去outbound的包处理"><a href="#对出去outbound的包处理" class="headerlink" title="对出去outbound的包处理"></a>对出去outbound的包处理</h4><ul>
+<li>从IP协议栈中收到需要转发的包</li>
+<li>使用选择子查找SPDB，获取安全策略，也可能直接扔了</li>
+<li>需要IPsec，则查找SADB<ul>
+<li>找到了，选取参数计算ICV</li>
+<li>没找到，使用IKE协商建立SA存上，并选取参数计算ICV转发</li>
+</ul>
+</li>
+<li>不需要直接发走</li>
+</ul>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127220308464.png" alt="image-20221127220308464"></p>
+<h3 id="加密和认证头ESP"><a href="#加密和认证头ESP" class="headerlink" title="加密和认证头ESP"></a>加密和认证头ESP</h3><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127220411749.png" alt="image-20221127220411749"></p>
+<p>加密算法：3DES RC5 IDEA CAST Blowfish 对称加密</p>
+<p>padding：填充到明文符合加密算法的要求，对齐后面的两个填充长度和nextheader到右对齐。隐藏载荷实际长度，提供流量保护</p>
+<h4 id="传输模式"><a href="#传输模式" class="headerlink" title="传输模式"></a>传输模式</h4><p>IP ESP头 密文 秘密ESP尾巴 可选MAC尾巴（opt）</p>
+<p>中间路由只检查前面的IP头</p>
+<p>目的节点处理三元组，查SADB找到SA的参数，来恢复数据</p>
+<h4 id="隧道模式-保护原来的IP头吗"><a href="#隧道模式-保护原来的IP头吗" class="headerlink" title="隧道模式 保护原来的IP头吗"></a>隧道模式 保护原来的IP头吗</h4><p>新的IP头 ESP头  加密的（IP头 数据 ESP尾巴） 可选MAC尾巴</p>
+<h4 id="对Inboud-最后多一个解密"><a href="#对Inboud-最后多一个解密" class="headerlink" title="对Inboud 最后多一个解密"></a>对Inboud 最后多一个解密</h4><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127221358395.png" alt="image-20221127221358395"></p>
+<p>一开始也要查SPDB</p>
+<h4 id="对outbound-中间多一个加密——先加密再ICV"><a href="#对outbound-中间多一个加密——先加密再ICV" class="headerlink" title="对outbound 中间多一个加密——先加密再ICV"></a>对outbound 中间多一个加密——先加密再ICV</h4><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127221444561.png" alt="image-20221127221444561"></p>
+<ul>
+<li>查SPDB</li>
+<li>查SADB——用IKE协商建立储存or查到</li>
+<li>产生计算序列号值</li>
+<li>加密</li>
+<li>计算ICV</li>
+<li>IP——分段转发（根据MTU分片）</li>
+</ul>
+<p>路由在中间 安全在两边</p>
+<h3 id="安全关联组合"><a href="#安全关联组合" class="headerlink" title="安全关联组合"></a>安全关联组合</h3><p>单SA实现二者之一，需求：主机间IPSec在安全网关最相同流量分离。即在防火箱拆一层然后在主机可能再拆一层。。</p>
+<p>有个SA序列组合成束，每层SPI|SA都不同</p>
+<ul>
+<li>传输邻接：IP包多个协议，只一级。即AHESP</li>
+<li>隧道迭代：可以一直包装。。。多层嵌套</li>
+</ul>
+<p>甚至可以先用传输，然后再隧道包装</p>
+<h3 id="IKE管理密钥Internet-Key-Exchange"><a href="#IKE管理密钥Internet-Key-Exchange" class="headerlink" title="IKE管理密钥Internet Key Exchange"></a>IKE管理密钥Internet Key Exchange</h3><ul>
+<li>管理员手工给系统分配各类密钥</li>
+<li>自动，协商。。。</li>
+</ul>
+<p>IKE：自动协商<strong>交换密钥</strong> + 建立<strong>安全关联</strong>SA（维护SADB）</p>
+<p>服务很多SNMPv3 RIPv2 OSPFv2</p>
+<p>精髓：不安全网络上不能直接传，都是算出共享密钥。（核心为DH交换）</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127222812676.png" alt="image-20221127222812676"></p>
+<p>混合了三种协议</p>
+<h3 id="报文格式"><a href="#报文格式" class="headerlink" title="报文格式"></a>报文格式</h3><p>from ISAKMP，可以在任何传输orIP层实现，用UDP port500</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127233742765.png" alt="image-20221127233742765"></p>
+<p>载荷里面是协商的参数，需要协商的参数都是payload。</p>
+<ul>
+<li><p>下一个payload的类型</p>
+</li>
+<li><p>两个cookie用来唯一标识密钥交换会话</p>
+<ul>
+<li>使用地址、随机数、日期时间等等MD5出来</li>
+</ul>
+</li>
+<li><p>FLag只用到了低三位</p>
+<ul>
+<li>载荷加密</li>
+<li>同步密钥交换，如果1则需要A最后给B发建立成功</li>
+<li>载荷有认证or没加密只认</li>
+</ul>
+</li>
+<li><p>报文总长度（头+载荷）</p>
+</li>
+</ul>
+<p>13种载荷：</p>
+<ol>
+<li>SA，协商安全属性，指出解释DOI和状态</li>
+<li>proposal 包含在1</li>
+<li>TRansform 包含在2</li>
+<li>Key Exchange</li>
+<li>…</li>
+</ol>
+<h3 id="IKE体系结构——两个阶段"><a href="#IKE体系结构——两个阶段" class="headerlink" title="IKE体系结构——两个阶段"></a>IKE体系结构——两个阶段</h3><ul>
+<li><p>一阶段：两个IKE实体间建立IKE SA，创建通信信道并验证。提供机密，消息完整和消息源验证服务</p>
+<p>需要协商：加密、哈希、认证、DH信息等等</p>
+<ul>
+<li>main主：6消息，有身份保护<ul>
+<li>12：SA协商策略，商量SA之类的协议信息。大部分是使用的算法和限制等。1载荷很长2剩下3个回去</li>
+<li>34：密钥生成信息， 带着key exchange和nonce载荷，用DH</li>
+<li>56：加密的身份和验证数据，iden<strong>t身份认证</strong>（标识信息主机名等等）和<strong>消息认证</strong>Hash（hash三组密钥信息）</li>
+<li>56的散列载荷hash相同，一阶段成功</li>
+<li><img src="/assets/2022Fall-netsecintro-final.assets/image-20221127235106263.png" alt="image-20221127235106263"></li>
+</ul>
+</li>
+<li><h2 id="积极（快速）：3消息，无需身份，一方地址动态。可以用name验证而无需IP，但是两个都变就不行-1：发起策略-密钥生成，SA-KEY-Nonce-ID都给过去-2：密钥生成-身份和验证数据，响应1并加入HASH-3：身份验证数据，加入HASH。看hash成功就直接完成"><a href="#积极（快速）：3消息，无需身份，一方地址动态。可以用name验证而无需IP，但是两个都变就不行-1：发起策略-密钥生成，SA-KEY-Nonce-ID都给过去-2：密钥生成-身份和验证数据，响应1并加入HASH-3：身份验证数据，加入HASH。看hash成功就直接完成" class="headerlink" title="积极（快速）：3消息，无需身份，一方地址动态。可以用name验证而无需IP，但是两个都变就不行- 1：发起策略+密钥生成，SA KEY Nonce ID都给过去- 2：密钥生成+身份和验证数据，响应1并加入HASH- 3：身份验证数据，加入HASH。看hash成功就直接完成"></a>积极（快速）：3消息，无需身份，一方地址动态。可以用name验证而无需IP，但是两个都变就不行<br>- 1：发起策略+密钥生成，SA KEY Nonce ID都给过去<br>- 2：密钥生成+身份和验证数据，响应1并加入HASH<br>- 3：身份验证数据，加入HASH。看hash成功就直接完成</h2><ul>
+<li><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128000015783.png" alt="image-20221128000015783"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>二阶段：使用IKESA建立IPsecSA（各种参数）】</p>
+<ul>
+<li><p>快速：3消息。可以协商多个SA，双向双方通信需要8个SA，两边各四个（出入*AHorESP）</p>
+<p>协商加密和哈希的算法，验证方法，DHkey，周期和密钥长度等</p>
+<ul>
+<li>1：Hash SA ProposalTrans KeyEx Nonce ID…</li>
+<li>2：Hash SA ProposalTrans KeyEx Nonce ID…</li>
+<li>3：Hash</li>
+<li>很像上面的3步快速</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="IKE的三个工作模式"><a href="#IKE的三个工作模式" class="headerlink" title="IKE的三个工作模式"></a>IKE的三个工作模式</h3><h4 id="传输"><a href="#传输" class="headerlink" title="传输"></a>传输</h4><p>端到端节点，均实现IPsec，那么传输模式</p>
+<h4 id="隧道"><a href="#隧道" class="headerlink" title="隧道"></a>隧道</h4><p>网关间用隧道，端不需要IPsec</p>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p>端到网关：隧道套着传输模式</p>
+<h3 id="IKE工作过程"><a href="#IKE工作过程" class="headerlink" title="IKE工作过程"></a>IKE工作过程</h3><p>守护进程在后台，被内核或对方IKE唤醒</p>
+<p>内核可以指示IKE删除某个SA，此时IKE也会通知对面IKE删除or忽略</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>IKE 层次相当高，位于应用层，用udp500走</p>
+<p>不足：</p>
+<ul>
+<li>太复杂</li>
+<li>只用于Ipsec的建立SA</li>
+<li>往返太多，消耗资源</li>
+<li>容易被攻击：拒绝、中间人、重放</li>
+</ul>
+<h2 id="lect8-SSL"><a href="#lect8-SSL" class="headerlink" title="lect8 SSL"></a>lect8 SSL</h2><p>相比Ipsec好处，Ipsec在网络层对所有传输都会使用。但是SSL可以选择，有差别的为应用层提供服务</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>SSL在TCP之上，保护任何TCP上的应用。</p>
+<p>IPsec无法处理同端系统中不同应用的安全需求，为两个应用之间提供保密和安全。</p>
+<p>SSH强制认证+数据加密也在此，还有SP4和TLSP</p>
+<p>SSL 安全套阶层安全机制，保护基于WEB</p>
+<p>用于CS的身份认证（证书与第三方），消息认证和数据保密</p>
+<p>在应用层协议传输<strong>之前</strong>， <strong>SSL协议已经完成了客户端和服务器的</strong><br><strong>身份认证、加密算法和密钥的协商</strong>；在此之后，双方建立起了一<br>条<strong>安全可信的通信信道</strong>，应用层协议所传送的所有数据都会被加<br>密，从而保证了安全  </p>
+<h4 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h4><p>接受时候相反</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128002431521.png" alt="image-20221128002431521"></p>
+<h3 id="SSL体系结构"><a href="#SSL体系结构" class="headerlink" title="SSL体系结构"></a>SSL体系结构</h3><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128002723427.png" alt="image-20221128002723427"></p>
+<p>会话Session，通过握手关联CS，虚拟的连接关系。握手商量xxx</p>
+<p>连接Connection：特定信道映射到一个TCP连接，共享一个会话中协商好的信息。连接参数：</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128003002525.png" alt="image-20221128003002525"></p>
+<h3 id="SSL记录协议"><a href="#SSL记录协议" class="headerlink" title="SSL记录协议"></a>SSL记录协议</h3><p>主要：保密+完整性</p>
+<p>过程：分片（2^14)——压缩后追加HashMAC——对称加密——加上SSL记录协议头——TCP——解密——解压缩（拼接）</p>
+<p>SSL记录协议头：(内容类型，主次版本，压缩长度）</p>
+<h3 id="SSL握手协议"><a href="#SSL握手协议" class="headerlink" title="SSL握手协议"></a>SSL握手协议</h3><p>主要：身份认证（先认证S，C可以不认证），协商算法，协商会话密钥</p>
+<p><strong>报文结构</strong> 1B类型 3B长度 1+B参数内容</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128003706035.png" alt="image-20221128003706035"></p>
+<p>分四个阶段完成握手</p>
+<ul>
+<li>建立安全能力<ul>
+<li>Chello<ul>
+<li>ver,random,sessionid, cipher_suite(KEmethod, hash&amp;encoder), compression</li>
+</ul>
+</li>
+<li>Shello<ul>
+<li>same as top</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>服务端身份认证和密钥交换（可以失败<ul>
+<li>certificate X.509v3 匿名DH可能不需要）</li>
+<li>SKE<ul>
+<li>（DH RSA需要交换密钥）</li>
+</ul>
+</li>
+<li>certifica_req<ul>
+<li>需要客户的certi</li>
+</ul>
+</li>
+<li>S_hello_done</li>
+</ul>
+</li>
+<li>客户端身份认证和密钥交换<ul>
+<li>certificate<ul>
+<li>可选，也可能没有</li>
+</ul>
+</li>
+<li>CKE<ul>
+<li>DH RSA需要交换密钥</li>
+</ul>
+</li>
+<li>certifica_verify 签名此消息<ul>
+<li>用于配合Certi让服务器验证客户端的数字证书所有权</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>完成阶段<ul>
+<li>change_cipher_spec<ul>
+<li>把pre转化成主密钥，派生出所有密钥</li>
+</ul>
+</li>
+<li>finished</li>
+<li>change_cipher_spec<ul>
+<li>你算完我也算完了，</li>
+</ul>
+</li>
+<li>finished</li>
+</ul>
+</li>
+</ul>
+<p><strong>master secret</strong>主密钥，用于生成一堆密钥</p>
+<p>CS双方的MAC密钥，加密密钥和MAC初值向量IV</p>
+<h3 id="SSL告警"><a href="#SSL告警" class="headerlink" title="SSL告警"></a>SSL告警</h3><p>两个字节</p>
+<ul>
+<li>1告警 2致命错误：终止连接但不终止会话，不再会话中建立新连接</li>
+<li>包含告警信息的代码</li>
+</ul>
+<h3 id="SSL-修改密码协议"><a href="#SSL-修改密码协议" class="headerlink" title="SSL 修改密码协议"></a>SSL 修改密码协议</h3><p>一个字节 “1”，握手结束后发送，以后记录用刚才的算法和密钥来加密认证。</p>
+<p>接收方把挂起会话恢复到当前状态</p>
+<h3 id="安全分析"><a href="#安全分析" class="headerlink" title="安全分析"></a>安全分析</h3><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128005320953.png" alt="image-20221128005320953"></p>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><h4 id="WEB和安全威胁"><a href="#WEB和安全威胁" class="headerlink" title="WEB和安全威胁"></a>WEB和安全威胁</h4><p>网页服务器与浏览编辑器WWW——HTML、HTTP、URL</p>
+<p>特点：</p>
+<ul>
+<li><p>双向互联网</p>
+</li>
+<li><p>服务器容易受到攻击</p>
+</li>
+<li><p>金钱和信息丰富且重要</p>
+</li>
+<li><p>服务器存储安全（用户认证，访问控制，日志）</p>
+</li>
+<li><p>客户端安全（服务器认证，访问控制和签名）</p>
+</li>
+<li><p>信息传输安全（IPsec+SSLTLS+MIMEPGPSET）</p>
+</li>
+</ul>
+<p>IP级、TCP级和应用级安全</p>
+<h4 id="HTTP攻击举例"><a href="#HTTP攻击举例" class="headerlink" title="HTTP攻击举例"></a>HTTP攻击举例</h4><p>HTTP：主要是规定浏览器和WWW服务器通信规则，裸奔html，当时是信息没有财富</p>
+<p><strong>明文传输，不检查完整性  +  无状态，不验证身份</strong>——监听明文，篡改劫持，伪造服务器钓鱼</p>
+<p>中间人加入并分别建立和通讯双方的连接，可以被随便改——ARP欺骗</p>
+<h5 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h5><p>数据链路层，维护IPMAC映射表</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128124623749.png" alt="image-20221128124623749"></p>
+<p>可以伪造ARP frame改变网内任何主机的映射表，来切断通讯并且把自己的物理MAC加入。即发对方以为就是发攻击者</p>
+<p><strong>DNS</strong></p>
+<p>域名——IP对应</p>
+<p>欺骗：所有主机名都对应攻击者的IP</p>
+<h4 id="HTTPS-HTTP-SSL"><a href="#HTTPS-HTTP-SSL" class="headerlink" title="HTTPS &#x3D; HTTP + SSL"></a>HTTPS &#x3D; HTTP + SSL</h4><p>明文——加密（记录协议加密）</p>
+<p>80端口到443端口</p>
+<p>无状态连接——用SSL+HTTP协议加密和身份认证的连接</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128125503195.png" alt="image-20221128125503195"></p>
+<h4 id="SSL能否保证安全"><a href="#SSL能否保证安全" class="headerlink" title="SSL能否保证安全"></a>SSL能否保证安全</h4><p><strong>ARP和嗅探</strong>都可行，但是看不懂的密文</p>
+<p><strong>篡改</strong>：密文无法篡改，也看不懂</p>
+<p>https有小锁，显示发放的证书来认证服务器身份。如果<strong>钓鱼或者恶意代理</strong>，没有受信任的证书（钓鱼wifi），有危险</p>
+<p>攻击者用自己<strong>证书替换</strong>服务器证书:没办法，开摆，明文了</p>
+<p><strong>会话劫持</strong> 偷不到用户密码，但是登陆之后跳转到HTTP页面可以偷取Cookie来冒充用户  </p>
+<h4 id="SET安全电子交易"><a href="#SET安全电子交易" class="headerlink" title="SET安全电子交易"></a>SET安全电子交易</h4><p>定制给电子商务安全</p>
+<p>涉及到多方：客户、商家、银行、相关管理认证部门</p>
+<p><strong>威胁</strong></p>
+<ul>
+<li>支付账号密码的窃取</li>
+<li>金额更改</li>
+<li>商家和支付方的互相确认</li>
+<li>双方的抵赖，否认</li>
+<li>故意延迟</li>
+</ul>
+<p><strong>需求</strong></p>
+<ul>
+<li>所有数据的保密性和完整性。银行不应该知道我买的东西，京东不应该知道银行的余额。我买的什么，多少钱就是多少</li>
+<li>结算双方身份的认定，唯一确定的身份</li>
+<li>不抵赖和否认</li>
+<li>可靠快捷</li>
+</ul>
+<p>体系结构：社会——管理——技术——应用</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128131720148.png" alt="image-20221128131720148"></p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128131835833.png" alt="image-20221128131835833"></p>
+<h4 id="SET安全电子交易-1"><a href="#SET安全电子交易-1" class="headerlink" title="SET安全电子交易"></a>SET安全电子交易</h4><p>visa和master card搞的，基于X.509v3证书。私密保密+完整+双方认证+抗抵赖</p>
+<p> <img src="/assets/2022Fall-netsecintro-final.assets/image-20221128132040491.png" alt="image-20221128132040491"></p>
+<p> 下半部分是中国银联，属于银行网络系统了。</p>
+<p>支付网关：由收款行操作，处理商家的支付报文，属于SET和银行支付网络的接口</p>
+<p>收款行去找对应的发卡行协商请求支付</p>
+<p><strong>order info 和 payment info</strong> 背靠背，互相不可见。必须分开加密和签名，但是又不能分开发不然难以确认。</p>
+<p>对不能读信息的一方，只给MD作为验证，但是原文无法解密</p>
+<ul>
+<li><p>双方开户并获得资质证书</p>
+</li>
+<li><p>【1购买请求】用户向商家发起购买请求</p>
+<ul>
+<li><p>发起请求：ID和卡信息</p>
+</li>
+<li><p>发起响应：商家私钥，交互ID，整数</p>
+</li>
+<li><p>购买请求：验证证书，</p>
+<ul>
+<li><p>生成PIOI，把transactionID放入PIOI，然后生成购买请求</p>
+</li>
+<li><p>商家需要对OI做屏蔽（加密）放入支付网关（收款行）</p>
+</li>
+<li><p><strong>双签名</strong>，两层哈希。连接发送给不同接受者的报文</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128133406257.png" alt="image-20221128133406257"></p>
+</li>
+<li><p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128133625982.png" alt="image-20221128133625982"></p>
+</li>
+</ul>
+</li>
+<li><p>购买响应</p>
+<ul>
+<li><p>商家收到购买请求，验证订单</p>
+<p><img src="/assets/2022Fall-netsecintro-final.assets/image-20221128133703505.png" alt="image-20221128133703505"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>【2支付授权】商家通过支付网关，向发卡方请求支付授权</p>
+<ul>
+<li>授权请求<ul>
+<li>PI 双签名 Es 双方证书</li>
+<li>银行要验证所有证书来核验双方身份</li>
+<li>解密数字信封获得Es，解密authorization block</li>
+<li>验证商家前ing</li>
+<li>解密payment block数字信封，解密PI</li>
+<li><strong>验证双签名</strong></li>
+<li>验证transaction ID和PI</li>
+<li>从发卡行<strong>申请支付</strong></li>
+</ul>
+</li>
+<li>授权响应<ul>
+<li>授权信息和权标</li>
+<li>证书</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>【3支付获取】商家通过支付网关，向发卡方请求付款</p>
+<ul>
+<li>获取请求<ul>
+<li>支付量，交易ID，权标，商家的签名密钥、证书</li>
+</ul>
+</li>
+<li>获取响应<ul>
+<li>网关签名，加密获取数据块，网关签名证书</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/02/23/2022Fall-organization-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2022秋季学期 计算机组成原理 期末复习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/06/18/2022Spring-dlc-final/"><span class="level-item">2022纯季学期 数字逻辑电路 期末复习笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

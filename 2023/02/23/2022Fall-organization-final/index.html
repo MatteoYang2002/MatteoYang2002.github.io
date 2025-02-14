@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2022秋季学期 计算机组成原理 期末复习笔记 - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="计组复习笔记12 InstructionsPC 需要执行的指令，下一条指令程序最小单元：指令，也是计算机硬件执行程序的最小单位全部指令构成指令系统 层次软件系统：高级、汇编、OS、指令系统硬件系统：指令系统、微体系结构、数字逻辑指令系统是软硬件接口 功能分类运算、传输、控制、IO、其他操作码和操作数地址，指令字：二进制表示指令字长：每条指令是x倍机器字长机器字长：计算机能处理的二进制数据位可变长的"><meta property="og:type" content="blog"><meta property="og:title" content="2022秋季学期 计算机组成原理 期末复习笔记"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="计组复习笔记12 InstructionsPC 需要执行的指令，下一条指令程序最小单元：指令，也是计算机硬件执行程序的最小单位全部指令构成指令系统 层次软件系统：高级、汇编、OS、指令系统硬件系统：指令系统、微体系结构、数字逻辑指令系统是软硬件接口 功能分类运算、传输、控制、IO、其他操作码和操作数地址，指令字：二进制表示指令字长：每条指令是x倍机器字长机器字长：计算机能处理的二进制数据位可变长的"><meta property="og:locale" content="en_US"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228172749451.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228210859694.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228210838935.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228211757759.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228212453353.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228212523292.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228213253386.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228214641103.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228221722594.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221228224001347.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229001539294.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229001546343.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229001554184.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229001559865.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229001611588.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229001620338.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229235637590.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230001611856.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/PipelineCPU.drawio.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230005455826.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230010840786.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230011223443.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230001958770-1672330799556-1.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20230219105706133.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230012310353.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230012323051.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230012402050.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230115613068.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230161825206.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20230221233849951.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230163037533.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230164438343.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221230171148733.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229004240830.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229115527170.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229120015151.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229120216784.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229120343044.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229211649210.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229121745625.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229213044972.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229213728676.png"><meta property="og:image" content="/assets/2022Fall-organization-final.assets/image-20221229220459382.png"><meta property="article:published_time" content="2023-02-23T06:05:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.488Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="/assets/2022Fall-organization-final.assets/image-20221228172749451.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2023/02/23/2022Fall-organization-final/"},"headline":"2022秋季学期 计算机组成原理 期末复习笔记","image":["https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228172749451.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228210859694.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228210838935.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228211757759.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228212453353.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228212523292.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228213253386.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228214641103.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228221722594.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221228224001347.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229001539294.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229001546343.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229001554184.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229001559865.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229001611588.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229001620338.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229235637590.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230001611856.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/PipelineCPU.drawio.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230005455826.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230010840786.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230011223443.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230001958770-1672330799556-1.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20230219105706133.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230012310353.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230012323051.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230012402050.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230115613068.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230161825206.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20230221233849951.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230163037533.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230164438343.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221230171148733.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229004240830.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229115527170.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229120015151.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229120216784.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229120343044.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229211649210.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229121745625.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229213044972.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229213728676.png","https://matteoyang.space/assets/2022Fall-organization-final.assets/image-20221229220459382.png"],"datePublished":"2023-02-23T06:05:00.000Z","dateModified":"2024-10-01T11:01:40.488Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"计组复习笔记12 InstructionsPC 需要执行的指令，下一条指令程序最小单元：指令，也是计算机硬件执行程序的最小单位全部指令构成指令系统 层次软件系统：高级、汇编、OS、指令系统硬件系统：指令系统、微体系结构、数字逻辑指令系统是软硬件接口 功能分类运算、传输、控制、IO、其他操作码和操作数地址，指令字：二进制表示指令字长：每条指令是x倍机器字长机器字长：计算机能处理的二进制数据位可变长的"}</script><link rel="canonical" href="https://matteoyang.space/2023/02/23/2022Fall-organization-final/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-23T06:05:00.000Z" title="2023/2/23 14:05:00">2023-02-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.488Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">an hour read (About 11587 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2022秋季学期 计算机组成原理 期末复习笔记</h1><div class="content"><h1 id="计组复习笔记"><a href="#计组复习笔记" class="headerlink" title="计组复习笔记"></a>计组复习笔记</h1><h2 id="12-Instructions"><a href="#12-Instructions" class="headerlink" title="12 Instructions"></a>12 Instructions</h2><p>PC 需要执行的指令，下一条指令<br>程序最小单元：指令，也是计算机硬件执行程序的最小单位<br>全部指令构成指令系统</p>
+<h4 id="层次"><a href="#层次" class="headerlink" title="层次"></a>层次</h4><p>软件系统：高级、汇编、OS、指令系统<br>硬件系统：指令系统、微体系结构、数字逻辑<br>指令系统是软硬件接口</p>
+<h4 id="功能分类"><a href="#功能分类" class="headerlink" title="功能分类"></a>功能分类</h4><p>运算、传输、控制、IO、其他<br>操作码和操作数地址，指令字：二进制表示<br>指令字长：每条指令是x倍机器字长<br>机器字长：计算机能处理的二进制数据位<br>可变长的指令字结构和扩展操作码…</p>
+<h4 id="寻址"><a href="#寻址" class="headerlink" title="寻址"></a>寻址</h4><p>指令中的地址叫形式地址，使用形式地址信息计算or读到的数值才是实际数据（或指令）的实际地址<br>Regor累加器编号 IO设备端口地址 储存器单元地址</p>
+<h4 id="性能评定"><a href="#性能评定" class="headerlink" title="性能评定"></a>性能评定</h4><ul>
+<li>吞吐率：单位时间完成任务数量</li>
+<li>响应时间：完成任务时间</li>
+<li>MIPS 每秒几百万条指令处理能力</li>
+<li>CPI 每条指令几个周期</li>
+<li>CPUTime？</li>
+<li>CPUclock？</li>
+<li>测试程序</li>
+</ul>
+<h4 id="CR"><a href="#CR" class="headerlink" title="CR"></a>CR</h4><p>Cisc 可变长<br>Risc 等长指令（除了压缩instr） 并行好编译效率高<br>VLIW 超长指令字 组合简短等长的精简指令成超长指令，每次运行一个超长而并发执行多个短指令</p>
+<p>最好让reg位置保持不变位置相同</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228172749451.png" alt="image-20221228172749451"></p>
+<h4 id="R"><a href="#R" class="headerlink" title="R"></a>R</h4><p>R的opcode固定 规整计算结果到rd，PC增加</p>
+<h4 id="I"><a href="#I" class="headerlink" title="I"></a>I</h4><p>imm12符号扩展32位，-2048 2047</p>
+<p>移位中imm只有后五位有效位shamt，前七位为0</p>
+<p>逻辑移动补0，算数右移补符号位</p>
+<p>JALR 符号扩展12到32，把pc+4存到rd，跳rs1+-imml31:1,0</p>
+<p>，相当于<strong>先扩展相加后把最低位置0</strong>.</p>
+<p><strong>跳转范围rs1+-4KB，结合AUIPC可以任意跳了</strong></p>
+<p><strong>LB LW</strong> 符号扩展后的imml+rs1的位置取字或字节</p>
+<h4 id="S"><a href="#S" class="headerlink" title="S"></a>S</h4><p>rs2存到rs1+符号扩展imm上，此处imm被打散</p>
+<h4 id="B"><a href="#B" class="headerlink" title="B"></a>B</h4><p>比较rs1 rs2，符号扩展~imm12,0其实是imm12:0 ，与PC相加，pc±2^12&#x3D;4K(B)</p>
+<p>-4096 4094的2B对齐偏移</p>
+<p>如果超过了可以b的条件反转，然后bnxt，jjump</p>
+<h4 id="J"><a href="#J" class="headerlink" title="J"></a>J</h4><p>打散的imm20因为其实是20:1后面默认0位为0，<strong>JAL</strong> 符号扩展，存pc+4到rd然后和pc相加低位置0后跳+-1MB</p>
+<h4 id="U-imm除了U之外都要符号扩展"><a href="#U-imm除了U之外都要符号扩展" class="headerlink" title="U imm除了U之外都要符号扩展"></a>U imm除了U之外都要符号扩展</h4><p>不打散的imm20，lui直接装</p>
+<p>auipc：装入高20位后加上pc</p>
+<h4 id="MMIO"><a href="#MMIO" class="headerlink" title="MMIO"></a>MMIO</h4><p>通过把IO映射到内存单元，对特殊地址读写就是读写外设。通过外设寄存器和主机交互，表现为内存单元或者端口上的数据读写单元</p>
+<h2 id="13-数字逻辑"><a href="#13-数字逻辑" class="headerlink" title="13 数字逻辑"></a>13 数字逻辑</h2><p>解码器|译码器 2-4,3-8…		选择器，控制信号和数据与后接入或门</p>
+<p>比较器：或许是异或+与门</p>
+<p>3LUT查找表，实现任何3位逻辑函数，就是根据abc8种情况查找定制的输出</p>
+<p><strong>摩尔状态机：输出之和现在状态有关，延迟一拍</strong></p>
+<p><strong>米利状态机：输出和现态和输入都有关，快，异步反馈问题</strong></p>
+<p>同步电路：全局时钟，有利于静态时序分析，强耦合。不利于面积和低功耗优化，时钟偏斜（和时钟距离不同）</p>
+<p>异步电路：多个时钟，不同源or同源不同相，难以静态时序分析，但是更灵活，功耗低</p>
+<h2 id="14-ALU"><a href="#14-ALU" class="headerlink" title="14 ALU"></a>14 ALU</h2><p>寄存器堆——ALU——回到寄存器堆</p>
+<p>全加器</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228210859694.png" alt="image-20221228210859694"></p>
+<p>1位ALU</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228210838935.png" alt="image-20221228210838935"></p>
+<p>4位ALU？真值表组合逻辑or串4个1位</p>
+<p>超前进位？特殊进位电路来同时得到计算结果和进位C1234</p>
+<p>标志位：ZF SF最高位 <strong>OV&#x3D;¬F1*¬F2*S+F1*F2*¬S溢出@@</strong></p>
+<h3 id="补码减法"><a href="#补码减法" class="headerlink" title="补码减法"></a>补码减法</h3><p>b的补码取反加一为-b直接加即可</p>
+<h3 id="原码乘法"><a href="#原码乘法" class="headerlink" title="原码乘法"></a>原码乘法</h3><p>高精度（竖式），即移位加。</p>
+<p>维护部分积，先从乘数最高位开始，1就加0不动。处理完一位就左移部分积直到处理完乘数</p>
+<p>或者：</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228211757759.png" alt="image-20221228211757759"></p>
+<p>很可能溢出，怎么办？</p>
+<p><strong>1直接实现：64位被乘数，64位ALU，64位部分积，32位乘数…</strong>  浪费空间，每次加法只有一半生效</p>
+<p><strong>2 32位被乘数和ALU，64位部分积</strong> 其实64位被乘数（不断左移）就是为了对应落在部分积的正确位置。换思路让部分积右移，即alu只往部分积高32位加，加后右移即可</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228212453353.png" alt="image-20221228212453353"></p>
+<p>发现部分积在不断右移，而乘数右移之后左边没用，故合并..</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228212523292.png" alt="image-20221228212523292"></p>
+<h3 id="补码乘法？"><a href="#补码乘法？" class="headerlink" title="补码乘法？"></a>补码乘法？</h3><p>1 补码换原码绝对值，乘法，单独算符号位</p>
+<p>2 布斯算法 原理推导</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228213253386.png" alt="image-20221228213253386"></p>
+<p>其实就是在标准的部分积-乘数寄存器后追加一位初始0，然后开始看最后一位和附加位。10减01加，右移固定长度后计算完毕（把所有除数出去就完事）</p>
+<h3 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h3><p>异或符号，绝对值做除法</p>
+<p>恢复余数法：经典的竖式，被除数减除数后，大于等于零商1，移位。小于零则商0，恢复余数后移位。从来不用。</p>
+<p>一般用负余数向下求<strong>加减交替法</strong> 原理证明：</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228214641103.png" alt="image-20221228214641103"></p>
+<p>操作方法？</p>
+<p>原码：首轮尝试 -Y，后面看正负。正商1-Y 负商0加Y。最后修正符号。记得余数要乘上2^-n的系数</p>
+<p>补码：首轮根据符号同异。同减，后与除数同号商1减 异号商0加。</p>
+<p>如果最后余数为负轮次，加Y修正之</p>
+<p>最后</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221228221722594.png" alt="image-20221228221722594"></p>
+<h2 id="15-实验预备和Verilog"><a href="#15-实验预备和Verilog" class="headerlink" title="15 实验预备和Verilog"></a>15 实验预备和Verilog</h2><ul>
+<li><p>FPGA 现场可编程门阵列，以LUT 触发器等为基本单元</p>
+</li>
+<li><p>LUT本质就是RAM，计算所有结果之后按地址查表输出</p>
+</li>
+<li><p>面积 和 速度的平衡和互换</p>
+</li>
+<li><p>现在的FPGA都是为同步电路设计优化的，但从IC设计看同步更加耗资源，没有毛刺信号稳定。</p>
+</li>
+<li><p>综合后仿真可以标注标准延时文件，估计门延时等等；时序仿真更靠后</p>
+</li>
+<li><p><img src="/assets/2022Fall-organization-final.assets/image-20221228224001347.png" alt="image-20221228224001347"></p>
+</li>
+</ul>
+<h3 id="Verilog"><a href="#Verilog" class="headerlink" title="Verilog"></a>Verilog</h3><ul>
+<li>门级描述（结构）和行为描述</li>
+<li>Z不是0不是1，如果进与门则有0为0，其余为X</li>
+<li>仿真时#x表示延时xns 1ns&#x2F;1ps下 代码时间单位&#x2F;仿真粒度</li>
+<li>异步复位：采样独立于时钟，优先权最高，但对毛刺敏感有亚稳态问题</li>
+<li>同步复位：相对于时钟，应该有足够长激活时间以在时钟边缘采样到rst</li>
+</ul>
+<h2 id="16数据表示和纠错"><a href="#16数据表示和纠错" class="headerlink" title="16数据表示和纠错"></a>16数据表示和纠错</h2><h3 id="逻辑数据-01"><a href="#逻辑数据-01" class="headerlink" title="逻辑数据 01"></a>逻辑数据 01</h3><h3 id="字符数据"><a href="#字符数据" class="headerlink" title="字符数据"></a>字符数据</h3><p>ascii 128 Unicode 16b保留6400个码本地化使用</p>
+<p>UTF8变长编码，首字节确定字符长度，开头为几个1和一个0代表字节数。0为单字节，几个1加0是几个字节。后面字节都以10开头，方便自同步。</p>
+<p>点阵字体，通过10来绘制汉字；矢量字体，通过平滑曲线连接关键点，填充闭合空间来显示字符</p>
+<h3 id="数值数据"><a href="#数值数据" class="headerlink" title="数值数据"></a>数值数据</h3><p>定点数与浮点数</p>
+<h4 id="原-反-补"><a href="#原-反-补" class="headerlink" title="原 反 补"></a>原 反 补</h4><p>正数相同</p>
+<p>0有两个原码和反码</p>
+<p>反码为原码取反，补码为反码加一</p>
+<p>只有一个负数的原码和补码是相同的即1100 -4 &#x3D; -8+4</p>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>s exp frac: 1 3 4 or 1 8 23 or 1 11 52 bias &#x3D; 2^(exp-1) -1</p>
+<p>bias：3 127 1023</p>
+<p>特殊情况：</p>
+<p>exp&#x3D;0 不取-3仍-2，但是0.frac，有正负0</p>
+<p>exp&#x3D;全1且frac&#x3D;0 表示无穷大，frac其他NAN</p>
+<p>exp 非0且非全1: 规格化数 正常处理 1.frac exp-bias</p>
+<h4 id="浮点算数"><a href="#浮点算数" class="headerlink" title="浮点算数"></a>浮点算数</h4><p><img src="/assets/2022Fall-organization-final.assets/image-20221229001539294.png" alt="image-20221229001539294"><img src="/assets/2022Fall-organization-final.assets/image-20221229001546343.png" alt="image-20221229001546343"><img src="/assets/2022Fall-organization-final.assets/image-20221229001554184.png" alt="image-20221229001554184"><img src="/assets/2022Fall-organization-final.assets/image-20221229001559865.png" alt="image-20221229001559865"><img src="/assets/2022Fall-organization-final.assets/image-20221229001611588.png" alt="image-20221229001611588"><img src="/assets/2022Fall-organization-final.assets/image-20221229001620338.png" alt="image-20221229001620338"></p>
+<p>特点：不可结合，相等比较只是近似的。比如for中i!&#x3D;10的条件，递增0.1可能不会停止</p>
+<h3 id="检错纠错"><a href="#检错纠错" class="headerlink" title="检错纠错"></a>检错纠错</h3><h4 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h4><p>并行数据传输，k后加1位。使得k+1取1的位数为偶or为奇数</p>
+<p>即奇校验的校验位为是否为偶数个1，or偶个1出错为1，</p>
+<p>把校验位写前面？</p>
+<p>全部异或——偶校验</p>
+<p>码距2 少用一个维度的合法码可以使码距为2，可以得到检错码。</p>
+<h4 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h4><p>发现并改正一位错：2^r &gt;&#x3D; k+r+1, 全正确和k+r的某一位出错的情况</p>
+<p>实用，也能发现两位错：r中一位来表示1位还是2位错，剩下来指示出错2^r-1 &gt;&#x3D;k+r</p>
+<p>3-4海明码，垃圾。</p>
+<p>在正常海明码后面加一个校验位P4为所有其他位的异或。</p>
+<p>校验位和对应数据位异或应该全是0为无措，否则找为1的</p>
+<p>全校验位为1则一位错，为0有两位错</p>
+<h2 id="21-控制器-指令系统"><a href="#21-控制器-指令系统" class="headerlink" title="21 控制器 指令系统"></a>21 控制器 指令系统</h2><h4 id="操作数"><a href="#操作数" class="headerlink" title="操作数"></a>操作数</h4><p>x操作数指令（x地址指令）</p>
+<p>来源去向：寄存器堆、IO设备或接口的寄存器，主存单元</p>
+<p>操作码扩展，可以用1占位用0开始，参考utf8的方案即1110后面是可变</p>
+<p>也可以自己设计，<strong>从操作数最多的指令开始即可</strong> 从多地址到少地址</p>
+<h4 id="操作数类型和寻址"><a href="#操作数类型和寻址" class="headerlink" title="操作数类型和寻址"></a>操作数类型和寻址</h4><ul>
+<li>指令中包含imm</li>
+<li>给出mem地址</li>
+<li>寄存器寻址（reg中是实际数据）和间接寻址（寄存器中是内存地址）</li>
+<li>变址寻址：变址寄存器值+偏移量</li>
+<li>相对寻址：相对于PC和偏移量</li>
+<li>间接寻址：指令给出**data 访存两次</li>
+<li>基地址寻址：基地址专用寄存器如fp，+偏移量</li>
+<li>堆栈寻址：处理sp，加减和读写fp</li>
+</ul>
+<h2 id="22-Riscv指令系统"><a href="#22-Riscv指令系统" class="headerlink" title="22 Riscv指令系统"></a>22 Riscv指令系统</h2><p>算数与逻辑运算、移位操作、数据传送、IO、转移、子程序调用返回、堆栈、其他（条件码、中断、停机、nop、特权）</p>
+<p>推荐不强制对齐，小端高对高，高——低</p>
+<p><strong>完整64位multi：mulh[[s]u] rdh, rs1, rs2; mul rdl, rs1, rs2</strong>  div rem</p>
+<p><strong>lw sw中addr+off需要按4B对齐</strong></p>
+<p>lb会符号扩展！half是2B指令2B对齐，<strong>如果u做0扩展</strong></p>
+<p>callee：sp fp\s0 s1-11，函数如果需要，则需要保存下原来值，最后再恢复</p>
+<p>caller：ra，t0-t6，a0a1 a2-a7，被调用可以自由用，即func内需要的话随便用</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229235637590.png" alt="image-20221229235637590"></p>
+<h2 id="23-指令格式和数据通路"><a href="#23-指令格式和数据通路" class="headerlink" title="23 指令格式和数据通路"></a>23 指令格式和数据通路</h2><p><img src="/assets/2022Fall-organization-final.assets/image-20221230001611856.png" alt="image-20221230001611856"></p>
+<p><img src="/assets/2022Fall-organization-final.assets/PipelineCPU.drawio.png" alt="PipelineCPU.drawio"></p>
+<h2 id="24-单周期cpu"><a href="#24-单周期cpu" class="headerlink" title="24 单周期cpu"></a>24 单周期cpu</h2><p>指令周期 执行一条指令的时间，有cpi即每个指令需要几个cpu周期</p>
+<p>cpu周期 clk时间，甚至可以再分为节拍</p>
+<p>cpi&#x3D;1的单周期，五个步骤挤在一个cpu周期内。<strong>各个控制信号在整个指令周期不变</strong></p>
+<p>古早技术，利用率低，不实用</p>
+<p>考虑：数据通路、控制信号、执行时序</p>
+<p>组成部件利用率不高，消耗在维持信号上</p>
+<p>时钟周期满足执行时间最长的指令如load比store多wb，以load限制最长周期</p>
+<h2 id="25-多周期cpu"><a href="#25-多周期cpu" class="headerlink" title="25 多周期cpu"></a>25 多周期cpu</h2><p>指令占用自己的步骤数，每个步骤占一个周期，尽量限制单一部件，仅提供当前步骤的控制信号</p>
+<p>需要：保存好下一步骤的值——引入寄存器</p>
+<p>转到下一步骤——引入状态标记，使用状态机</p>
+<h4 id="控制器组成"><a href="#控制器组成" class="headerlink" title="控制器组成"></a>控制器组成</h4><p>PC IR 指令执行步骤标记：每条指令的步骤和次序</p>
+<p>控制信号产生：根据当前状态产生控制信号</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230005455826.png" alt="image-20221230005455826"></p>
+<p><strong>硬连线组合逻辑控制器</strong> 指令和执行步骤产生控制信号</p>
+<p>PC IR 节拍发生Timer 控制信号产生部件，条件包括条件码等</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230010840786.png" alt="image-20221230010840786"></p>
+<p><strong>微程序</strong> 存储控制信号，依据步骤读出要用的组合</p>
+<p>微地址访问读出，指令操作码得到首条微指令地址，然后微指令给出下一步骤地址</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230011223443.png" alt="image-20221230011223443"></p>
+<p>读指令 PC地址读到IR </p>
+<p>load C addr 保存到DR</p>
+<p>wb的wdata来自C DR或者PC</p>
+<p><strong>AB寄存器其实是mux后的alua和alub，C暂存最终ALU结构</strong></p>
+<p>A的来源：rs1 pc pc_now（用来+4）</p>
+<p>B：rs2 4 IRimm</p>
+<p><strong>IR和DR都是读出来的内存数据，C给地址保存到DR，B给数据写入C的地址。</strong></p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230001958770-1672330799556-1.png" alt="image-20221230001958770"><img src="/assets/2022Fall-organization-final.assets/image-20230219105706133.png" alt="image-20230219105706133"></p>
+<h4 id="步骤划分"><a href="#步骤划分" class="headerlink" title="步骤划分"></a>步骤划分</h4><p><img src="/assets/2022Fall-organization-final.assets/image-20221230012310353.png" alt="image-20221230012310353"><img src="/assets/2022Fall-organization-final.assets/image-20221230012323051.png" alt="image-20221230012323051"></p>
+<p>取指可<strong>1</strong>拍，之后：</p>
+<p><strong>B</strong>型指令：读寄存器堆(<strong>RF</strong>)、<strong>ALU</strong>运算(EXE)，可<strong>2</strong>步完成，</p>
+<p><strong>R\J\U\I</strong>和<strong>S</strong>型指令：读寄存器堆(<strong>RF</strong>) 、<strong>ALU</strong>运算(EXE)和结果写回(WB), 可<strong>3</strong>步完成，</p>
+<p><strong>Load</strong>指令读内存指令：读寄存器堆(<strong>RF</strong>) 、<strong>ALU</strong>算地址(EXE)、读内存数据到DataR(MEM)，把<strong>DdataR</strong>内容写入寄存器堆(RF), 可<strong>4</strong>步完成。</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230012402050.png" alt="image-20221230012402050"></p>
+<h2 id="26-流水线cpu"><a href="#26-流水线cpu" class="headerlink" title="26 流水线cpu"></a>26 流水线cpu</h2><p>连接图（1d链表）和时空图（xy表示时间-阶段）</p>
+<p>最慢流水段限制时钟周期，必须是连续任务</p>
+<p><strong>装入时间</strong>第一个任务进入流水线到输出流水线</p>
+<p><strong>排空</strong> 最后一个任务进入到输出</p>
+<p>部件功能级（浮点运算）、<strong>处理机级</strong>、处理机间级</p>
+<p>吞吐率：ips？  加速比：与串行时的速度比</p>
+<p>“每条指令至多需要5个周期”</p>
+<h2 id="27-28-流水hazards"><a href="#27-28-流水hazards" class="headerlink" title="27-28 流水hazards"></a>27-28 流水hazards</h2><h3 id="结构冲突"><a href="#结构冲突" class="headerlink" title="结构冲突"></a>结构冲突</h3><p>硬件资源冲突——stallor增加资源</p>
+<p>1 寄存器同时读写——2R1W独立端口OK or 双沿访问，下降沿写入 后半周期读出FPGA不可</p>
+<p>2 内存冲突 IF和MEM——stallall or 区分i和d的内存 or 让mem的指令先走，插入mem气泡，stall住前面指令</p>
+<h3 id="数据冲突"><a href="#数据冲突" class="headerlink" title="数据冲突"></a>数据冲突</h3><p>数据依赖关系的冲突</p>
+<p><strong>RAW 写后读</strong>。后三条收到影响</p>
+<p>后两条需要数据前传（exe已经可用，传给后两条的ID） or 插入两个bub。</p>
+<p>后面第三条可以双边访问或者寄存器堆中特殊处理</p>
+<p>数据旁路：给rs1 rs2的mux再加两个源头，来自aluy和dmload，其实是前传给了EXE</p>
+<p><strong>装入使用冲突</strong> 但不可MEM刚装入就前传给EXE，需要等待load。建议插入一个气泡nop。即先把mem放过去，在mem插入bub然后再… </p>
+<p>建议汇编直接在load delay slot里面放一条无关指令——汇编器调换顺序，静态调度</p>
+<p>或者硬件动态调整顺序，动态调度避免暂停。指令顺序发射——乱序执行——乱序流出。容易不精确的异常</p>
+<p><strong>条件</strong> EXE和MEM的rd &#x3D;&#x3D; ID的rs且不是zero</p>
+<p>WAW 在 riscv不发生，只有wb才写所以…如果alu算完直接在MEM写，那就冲突</p>
+<p>WAR riscv不发生，因为写远在读之后，后面的指令先写前面指令再读，不可能</p>
+<h3 id="控制冲突"><a href="#控制冲突" class="headerlink" title="控制冲突"></a>控制冲突</h3><p>分支、跳转类型指令改PC造成控制冲突——全局冲突</p>
+<ul>
+<li><p>暂停流水：发现分支类就暂停后面指令进入，直到MEM产生正确pc，下一周期才IF</p>
+<p>希望尽早判断是否转移and转移PC3</p>
+</li>
+<li><p>提前分支：在ID阶段加入加法器比较器完成转移地址计算，即把IF清空为nop然后下一阶段ID nop IF 跳转后的instr</p>
+</li>
+<li><p>分支预测：预测转移失败or成功，如果预测错误要消除影响。</p>
+</li>
+<li><p>BTB：分支目标缓冲，分支转移成功的指令地址和目标分支地址都保存起来，缓冲区以分支指令地址作为标志。在IF阶段，指令地址和保存标志比较，如果相同认为是分支指令且认为其转移成功。</p>
+<p>相当于新的PC保存其下一条指令的地址，利用局部性</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230115613068.png" alt="image-20221230115613068"></p>
+<p>两位预测适用多重循环，连续两次错误改变预测方向</p>
+</li>
+</ul>
+<h3 id="异常中断"><a href="#异常中断" class="headerlink" title="异常中断"></a>异常中断</h3><p>cpu内部异常 外部中断</p>
+<p>cpu对程序透明地检测和转移。保存现场、转到恢复程序、恢复现场</p>
+<p>多周期可以增加一个检测异常是否发生的步骤。</p>
+<p>流水线需要看是哪一步发生了异常</p>
+<ul>
+<li>精确（RV）：mepc保存发生异常地址，OS简单，流水复杂</li>
+<li>非精确：mepc保存近似pc，os处理</li>
+</ul>
+<h2 id="28-expception-MMU"><a href="#28-expception-MMU" class="headerlink" title="28 expception MMU"></a>28 expception MMU</h2><p>M简单嵌入——MU安全嵌入——MUS操作系统</p>
+<p>用CSRRW同时读写</p>
+<p><strong>机器模式最重要的特性</strong>是拦截和处理异常</p>
+<p>异步中断，mcause最高位为1（一般是软件、计时器超时、外设），同步异常（包括环境调用 缺页等等）为0.mpp设置为u然后mret则从m到u，结束异常处理。</p>
+<p><strong>同步：</strong>ecall 进入高一层中断处理 ebreak故意触发断点异常</p>
+<p><strong>mepc</strong> 对于同步异常，mepc指向导致异常的指令；对于中断它指向中断处理后应该恢复执行的位置。</p>
+<p><strong>mtvec</strong> 异常跳转到的地址向量表。mode0表示跳base，mode1表示跳到base+4*mcause</p>
+<p><strong>mie</strong> 中断的使能 ，有的必须忽略  <strong>mip</strong> 正准备处理的中断</p>
+<p>其中有 MSU e&gt;s&gt;t外部事件软件 E和P</p>
+<p>只有U和S的pending可以地址写？？？向低优先级注入中断的手段。挂起中断的清除。</p>
+<p><strong>mtval</strong> trap value trap的附加信息比如出错地址，异常指令</p>
+<p><strong>mscratch</strong> 机器存放一个字数据 </p>
+<p><strong>mstatus</strong> 机器状态：包括中断全局使能MIE，异常后的中断开关MPIE（保存中断前的旧值），MS响应中断特权级…</p>
+<p><strong>中断处理</strong> 设置mepc 根据mtvec设置pc 保存mcause和mtval mstatus保存mpie并mie置0.保存之前权限到mpp并权限改为M</p>
+<p><strong>抢占异常处理</strong> 处理中打断，转到更高优先级中断，需要保存m系寄存器到栈。在退出前，禁用中断，恢复寄存器</p>
+<p><strong>wfi</strong> 没有工作，低功耗待机等待中断。停止时钟ornop，适用于循环。</p>
+<p><strong>PMP物理内存保护</strong> 实现pmpaddr_x和pmpcfg，[i, i+1)的地址查找pmpi+1配置获取权限。M指定U访问的内存</p>
+<p><strong>Supervisor</strong> 不能用csr指令受到PMP限制，默认异常交给M但是M可以导向S。rv提供异常委托，选择把部分中断和同步异常交给S绕开M </p>
+<p><strong>mideleg和medeleg</strong>寄存器委托给s处理的中断、异常，每一位对应一种异常。sie和sip只有被委托的位才能使用。</p>
+<h3 id="页式虚拟内存"><a href="#页式虚拟内存" class="headerlink" title="页式虚拟内存"></a>页式虚拟内存</h3><p>SV32 VA 10 10 12 PA 12 10 12 PTE 12 10 2 8 satp mode asid ppn22 在OS设置好页表后被启用</p>
+<p>PTE低位：VRWX 用户可否U 所有地址空间有效G 访问过A 修改过D</p>
+<p>satp.ppn, va.ppn0, 00  &#x3D;&#x3D;&gt; pte0</p>
+<p>pte0.ppn, va.ppn1, 00  &#x3D;&#x3D;&gt; pte1</p>
+<p>pte1.ppn, va.ppo  &#x3D;&#x3D;&gt; page entry</p>
+<h2 id="31-Dramlu"><a href="#31-Dramlu" class="headerlink" title="31 Dramlu"></a>31 Dramlu</h2><p><strong>半导体存储器</strong> mos寄生电容+触发器 属于ram</p>
+<p>随机访问RAM 顺序访问磁带SAM  直接访问DAM随机+顺序，如磁盘 </p>
+<p>CAM关联访问，cache</p>
+<p>需要：快、大、贱、可靠——层次储存</p>
+<p><strong>局部性</strong> 时间重复，空间重复，顺序上</p>
+<p><strong>一致性和包含性</strong> 不同层级的信息一致，外层包含内层</p>
+<p><strong>sram</strong> 不需刷新 触发器储存 同时送行列地址 热 IO共用管脚</p>
+<p><strong>dram</strong> 动态 需要刷新（漏电，补充电荷刷新。暂停读写集中刷新或者定时周期性分散刷新） 电容MOS存储 破坏性读出（需要马上写回叫做预充电延迟，影响频率）快速分页组织，行列地址两次给出，行地址可以锁存复用</p>
+<p><strong>两次操作</strong> 有个row buffer，所以hit row之后只需要col来读出</p>
+<p><strong>读写</strong> </p>
+<p>读：地址；片选和读；保存内容  </p>
+<p>写：地址；片选和数据；写命令</p>
+<p><strong>Dram子系统组成</strong> 倒三角 channel DIMM RANK chip bank row&#x2F;col——双通道，DIMM是一条分为前后两个rank01，rank里8chip，chip里面一堆层叠bank。bank大概是16krow  2kcol 每个unit1B<img src="/assets/2022Fall-organization-final.assets/image-20221230161825206.png" alt="image-20221230161825206"></p>
+<p>数据总线 clock*总线宽度就是数据吞吐能力 ddr带宽16B？100Mhz 200MT&#x2F;s 1.6GBps</p>
+<p>控制总线可以用不同的总线周期来区分部件，和操作性质，还有DMA周期等等</p>
+<h4 id="写时序"><a href="#写时序" class="headerlink" title="写时序"></a>写时序</h4><p><img src="/assets/2022Fall-organization-final.assets/image-20230221233849951.png" alt="image-20230221233849951"></p>
+<h2 id="32-33-Sram-Cache"><a href="#32-33-Sram-Cache" class="headerlink" title="32 33 Sram&amp;Cache"></a>32 33 Sram&amp;Cache</h2><p><img src="/assets/2022Fall-organization-final.assets/image-20221230163037533.png" alt="image-20221230163037533"></p>
+<p>时间局部性：最近被访问的信息，空间：最近访问信息附近的信息，都装到cache里</p>
+<h3 id="Cache参数"><a href="#Cache参数" class="headerlink" title="Cache参数"></a>Cache参数</h3><p>line块 数据交换粒度单位 4~128B</p>
+<p>hit 时间：访问高层次数据时间 1~4Cycle</p>
+<p>miss 损失：替换高层数据块+交付cpu时间</p>
+<p>命中率八成到99</p>
+<p>容量1 256KB</p>
+<h3 id="映射方式"><a href="#映射方式" class="headerlink" title="映射方式"></a>映射方式</h3><h4 id="全相连（无序）"><a href="#全相连（无序）" class="headerlink" title="全相连（无序）"></a>全相连（无序）</h4><p>标志位是主存有2^m块就m位。所有表项都有单独的比较电路。即需要一个全长的tag，没有idx。</p>
+<p>相当于主存中的一块可以映射到Cache的任何地方，即把全部地址作为索引，所有都需要比较器比较。最后选择器选择。</p>
+<p>评价：灵活，命中率很高但是电路过于复杂</p>
+<p>替换时：不确定换出哪块，需要判断</p>
+<p>tag+line offset</p>
+<h4 id="直接映射——唯一对应位置"><a href="#直接映射——唯一对应位置" class="headerlink" title="直接映射——唯一对应位置"></a>直接映射——唯一对应位置</h4><p>按indexO1的索引到，组内使用tag来比较器判断。</p>
+<p>评价：每一块都有有直接的字块对应，方式直接，利用率低。标志位短，比较成本低，tag需要addr-cacheidx且仅比较一次。</p>
+<p>但是利用率低，命中率低，效率低。</p>
+<p>把主存地址中提取部分作为块号，部分为块内地址<img src="/assets/2022Fall-organization-final.assets/image-20221230164438343.png" alt="image-20221230164438343"></p>
+<h4 id="n路组相连映射"><a href="#n路组相连映射" class="headerlink" title="n路组相连映射"></a>n路组相连映射</h4><p>主存中的一块映射到Cache中的N个位置。先索引组，然后里面找tag进行比较，如果相等则命中。组内直接映射</p>
+<p>n个比较器和一个n选1数据选择器</p>
+<p>替换时：不确定换出哪块，需要判断</p>
+<p>n路多，命中率高冲突少，但是复杂，越来越接近全相连了</p>
+<p>二路一半容量和直接映射的命中率差不多</p>
+<h3 id="一致性保证"><a href="#一致性保证" class="headerlink" title="一致性保证"></a>一致性保证</h3><ul>
+<li>Write Through写直达：cache命中后写mem和cache。不命中写mem时候可以同时allo cache<ul>
+<li>强一致性，低效</li>
+</ul>
+</li>
+<li>Write Back 拖后写 只写cache，被替换时候dirty（主动被动，需要监听总线的操作）时才写给mem保存<ul>
+<li>适于多写</li>
+<li>实现复杂但是效率高</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/2022Fall-organization-final.assets/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=.png" alt="img"></p>
+<p><strong>miss原因</strong> </p>
+<ul>
+<li>必然缺失——预取<ul>
+<li>无法避免</li>
+<li>开机、切换进程、首次访问</li>
+</ul>
+</li>
+<li>容量缺失——扩容<ul>
+<li>活动数据集超过Cache</li>
+</ul>
+</li>
+<li>冲突缺失——增加路数or容量or更改策略<ul>
+<li>多个映射到一起，需要腾挪</li>
+<li>某一个组块满了，其他组有空闲，就不叫容量</li>
+</ul>
+</li>
+<li>无效缺失<ul>
+<li>cache数据不对，其他进程修改了主存，监听到并Valid&#x3D;0</li>
+</ul>
+</li>
+</ul>
+<h4 id="提升命中率"><a href="#提升命中率" class="headerlink" title="提升命中率"></a>提升命中率</h4><ul>
+<li><strong>大块</strong> 可以更好利用空间局部性，但是装入慢miss惩罚太高。且块太少容易miss，有极值最优点。</li>
+<li>块过大影响时间局部性</li>
+<li>多级cache提高命中率；分成I和Dcache分别选择；</li>
+</ul>
+<p><strong>Cache接入</strong> </p>
+<p>连入总线 简单 便宜 占用总线</p>
+<p>单独连接cpu 提高总线效率和并发操作 成本高 结构复杂</p>
+<p><strong>一致性状态策略MESI</strong> </p>
+<p>多个核心之间有本地cache，其他核cache和内存数据</p>
+<p>修改：本地写</p>
+<p>无效：远程写</p>
+<p>共享：远程读 or 远程有副本的本地读</p>
+<p>独占：远程无副本的本地读</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221230171148733.png" alt="image-20221230171148733"></p>
+<h3 id="替换策略"><a href="#替换策略" class="headerlink" title="替换策略"></a>替换策略</h3><p>FIFO 简单，满足时间局部</p>
+<p>LRU 最近最少使用：复杂，满足程序局部性，命中率高</p>
+<p>RAND 简单，命中率不低</p>
+<h2 id="34-VM"><a href="#34-VM" class="headerlink" title="34 VM"></a>34 VM</h2><p>解决问题：程序数据量大于物理内存；多个程序共享；</p>
+<p>共享和保护：多个进程可能使用相同的VP访问相同（共享库）或者不同的物理页。可以限制不同进程的权限。</p>
+<p>页表大小的选择：层次页表|翻转页表，访问频繁所以要实现简单</p>
+<h3 id="页表可能给出内存or硬盘位置"><a href="#页表可能给出内存or硬盘位置" class="headerlink" title="页表可能给出内存or硬盘位置"></a>页表可能给出内存or硬盘位置</h3><p>0 null代表没有被分配</p>
+<p>0 硬盘位置代表这部分的数据存在硬盘中，cpu选择空页或者牺牲页（被换出主存前如果被修改过，则写到硬盘中）然后从磁盘里把这部分拷贝到页面同时标注页表valid1</p>
+<h4 id="TLB"><a href="#TLB" class="headerlink" title="TLB"></a>TLB</h4><p>sfencevma 通知cpu页表可能已经被更改 rs1虚拟地址 rs2进程ASID</p>
+<p><strong>TLB缺失</strong> 暂停流水线，通知OS？，读页表，TLB更新，返回user，重新访问就hit了——多路组相连and扩容</p>
+<p><strong>缺页全流程</strong> 触发缺页异常，硬件设置好CSR后交由对应OShandler。（主存已满时，OS选择替换页，如果dirty则CPU请求把该页内容写入硬盘）CPU请求硬盘读入对应页到内存对应页，更新页表项。同时CPU硬件上更新对应TLB，返回到mepc地址，此时再次尝试时TLB已经命中。</p>
+<p>读写硬盘过程：cpu唤醒IO硬件，硬盘通过IO触发完成中断。</p>
+<h4 id="页面大小选择"><a href="#页面大小选择" class="headerlink" title="页面大小选择"></a>页面大小选择</h4><p>小页：减少内部碎片，需要更大页表</p>
+<p>趋势：增大页面——RAM便宜内存大，内外存差别大，程序员需要大空间</p>
+<p>页面替换：LRU，最多使用到最少使用排序。访问页帧移到表头，替换时替表尾部。替换非dirty</p>
+<h4 id="段式存储管理"><a href="#段式存储管理" class="headerlink" title="段式存储管理"></a>段式存储管理</h4><p>VA： 段号（可以有两位表示优先级）+段内地址，每个段segment按逻辑关系分配长度，不定长，在段表中规定。</p>
+<p>逻辑段共享，按照需求划分，页表方便管理。段表没有内部碎片，页表没有外部碎片</p>
+<p>STE：段号 段长 段地址，段号和段内地址都有可能越界</p>
+<p><strong>段页式存储</strong> 先分段 再分页：段号 也号 页内偏移</p>
+<h3 id="35-外存-辅存"><a href="#35-外存-辅存" class="headerlink" title="35 外存|辅存"></a>35 外存|辅存</h3><p>非易失性存储，粒度大，以数据块为单位</p>
+<p>随机访问vs串行访问。各自or共用读写设备（顺序and直接）</p>
+<p><strong>磁记录方式</strong> RZ归零正负脉冲10，中间0 NRZ一直正负脉冲 NRZ1见到1翻转 </p>
+<p>PM相调制中间上0下1  </p>
+<p>FM调频，1的中心翻转 0不翻转 位位间都翻转  </p>
+<p>MFM两个及以上0位周期起始翻转</p>
+<h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><p>旋转托盘磁颗粒储存，移动读写头来访问。</p>
+<p>相比软盘面积大 密度大 转速快 盘片可组合</p>
+<p><strong>访问过程</strong> 寻道（读写头移动8-20ms） 旋转寻找扇区（等待磁盘旋转到扇区） 数据传输（多个扇区）1kB扇区是最小访问单位——外磁道可以比内多一些扇区</p>
+<p><strong>时间</strong> 寻道+旋转+传输+控制延迟</p>
+<p>额外开销大，尽量一次多传相邻扇区，或并行</p>
+<p>小扇区：损坏代价；检错效率；灵活适应OS页面</p>
+<p><strong>访问磁盘过程</strong> 由缺页引起之后：</p>
+<ul>
+<li>OS选择一页换出，查看是否为脏页<ul>
+<li>dirty页需要写回磁盘<ul>
+<li>OS申请IO总线</li>
+<li>获得批准后发送写命令给IO设备，传送写数据</li>
+<li>IO控制器根据命令握手协议，接受数据</li>
+<li>根据地址移动到正确柱面、加载数据进buffer</li>
+<li>寻道到正确磁道，旋转到扇区开始写入并不断计算校验码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>继续申请读入所需页<ul>
+<li>申请总线</li>
+<li>发送读命令和地址等</li>
+<li>IO接受，寻道，移动读写头</li>
+<li>读数据并校验</li>
+<li>磁盘申请总线</li>
+<li>授权后送回数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>可用</strong> 能正常使用的几率——增加冗余如校验码</p>
+<p><strong>可靠</strong> 故障几率——改善环境，减少复杂</p>
+<h3 id="RAID"><a href="#RAID" class="headerlink" title="RAID"></a>RAID</h3><p><strong>raid0</strong> 模拟虚拟磁盘划成带strip，每个strip有k扇区。相当于0123往下数数，适于大量数据请求，没有冗余和可靠性。</p>
+<p><strong>raid1</strong> 单纯四块主盘四块备份盘，写性能低，读性能两倍。成本高，可恢复。</p>
+<p><strong>raid2</strong> 4位半字节用海明码成7位字，124校验。然后磁头旋转<strong>同步</strong>写在<strong>七块盘</strong>上。需要多个控制器。<strong>严格同步</strong></p>
+<p><strong>raid3</strong> 简化，对每个（半）字校验放在校验盘上，<strong>严格同步</strong>。用奇偶校验，能够修复单个磁盘bit1 bit2 b3 b4 Parity。瓶颈在校验盘，无论写谁都要算写校验盘</p>
+<p><strong>raid4</strong> 从bit到strip，生成异或的校验带。不需要同步，防止单盘崩溃但是字节纠错能力差。校验盘负载过重</p>
+<p><strong>raid5</strong> 分布校验带，控制和修复更复杂。从右到左分别当校验盘。</p>
+<p><strong>raid6</strong> 仍然分散校验带，但二维校验，3个数据2个校验位可以修复两个磁盘错。或者4-2异或斜向校验等等</p>
+<h3 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h3><p>不用动 安静 低功耗 高性能 抗震 <strong>擦除有限</strong></p>
+<p>固态电子存储芯片阵列——控制+存储（FLASH DRAM）</p>
+<p>格雷码编码，内部也是个小计算机。</p>
+<p>package-Die-Plane-Block-Page,最小读写单位。读写在4k-16k us延迟 擦除可以到block ms延迟</p>
+<p>FTL层负责翻译地址，维护磨损均衡。写入同一地址不会在原来的page，跨很多。原来invalid，写入前擦除。</p>
+<p>垃圾收集：把die block中有用的数据拷出来，然后整体翻新成free</p>
+<h2 id="41-IO"><a href="#41-IO" class="headerlink" title="41 IO"></a>41 IO</h2><h3 id="程序直接控制-cpu主动去轮询查"><a href="#程序直接控制-cpu主动去轮询查" class="headerlink" title="程序直接控制 cpu主动去轮询查"></a>程序直接控制 cpu主动去轮询查</h3><p>uart串口，在程序里通过特定指令（mmio或专用）来轮询状态并等待——接受or发送——处理</p>
+<p>低成本 低效率 cpu资源阻塞占用</p>
+<p>适用于早期计算机的中高速设备</p>
+<h3 id="程序中断-设备自己报告"><a href="#程序中断-设备自己报告" class="headerlink" title="程序中断 设备自己报告"></a>程序中断 设备自己报告</h3><h4 id="完整过程"><a href="#完整过程" class="headerlink" title="完整过程"></a>完整过程</h4><ul>
+<li>外部设备中断请求：设置中断触发器。每个中断源有1个中断触发器，也对应1个中断屏蔽触发器</li>
+<li>中断响应：<ul>
+<li>条件：允许+当前指令结束（对多周期）；优先级满足</li>
+<li>过程：关闭pending中断；硬件的中断隐含指令，相当于在每个WB后看看有无中断，<strong>保存断点</strong></li>
+</ul>
+</li>
+<li><strong>根据中断源转到软件中断handler</strong><ul>
+<li>关中断，<strong>保存现场上下文，各种regs，转handler</strong></li>
+<li>开中断；运行对应中断处理；关中断；</li>
+<li><strong>恢复断点现场</strong></li>
+<li>开中断；返回断点</li>
+</ul>
+</li>
+</ul>
+<p>可能分别有响应优先级和服务优先级。即响应中断的优先级低但是服务进行的时候屏蔽很多中断，不可以被打断</p>
+<h4 id="中断接口硬件实现"><a href="#中断接口硬件实现" class="headerlink" title="中断接口硬件实现"></a>中断接口硬件实现</h4><ul>
+<li>中断请求和屏蔽寄存器</li>
+<li>优先级排队线路</li>
+<li>数据缓冲寄存器</li>
+<li>中断控制和工作状态逻辑</li>
+<li>设备选择器</li>
+<li>中断向量表：服务程序的入口地址</li>
+</ul>
+<h4 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h4><ul>
+<li>中断触发器和状态寄存器</li>
+<li>中断优先级——响应顺序</li>
+<li>禁止和屏蔽（允许触发器EIDI 选择封锁）</li>
+</ul>
+<h4 id="评价和适用"><a href="#评价和适用" class="headerlink" title="评价和适用"></a>评价和适用</h4><p>提高效率，可以同时管理多个设备；传输速度不高量不大；对CPU干扰大。因为数据都需要cpu经手传输，比如什么中断服务程序。</p>
+<p>硬件故障；cpu和外设并行工作；实时处理；app和os；多处理机的机间联系；多道和分时</p>
+<p>怎么能不让cpu来做？尤其在页式交换？</p>
+<h3 id="DMA直接存储访问"><a href="#DMA直接存储访问" class="headerlink" title="DMA直接存储访问"></a>DMA直接存储访问</h3><p>IO设备和主存的直接数据通路，专设硬件。传输过程DMA自己控制，需要主存支持 <strong>成组传送（burst）</strong>。开始和结束时需要程序or中断来预处理和后处理</p>
+<p>仍然是通过bus传送，怎么协调？工作方式：独占总线（等我传完）or周期窃取（每次传输后释放，一起竞争总线）</p>
+<p>使用与连续地址的大数据量传输，解放CPU</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229004240830.png" alt="image-20221229004240830"></p>
+<p>io可能通过中断向cpu发出请求表示数据准备好，cpu告诉dma任务信息（硬盘、地址adr、主存地址mar、数据量word count，dbr数据缓冲，csr状态寄存器等等）。</p>
+<p>dma卡自己请求总线完成任务，然后告诉cpu传输完（申请中断），cpu再去处理这些数据。</p>
+<h4 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h4><ul>
+<li><p>CPU预处理：启动并给任务信息</p>
+<p>将内存起始地址，设备地址，数据个数等送到DMA启动设备</p>
+</li>
+<li><p>数据传送</p>
+<p>cpu继续执行主程序，dma控制同时完成数据传送</p>
+<ul>
+<li>申请总线直到允许，地址送到总线，数据送IO；主存地址+1，WC内容-1.</li>
+<li>传完了</li>
+</ul>
+</li>
+<li><p>中断服务程序进行DMA结束处理</p>
+</li>
+</ul>
+<h4 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h4><p>DMA需要连续的物理地址，但是cpu拿的是VA，其物理地址不一定连续。cpu的VA需要DMA虚实转换，需要访问tlb，产生冲突。</p>
+<p>Cache一致性、包含性？层次问题：</p>
+<ul>
+<li>主存数据并不一定最新，可能在cache中</li>
+<li>主存更新后的cache失效，如果还要管cache性能低</li>
+</ul>
+<p>DMA与设备是一对一的，多设备需要多个DMA，同时工作可能会冲突。</p>
+<p>对CPU打扰适中，初始化和周期挪用，无法适用<strong>大量高速设备</strong></p>
+<h3 id="通道控制方式——1个DMA集成管理多个设备"><a href="#通道控制方式——1个DMA集成管理多个设备" class="headerlink" title="通道控制方式——1个DMA集成管理多个设备"></a>通道控制方式——1个DMA集成管理多个设备</h3><p>通道命令IO处理机，有自己的命令，一对多，适应不同种类的和不同速度，其实是专用cpu。</p>
+<p>指定连入外设，操作外设；传入外设IO的位置以及主存缓冲区地址；控制外设和主存交换数据；检查外设状态；</p>
+<ul>
+<li><p>字节多路通道</p>
+<p>简单共享、分时处理，低中速字符设备</p>
+</li>
+<li><p>选择通道</p>
+<p>选择外设独占整个通道，成组传输数据块，效率高的快速设备</p>
+</li>
+<li><p>数组多路通道</p>
+<p>结合前两种。复杂控制但高效</p>
+</li>
+</ul>
+<h3 id="外围处理机"><a href="#外围处理机" class="headerlink" title="外围处理机"></a>外围处理机</h3><p>通道型处理机：共享内存</p>
+<p>外围处理机：独立IO，帮助大型机专心计算</p>
+<h3 id="总评价"><a href="#总评价" class="headerlink" title="总评价"></a>总评价</h3><p>性能、可扩展、可适应（设备有无、故障）</p>
+<p>考虑驱动、依赖等等，尽量使用抽象统一标准，虚拟化管理</p>
+<h2 id="42-BUS"><a href="#42-BUS" class="headerlink" title="42 BUS"></a>42 BUS</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>cpu和其他部分的接口</p>
+<p>性能：延迟、吞吐量、设备和系统的连接关系、层次存储、OS</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229115527170.png" alt="image-20221229115527170"></p>
+<h4 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h4><ul>
+<li><p>复杂外设：使用统一总线标准，便于扩展和兼容</p>
+</li>
+<li><p>降低成本，可以多个设备共享</p>
+</li>
+<li><p>设计简单</p>
+</li>
+</ul>
+<h4 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h4><ul>
+<li>总线带宽限制吞吐量</li>
+<li><strong>最高速度决定因素：</strong><ul>
+<li>总线长度</li>
+<li>负载设备数</li>
+<li>负载设备特性：延迟差异、数据传输速率差异</li>
+</ul>
+</li>
+</ul>
+<h4 id="单总线设计：主板总线"><a href="#单总线设计：主板总线" class="headerlink" title="单总线设计：主板总线"></a>单总线设计：主板总线</h4><p>处理器和mem和io都连接，简单低成本，但是速度太慢，成为系统瓶颈</p>
+<h4 id="双总线：处理器主存总线和IO总线"><a href="#双总线：处理器主存总线和IO总线" class="headerlink" title="双总线：处理器主存总线和IO总线"></a>双总线：处理器主存总线和IO总线</h4><p>麦金塔II	两极总线，设备并不直接连接到处理器主存总线上，通过总线适配器引出单独的IO总线。</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229120015151.png" alt="image-20221229120015151"></p>
+<h4 id="三总线：处理器主存、主板总线、IO总线"><a href="#三总线：处理器主存、主板总线、IO总线" class="headerlink" title="三总线：处理器主存、主板总线、IO总线"></a>三总线：处理器主存、主板总线、IO总线</h4><p>三级总线，mem-PCI-usb、ethernet、disk</p>
+<p>大大减少处理器主存总线负载，</p>
+<p>现代PC采用北桥接入高速设备，南桥接入低速设备。但是现在北桥基本都被继承进cpu直接接高速设备</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229120216784.png" alt="image-20221229120216784"></p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229120343044.png" alt="image-20221229120343044"></p>
+<h3 id="总线类型"><a href="#总线类型" class="headerlink" title="总线类型"></a>总线类型</h3><h4 id="处理器主存，专用"><a href="#处理器主存，专用" class="headerlink" title="处理器主存，专用"></a>处理器主存，专用</h4><p>短、高速、专用于主存直连处理器、针对cache块优化设计</p>
+<h4 id="IO-行业标准"><a href="#IO-行业标准" class="headerlink" title="IO 行业标准"></a>IO 行业标准</h4><p>长慢，适应性好、通过桥or主板总线连接主存总线</p>
+<h4 id="主板总线-高速设备"><a href="#主板总线-高速设备" class="headerlink" title="主板总线 高速设备"></a>主板总线 高速设备</h4><p>允许处理器、主存和IO设备互连，所有组件都连接在这条总线上</p>
+<p>有价格优势？</p>
+<h3 id="总线构成"><a href="#总线构成" class="headerlink" title="总线构成"></a>总线构成</h3><p>控制线：总线请求和数据接受信号；指明数据线的信息类型</p>
+<p>数据线：传送信息，数据和地址，复杂命令</p>
+<h3 id="总线标准"><a href="#总线标准" class="headerlink" title="总线标准"></a>总线标准</h3><p>非常多，抽象设计，影响性价比可靠性。需要统一、可扩展、兼容、协调控制</p>
+<p>PCI；EISA；SCSI；USB；Bluetooth…</p>
+<p><strong>总线层次结构</strong> 事务协议；时序信号规范；<strong>导线</strong>；电气信号规范；接口物理机械特性；</p>
+<h3 id="总线概念"><a href="#总线概念" class="headerlink" title="总线概念"></a>总线概念</h3><p><strong>主设备</strong> 控制总线，发起总线事务（发起命令和地址+数据传输）</p>
+<p><strong>从设备</strong> 响应请求</p>
+<p><strong>通信协议</strong> 定义总线传输中的时间顺序和时序要求</p>
+<p><strong>异步同步</strong> </p>
+<p>控制信号作为总控，适应不同速度，距离长，需要握手</p>
+<p>共同时钟在控制线里，逻辑简单高速，但所有设备需要按这个时钟工作；总线需要够短</p>
+<h4 id="同步协议"><a href="#同步协议" class="headerlink" title="同步协议"></a>同步协议</h4><p><strong>最理想</strong> 完全同步，所有设备速度一样。req grant 上升沿关闭req G后直接给addr和cmd，很快得到data</p>
+<p><strong>典型同步</strong> 给出cmd和addr后，wait信号直到数据准备好，wait为0（wb协议）根据时钟信号得有效数据。即从设备指示什么时候开始传送…</p>
+<p><strong>同步定时</strong> <img src="/assets/2022Fall-organization-final.assets/image-20221229211649210.png" alt="image-20221229211649210"></p>
+<h4 id="异步协议"><a href="#异步协议" class="headerlink" title="异步协议"></a>异步协议</h4><p>沟通通过握手信号解决，主要是ack和rdy。</p>
+<p>外设读取主存的过程：</p>
+<p>外设req </p>
+<p>主存读到地址发出ack </p>
+<p>外设释放req和数据</p>
+<p>主存关闭ack</p>
+<p>主存把数据上bus并datardy</p>
+<p>外设读到之后ack</p>
+<p>主存关闭rdy</p>
+<p>外设关闭ack</p>
+<h3 id="总线仲裁"><a href="#总线仲裁" class="headerlink" title="总线仲裁"></a>总线仲裁</h3><h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><p>主设备请求——授权并使用——完成后通知仲裁器释放请求</p>
+<p>优先级和公平性</p>
+<h4 id="古典简单"><a href="#古典简单" class="headerlink" title="古典简单"></a>古典简单</h4><p>处理器是唯一主设备，控制所有请求，被卷入每一个总线事务。</p>
+<h4 id="集中仲裁——菊链仲裁"><a href="#集中仲裁——菊链仲裁" class="headerlink" title="集中仲裁——菊链仲裁"></a>集中仲裁——菊链仲裁</h4><p>统一bus arbiter，接入各个设备release request的线或。并不知道谁在req，只要没在占用就grant通过。有绝对的优先级。按照优先级级联grant信号。</p>
+<p>每个设备的req和release线或在一起，arbiter不区分。grant授权按照高到低串联一起，高优先级可以截断授权。</p>
+<p>无占用就发放grant</p>
+<p>不公平，低优先级用不到，授权信号逐级限制速度</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229121745625.png" alt="image-20221229121745625"></p>
+<h4 id="集中仲裁——集中平行"><a href="#集中仲裁——集中平行" class="headerlink" title="集中仲裁——集中平行"></a>集中仲裁——集中平行</h4><p>集中接入所有设备的请求和授权，用于所有处理器主存总线和高速输入输出线</p>
+<h4 id="分布仲裁——自我选择、碰撞检测"><a href="#分布仲裁——自我选择、碰撞检测" class="headerlink" title="分布仲裁——自我选择、碰撞检测"></a>分布仲裁——自我选择、碰撞检测</h4><p>把自己的标识符放在总线上</p>
+<h3 id="增加总线带宽"><a href="#增加总线带宽" class="headerlink" title="增加总线带宽"></a>增加总线带宽</h3><h4 id="增加总线（数据）宽度"><a href="#增加总线（数据）宽度" class="headerlink" title="增加总线（数据）宽度"></a>增加总线（数据）宽度</h4><p>增加每个周期的传送数据量，成本高</p>
+<h4 id="分开设置数据和地址总线"><a href="#分开设置数据和地址总线" class="headerlink" title="分开设置数据和地址总线"></a>分开设置数据和地址总线</h4><p>同时传送地址、数据，成本高</p>
+<h4 id="采用成组传送"><a href="#采用成组传送" class="headerlink" title="采用成组传送"></a>采用成组传送</h4><p>每个事务传多个data单元，一开始传一个地址，传完所有数据再释放。</p>
+<p>复杂度高，延长后续总线请求的等待时间</p>
+<p>相当于一个地址之后一组数据而不是一个du</p>
+<h3 id="多Master总线提高事务数量"><a href="#多Master总线提高事务数量" class="headerlink" title="多Master总线提高事务数量"></a>多Master总线提高事务数量</h3><ul>
+<li>当前事务中仲裁下一事务（仲裁重叠，提前仲裁）</li>
+<li>总线占用：没有其他主设备，自己一直占完成多个事务</li>
+<li>地址、数据传送重叠</li>
+</ul>
+<h3 id="PCI总线"><a href="#PCI总线" class="headerlink" title="PCI总线"></a>PCI总线</h3><p>外部组件互联总线，33MHz-133MB|66-528，正边沿采样</p>
+<p>重叠集中平行仲裁Req#和Gnt#</p>
+<p>32位地址和数据线互用AD，分为init和tar</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229213044972.png" alt="image-20221229213044972"></p>
+<p>frame有效传输信号，地址段在frame开始有效，在授权后开启。第一周期主设备cmd和addr，两个设备准备好对应各自的rdy。均rdy后上升沿开始传送，结束传送时关闭frame</p>
+<p>devsel#表示target设备已收到命令，可以响应，TRDY接受</p>
+<p>T4读到第一个数据，可以改变CBE#的值。</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229213728676.png" alt="image-20221229213728676"></p>
+<h4 id="优化？"><a href="#优化？" class="headerlink" title="优化？"></a>优化？</h4><ul>
+<li>类似risc，并行仲裁和传输数据</li>
+<li>为上一个主设备保留授权直到其他init</li>
+<li>授权设备不需要再次申请仲裁</li>
+<li>仲裁时长） 通过rdy延长传输流，tar也可以通过stop abort retry等信号终止，主设备通过FRAME# 仲裁器通过GNT</li>
+<li>等对慢速设备，请求后暂时释放总线</li>
+</ul>
+<h4 id="PCI其他问题"><a href="#PCI其他问题" class="headerlink" title="PCI其他问题"></a>PCI其他问题</h4><p>中断、cache一致性(IO multicore)、加锁(分时操作）、可配置地址空间</p>
+<h3 id="发展趋势"><a href="#发展趋势" class="headerlink" title="发展趋势"></a>发展趋势</h3><p>逻辑上是总线，物理上是交换，采用点到点标准</p>
+<p><strong>DMA</strong> 独占总线：发cpu信号，控制器请求总线并一次性传输，再次通知cpu并释放总线</p>
+<p>周期窃取：DMA优先级更高）有dma请求时IO设备随时挪用几个周期来一点点传，</p>
+<p>交替访内：cpu周期专门分开，dma和cpu分别访问内存</p>
+<h2 id="43-接口和外设"><a href="#43-接口和外设" class="headerlink" title="43 接口和外设"></a>43 接口和外设</h2><h3 id="接口功能-总线和外部设备的连接"><a href="#接口功能-总线和外部设备的连接" class="headerlink" title="接口功能 总线和外部设备的连接"></a>接口功能 总线和外部设备的连接</h3><p>识别和选定设备，规定地址码编号；</p>
+<p>控制和通信机制；</p>
+<p>数据缓冲；</p>
+<p>特别需求如屏蔽差异</p>
+<p><strong>通用可编程接口电路</strong> 内部：识别电路、数据缓冲寄存器；控制、状态寄存器；中断电路；其他</p>
+<h3 id="串行接口8251A"><a href="#串行接口8251A" class="headerlink" title="串行接口8251A"></a>串行接口8251A</h3><p>内（同步符）外（硬件同步信号）同步异步（起始停止位、波特率）均可 5-8bits&#x2F;word</p>
+<p>异步时支持停止位、假启动（0不够长）、全双工独立线、双缓冲发射接受、检错。</p>
+<p>空闲保持高电平；波特率因子即传送一个二进制位需要多少个时钟</p>
+<p><img src="/assets/2022Fall-organization-final.assets/image-20221229220459382.png" alt="image-20221229220459382"></p>
+<p>rst后根据8bit的<strong>方式控制字</strong>来实现编程，确定工作模式</p>
+<p><strong>命令字</strong> 正式开始工作的8bit</p>
+<p><strong>状态字</strong> 实时表示状态的8个bit</p>
+<h3 id="USB"><a href="#USB" class="headerlink" title="USB"></a>USB</h3><p>最多127设备，实时，热插拔，同步</p>
+<p>根hub定时查询接口，如果有接入则分配地址。设备上有rom保存参数，由os中驱动管理。</p>
+<p>只有一个master，轮询，低速</p>
+<p>帧类型：控制、SOF包时间同步、块传送、中断；F1读命令addr；F2设备返回data  SYN PID payload checksum；ack确认；F3往设备写数据</p>
+<p><strong>键盘</strong> 按下为0，对应编码，中断工作</p>
+<p><strong>显示器</strong> 高速设备，真彩色需要3B，专用接口</p>
+<p><strong>打印机</strong> 激光照射硒鼓放电，不能吸墨粉为空白。慢速总线，并行接口</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/02/25/2022Fall-net-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2022秋季学期 计算机网络原理 期末复习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/12/07/2022Fall-netsecintro-final/"><span class="level-item">2022秋季学期 计算机网络安全技术 期末复习笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

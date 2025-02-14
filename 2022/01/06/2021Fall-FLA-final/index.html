@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2021秋季学期 形式语言与自动机 期末复习 - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="丢失图片，没有渲染后的pdf版。。。 FLA Final ReviewSlides Reviewlect1 字母表，形式符号的非空有限集合  字符串或字   字母表的0次方为{epsilon}，递推定义  语言：任何字母表星闭包的子集  证明：逆否证明，反证、互归纳，提出多个原子命题互相证明，一般具有某正对称性和推论关系  归纳定义：基础、归纳递推规则、极小声明   lect2 上下文无关文法 T"><meta property="og:type" content="blog"><meta property="og:title" content="2021秋季学期 形式语言与自动机 期末复习"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="丢失图片，没有渲染后的pdf版。。。 FLA Final ReviewSlides Reviewlect1 字母表，形式符号的非空有限集合  字符串或字   字母表的0次方为{epsilon}，递推定义  语言：任何字母表星闭包的子集  证明：逆否证明，反证、互归纳，提出多个原子命题互相证明，一般具有某正对称性和推论关系  归纳定义：基础、归纳递推规则、极小声明   lect2 上下文无关文法 T"><meta property="og:locale" content="en_US"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220104212613395.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105095015925.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105095722168.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105100046970.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105101009429.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105101200757.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105103024411.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105103035952.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105103134051.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105133613383.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105133905696.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105134748736.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105142336532.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105142747528.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105142854777.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105143545409.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105152652801.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105154144136.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105161032888.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105160957763.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105163605434.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105163615022.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105163625493.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105164151822.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105165431985.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105194206387.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105195058905.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105202626364.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105202714752.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105210253098.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105210824345.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105210953681.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211419937.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211430937.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211439718.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211534159.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211847110.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105212609235.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105212754850.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213137269.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213235015.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213353787.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213401861.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213646238.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213808681.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213858952.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213908332.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213918441.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213926063.png"><meta property="og:image" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105235651637.png"><meta property="article:published_time" content="2022-01-06T10:13:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.487Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220104212613395.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2022/01/06/2021Fall-FLA-final/"},"headline":"2021秋季学期 形式语言与自动机 期末复习","image":["c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220104212613395.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105095015925.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105095722168.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105100046970.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105101009429.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105101200757.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105103024411.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105103035952.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105103134051.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105133613383.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105133905696.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105134748736.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105142336532.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105142747528.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105142854777.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105143545409.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105152652801.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105154144136.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105161032888.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105160957763.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105163605434.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105163615022.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105163625493.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105164151822.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105165431985.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105194206387.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105195058905.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105202626364.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105202714752.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105210253098.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105210824345.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105210953681.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211419937.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211430937.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211439718.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211534159.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105211847110.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105212609235.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105212754850.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213137269.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213235015.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213353787.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213401861.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213646238.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213808681.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213858952.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213908332.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213918441.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105213926063.png","c:/Users/86177/AppData/Roaming/Typora/typora-user-images/image-20220105235651637.png"],"datePublished":"2022-01-06T10:13:00.000Z","dateModified":"2024-10-01T11:01:40.487Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"丢失图片，没有渲染后的pdf版。。。 FLA Final ReviewSlides Reviewlect1 字母表，形式符号的非空有限集合  字符串或字   字母表的0次方为{epsilon}，递推定义  语言：任何字母表星闭包的子集  证明：逆否证明，反证、互归纳，提出多个原子命题互相证明，一般具有某正对称性和推论关系  归纳定义：基础、归纳递推规则、极小声明   lect2 上下文无关文法 T"}</script><link rel="canonical" href="https://matteoyang.space/2022/01/06/2021Fall-FLA-final/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-01-06T10:13:00.000Z" title="2022/1/6 18:13:00">2022-01-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.487Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">an hour read (About 7726 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2021秋季学期 形式语言与自动机 期末复习</h1><div class="content"><p><strong>丢失图片，没有渲染后的pdf版。。。</strong></p>
+<h1 id="FLA-Final-Review"><a href="#FLA-Final-Review" class="headerlink" title="FLA Final Review"></a>FLA Final Review</h1><h2 id="Slides-Review"><a href="#Slides-Review" class="headerlink" title="Slides Review"></a>Slides Review</h2><h4 id="lect1"><a href="#lect1" class="headerlink" title="lect1"></a>lect1</h4><ul>
+<li><p>字母表，形式符号的非空有限集合</p>
+</li>
+<li><p>字符串或字 </p>
+</li>
+<li><p>字母表的0次方为{epsilon}，递推定义<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220104212613395.png" alt="image-20220104212613395"></p>
+</li>
+<li><p>语言：任何字母表星闭包的子集</p>
+</li>
+<li><p>证明：逆否证明，反证、互归纳，提出多个原子命题互相证明，一般具有某正对称性和推论关系</p>
+</li>
+<li><p>归纳定义：基础、归纳递推规则、极小声明</p>
+</li>
+</ul>
+<h4 id="lect2"><a href="#lect2" class="headerlink" title="lect2"></a>lect2</h4><ul>
+<li><p>上下文无关文法 T V S P  自下而上递归推理叫归约，自上而下叫推导</p>
+</li>
+<li><p>推导传递闭包，通过归纳定义，递归基是自己推自己 最左：总是替换最左非终结符，推导加*</p>
+</li>
+<li><p>句型：能够由S推出来的状态，有左右句型之分，全是终结符叫句子</p>
+</li>
+<li><p>def 上下文无关文法的语言为上下文无关语言</p>
+</li>
+<li><p>构造：对称拆分不等关系变大于小于 控制范围的可以两边夹</p>
+</li>
+<li><p>计数题：找唯一分割点 count a&#x3D;b S-&gt;aSbS|bSaS|epsilon 差2的找轴点切分 计数不等于：第一次a比b多停下，前面相等，中间a，后面a不少于b（通过可以单增a实现</p>
+</li>
+<li><p>证明文法和语言等价：归纳w的长度和推导步数（讨论第一步所使用的产生式）</p>
+</li>
+<li><p>经常互归纳一些中间状态的含义。。<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105095015925.png" alt="image-20220105095015925"></p>
+</li>
+<li><p>chomsky 0：图灵机 α推β α中至少一个非终结符</p>
+</li>
+<li><p>1 α长度小于等于β（可以S推epsilon） S不出现在任何P右边 上下文有关 线性有界自动机</p>
+</li>
+<li><p>2 一个非终结符号推β 上下文无关 下推自动机</p>
+</li>
+<li><p>3 A推aB 或者A推a 正规文法 正规语言 有限状态自动机</p>
+</li>
+<li><p>语法分析树，内部非终结 叶子可终结可不终结or空 产生式是父子关系 果实是连接叶子的句型</p>
+</li>
+<li><p>可归约 存在推导 存在最左 存在最右 存在根节点A分析树果实为w  等价</p>
+</li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105095722168.png" alt="image-20220105095722168"></p>
+<p>归约：归纳步数讨论其最后一步产生式（其实为推导的第一个产生式）</p>
+<p>归纳分析树的高度，递归的时候归纳第一层的产生式 		证明推导到归约 归纳于步数</p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105100046970.png" alt="image-20220105100046970"></p>
+<p>二义性文法：对某个w存在两颗不同的分析树or存在两个不同的最左推导，二者等价</p>
+<p>不可判定的，不存在算法</p>
+<p>如果语言的所有文法都是二义的，则L是固有二义的 <strong>什么是最左推导？</strong></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105101009429.png" alt="image-20220105101009429"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105101200757.png" alt="image-20220105101200757"></p>
+<h4 id="lect3"><a href="#lect3" class="headerlink" title="lect3"></a>lect3</h4><ul>
+<li><p>正规表达式的语言是正规语言 可以联合并集+ 连接· 星闭包</p>
+</li>
+<li><p>定义正规表达式集合：字母表都是，空字符和空集都是，变量（可以包含任意的其他变量和递归基础符号和字母）都是 归纳：可+ 接 星闭包和括号</p>
+<p>？是空+L  L零次方为空字符</p>
+<p>定义正规语言 {epsilon}和空语言是正规的，单字母正规，正规之间的并 接和星闭包正规</p>
+</li>
+<li><p>设计时一定考虑边界情况，讨论结尾，关注长度限制！空，单0单1等等 利用空字符达成位置的位移“前x位至少包含x个1”</p>
+</li>
+<li><p>代数定律：语言之间的运算可以直接全部替换成简单符号表达式。</p>
+</li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105103024411.png" alt="image-20220105103024411"></p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105103035952.png" alt="image-20220105103035952"></p>
+<p>应该不考的证明。。</p>
+<p>推论：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105103134051.png" alt="image-20220105103134051"></p>
+<p>应用：证明语言运算之间的代数定律直接用具体字符替换之后证明即可</p>
+<h4 id="lect4"><a href="#lect4" class="headerlink" title="lect4"></a>lect4</h4><ul>
+<li><p>有限状态自动机PDA 状态集、输入符号集、转移函数、开始态、终态集合 </p>
+</li>
+<li><p>记得转移图、转移表上标Start、箭头，终态双圈、星号   对每个状态都要有全部的接受符号转移</p>
+</li>
+<li><p>这里的转移函数只有q和a&#x3D;新q，拓展到多步a变w。定义拓展时候w&#x3D;xa拆开的最后一个符号</p>
+</li>
+<li><p>可以证明DFA的语言是正规语言：一般可以互归纳证明中间状态的含义，从初态到某个状态当且仅当转移函数的w包含，需要证两个方向。。</p>
+</li>
+<li><p>构造PDA：不包含就把包含的终态调换，箭头调换为回文，设置垃圾桶节点</p>
+</li>
+<li><p>非确定自动机NFA，可以转多个或不转，转移函数的值是状态集合，扩展转移函数是所有可能在的状态尝试转移之后再并集。所以w转移之后与F交不为空即可接受。</p>
+</li>
+<li><p>设计：随时都可以尝试xxx</p>
+</li>
+<li><p>NFA DFA的等价性：D转N把每个转移函数的结果都加上{}变成集合  两者都是归纳于字长</p>
+<p>N转D  子集构造法 一定想着标记开始和结束。从起始状态开始走到哪写哪。意义在于<strong>可能到达的状态</strong>，正确性证明：任意w代入初态开始的转移函数在两个自动机中得到的值都一样。最坏2^n个状态</p>
+</li>
+<li><p><strong>文本搜索的NFA和转DFA规则</strong>？？借题复习</p>
+</li>
+<li><p>带空转移的NDA，可以用转移图、转移表表示    特殊的空闭包ECLOSE就是自己和自己空转移的可达状态，转移函数则为每一步都要ECLOSE闭包，算的时候闭包和转移间隔着算</p>
+</li>
+<li><p>语言：仍然和DFA等价：DFA转空NFA—没有空转移则但可接受空字符到自己，每一个转移函数结果变为集合   空NFA转DFA：自己构造法，每一步都需要做闭包。证明正确性归纳于字长：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105133613383.png" alt="image-20220105133613383"></p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105133905696.png" alt="image-20220105133905696"></p>
+</li>
+<li><p>构造空NFA处理那种“前几个里面至少有一个x” 合理运用空转移等价于(0+1+epsi)^x</p>
+</li>
+<li><p>特定子串情况时尤其考虑好子串的重叠</p>
+</li>
+<li><p>填表法确定状态偶对，如果状态可区别则其共同前驱可区别，先区别所有终态非终态。之后看表的疏密程度选择由转移表填图还是按图找转移表。在题目里面复习<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105134748736.png" alt="image-20220105134748736"></p>
+</li>
+<li><p>优化DFA：删除不可达，填表找偶对，删除该删除的等价类只保留一个，构造</p>
+</li>
+</ul>
+<h4 id="lect5"><a href="#lect5" class="headerlink" title="lect5"></a>lect5</h4><ul>
+<li><p>证明DFA是正规语言：给DFA转re和RE转空NFA</p>
+</li>
+<li><p>Thompson构造：相加：左边两空右边两空，新增两个状态四条边</p>
+<p>拼接：新增一条空转移边</p>
+<p>星闭包：画飞碟上回下进，新增四条空转移和两个新状态</p>
+</li>
+<li><p>DFA转RE：KLEENE构造和路径消去</p>
+<ul>
+<li><p>Kleene：计算Rkij，k&#x3D;0为中间不经过任何节点，不同节点没弧线为空集，有弧线为a，多条相加		ij相同空加所有a</p>
+<p>迭代Rkij在k！&#x3D;0时候：一步过不经过k和经过k转几圈再过去</p>
+</li>
+<li><p>状态消去：消去两入两出带自环的中间态：到该节点转几圈过去，对每一个终态都消到只剩下该终态以及初态。最后要么剩两个要么剩一个。剩一个就是自环的星闭包，剩两个就是（自转+过去转几圈回来）*过去在终态转圈* 这两种都是n^3 * 4^n的复杂度</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Lect6"><a href="#Lect6" class="headerlink" title="Lect6"></a>Lect6</h4><ul>
+<li><p>Pumping 用来证明不是正规语言</p>
+<p>pumping特性，任何一个长度不小于状态数目的字符串所标记的路径上必然出现重复状态，n长度涉及n次转移共n+1个状态。</p>
+<p>引理：正规语言L，存在常数n&gt;&#x3D;1，使得任意长度不小于n的字符串w在L中，都可以分成三个部分满足以下条件：y不是空，xy小于等于n，对任何k&gt;&#x3D;0都有xykz在L中</p>
+<p>证明不是正规语言：如果是正规语言，则存在一个n，随便取一个长度大于等于n的串，证明其任意符合y非空，xy&lt;&#x3D;n的分割，都没有xykz一定属于L</p>
+</li>
+<li><p>一些判定算法</p>
+<ul>
+<li>判定是否非空：DFA递推求出所有可达状态，若包含任何终态则非空  RE 特殊的<strong>空语言的0次方应该是空语言</strong> 根据正规的四种运算从小的判定起，复杂度On</li>
+<li>判断是否包含特定字符串：DFA：处理看在不在终态，NFA转化DFAor处理看集合中有没有终态 RE：转化空NFA执行</li>
+<li>判定两个正规语言相等：都转DFA之后重命名使之不重名，两个相并，终态仍终态，转移边不变。<strong>取任何状态为初态？？</strong>填表算法看原来的初态是否可区别 On4可降On2</li>
+</ul>
+</li>
+<li><p>正规封闭运算：并星闭包连接都可以由RE证明</p>
+<p>补：也是正规语言，DFA的所有终态和非终态对调即可</p>
+<p>交：也是正规语言，就是L补并上M补再整体取补orDFA：使用状态的笛卡尔二元积，<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105142336532.png" alt="image-20220105142336532"></p>
+</li>
+</ul>
+<ul>
+<li><p>差：也是正规语言，是M取补再和L交</p>
+</li>
+<li><p>反向：也是正规语言：分别对RE中的三个基础（空语言 空字符和单字符）四种运算证明or构造DFA把转移弧反向，初态为终态，所有终态空字符连接至超起点</p>
+</li>
+<li><p>同态：正规语言同态后依然是正规语言     <strong>这个T*是嘛玩意？</strong>  <img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105142747528.png" alt="image-20220105142747528"></p>
+</li>
+<li><p>归纳证明于RE的三个基础与四种运算<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105142854777.png" alt="image-20220105142854777"></p>
+</li>
+<li><p>反同态w为什么不直接是字母表而是星闭包？？仍然也是正规语言，用DFA证明：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105143545409.png" alt="image-20220105143545409"></p>
+</li>
+</ul>
+<p>构造一个状态集合以及始末都相同的DFA B，字母表改成h的定义域表，转移函数为这边的a是那边的h（a）构造好DFA即可，可以归纳与w字长证明正确性 q0经过w&#x3D;&#x3D;q0经过h（w)</p>
+<p>构造反同态dfa相当于构造原集合的转移，先按字母表讨论再去DFAA中找这条路径能到哪</p>
+<h4 id="Lect7"><a href="#Lect7" class="headerlink" title="Lect7"></a>Lect7</h4><ul>
+<li><p>Push Down Automaton PDA带有堆栈的有限状态自动机 七元组{状态集合，接受字符，堆栈符号，转移函数，起始状态，开始堆栈符号，终态集合}   其中状态转移可以接受epsilon，不用给全所有可能（默认不写的转移函数值为空集），但栈顶和输入符号确定时值唯一  </p>
+<p>状态转移函数接受δ（状态、字符、栈顶）&#x3D;状态+栈顶 新压入的放左边（左边栈顶）</p>
+</li>
+<li><p>ID表达格局（q，w，γ）状态，剩余串和栈内容 定义ID推导关系<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105152652801.png" alt="image-20220105152652801"></p>
+</li>
+<li><p>定义自反传递闭包* ，自己推自己，且可传递。。 这里可以归纳于步数证明，自反传递闭包的推导中字符后面带东西和栈底有东西都不影响</p>
+</li>
+<li><p>终态接受语言：ID处理完w后能到终态，栈无所谓</p>
+<p>空战接受语言：ID处理完能到空栈，可以不规定终态</p>
+</li>
+<li><p>从空栈到终态：新增栈底元素X0，增加超起点用来压入原空栈的栈底元素并进入空栈PDA的起始点。对空栈PDA的每个状态都增加一个空转移可以把新栈底元素无偿弹出成空连接到超收点。</p>
+<p>相当于：在原来空栈接受的栈低下垫了一层新的栈底元素，原来的栈只要空了就有机会从任意状态直接弹出新栈底干到终态去。</p>
+</li>
+<li><p>从终态到空栈：同样增加新的栈底元素，新起点连接老起点负责压入原栈底，在每个终态都可以直接空转移弹出所有到超收点。超收点也是无条件空转移弹出所有栈元素</p>
+</li>
+<li><p>构造PDA：“任意前缀中a至少是2倍b：a压1个b弹两个才能回来<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105154144136.png" alt="image-20220105154144136"></p>
+</li>
+<li><p>a数目和b数目的累计：记录栈中是a多还是b多多几个，a每多一个栈多一个X，b Y，b遇到X弹出…… 最后要求栈里面不空就空字符+X（Y)才能转到终态。</p>
+</li>
+<li><p>a&#x3D;b且不含连续c：处理连续c—不入栈但把状态拐出去下一个一定得是a或者b</p>
+<p>思考：对于计数来说多用栈解决，对于正规就能搞定的连续之类的问题多用状态（包括压栈时候的一些二倍关系）搞定。最后检测栈里面必须只剩下Z0</p>
+</li>
+<li><p>可以一次性压入两个但是不能弹出两个，因为只能更换栈顶那L7P23压两个不行吗？</p>
+</li>
+<li><p>三个阶段的时候比如一定是若干a若干b若干c，阶段间转移建议用空字符+不变栈顶 为了表示“随时可以开始下一阶段”比如判断回文，不知道中点的时候需要尝试</p>
+</li>
+</ul>
+<h4 id="lect08"><a href="#lect08" class="headerlink" title="lect08"></a>lect08</h4><ul>
+<li><p>从CFG到EPDA</p>
+<p>一个状态，接受Terminals，栈里面非终结终结都有，开始符号就是栈底元素</p>
+<p>所有的产生式都是空转移读栈顶替换成新的，所有的终结符都可以与栈顶对应之后消掉。非终结符只处理栈，终结符的处理字符串同时消栈直到非终结符在栈顶</p>
+<p><strong>“PDA的转移函数右端可以是个集合有多个不同结果吗？？？空字符看来一定可以，具体字符呢？”</strong></p>
+<p>证明正确性：归纳于最左推导的步数n ，讨论第一步所用的产生式</p>
+<p>归纳于ID推导的步数n，讨论第一步产生式</p>
+</li>
+</ul>
+<ul>
+<li>从EPDA到CFG<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105161032888.png" alt="image-20220105161032888"></li>
+</ul>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105160957763.png" alt="image-20220105160957763"></p>
+<ol>
+<li><p>初态能到任何[初态，栈底符号，any状态]</p>
+</li>
+<li><p>对原PDA中任何产生式，都有[<strong>p</strong> <strong>X</strong> pk]–&gt;<strong>a</strong>[<strong>q</strong> <strong>X1</strong> any] [any <strong>X2</strong> any]…… [any <strong>Xk</strong> pk] 每个转移函数对应：新栈顶*状态总数</p>
+<p>特别的 弹出操作新栈顶为epsilon时only a on right </p>
+<p>特别的 新栈为空+转移字符为空时候左边为空</p>
+<p>证明正确性：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105163605434.png" alt="image-20220105163605434"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105163615022.png" alt="image-20220105163615022"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105163625493.png" alt="image-20220105163625493"></p>
+</li>
+</ol>
+<h4 id="LEct9-确定下推自动机"><a href="#LEct9-确定下推自动机" class="headerlink" title="LEct9 确定下推自动机"></a>LEct9 确定下推自动机</h4><ul>
+<li><p>默认是终态接受的DPDA 确定的栈顶、字符转移函数的值只有一个元素即集合只有一个元素但仍为集合+如果有非空字符的转移则不能有相同状态相同栈顶的空转移</p>
+</li>
+<li><p>判断回文的经典自动机DPDA的话中间得有个标志，不然没法实现“随时都可以尝试进入下一阶段的处理”中的随时。但是虽然确定也不用每个状态写满</p>
+<p>结论：正规语言一定存在DPDA的表示，从对应的DPA继承过来即可，可以对w的字长归纳证明<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105164151822.png" alt="image-20220105164151822"></p>
+<p>归纳时候拆成了w&#x3D;x a ，先用归纳假设干掉x之后 根据继承产生式干掉a</p>
+</li>
+<li><p>DPDA的能力强于DFA 如WcWR不是正规语言（by pumping）</p>
+</li>
+<li><p>前缀性质：不存在互异的x y串在L中且x是y的前缀 L$一定具有前缀性质</p>
+</li>
+<li><p>一个语言L是某个空栈接受的EDPDA P的语言 iff L具有前缀性质且是某个FDPDA P‘ 的语言？比如经典的回文，具有前缀性质且L是某个DPDA的语言，则L也一定是某个空战接受的EDPDA的语言</p>
+</li>
+<li><p>存在上下文无关语言不是任何DPDA的语言（确定的上下文无关语言）不需证明 例： WWR</p>
+</li>
+<li><p>语言是空栈接受的DPDA的语言时L存在一个无二义文法（参考空栈PDA构CFG的方法，且有唯一的最左推导。。）</p>
+</li>
+<li><p>L是某个DPDA P的语言则L存在一个无二义的文法</p>
+<p>Proof：使用L$构造一个具有前缀性质的语言，根据上一性质得到无二义的G’，把$作为非终结符加上产生式$推epsilon</p>
+</li>
+<li><p>由上两条：固有二义语言不是任何DPDA的语言  但是也有非固有二义语言不是任何DPDA的语言比如WWR<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105165431985.png" alt="image-20220105165431985"></p>
+</li>
+</ul>
+<h4 id="Lect-10-CFG简化与chomsky范式"><a href="#Lect-10-CFG简化与chomsky范式" class="headerlink" title="Lect 10 CFG简化与chomsky范式"></a>Lect 10 CFG简化与chomsky范式</h4><ul>
+<li><p>符号（包括V和T）：生成符号（能推出w）、可达符号 （能被S推出的一部分）在一起是有用符号？不一定，可能有一个生成又可达的但是和一个无用绑定在一起被生成，为无用符号</p>
+<p><strong>消去所有非生成 再消去所有非可达，就剩下都是有用</strong>且与原文法等价。<strong>计算生成，删除，计算可达，删除。</strong></p>
+<p>如何计算生成符号？所有T都是生成符号，如果右面都生成则前面的A一定生成。不重不漏Proof？</p>
+<p>计算可达？S可达，左面可达则右面所有皆可达 不重不漏 Proof？</p>
+<p>可以为了简洁把V换名字</p>
+</li>
+<li><p><strong>消去epsilon产生式</strong>，可致空符号能推导出epsilon：基础，右边都是可致空则左边也是 不重不漏 先计算所有可致空符号 在可致空符号出现的地方<strong>讨论其出现或者不出现</strong>。特别的，单推空的直接删去。这样的与原来相比不能产生epsilon别的不受影响4</p>
+</li>
+<li><p>Unit产生式 A-》B unit偶对当且仅当A能在*步推出B且该推导只使用了unit产生式 需要计算所有unit偶对：每个字母和自己一定是unit偶对；如果AB是偶对，B-》C则AC也是偶对。不重不漏</p>
+<p><strong>计算偶对；对每个偶对找到最后那个非偶对的</strong>V比如A-》B B-》α 则<strong>加入A-》α删去unit产生式</strong></p>
+<p>但是保留B推α，可能产生不可达！ 最后在偶对的推导链上把前面的都连到最后一个</p>
+</li>
+<li><p><strong>简化CFG：消除空产生式、消除Unit产生式、消除非生成符号、消除非可达符号</strong>。这样的与原G只差空字符</p>
+</li>
+<li><p>Chomsky范式：任何不含空字符的非空上下文无关语言都存在一个CFG G产生式只有两种：一推二非终结符、非终结符推终结符。这样的文法叫做。。。</p>
+<p>对前文的工作（右边长度1的只有终结符）之后再：</p>
+<ol>
+<li><p>如果有非终结符a出现在右边长度大于1的，则引入新的非终结符替换掉，并加上A-&gt;a 至此右边长度大于1的产生式只有非终结符</p>
+</li>
+<li><p>对于右边长度大于2的采用级连cascade方法转变为——对A推出k个，引入k-2个新V替换掉</p>
+<p>实质上是对此在二叉化。。 与原L只差空字符</p>
+</li>
+</ol>
+</li>
+<li><p>CKY算法：判断某个串 属于某个CFG和分析树<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105194206387.png" alt="image-20220105194206387"></p>
+<p>先左再上，手指指着更新的时候（紧下列向下滑，右下向左上滑）</p>
+</li>
+</ul>
+<h4 id="Lect-11-上下文无关语言的计算"><a href="#Lect-11-上下文无关语言的计算" class="headerlink" title="Lect 11 上下文无关语言的计算"></a>Lect 11 上下文无关语言的计算</h4><ul>
+<li><p>Pumping引理：设非终结符数量m，取字长不小于n&#x3D;2^m的字符串z，考察其分析树：</p>
+<p>CNF后为二叉，叶节点为n个，则h-1&gt;&#x3D;log2,|z|&gt;&#x3D;m，设从根节点S的一条最长路径S A1……Ak 至少为m+1 必有重复节点在A这条路中。划分为uvwxy，<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105195058905.png" alt="image-20220105195058905">则一定可以pump v和x，其i次方都应该合格</p>
+<p>理解为某个广义产生式（推导关系）可以递归</p>
+<p>Lemma：存在正常数n，使得任意长度不小于n的字符串z在L内，都可以分成uvwxy五部分且满足：vx不空，|vwx|&lt;&#x3D;n 对任何k&gt;&#x3D;0 都可以pump v与x</p>
+</li>
+<li><p>用来否定</p>
+<ol>
+<li>假设是CFG，则存在一个整数n满足pumping引理，取一个串&gt;n</li>
+<li>讨论符合规则的五段划分，证明其都不能pump起来（都存在一个pump次数k使得串不再是L中）</li>
+</ol>
+</li>
+<li><p>判定CFL是否为空：计算生成符号之后看S在不在，On方降On</p>
+</li>
+<li><p>判定是否包含特定字符串：chomsky之后CKY On3</p>
+</li>
+<li><p>不可判定问题：无二义？固有二义？两个CFG相交为空？相等？给定CFG是否是字母表*</p>
+</li>
+<li><p>封闭运算</p>
+<ul>
+<li><p><strong>替换</strong>：如果任何字母表中的a，s（a）是CFL且L是CFL则替换后s（L）也是上下文无关。</p>
+<p>证明：分析树每个叶节点a替换成s（a）的分析树</p>
+<p>映射每一种字母表中字符到一个语言称为替换，可以替换a，w（拼接替换字符）甚至L（w的替换并集）   </p>
+</li>
+<li><p>并：两个CFL并也是CFL 替换{0,1}中0为L1,1为L2 ，即得</p>
+</li>
+<li><p>*闭包和+闭包：都是CFL 也是替换掉{1*}中的1为L则得</p>
+</li>
+<li><p>连接：{01}分别替换为L1 L2</p>
+</li>
+<li><p>同态：替换s（a）&#x3D;{h（a}}，则s（L)&#x3D;h（L)</p>
+</li>
+<li><p>反向：L是则LR也是（每一个都Reverse），证明：构造G后尝试构造G’</p>
+<p>产生式中每个右端都reverse掉，这样的G‘就是LR <strong>归纳于推导长度证明？</strong></p>
+</li>
+<li><p>交 补 差 都不一定 交出0^n 1^n 2^n后不是CFL但是n n i 和 i n n都是</p>
+</li>
+<li><p>CFL与RL正规语言的交一定是CFL 、</p>
+<p>根据DFA和FPDA构造<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105202626364.png" alt="image-20220105202626364"></p>
+</li>
+<li><p>反同态仍然是CFL：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105202714752.png" alt="image-20220105202714752"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Lect-12-Turing-Machine"><a href="#Lect-12-Turing-Machine" class="headerlink" title="Lect 12 Turing Machine"></a>Lect 12 Turing Machine</h4><ul>
+<li><p>基本图灵机：带与带头，空白符B 七元组{状态集合，接受字符集合、带符号集合、转移函数集合、开始状态、空白符、终态集合}  转移函数为偏函数从状态和带符映射到状态、带符和方向</p>
+</li>
+<li><p>ID表达格局：带头表示为当前状态，后面是正在扫描的单元格cell 前后需要空白之中的符号串但是也可以有B串</p>
+</li>
+<li><p>ID推导，特殊的可以往两边推，如果带头到了B上则写B，如果把最右&#x2F;左端写成B则可以省略</p>
+</li>
+<li><p>一般计数的思想为匹配：从左往右跑一趟就是匹配了一组数，再回去再跑。。</p>
+</li>
+<li><p>可<strong>被图灵机接受的是递归可枚举语言</strong>REL 定义TM的语言是使得q0w 推出 终态的串w集合</p>
+</li>
+<li><p>halt：不存在下一个移动，与原来的图灵机语言相通但是接受w之后停机不再移动。总是假定图灵机到达终态之后停机（对于可接受的w）</p>
+</li>
+<li><p><strong>递归语言：当且仅当存在TM M使得LM&#x3D;L且如果语言中的w，M接受自然会停机，非语言中的w输入M中也会停机（但是无法到达终态） ——对应的问题是可判定的</strong></p>
+</li>
+<li><p>带存储区的状态：状态有有限个取值，其实是带头有个存储区可以在移动的时候改变。适用于一些分类的情况如 与经典图灵机等价（状态变成了二元组而已）<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105210253098.png" alt="image-20220105210253098"></p>
+</li>
+<li><p>多道图灵机：也是基本图灵机但是纸带是原来的三倍宽，即每个带单元格可以表示为三元组</p>
+</li>
+<li><p>编程技巧：在图灵机中融入子例程干一件特定的事情</p>
+</li>
+<li><p>多带图灵机：初始输入符号串在第一条带上，其他所有带的单元格都是B；有限控制位于初态；第一条带头在输入串最左，其余不定。可以有3（多个）带头。每一个move中，控制进入新的状态，每条带上正在被扫描的符号被替换为新带符，每个带头独立的向左、右、不动。</p>
+<p>其能力等价于单带图灵机：用2k道模拟k带图灵机。<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105210824345.png" alt="image-20220105210824345"></p>
+</li>
+<li><p>非确定TM：转移函数右边是三元组的集合，仍与确定图灵机等价。双带图灵机可以模拟非确定。广度优先的方式模拟非确定性图灵机的整个ID‘s空间树<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105210953681.png" alt="image-20220105210953681"></p>
+</li>
+<li><p>受限图灵机（都与基本TM等价）：半无穷带（双道半无穷即为双无穷）、多栈机（k个下推栈可以用k+1条带的多带TM模拟（一条扫描，剩下k条下推），两个下推栈就可以模拟一般图灵机，其中一个是带头左边单元格，另一个是当前以及右边单元格）、k计数器机（多个非负整数的计数器，控制时只知道是否非零——特殊k多栈机，一个计数器就是DPDA,两个以上就是TM</p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211419937.png" alt="image-20220105211419937"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211430937.png" alt="image-20220105211430937"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211439718.png" alt="image-20220105211439718"></p>
+</li>
+<li><p>普通计算机模拟图灵机，说明计算机不弱于图灵</p>
+</li>
+<li><p>以多带图灵机模拟普通计算机（TM不弱于现行冯诺依曼计算机）：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211534159.png" alt="image-20220105211534159"></p>
+</li>
+</ul>
+<h4 id="Lect-13-Computing-Theory"><a href="#Lect-13-Computing-Theory" class="headerlink" title="Lect 13 Computing Theory"></a>Lect 13 Computing Theory</h4><ul>
+<li><p><strong>图灵机与输入串的二进制编码</strong>：假定输入01串，有限状态1~k，规定始末态12，带符号X1到Xm且X1为0 X2为1 X3为B 假定带头移动为D1D2分别LR</p>
+<p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105211847110.png" alt="image-20220105211847110"></p>
+<p>单1间隔转移规则中的元素，双1间隔转移规则，三1前面是输入串编码（前面需要加个1？）后面是图灵机编码</p>
+</li>
+<li><p>编码01串：任何01串编码为1w比如  &#x2F; 空：1&#x2F;  1:11 &#x2F; 0:10  &#x2F; 00:100   L13P6？<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105212609235.png" alt="image-20220105212609235"></p>
+</li>
+<li><p>对角语言——不是递归可枚举</p>
+<p>按照上述编码每个TM对应整数i 即其二进制编码是第i个0 1字符串，但不是每个整数都有图灵机对应。认为第j个图灵机不接受任何串，这样定义对角语言：<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105212754850.png" alt="image-20220105212754850"></p>
+</li>
+<li><p>递归语言补运算封闭，递归语言的补也是递归语言。<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213137269.png" alt="image-20220105213137269"></p>
+</li>
+<li><p>递归可枚举语言的补运算不封闭：反例：通用语言</p>
+<p>如果语言和语言的补都是递归可枚举的，则一定都是递归的<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213235015.png" alt="image-20220105213235015"></p>
+</li>
+<li><p>通用语言——递归可枚举但是非递归，<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213353787.png" alt="image-20220105213353787"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213401861.png" alt="image-20220105213401861"></p>
+</li>
+<li><p>语言对应的问题：“任意给一个串w在字母表*内，判定w是否是L内？”</p>
+<p>通用语言对应的问题：“任给图灵机M和输入串w，判定w是否被M接受？“</p>
+<p>图灵机停机问题：任给TM M，以及输入串w试问对w，M是否停机？——<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213646238.png" alt="image-20220105213646238"></p>
+</li>
+<li><p>如果问题所对应语言是递归的，则该问题可判定，否则不可判定。语言递归可枚举贼该问题部分可判定，否则非部分可判定</p>
+</li>
+<li><p>问题的归约？<img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213808681.png" alt="image-20220105213808681"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213858952.png" alt="image-20220105213858952"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213908332.png" alt="image-20220105213908332"></p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213918441.png" alt="image-20220105213918441"><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105213926063.png" alt="image-20220105213926063"></p>
+</li>
+<li><p>TM的时间复杂度，最多T（n）步停机，无论是否有w是M的语言。则为Tn</p>
+</li>
+<li><p>非确定的时间复杂度：任何转移序列</p>
+</li>
+<li><p><img src="C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20220105235651637.png" alt="image-20220105235651637"></p>
+</li>
+</ul>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/06/18/2022Spring-dlc-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2022纯季学期 数字逻辑电路 期末复习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/01/02/2021Fall-DSA-cheatsheet/"><span class="level-item">2021秋季学期 数据结构与算法 Cheat Sheet</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

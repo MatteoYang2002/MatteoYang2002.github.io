@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2022秋季学期 计算机网络原理 期末复习笔记 - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="CH1核心思想：分组交换 1969 arpanet 56kbps 1979 TCPIP 光线：骨干网带宽9个月翻倍，10年10000倍。 迈特咖啡：价值正比于用户数平方，效率是n方 电话vs网络：聪明网络笨终端和聪明终端（修复传输错误）简单不可考网络 分组交换：简单、灵活（支持各种物理网络和应用）、可扩展、健壮（牺牲带宽利用但健壮 ipv4耗尽，用nat支撑破坏原有网络结构，需要过渡到ipv6 C"><meta property="og:type" content="blog"><meta property="og:title" content="2022秋季学期 计算机网络原理 期末复习笔记"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="CH1核心思想：分组交换 1969 arpanet 56kbps 1979 TCPIP 光线：骨干网带宽9个月翻倍，10年10000倍。 迈特咖啡：价值正比于用户数平方，效率是n方 电话vs网络：聪明网络笨终端和聪明终端（修复传输错误）简单不可考网络 分组交换：简单、灵活（支持各种物理网络和应用）、可扩展、健壮（牺牲带宽利用但健壮 ipv4耗尽，用nat支撑破坏原有网络结构，需要过渡到ipv6 C"><meta property="og:locale" content="en_US"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029163310637.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029164937847.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029190640955.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029190846993.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029192803577.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029200118100.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221029204845412.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230217120238446.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230217123612133.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218115419108.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218115808191.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218120433234.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218195725348.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218201935592.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218202626218.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230218205536134.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221209224559844.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221212121553893.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221212121545594.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221212131918083.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20221212132526962.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230219132434658.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230219133847044.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230219212519752.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230220100858916.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230220110822797.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230220112940790.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230220115725503.png"><meta property="og:image" content="/assets/2022Fall-net-final.assets/image-20230220195522793.png"><meta property="article:published_time" content="2023-02-25T03:29:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.488Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="/assets/2022Fall-net-final.assets/image-20221029163310637.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2023/02/25/2022Fall-net-final/"},"headline":"2022秋季学期 计算机网络原理 期末复习笔记","image":["https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029163310637.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029164937847.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029190640955.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029190846993.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029192803577.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029200118100.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221029204845412.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230217120238446.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230217123612133.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218115419108.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218115808191.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218120433234.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218195725348.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218201935592.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218202626218.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230218205536134.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221209224559844.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221212121553893.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221212121545594.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221212131918083.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20221212132526962.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230219132434658.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230219133847044.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230219212519752.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230220100858916.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230220110822797.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230220112940790.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230220115725503.png","https://matteoyang.space/assets/2022Fall-net-final.assets/image-20230220195522793.png"],"datePublished":"2023-02-25T03:29:00.000Z","dateModified":"2024-10-01T11:01:40.488Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"CH1核心思想：分组交换 1969 arpanet 56kbps 1979 TCPIP 光线：骨干网带宽9个月翻倍，10年10000倍。 迈特咖啡：价值正比于用户数平方，效率是n方 电话vs网络：聪明网络笨终端和聪明终端（修复传输错误）简单不可考网络 分组交换：简单、灵活（支持各种物理网络和应用）、可扩展、健壮（牺牲带宽利用但健壮 ipv4耗尽，用nat支撑破坏原有网络结构，需要过渡到ipv6 C"}</script><link rel="canonical" href="https://matteoyang.space/2023/02/25/2022Fall-net-final/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-25T03:29:00.000Z" title="2023/2/25 11:29:00">2023-02-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.488Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">2 hours read (About 17293 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2022秋季学期 计算机网络原理 期末复习笔记</h1><div class="content"><h2 id="CH1"><a href="#CH1" class="headerlink" title="CH1"></a>CH1</h2><p>核心思想：分组交换</p>
+<p>1969 arpanet 56kbps</p>
+<p>1979 TCPIP</p>
+<p>光线：骨干网带宽9个月翻倍，10年10000倍。</p>
+<p>迈特咖啡：价值正比于用户数平方，效率是n方</p>
+<p>电话vs网络：聪明网络笨终端和聪明终端（修复传输错误）简单不可考网络</p>
+<p>分组交换：简单、灵活（支持各种物理网络和应用）、可扩展、健壮（牺牲带宽利用但健壮</p>
+<p>ipv4耗尽，用nat支撑破坏原有网络结构，需要过渡到ipv6</p>
+<p>CERNET是我不过第一个全国性计算机互联网络，第二大计算机互联网</p>
+<h4 id="下一代互联网"><a href="#下一代互联网" class="headerlink" title="下一代互联网"></a>下一代互联网</h4><p>Internet2 NGI Abilene GEANT…中国NSFCNET 核心路由器 CNGI</p>
+<p>CNGI下一代，高速互联 ipv6 cernet2主干 大规模国产设备</p>
+<h2 id="Ch2-网络体系结构"><a href="#Ch2-网络体系结构" class="headerlink" title="Ch2 网络体系结构"></a>Ch2 网络体系结构</h2><h3 id="定义和组成"><a href="#定义和组成" class="headerlink" title="定义和组成"></a>定义和组成</h3><p>一批独立自治的计算机系统的互连集合体，区别于统一的分布式系统</p>
+<p>资源和通信子网（通信线路+网络互联设备）</p>
+<p>广播式通信 bus、ring 共享线路，可以直接被接受</p>
+<p>交换式通信 交换设备选择输出，star ring（loop） tree… 关键需要routing</p>
+<p>通道分配：静态分时间片、动态（集中or分布仲裁）</p>
+<h3 id="网络体系结构"><a href="#网络体系结构" class="headerlink" title="网络体系结构"></a>网络体系结构</h3><p>从功能定义层次结构，但不规定具体协议和细节、接口</p>
+<p>功能分层——协议分层——体系结构分层</p>
+<p>需要什么功能：无差错、共享物理线路、路由选择、信息缓冲、流量控制、会话控制…</p>
+<p>特点：同时一对用户、通信是相互的、分散在各个网络和用户设备</p>
+<p>服务：同一实体上下层间交换信息时必须遵守的规则  </p>
+<p>协议（Protocol） ： 计算机网络同等层次（通信时为对等进程）中，通信双方进行信息交换时必须遵守的规则。——语法、语义、定时关系</p>
+<p>n层协议：不知道上下层内部结构，独立完成功能、为上层提供服务，使用下层服务</p>
+<p>SAP服务接入点 任何层间服务是在接口的SAP上进行的，有唯一的识别地址，层间接口有多个SAP  </p>
+<p>ICI和SDU加一起是IDU，也就是下层服务数据+接口控制信息&#x3D;接口数据单元。通过SAP传输。下层服务数据+协议控制信息&#x3D;协议数据单元</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221029163310637.png" alt="image-20221029163310637"></p>
+<ul>
+<li><p>无连接：独立路由，顺序性差，基于连接不一定可靠，顺序性好</p>
+</li>
+<li><p>服务原语四种类型：请求：想干事情、指示：关于事件的通知、响应：对事件回复、确认：对先前请求的回应</p>
+</li>
+<li><p>分层的好处：模块化，抽象功能（底层改变保证服务一致即可），复用性      坏处：信息被隐藏，实现起来更低效</p>
+</li>
+</ul>
+<p>端到端：除了必须和基本功能外，放到高层去实现额外的功能</p>
+<h3 id="典型网络参考模型"><a href="#典型网络参考模型" class="headerlink" title="典型网络参考模型"></a>典型网络参考模型</h3><ul>
+<li><p><strong>标准化组织</strong> ITU <strong>ISO</strong> ANSI NIST IEEE OIF CCSA RFC IAB IETF IRTF</p>
+</li>
+<li><p><strong>OSI七层模型</strong> 物理（传输bit）-数据链路（有差错的物理线路提供无差错数据传输Frame）-网络层（控制通信子网，从src传到dst的packet）-传输层（端到端的数据传输，细化到资源子网的主机）-会话（会话控制与安全认证）-表示（数据转换和表示）-应用</p>
+</li>
+<li><p><strong>TCPIP</strong></p>
+<p>把底两层统称Host to network</p>
+<p>网络Internet层：控制通信子网提供IP包传送，异构网络互联</p>
+<p>传输层：端到端的数据传输，TCP和UDP</p>
+<p>应用层：表示、会话、应用，各种管理和服务<img src="/assets/2022Fall-net-final.assets/image-20221029164937847.png" alt="image-20221029164937847"></p>
+</li>
+<li><p><strong>教学所用</strong> 物理 数据链路 网络 传输 应用</p>
+</li>
+</ul>
+<h3 id="其他网络体系结构"><a href="#其他网络体系结构" class="headerlink" title="其他网络体系结构"></a>其他网络体系结构</h3><p>Novell Netware（XNS）：C&#x2F;S结构，文件共享而非磁盘共享。网络层协议用IPX，不可靠无连接协议，4网络号+6机器号MAC。传输层NCP、SPX（面向连接</p>
+<p>X.25分组交换，面向连接，早于OSI</p>
+<p>B-ISDN电信公司想统一网络，主要用ATM技术</p>
+<p>ATM 异步传输没有主时钟，cell是短且定长包，面向连接，155&#x2F;622M’</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>通信子网：点到点通道，关键路由选择；</p>
+<p>广播通道，关键通道分配；</p>
+<h2 id="Ch3"><a href="#Ch3" class="headerlink" title="Ch3"></a>Ch3</h2><h3 id="通信基础理论"><a href="#通信基础理论" class="headerlink" title="通信基础理论"></a>通信基础理论</h3><p>频谱：信号包含的频率范围，带宽&#x3D;频谱宽度</p>
+<p>有效带宽：能量集中在相对窄的频带中，叫做带宽</p>
+<p>信道有截止频率fc，0<del>fc的振幅衰减弱，以上的振幅衰减厉害，由物理特性决定。所以0</del>fc为有限带宽。带宽越宽，</p>
+<ul>
+<li><p>波特率：每秒钟信号变化的次数，调制速率。</p>
+<p>比特率：每秒钟传送的二进制位数</p>
+<p>每个信号值可表示几位，比特率是波特率几倍</p>
+</li>
+<li><p><img src="/assets/2022Fall-net-final.assets/image-20221029190640955.png" alt="image-20221029190640955"><img src="/assets/2022Fall-net-final.assets/image-20221029190846993.png" alt="image-20221029190846993"></p>
+</li>
+</ul>
+<p>即使对于完善信道，有限的带宽限制了数据的传输速率</p>
+<ul>
+<li><p><strong>奈奎斯特定律：无噪声有限带宽信道最大数据传输率 &#x3D; 2Hlog（2，V） bps</strong></p>
+<p>带宽为H 每秒采样2H次能够完整重现，信号电平分为V级</p>
+</li>
+<li><p><strong>信噪比：信号功率S与噪声功率N之比 10log(10,S&#x2F;N) db 电话大概30db</strong></p>
+</li>
+<li><p><strong>香农定理：带宽H信噪比S&#x2F;N的任意信道最大数据传输率 &#x3D; Hlog(2, 1 + S&#x2F;N) bps。是难以达到的上限</strong></p>
+<p>如果有噪声按两个公式都算一遍取小者</p>
+</li>
+</ul>
+<h3 id="数据通信技术"><a href="#数据通信技术" class="headerlink" title="数据通信技术"></a>数据通信技术</h3><ul>
+<li><p>数据通信：计算机-信号变换-信道-网络设备-信道-信号变换-计算机</p>
+</li>
+<li><p>单工：信息单向传输，回送监视信号</p>
+<p>半双工：信息可以双向传输但不能同时</p>
+<p>全双工：信息同时双向传输+监视信号</p>
+</li>
+<li><p>同步：接收方必须知道每一位信号的开始及其持续时间，</p>
+<p><strong>异步传输：</strong>以字符传输为例，每个字符由发送方异步产生有随机性，需要辅助位，每个字符需要10-11位传送 </p>
+<p>1起始 7编码 1奇偶校验 1-2终止</p>
+<p>效率低、主要用于字符终端与计算机的通信</p>
+<p><strong>同步传输：</strong>信息传送以报文为单位，传输开始时需要同步字符来同步收发双方。传输信息中抽取同步信息修正同步保证正确采样</p>
+<p>不间断，效率高；字符间辅助信息少；传输信息中不能有同步字符，需要透明传输处理</p>
+</li>
+<li><p>基于位的传输一般同步，二进制位流，以位为单位同步，开始结束由特定八位二进制同步，效率高</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221029192803577.png" alt="image-20221029192803577"></p>
+</li>
+</ul>
+<p>模拟-调制		数字-编码</p>
+<p>数字信号：价格便宜；噪声不敏感；但是易于衰减；高频高衰减</p>
+<ul>
+<li><p>基带传输，直接使用传输变换前所占用的频带，原始信号固有的频带，适用各种情况但对传输线要求高（频率成分宽）。低0高1</p>
+</li>
+<li><p>不归零None return to Zero编码：低0高1，难以分辨一位结束开始；必须有时钟同步发送接受方；若01连续出现，直流分量累加&#x3D;&#x3D;》容易出现传播错误</p>
+</li>
+<li><p>曼彻斯特编码、相位编码：中间的跳变是数据也是自同步时钟</p>
+<p>在每位中间跳变，低跳高是0 高跳低是1</p>
+</li>
+<li><p>差分曼彻斯特（两种）：中间固定跳反，且每位开始时候有跳变是0，维持是1</p>
+</li>
+<li><p>逢1（0）变化的NRZ（两种）：仅在开始的时候逢1（0）跳</p>
+</li>
+<li><p><strong>数字数据的模拟传输 频带传输</strong> 在一定频率的线路载波传输，用基带信号对载波调制，使其变为适于传送的信号</p>
+<p>调制：用基带脉冲对载波信号的参量控制</p>
+<p>调幅ASK 振幅做变量</p>
+<p>调频 FSK 频率做变量 w不同值</p>
+<p>调相位 PSK phase phai改变</p>
+</li>
+<li><p><strong>模拟数据的数字传输 脉冲代码调制 PCM</strong>  ，</p>
+<p>将模拟信号振幅分成2^n级，每一级用n位表示，采样</p>
+<p><strong>差分脉冲代码调制</strong>，根据前后 两个采样值差编码输出二进制数字</p>
+<p><strong>delta调制</strong> 根据采样值前后差决定输出0or1但跟不上变化太快的信号（每次的delta固定，跟不上大变）</p>
+</li>
+<li><p><strong>多路复用技术</strong> 多个信号共用物理线路，时分复用TDM，频分复用FDM，波分复用WDM（多波长光混合和拆解），码分复用CDM</p>
+</li>
+<li><p><strong>T1载波</strong> 采样128等级7位二进制，传输速率1.544Mbps</p>
+<p>具体，每125us传播24路8位+帧同步位共193位，数据速率1.536。每个通道中8位有1位控制，所以每个通道的数据比特率为56kbps，总数据比特率为1.344Mbps</p>
+</li>
+</ul>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221029200118100.png" alt="image-20221029200118100"></p>
+<p><strong>交换技术</strong> </p>
+<ul>
+<li><p>电路交换：直接切换物理线路。</p>
+<p>建立 传输 拆除。必须建立点到点的物理通路，建立时间长，数据传输延迟短。一般<strong>时分复用</strong>，分成frame再分为slot，slot在frame内的相对位置决定槽所传输的数据所属的会话。</p>
+<p>发送接收方需要同步</p>
+<p><strong>非永久会话需要动态绑定slot到一个会话</strong></p>
+</li>
+<li><p>报文交换：信息以报文（逻辑完整信息段）为单位进行<strong>存储转发</strong></p>
+<p>线路利用率高；中间节点通信设备buffer够大，延迟时间长</p>
+</li>
+<li><p>分组交换：比报文小的信息段，随机乱切，定长or变长</p>
+<p>src节点分组，中间节点存储转发，目的节点组合回报文</p>
+<p>每个分组头都需要原地址和目的地址，独立路由</p>
+<p>不预先分配资源；线路利用高；易于重传，高可靠；易于新传输让紧急信息优先通过；开销增加</p>
+<p>分组交换：数据包分组 虚电路分组（常用于电话，</p>
+<ul>
+<li><p>数据报分组交换：每个分组均有地址，独立路径。IP networks</p>
+</li>
+<li><p>虚电路：电路+分组 同一流的分组通过一个预先建立的路径（虚电路）传输。确保分组的顺序，但是来自不同虚电路的分组可能交错</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221029204845412.png" alt="image-20221029204845412"></p>
+</li>
+</ul>
+<p>统计复用，按需分配信道资源</p>
+<p>来自任意会话的数据立即发送不需要等待slot，用分组头来分组数据</p>
+</li>
+<li><p><strong>电路交换vs分组交换</strong> 分组：统计复用，有效利用带宽</p>
+</li>
+<li><p>峰值带宽：平均带宽：话音3:1  数据5:1</p>
+<p>分组交换处理拥塞，需要复杂路由器且难以保证端到端的服务质量（延迟与带宽）</p>
+<p>实际使用结合一起</p>
+</li>
+<li><p>电路交换：适合实时信息、模拟信号，带宽低</p>
+</li>
+<li><p>报文交换：带宽高，可靠灵活；延迟大</p>
+</li>
+<li><p>分组交换：缩短延迟；可实时；高带宽中经济合理可靠</p>
+</li>
+</ul>
+<p><strong>交换结构</strong></p>
+<ul>
+<li>crossbar，一群横竖电路交叉成十字，加入连接点…</li>
+<li>空分，结合小crossbar，分成几组然后结合连线。<img src="/assets/2022Fall-net-final.assets/image-20230217120238446.png" alt="image-20230217120238446"></li>
+<li>时分：按照映射表打乱进入帧的timeslot数据，然后再给出去</li>
+</ul>
+<p><strong>思考题</strong> 电路交换和分组交换的区别</p>
+<h2 id="Ch4-物理层接口与协议"><a href="#Ch4-物理层接口与协议" class="headerlink" title="Ch4 物理层接口与协议"></a>Ch4 物理层接口与协议</h2><h3 id="物理层定义功能"><a href="#物理层定义功能" class="headerlink" title="物理层定义功能"></a>物理层定义功能</h3><p>在网络设备中提供透明比特流传输。启动和关闭连接，传输数据</p>
+<h3 id="物理层特性"><a href="#物理层特性" class="headerlink" title="物理层特性"></a>物理层特性</h3><p>机械特性 接插装置 引脚和排列、电气特性、功能特性 数据控制定时地、规程特性</p>
+<h3 id="典型物理层标准接口"><a href="#典型物理层标准接口" class="headerlink" title="典型物理层标准接口"></a>典型物理层标准接口</h3><p>RS232-c RS449 442a 423a </p>
+<p>RJ45</p>
+<h3 id="传输介质"><a href="#传输介质" class="headerlink" title="传输介质"></a>传输介质</h3><h4 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h4><p>模拟or数字，线的类型和距离决定带宽</p>
+<p>非屏蔽双绞线UTP</p>
+<p>屏蔽双绞线STP</p>
+<h4 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h4><p>基带同轴电缆 50Ω 数据传输</p>
+<p>宽带同轴电缆 75Ω 模拟传输 CableTV 300&#x2F;450Mhz</p>
+<h4 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h4><p>单模or多模，全反射长距离传输</p>
+<p>只有特定的角度继续传输（传输模式），多个反射角度叫做多模，但是短距离。光纤半径到波长数量级时，只有一个角度or模式的光可以进入，叫做单模，适用于长距离。</p>
+<p>单模多模都可以波分复用</p>
+<p>850nm 便宜，衰减 速率慢距离短</p>
+<p>1310 无色散补偿，功率放大下40km</p>
+<p>1550 同，功率放大下80km</p>
+<p><strong>光网组网</strong> 点到点四根线，两根保护倒换。环形只需2&#x2F;1根</p>
+<p>中继器来光电转换</p>
+<h3 id="网络传输技术"><a href="#网络传输技术" class="headerlink" title="网络传输技术"></a>网络传输技术</h3><h4 id="SONET-SDH-TDM技术"><a href="#SONET-SDH-TDM技术" class="headerlink" title="SONET&#x2F;SDH TDM技术"></a>SONET&#x2F;SDH TDM技术</h4><p>同步系统有主时钟  810B&#x2F;125us  51.84Mbps</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230217123612133.png" alt="image-20230217123612133"></p>
+<h4 id="移动电话"><a href="#移动电话" class="headerlink" title="移动电话"></a>移动电话</h4><p>单向寻呼：单向、小带宽</p>
+<p>通话：双向，多频率</p>
+<p>1G 模拟蜂窝 只语音</p>
+<p>2G 数字蜂窝 主要话音 GSM CDMA</p>
+<p>34G 话音和数据</p>
+<h4 id="AMPS蜂窝cell"><a href="#AMPS蜂窝cell" class="headerlink" title="AMPS蜂窝cell"></a>AMPS蜂窝cell</h4><p>在附近蜂窝中重用传输频率，如果超过系统容量就进一步划分蜂窝，重用频率并减弱功率。<strong>容易被窃听、盗用</strong>。三个频率足够1+6蜂窝使用</p>
+<p>蜂窝中心基站，计算机+天线</p>
+<p>通过包交换网络+MTSO（电话系统） MSC相连</p>
+<h2 id="Ch5-数据链路控制与协议"><a href="#Ch5-数据链路控制与协议" class="headerlink" title="Ch5 数据链路控制与协议"></a>Ch5 数据链路控制与协议</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>目标和功能</strong> <strong>有差错的线路上无差错传输</strong>——正常传输，组帧，差错，可选顺序和流量</p>
+<p>网络设备和主机都算节点</p>
+<p>点到点：专指链路上的两个<strong>相邻节点</strong></p>
+<p>端到端：源到目的，可能由多个链路</p>
+<p>虽然是物理层连接，但数据链路层看起来虚拟通路</p>
+<p><strong>服务</strong> 无确认无连接服务（低误码，实时，局域网），有确认无连接（不可靠信道无线网），有确认有连接</p>
+<h3 id="组帧"><a href="#组帧" class="headerlink" title="组帧"></a>组帧</h3><p>组并且计算checksum</p>
+<h4 id="字符计数法"><a href="#字符计数法" class="headerlink" title="字符计数法"></a>字符计数法</h4><p>帧头表示帧的字符个数——一步错步步错</p>
+<h4 id="字符填充的字符定界"><a href="#字符填充的字符定界" class="headerlink" title="字符填充的字符定界"></a>字符填充的字符定界</h4><p>引入DLESTX，DLEETX字符，中间内容中如果出现特殊字符，加入DLE两遍来转义</p>
+<p>Data link escape start end，局限在8位字符和ascii</p>
+<p>DLE STX A DLE DLE B DLE ETX其中数据位ADLEB</p>
+<h4 id="位填充的标记定界"><a href="#位填充的标记定界" class="headerlink" title="位填充的标记定界"></a>位填充的标记定界</h4><p>特殊位串来开始和结束 01111110flag，正文中一旦五个1就插入0。只有flag中出现六个连续1</p>
+<h4 id="物理层编码违例"><a href="#物理层编码违例" class="headerlink" title="物理层编码违例"></a>物理层编码违例</h4><p>有冗余的物理层编码，用违规码定界</p>
+<h3 id="错误检测纠正"><a href="#错误检测纠正" class="headerlink" title="错误检测纠正"></a>错误检测纠正</h3><p>特点：随机，连续突发</p>
+<p>n &#x3D; m数据位+r校验位，一共n位码字</p>
+<p>检查d个错，海明距离需要d+1</p>
+<p>纠正d个错，海明距离需要2d+1</p>
+<h4 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h4><p>可检查奇数个错误，纠正单比特需要2^r &gt;&#x3D; m+r+1</p>
+<h4 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h4><p>连续突发错误的话，可以<strong>按行书写海明码然后按列发送</strong>。相当于把连续错误分散到每一个码字中</p>
+<h4 id="检错-重传-CRC循环冗余码"><a href="#检错-重传-CRC循环冗余码" class="headerlink" title="检错+重传 CRC循环冗余码"></a>检错+重传 CRC循环冗余码</h4><p>需要多项式Gx，高低位必须为1，且比传输信息短</p>
+<p>计算checksum加在帧尾，想要帧多项式被Gx除尽。</p>
+<h5 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h5><p>消息多项式Mx，后面加r（r是Gx的多项式阶数，比位数短1）个0变成2^rMx。用Gx除</p>
+<p>最后用2rMx减去余数，其实就是把余数补上去，即得到一定整除的2rmx</p>
+<p>注意此时的除法和减法都是图一乐，不借位，相当于异或</p>
+<h5 id="检错能力"><a href="#检错能力" class="headerlink" title="检错能力"></a>检错能力</h5><p>若中间改变的多项式Ex整除Gx就不能发现，否则可以</p>
+<ul>
+<li>单比特OK，Ex&#x2F;Gx肯定有余数</li>
+<li>两个孤立单比特，那任意Gx不能是任何X^i-j +1的因数</li>
+<li>奇数比特错，Gx选择x+1倍数即可，一定除不尽</li>
+<li>r个校验位多项式（有r+1项的Gx）能查出所有长度小于等于r的连续差错</li>
+<li>r+1连续错的时候，概率很小查不出来，约1&#x2F;2^r-1</li>
+<li>大于r+1呢？？？坏帧接收大概2^-r</li>
+</ul>
+<p>网卡实现crc校验</p>
+<h3 id="基本协议"><a href="#基本协议" class="headerlink" title="基本协议"></a>基本协议</h3><h4 id="无约束单工协议——一直发"><a href="#无约束单工协议——一直发" class="headerlink" title="无约束单工协议——一直发"></a>无约束单工协议——一直发</h4><p>单工、无休止发送和无限大buffer，信道不损坏</p>
+<h4 id="单工停等——buffer有限，每次发一个等ack"><a href="#单工停等——buffer有限，每次发一个等ack" class="headerlink" title="单工停等——buffer有限，每次发一个等ack"></a>单工停等——buffer有限，每次发一个等ack</h4><p>接受后给sender响应</p>
+<p>sender 接收网络层，组帧，发送，等待</p>
+<p>receiver 等待，接收物理层，发给网络层，发送确认帧</p>
+<h4 id="噪声单工PAR——信道有差错，引入1位序号，翻转"><a href="#噪声单工PAR——信道有差错，引入1位序号，翻转" class="headerlink" title="噪声单工PAR——信道有差错，引入1位序号，翻转"></a>噪声单工PAR——信道有差错，引入1位序号，翻转</h4><p>出错重传，定时，加入<strong>1位序号</strong>，来回翻转</p>
+<p>send 接收网络层，加入序号，发出去并启动计时，等待响应（ack了序号，翻转序号；超时重发）</p>
+<p>rece 等待，接收，序号正确则发给上层，发回ack并翻转期待序号</p>
+<h3 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h3><p>双工，引入捎带机制，充分利用带宽但复杂</p>
+<p>信号都有，<strong>期待接受and期待确认</strong></p>
+<p>发送端维护已发送但是没确认的序号表叫做<strong>发送窗口</strong>，上界是要发的下一帧，下界是待确认的最小帧。即左闭右开区间。</p>
+<p>发送时发送上界帧并加一，接受到ack&#x3D;下界则下界加一，如果ack在窗口内则连续加一到ack+1<strong>（累计确认）</strong></p>
+<p><strong>接收窗口</strong> 固定窗口，上界是允许的最大序号，下界是紧邻的序号。收到0123则【4,7】，等于下界的被接受并响应。上下界同时移动</p>
+<h4 id="1bit滑动窗口"><a href="#1bit滑动窗口" class="headerlink" title="1bit滑动窗口"></a>1bit滑动窗口</h4><p>序号只取01两个值且两窗口都是1. </p>
+<p>我发送的帧seq &#x3D; ~上一个ack，ack&#x3D;上一个seq</p>
+<p>如果同时发送会有一半的重复帧，即我第一次发B0你的A0还没到，你A0到我这的时候我还没收到B0的确认只能再发B0.</p>
+<p>最大效率|利用率 &#x3D; 发送时间&#x2F;总占用时间</p>
+<p>信道利用率 &#x3D; 帧长&#x2F;帧长+延迟*比特带宽</p>
+<h4 id="退后n帧重传"><a href="#退后n帧重传" class="headerlink" title="退后n帧重传"></a>退后n帧重传</h4><p>发送窗口大于1，接受为1</p>
+<p>发一堆，慢慢收。如果有一个坏帧拒收所有后面并不再发送ack，等待超时后发送方从坏帧重发。多个计时器。</p>
+<p>在坏信道上效率低</p>
+<p>窗口大小不要能一次性发满序号，至少<strong>发送窗口&lt;序号总量</strong></p>
+<h4 id="选择重传"><a href="#选择重传" class="headerlink" title="选择重传"></a>选择重传</h4><p>发送接受均大于1。接收方可以暂存坏帧后面的帧但仍然只发送老ack，发送方只重传坏帧，但需要buffer够大。ack可以突变。</p>
+<p>接收窗口完全移动后，不要重合。不然重发当做新帧。</p>
+<p><strong>发送&gt;&#x3D;接受时，接受最大为（maxseq+1）&#x2F;2</strong> </p>
+<p><strong>else 发送+接受&lt;&#x3D;序号个数</strong></p>
+<ul>
+<li>确认计时器：防止负载不均衡，实在没有捎带就发一个空ack出去。计时器在接收窗口移动后，或发了NAK时开始。发送任意一帧时结束。</li>
+<li>否定确认NAK：收到坏帧或跳脱帧主动发NAK</li>
+</ul>
+<h3 id="说明与验证"><a href="#说明与验证" class="headerlink" title="说明与验证"></a>说明与验证</h3><p><strong>协议工程：</strong>说明、验证、实现、测试</p>
+<p><strong>验证——可达性分析</strong> 图论分析</p>
+<p><strong>测试</strong> 一致性、互操作、性能</p>
+<p>用形式化描述代替自然语言，如FDT和FM  Formal </p>
+<h4 id="FSM有限状态机"><a href="#FSM有限状态机" class="headerlink" title="FSM有限状态机"></a>FSM有限状态机</h4><p>状态、标号，初态，变迁</p>
+<h4 id="Petri网？？"><a href="#Petri网？？" class="headerlink" title="Petri网？？"></a>Petri网？？</h4><p>结构：圆圈位置、变迁线段、弧</p>
+<p>活动标记Token点</p>
+<h3 id="常用的数据链路协议"><a href="#常用的数据链路协议" class="headerlink" title="常用的数据链路协议"></a>常用的数据链路协议</h3><p>面向字符，面向比特</p>
+<h4 id="HDLC"><a href="#HDLC" class="headerlink" title="HDLC"></a>HDLC</h4><p>终端和计算机之间组合沟通，用01111110定界。一直传定界符号表示空闲</p>
+<p>定界——8b地址（命令or响应）——8b控制信息（0，3序号，1pollfinal命令或响应，3next作为ack||ortype表示监控真、否定确认帧、不接受帧或者拒绝帧）——数据——16b校验和CRC——定界符</p>
+<p>滑动窗口3位序号，发送窗口为7。但next表示第一个没收到的序号</p>
+<h4 id="X-25的链路层LAPB"><a href="#X-25的链路层LAPB" class="headerlink" title="X.25的链路层LAPB"></a>X.25的链路层LAPB</h4><p>使用HDLC</p>
+<p>CRC只检错不纠错，丢弃出错</p>
+<p>重传N次后报告上层协议</p>
+<p>帧序号错了发送拒绝帧，发送方重传检错也纠错</p>
+<p>PF为检验指示，</p>
+<h4 id="SLIP和PPP"><a href="#SLIP和PPP" class="headerlink" title="SLIP和PPP"></a>SLIP和PPP</h4><p>SLIP：标记定界，字符填充，发送原始IP包。不提供差错检验，只支持IP并不能动态，不提供认证</p>
+<p>PPP改进SLIP，提供差错，支持多协议，动态分配IP，以帧尾单位。</p>
+<p>PPP面向字符，以01111110开始，采用字符填充而非位填充。</p>
+<h2 id="Ch6-局域网-介质访问子层-108-6"><a href="#Ch6-局域网-介质访问子层-108-6" class="headerlink" title="Ch6 局域网 介质访问子层 108 6"></a>Ch6 局域网 介质访问子层 108 6</h2><h4 id="局域网概述"><a href="#局域网概述" class="headerlink" title="局域网概述"></a>局域网概述</h4><p>高速短距低出错，经常使用广播信道，解决信道分配问题</p>
+<p>静态：FDM频分复用orWDM TDM时分复用，固定时槽</p>
+<h3 id="多路访问协议"><a href="#多路访问协议" class="headerlink" title="多路访问协议"></a>多路访问协议</h3><h4 id="纯ALOHA"><a href="#纯ALOHA" class="headerlink" title="纯ALOHA"></a>纯ALOHA</h4><p><img src="/assets/2022Fall-net-final.assets/image-20230218115419108.png" alt="image-20230218115419108"></p>
+<p>直接发，如果冲突则等待随机时间再发。</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230218115808191.png" alt="image-20230218115808191"></p>
+<p>相当于两个帧时内的k&#x3D;0，λ&#x3D;2G，得到P0</p>
+<h4 id="分槽ALOHA"><a href="#分槽ALOHA" class="headerlink" title="分槽ALOHA"></a>分槽ALOHA</h4><p>每个站只有在槽开始的时候可以尝试发送，冲突危险减半。效率翻倍。</p>
+<h4 id="载波监听多路访问CSMA"><a href="#载波监听多路访问CSMA" class="headerlink" title="载波监听多路访问CSMA"></a>载波监听多路访问CSMA</h4><h4 id="1-坚持CSMA"><a href="#1-坚持CSMA" class="headerlink" title="1-坚持CSMA"></a>1-坚持CSMA</h4><p>先监听，如果空闲就马上发，忙就一直监听后发送。如果冲突则随机等待再发送。<strong>冲突概率大，怕延迟</strong></p>
+<h4 id="非坚持CSMA"><a href="#非坚持CSMA" class="headerlink" title="非坚持CSMA"></a>非坚持CSMA</h4><p>监听，如果空闲就发。如果忙就等待随机时间然后尝试</p>
+<p><strong>冲突少，信道空闲多且延迟高</strong> G越大效率越高，但是延迟更大</p>
+<h4 id="p-坚持CSMA"><a href="#p-坚持CSMA" class="headerlink" title="p-坚持CSMA"></a>p-坚持CSMA</h4><p>分槽信道中，监听到空闲有p的概率发送数据。或者延迟到下一个时槽，看空闲的话再次以p尝试。忙就再等待。冲突就等待随机。</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230218120433234.png" alt="image-20230218120433234"></p>
+<h4 id="冲突检测的载波监听多路访问CSMACD"><a href="#冲突检测的载波监听多路访问CSMACD" class="headerlink" title="冲突检测的载波监听多路访问CSMACD"></a>冲突检测的载波监听多路访问CSMACD</h4><p>冲突太浪费了，如果冲突可以发送干扰，打断自己和所有站的发送。等待随机时间在发。</p>
+<p>检测冲突最坏需要两倍电缆时间。</p>
+<h4 id="无冲突协议——预留协议（先请求）"><a href="#无冲突协议——预留协议（先请求）" class="headerlink" title="无冲突协议——预留协议（先请求）"></a>无冲突协议——预留协议（先请求）</h4><p>分开为传输，竞争和空闲</p>
+<h4 id="位图协议"><a href="#位图协议" class="headerlink" title="位图协议"></a>位图协议</h4><p>信道上N个时槽，要发就置1。大家都知道了就按序号发送</p>
+<p>轻负载效率d&#x2F;N+d 数据帧由d个时间单位，重负载下d&#x3D;Nd</p>
+<p>不公平，有固定开销</p>
+<h4 id="二进制下数"><a href="#二进制下数" class="headerlink" title="二进制下数"></a>二进制下数</h4><p>大家都有等长二进制串表示自己，互相或在一起。如果看到更高的位有1则放弃请求。效率为d&#x2F;d+log2N</p>
+<h4 id="有限竞争——适应树搜索协议"><a href="#有限竞争——适应树搜索协议" class="headerlink" title="有限竞争——适应树搜索协议"></a>有限竞争——适应树搜索协议</h4><p>轻负载竞争，重负载无冲突。分组各站，组内竞争</p>
+<p>组织站点为二叉树，折半请求搜索。如果获得之后，留给没有竞争的后一半竞争。</p>
+<h3 id="局域网技术"><a href="#局域网技术" class="headerlink" title="局域网技术"></a>局域网技术</h3><p>只有一个信道，短距离，</p>
+<p><strong>隐藏站点问题。竞争者太远</strong></p>
+<p><strong>暴露站点：非竞争者太近</strong></p>
+<h4 id="区别于CSMA"><a href="#区别于CSMA" class="headerlink" title="区别于CSMA"></a>区别于CSMA</h4><p>CSMA的电缆可以传播信号给所有站点。冲突被站点发现</p>
+<p>WLAN中信号只能发给附近的人，尽量保证只有一个发送站，冲突被接受者发现，信道可以同时有多个有效帧</p>
+<h4 id="MACA协议——先双方握手并告诉周围"><a href="#MACA协议——先双方握手并告诉周围" class="headerlink" title="MACA协议——先双方握手并告诉周围"></a>MACA协议——先双方握手并告诉周围</h4><p>A发B RTS请求发送，同时A周围站点不发送</p>
+<p>B回A CTS已经准备好，B周围不发送</p>
+<p>A发送</p>
+<p>冲突则二进制指数后退等待随机时间后开始</p>
+<p><strong>MACAW</strong> 每个成功数据帧都要被ack，发送站点载波监听，冲突后不针对站点而是针对流来后退，拥塞时站点交互信息</p>
+<h3 id="802系列"><a href="#802系列" class="headerlink" title="802系列"></a>802系列</h3><p>介质访问控制MAC子层上引入LLC逻辑链路控制子层，提供更多的确认和流量控制服务——不可靠数据报，有确认数据报和可靠面向连接服务</p>
+<h4 id="802-3"><a href="#802-3" class="headerlink" title="802.3"></a>802.3</h4><p>电缆标准 10basex，10mbps base基带传输 500m。</p>
+<p>中继器：物理层，接受放大信号、双向重传。两个收发器之间可以四个中继器2500m</p>
+<p>曼彻斯特编码，简单。</p>
+<p><strong>帧格式</strong> 使用7B的10101010作为前导，然后10101011作为开始。</p>
+<p>地址第一位 单0组1    第二位全球0本地1   全1广播</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230218195725348.png" alt="image-20230218195725348"></p>
+<p>避免帧到达前就发完，发送时间大于2τ。（防止对向冲突）</p>
+<p>快到对面的时候对面开始发，这样就Collision。减小站点距离或者加大帧长才能提速。最大冲突检测时间为51.2us</p>
+<p><strong>二进制指数后退</strong> 时槽为51.2us。第i次冲突后 等待0~2^i-1。到10位上界，16次彻底失败</p>
+<p><strong>用交换802.3LAN来减少冲突</strong> ？？大概是接入交换机，被缓存并并行转发？</p>
+<h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3><h4 id="快速以太网-HUB的10BaseT甚至100BaseT4"><a href="#快速以太网-HUB的10BaseT甚至100BaseT4" class="headerlink" title="快速以太网 HUB的10BaseT甚至100BaseT4"></a>快速以太网 HUB的10BaseT甚至100BaseT4</h4><p><strong>100BaseT4</strong>4对非屏蔽双绞线1对Tohub1对FromHub，两对变换方向。</p>
+<p>25MhzBaudrate。曼彻斯特编码，8B6T，8B映射到6个三进制位。每对带宽25*8&#x2F;6 &#x3D;33.3Mbps。正向100反向33.3？？</p>
+<p><strong>TX</strong> 2对五类线，to和fromhub。125Mhz，4B5B编码。每对125&#x2F;5*4&#x3D;100Mhz</p>
+<p><strong>FX</strong> 2根多模光纤，全双工</p>
+<p><strong>HUB</strong> 共享：一个冲突域，CSMACD二进制指数后退，半双工</p>
+<p>交换式。输入帧缓存，一个端口为一个冲突域</p>
+<p><strong>1000BASE X</strong>系列是8B10B编码</p>
+<p><strong>1000baseT</strong> 4B5B编码</p>
+<p>一个冲突域只允许一个中继器</p>
+<p><strong>10GE</strong> 万兆以太网，全双工，不用CSMACD。只光纤，单模可以用在WAN MAN</p>
+<p>多模的传输距离只有65-300M</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230218201935592.png" alt="image-20230218201935592"></p>
+<h4 id="802-5-令牌环LAN"><a href="#802-5-令牌环LAN" class="headerlink" title="802.5 令牌环LAN"></a>802.5 令牌环LAN</h4><p>并不是广播，而是点到点组成的。完全公平且无冲突</p>
+<p>Token，要有足够的延迟被容纳。</p>
+<ul>
+<li><p>要发数据，取下令牌，发送，发送站负责移除帧然后重新生成令牌开始监听。</p>
+</li>
+<li><p>确认：帧内的比特域，初值0，目的站变1.</p>
+</li>
+<li><p>重负载效率100%。</p>
+</li>
+<li><p>引入1bit传输延迟。物理长度为信号传播速度&#x2F;比特率</p>
+</li>
+<li><p>屏蔽双绞线，<strong>差分曼彻斯特</strong></p>
+</li>
+<li><p>令牌持有时间10ms，有优先级</p>
+</li>
+<li><p>环上竞争选出监控站，负责维护保证令牌不丢失，处理断环和坏帧</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230218202626218.png" alt="image-20230218202626218"></p>
+</li>
+</ul>
+<h4 id="光线分布式数据接口-FDDI"><a href="#光线分布式数据接口-FDDI" class="headerlink" title="光线分布式数据接口 FDDI"></a>光线分布式数据接口 FDDI</h4><p>多模光纤 类似TokenRing 100M 4B5B 200km 1000站</p>
+<p>连接LAN的主干网，可以双环。站点发完后立即产生新令牌，环上可同时多个帧。</p>
+<h4 id="DPT-RPR-Dynamic-Packet-Transport"><a href="#DPT-RPR-Dynamic-Packet-Transport" class="headerlink" title="DPT RPR Dynamic Packet Transport"></a>DPT RPR Dynamic Packet Transport</h4><p>用于MAN 双环，双环都可以传输data和control</p>
+<p>目的站取下报文，不占用</p>
+<h3 id="网桥"><a href="#网桥" class="headerlink" title="网桥"></a>网桥</h3><p>在LAN之间实现帧存储转发。可以分隔大LAN可以连接远LAN。</p>
+<p>兼容不同类型，安全保密</p>
+<p>中继器不能隔离冲突域，网桥|交换机可以</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>多个物理层和MAC子层。</p>
+<p>转换帧格式，缓存不同速率的帧，高层协议的定时器。甚至MTU最大帧长的区别。无法转发就扔掉</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230218205536134.png" alt="image-20230218205536134"></p>
+<p>一开始接受所有帧，洪泛转发帧。后来逆向学习，通过源地址收集MAC写入对应表。不断更新</p>
+<p><strong>多个网桥的回路问题</strong> 网桥间通信，用连接每个LAN的生成树覆盖拓扑。透明or生成树网桥</p>
+<ul>
+<li>网桥广播自己的编号，最小为root</li>
+<li>计算到根的最短路，构造生成树，使得LAN和桥到根最短</li>
+<li>故障重新计算</li>
+<li>不断更新</li>
+</ul>
+<p><strong>源路由网桥</strong> 如果不在自己的lan内，在帧里制定好路由序列。LAN的12位编号和Bridge的4位。每个站广播发现帧来获得最佳路由。</p>
+<h2 id="Ch7-路由选择和网络层-183-7"><a href="#Ch7-路由选择和网络层-183-7" class="headerlink" title="Ch7 路由选择和网络层 183 7"></a>Ch7 路由选择和网络层 183 7</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>在实体间交换网络服务数据单元。传送实体独立于路由选择和交换的方式</p>
+<p>通信子网的最高层</p>
+<p>传统电信vs互联网：可靠连接vs不可靠，复杂功能放在传输</p>
+<h3 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h3><p>数据包分组交换vs虚电路分组交换，每个或者一次路由选择</p>
+<p><strong>最优化原则</strong> 最优路线的包含性，最优路线的子路线是最优路线</p>
+<p><strong>汇集树</strong> 类似生成树，只不过是所有src汇集到dst，是路由算法的目的</p>
+<h4 id="最短路径路由"><a href="#最短路径路由" class="headerlink" title="最短路径路由"></a>最短路径路由</h4><p>DIJKSTRA</p>
+<h4 id="静态洪泛"><a href="#静态洪泛" class="headerlink" title="静态洪泛"></a>静态洪泛</h4><p>重复分组多，回路。给分组设置寿命计数器，不要反复传播+记录经过的路径</p>
+<p>改进为<strong>选择洪泛</strong>，转发到正确方向接近的线路，作为基准来评价</p>
+<h4 id="基于流量的路由算法"><a href="#基于流量的路由算法" class="headerlink" title="基于流量的路由算法"></a>基于流量的路由算法</h4><p>拓扑结构+网络负载。假设站点间流量平稳可预测，得到平均分组延迟来找最小延迟的路由算法。可以离线计算</p>
+<p>需要通信量矩阵Fij和带宽矩阵Cij。即流量和带宽</p>
+<p>计算平均延迟T &#x3D; 1&#x2F;(μ平均包大小1&#x2F;800bits C带宽 - λ平均包量) ，为<strong>剩余网络带包数的倒数</strong></p>
+<h4 id="距离矢量算法-Bellman-Ford-DV"><a href="#距离矢量算法-Bellman-Ford-DV" class="headerlink" title="距离矢量算法 Bellman Ford DV"></a>距离矢量算法 Bellman Ford DV</h4><p>应用：ARPANET RIP</p>
+<p>路由器作为索引|出镜线路|距离估计值（hop）or延迟</p>
+<p>每隔一段时间，向所有邻居发送自己的表</p>
+<p>同时收到来自所有邻居的表更新自己的路由表，为min（到邻居的代价+这个邻居到目标的代价），这个过程不依赖老表？难道这个代价是重新测算or保存到一张长期有效的另外表中。</p>
+<p><strong>问题</strong> 无穷计算不收敛，好消息与坏消息</p>
+<ul>
+<li>突然很好很近的路径进来，很快被同步，大概是正比于路径跳数的时间</li>
+<li>宕机一个router，产生无穷计数，大家都缓慢的增大。因为宕机一个后，其他路由器还以为自己的邻居仍然有很好的路径能到宕机哥们那里。<img src="/assets/2022Fall-net-final.assets/image-20221209224559844.png" alt="image-20221209224559844"></li>
+</ul>
+<p>禁止路由器向邻居返回一个从邻居获得的最佳路径（线性拓扑中的无穷级数）<strong>染毒逆向的水平分裂法</strong> 即如果我的路径包含你，我就告诉你是无穷大的。闭合Y字形失败。</p>
+<p><strong>问题的核心</strong> 当 X 告诉 Y 它有一条通往某个地方的路径， Y 无从知道自己是否已在这条路径上。  </p>
+<h4 id="链路状态路由-发送自己周遭链路的状态-LS"><a href="#链路状态路由-发送自己周遭链路的状态-LS" class="headerlink" title="链路状态路由 发送自己周遭链路的状态 LS"></a>链路状态路由 发送自己周遭链路的状态 LS</h4><p>OSPF ISIS</p>
+<p><strong>开始工作之前，每个router：</strong></p>
+<p>(1) <strong>发现</strong>它的邻居节点， 并学习其网络<strong>地址</strong>。</p>
+<p>往每个线路发送hello，接受者加上自己的唯一身份。</p>
+<p>广播LAN建议增加超节点，连接广播所及的节点</p>
+<p>(2) 测量到每个邻居节点的距离或者<strong>成本度量</strong>值。</p>
+<p>常用度量：带宽反比、链路延迟</p>
+<p>(3) <strong>构造一个包</strong>含所有刚刚获知的链路信息包。</p>
+<p>发送方标识符，Seq用来自己控制版本新版加一，Age寿命过期就扔，表：邻居列表和对应成本</p>
+<p>(4) 将这个包<strong>发送给所有其他的路由器</strong>，并<strong>接收来自所有其他路由器的信息包</strong>。</p>
+<p>洪泛，发一个新的就递增。接收方需要记录来自其他Router 的已接收最大序号，如果接收到同样包则丢弃不发送，收到小序号则过时</p>
+<p>问题：序号绕回，用大范围；路由器崩溃，丢失序号记录，发的太小会被拒绝；序号被破坏，错误地增大很多seq导致新的被当做老的</p>
+<p>解决：加入age年龄字段，每过1s减一，相当于有效期。</p>
+<p>一般10s左右新的包就会来替换掉老包，年龄设为60检测宕机</p>
+<p><strong>链路状态数据包需要返回ack以确认</strong></p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221212121553893.png" alt="image-20221212121553893"></p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221212121545594.png" alt="image-20221212121545594"></p>
+<p>来自不同src的副本可能从任何邻居那里到来。到来的标记ack并发送ack，其他标记sentflag</p>
+<p>(5) <strong>计算出到每个其他路由器的最短路径</strong>。  </p>
+<p>完整网络拓扑图，每条边被表示了两次。因为双方向不一定成本相同。运行Dij即可并存到路由表中。</p>
+<p><strong>评价</strong> 没有慢收敛，但可能路由震荡（当路径负载作为代价时，可能顺逆震荡），需要Onlogn，长时间定时或者重大变化才重发分组</p>
+<p>路由算法依赖于路由器计算路径的处理，少数路由器瞎编也可以破坏网络。比如声称不存在的链路或者故意忽略链路。</p>
+<h4 id="分层路由"><a href="#分层路由" class="headerlink" title="分层路由"></a>分层路由</h4><p>太大，表大，收敛慢，计算大。分层后不一定最优</p>
+<p><strong>最优lnN层，</strong>每个表项elnN个</p>
+<h4 id="移动主机路由"><a href="#移动主机路由" class="headerlink" title="移动主机路由"></a>移动主机路由</h4><p>设定移动主机有不变的家乡位置和地址，每个区域有家乡代理和外部代理。分别记录登记在这人在外边的，和人在这的</p>
+<ul>
+<li>进入新区域的移动用户向本地的外部代理注册，告知家乡地址，目前链路地址和安全信息。外部代理会定期广播的自己的存在和地址分组。</li>
+<li>外部代理和家乡代理联系，更新其现在的位置和外部网络地址</li>
+<li>家乡代理检查通过，ack</li>
+<li>外部代理收到ack，登记并注册成功</li>
+<li>收：<ul>
+<li>家乡局域网——家乡代理—隧道—外部代理，同时告诉发送方你直接隧道到外部代理就好了or移动主机通过外部代理告诉发送者自己的转交地址，以后直接隧道到这里来。外部代理发给用户（三角路由，后续直接优化到一条边了）</li>
+</ul>
+</li>
+</ul>
+<h3 id="拥塞控制算法"><a href="#拥塞控制算法" class="headerlink" title="拥塞控制算法"></a>拥塞控制算法</h3><p>开环控制：好的设计避免拥塞，不考虑网络状态</p>
+<p>闭环：基于反馈，监控，调整</p>
+<p>vs流量控制，拥塞是全局性的，流量是对点的，不要超过接收方处理能力</p>
+<p><strong>参数</strong> 丢包率 队列长度 重传量 延迟 延迟变化</p>
+<p><strong>反馈</strong> 丢包路由器向负载发生源头发送告警分组</p>
+<p>分组头中保留拥塞域ECN，对应端口所有输出标记好，接收方ack也携带</p>
+<p>端主机反馈</p>
+<h4 id="开环控制——流量整形"><a href="#开环控制——流量整形" class="headerlink" title="开环控制——流量整形"></a>开环控制——流量整形</h4><p>把突发性的变成均匀可以预测的</p>
+<h4 id="漏桶算法"><a href="#漏桶算法" class="headerlink" title="漏桶算法"></a>漏桶算法</h4><p>不平滑数据分组流变平滑，可以固定or变长分组协议ATMorIP</p>
+<p>字节计数，规定桶容量为B，出水速率为R。不灵活</p>
+<h4 id="令牌桶"><a href="#令牌桶" class="headerlink" title="令牌桶"></a>令牌桶</h4><p>t产生令牌，传送分组消耗令牌，可以累计发送权到桶大小。适合突发。如果路由器有9600KB的缓冲区和200Mpbs的速率，主机速率可到1000Mbps，则在主机端使用B9600KB R200Mpbs的令牌桶。</p>
+<p>一开始全速发送一段时间直到填满缓冲区，然后削减到200Mpbs，桶空则延迟，流量慢于200的时候慢慢被填满。可以有一些突发。</p>
+<p><strong>双令牌桶</strong> 第二个桶的速率更高但几乎没有容量。即降低初始突发允许大的突发更加平滑的输出，而不是一开始很快后来降低到长期速率。</p>
+<h4 id="虚电路子网和准入控制"><a href="#虚电路子网和准入控制" class="headerlink" title="虚电路子网和准入控制"></a>虚电路子网和准入控制</h4><p>三方出具流说明，包含流模式，服务质量等。慢慢协商。协议后预留资源</p>
+<p>拥塞问题解决前不允许建立新虚电路or可以建立但必须绕开</p>
+<p><strong>逐跳抑制分组</strong> 抑制分组通知源主机太慢了，每一跳都有抑制作用，更迅速，需要上游Router缓冲区更大</p>
+<h4 id="数据包子网拥塞"><a href="#数据包子网拥塞" class="headerlink" title="数据包子网拥塞"></a>数据包子网拥塞</h4><p><img src="/assets/2022Fall-net-final.assets/image-20221212131918083.png" alt="image-20221212131918083"></p>
+<h4 id="包调度——公平队列"><a href="#包调度——公平队列" class="headerlink" title="包调度——公平队列"></a>包调度——公平队列</h4><p>每个输出都有多个队列，循环扫描队列头发送包，队列优先级相同。即abcabc的发送。但是大包获得的带宽大</p>
+<p>改进为<strong>加权队列</strong> ——分组轮询变成字节轮询</p>
+<p>时间按照发完分组的虚拟时间计算，可以有权重，时间除以权重</p>
+<p>也就是一轮循环砍一个字节，有的管道砍得多。先被砍完的包先发送。</p>
+<p>完成时间 &#x3D; max 到达时间，同队列前面包的完成时间 + 长度&#x2F;权重</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20221212132526962.png" alt="image-20221212132526962"></p>
+<h4 id="负载丢弃"><a href="#负载丢弃" class="headerlink" title="负载丢弃"></a>负载丢弃</h4><p>多媒体 扔老的 milk     文件传输扔新的 wine</p>
+<h3 id="网络互联"><a href="#网络互联" class="headerlink" title="网络互联"></a>网络互联</h3><p>中继器，物理层拷贝比特放大信号</p>
+<p>网桥，数据链路层。局域网之间存储准发帧，可以改格式</p>
+<p>多协议路由器，网络层。在网络之间存储转发，可以转协议</p>
+<p>传输|应用网关：传输层转发|应用层互联</p>
+<h4 id="无连接网络互联"><a href="#无连接网络互联" class="headerlink" title="无连接网络互联"></a>无连接网络互联</h4><p>多协议路由器转协议，转分组格式和地址等等</p>
+<h4 id="隧道"><a href="#隧道" class="headerlink" title="隧道"></a>隧道</h4><p>源和目的主机网络相同，中间隧道打包。把原来的包作为载荷</p>
+<p><strong>互连网络的路由</strong> 更复杂，自治系统AS？？ </p>
+<p>内部网关协议IGP：RIP OSPF ISIS</p>
+<p>外部网关协议EGP：BGP</p>
+<h4 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h4><p>透明分段：网关分片后每个片段必须经过同一个出口，再重组。对其他网络透明。</p>
+<ul>
+<li>需要数据包结束标识</li>
+<li>路由被限制在同路径，损失性能</li>
+<li>路由器工作大，需要拆分组装缓冲等</li>
+</ul>
+<p>非透明：一旦分段，直到目的主机都不重组。需要的话可以继续拆分</p>
+<ul>
+<li>头太多开销太高，</li>
+<li>容易丢失</li>
+</ul>
+<p>树形标记，0分为0.0和0.1再往下分。长度前后一致</p>
+<p>偏移量法：原始分组seq，offset（仅数据层）和最后片指示</p>
+<p>路径MTU发现，IP中有不允许分段的DF比特。如果接收到很大的数据包，会生成报错发给源主机然后丢弃此包</p>
+<p>源端需要分段到路由器能处理，再次发送可能仍然被之后的路由器拒绝</p>
+<p>需要更高层协议了解路径MTU并传给IP，比如TCPIP来传递，相当于把分段任务从网络交给主机</p>
+<ul>
+<li>启动延迟增大，需要来回找MTU</li>
+<li>可能会拦腰截断MTU</li>
+</ul>
+<h4 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h4><p>两个路由器根据规则表过滤，或者边缘网关审查</p>
+<h3 id="互联网网络层协议"><a href="#互联网网络层协议" class="headerlink" title="互联网网络层协议"></a>互联网网络层协议</h3><h4 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h4><h5 id="头"><a href="#头" class="headerlink" title="头"></a>头</h5><p>20B变长到20+40<img src="/assets/2022Fall-net-final.assets/image-20230219132434658.png" alt="image-20230219132434658"></p>
+<p>IHL 几个字的头。</p>
+<p>Type 3个优先级位 3个标志位Delay T R 2个保留位，经常忽略</p>
+<p>DF，不许分片，必须接受576B的片段</p>
+<p>MF，还有更多分片，最后一片为0.</p>
+<p>offset 片段偏移了多少字节，仅表示数据部分偏移</p>
+<p>MTU1500时候最多20头+1480B数据。</p>
+<p>生存期：寿命，TTL跳一次减一，丢弃后告警。最大255</p>
+<p>Header校验和：16位取反循环相加，进位在末尾，和再取反</p>
+<h5 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h5><p>网络号+主机号，分类</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230219133847044.png" alt="image-20230219133847044"></p>
+<p>全1广播 全0本机</p>
+<p>host部分可以划分为subnet和host，划分子网</p>
+<p><strong>ICMP 互联网控制消息协议</strong> 报告错误和测试，封装在IP中</p>
+<p><strong>ARP 地址解析协议</strong> 解决IP和MAC地址的映射。建立ARP表，存放IPMAC地址对。同子网内查找arp，否则用默认缺省网关的IP查找。没找到就广播分组，目的主机需要应答，ARP增加。</p>
+<p>每个主机启动的时候广播自己的映射。</p>
+<p>表项有生存期。</p>
+<p><strong>RARP</strong> MAC找IP，也使用ARP消息。无盘工作站启动，由于路由器不转发广播帧，RARP服务器必须与无盘工作站在同一子网内  ？？</p>
+<p><strong>区分BOOTP</strong> 使用IP UDP，可以分配其他信息。可以转发到其他子网</p>
+<p><strong>RIP</strong> <strong>内部网关协议IGP</strong>，基于<strong>UDP</strong></p>
+<p><strong>距离向量算法</strong>，用跳数衡量距离，30s一次。</p>
+<p>6个周期180s没有邻居声明，则认为失效。所有经过其路由无效。声明发给其他邻居，并快速再次发出声明传播到全网。<strong>RIP可以快速传播链路失效</strong></p>
+<p><strong>OSPF开放最短路径有限</strong> 内部网关协议IGP</p>
+<p>多种衡量比如延迟，距离，带宽。<strong>链路状态算法。</strong></p>
+<p>基于服务类型路由、负载平衡、<strong>分层</strong>路由、安全措施、隧道技术</p>
+<p>自治系统分为区域，每个AS有主干区域0.用星连接，局域内路由；区域间路由都到主干再转发目的；自治系统间路由</p>
+<p>路由器可以重叠：<strong>区域内，区域间，主干，自治边界。</strong></p>
+<p><strong>BGP边界网关协议</strong> 外部网关协议 基于<strong>TCP</strong></p>
+<p>特殊的跨域路由协议：控制流量路由，更注重策略而非性能</p>
+<p>TCP连接传递路由信息，<strong>路径向量算法</strong>，路由信息中记录路径轨迹。类似距离向量。广播所有目的地的路径。通过告不告诉路径控制流量。</p>
+<p><strong>消息类型</strong> open，建立对等TCP连接认证身份；UPD，更新路径或者撤销；KEEPALIVE，没有upd也告诉你连接有效，回应open；NOTIFICATION报告上条消息错误或者关闭连接</p>
+<p><strong>CIDR无类域间路由</strong> B类地址浪费大量空间</p>
+<p>将剩余的C类地址分成大小可变的地址空间，推广到所有单播地址，掩码确定前缀长度。 </p>
+<p>世界四大区各有一块连续的C类地址，增加mask掩码域。最长前缀匹配：多个匹配成功选择掩码最长的路由表。适用于所有IP地址？？？</p>
+<p>分配地址的时候分配一些0和掩码。</p>
+<p>匹配时，目的地址先and掩码，然后匹配根地址。并最后选择前缀最长（掩码最长）的表项即最具体的。</p>
+<p><strong>分配地址时，根据掩码数据对齐</strong> </p>
+<h4 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h4><p>不兼容IPv4但兼容很多Internet协议如TCP UDP OSPF BGP DNS</p>
+<p>简化IP头，定长不用IHL，取消分片的域。必须能支持1280B的分组，路由器报错主机分片。不要检验和。更好支持选项更高安全</p>
+<p>40B</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230219212519752.png" alt="image-20230219212519752"></p>
+<p>Priority 流控或不能，表示优先级高低</p>
+<p>Flowlabel 允许src和dst建立具有特殊属性的伪连接</p>
+<p>Payloodlen并不是总len了</p>
+<p>nexthdr指示扩展分组头，如果是最后一个则告诉tcp或tcp</p>
+<ul>
+<li>拉火车一般指示后面的分组头，目前六种</li>
+<li>hopbyhop 指示挨个路由器检查的信息</li>
+<li>routing 必须经过的路由器</li>
+<li>fragmentation seq fragmentnum morefragment…</li>
+</ul>
+<p>最大跳数</p>
+<p>::192.1.1.1 表示v4地址</p>
+<h5 id="过渡方案"><a href="#过渡方案" class="headerlink" title="过渡方案"></a>过渡方案</h5><p>双栈，两套协议栈，主机根据DNS返回结果或对方版本号选择。路由器看版本</p>
+<p>翻译，路由器可以翻译如NAT-64</p>
+<p>隧道，把IPv6隧道进Ipv4里面传输，更有普适性？</p>
+<h3 id="路由器体系结构和关键技术"><a href="#路由器体系结构和关键技术" class="headerlink" title="路由器体系结构和关键技术"></a>路由器体系结构和关键技术</h3><p>路由：建立端到端的路径</p>
+<p>转发：确定next hop</p>
+<p>难度在于：内存速度跟不上moore，性能要求（带宽增加）快于摩尔定律</p>
+<h4 id="结构发展"><a href="#结构发展" class="headerlink" title="结构发展"></a>结构发展</h4><ul>
+<li>单总线单处理器</li>
+<li>单总线多处理器，每个接口卡处理器来协调</li>
+<li>交换结构+专用硬件</li>
+<li>可扩展路由器</li>
+</ul>
+<h4 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h4><ul>
+<li>多套网络接口</li>
+<li>路由引擎，运行高层（路由）协议</li>
+<li>路由表：被引擎更新，包含所有路由信息，承上起下</li>
+<li>转发引擎，确定转发路径</li>
+<li>内部交换，在接口和引擎间高速数据通路</li>
+</ul>
+<p><strong>两条路径</strong> 数据和控制</p>
+<p>控制，进引擎再出</p>
+<p>数据，关键路径，在内部交换后被转发：路由查找+内部交换</p>
+<p><strong>基本功能</strong> 正确转发的路由查找，正确传送的内部交换</p>
+<p><strong>查找算法</strong> 值入手，穷举，TCAM硬件查找</p>
+<p>长度入手：Trie树 长度空间二分</p>
+<p>线性链表太慢</p>
+<p>二分Trie 最坏logN 储存效率低</p>
+<p>路径压缩Trie，把单分支的节点压缩。</p>
+<p>多分支 O（logN  &#x2F;K）  更新慢，空间浪费</p>
+<p><strong>大RAM的查找表</strong> 两级分别是16位，包含地址、下一层地址和下一条</p>
+<p><strong>区间二分查找</strong> log2（2N）最多到logk（2N） 更新很慢</p>
+<p><strong>TCAM</strong> 速度快芯片贵功耗大更新慢 低地址前缀最长，一个周期精确查找</p>
+<h4 id="高速报文转发"><a href="#高速报文转发" class="headerlink" title="高速报文转发"></a>高速报文转发</h4><p>虚拟输出队列（队头堵塞）》输入队列</p>
+<h2 id="Ch8-端到端访问和传输层-67-1"><a href="#Ch8-端到端访问和传输层-67-1" class="headerlink" title="Ch8 端到端访问和传输层 67 1"></a>Ch8 端到端访问和传输层 67 1</h2><h3 id="传输服务"><a href="#传输服务" class="headerlink" title="传输服务"></a>传输服务</h3><p>消除网络层不可考，提供端到端的进程可靠，与网络无关的数据传送</p>
+<p>传送实体</p>
+<p>1~4层为传送服务提供，往上叫用户</p>
+<p>TPDU 传送协议数据单元</p>
+<h4 id="原语"><a href="#原语" class="headerlink" title="原语"></a>原语</h4><p>CS模式：listen connect send receive disconnect</p>
+<p>对称（双方单独关闭）或者不对称（任何一方）的关闭连接</p>
+<p>非对称数据丢失，对称两军问题（不存在安全N次握手释放对称连接）。一般用<strong>三次握手+定时器释放</strong>，即释放+定时</p>
+<p>连接和释放，都是自己执行原语+对方包到达</p>
+<h5 id="Berkeley-Sockets"><a href="#Berkeley-Sockets" class="headerlink" title="Berkeley Sockets"></a>Berkeley Sockets</h5><p>对称释放连接，都调用close</p>
+<p>服务程序：socket创建分配表空间，返回fp；bind赋予地址；listen分配数据空间；accept阻塞等待连接，有连接请求的时候创建新的套接字和fp，原来的继续等待</p>
+<p>客户程序：socket创建分配表空间，返回fp；connect阻塞并尝试连接；</p>
+<p>传送层寻址</p>
+<h4 id="传送层编址"><a href="#传送层编址" class="headerlink" title="传送层编址"></a>传送层编址</h4><p>即标识TSAP传送服务接入点，连接应用进程。互联网的TSAP为ip+本地端口</p>
+<p>可能约好，也可能从目录、<strong>名称服务器</strong>（连接，查询名称，得到TSAP，释放）查询</p>
+<p><strong>进程服务器</strong>，帮助一些服务进程监听。多个端口监听，客户进程在某几个TSAP建立请求。如果没有服务进程，那进程服务器和用户连接帮助唤起服务进程。即简单应答一下请求，并帮助叫人。</p>
+<h3 id="连接管理"><a href="#连接管理" class="headerlink" title="连接管理"></a>连接管理</h3><h5 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h5><ul>
+<li>A发出序号X的CR TPDU</li>
+<li>B发出序号Y的CC TPDU，并ack X CR</li>
+<li>A发出序号X+1的data tpdu并确认Y CC</li>
+<li>解决网络层丢失、重复等问题</li>
+</ul>
+<h3 id="缓存和流控"><a href="#缓存和流控" class="headerlink" title="缓存和流控"></a>缓存和流控</h3><h5 id="不可靠的缓存"><a href="#不可靠的缓存" class="headerlink" title="不可靠的缓存"></a>不可靠的缓存</h5><p>每个连接单独缓存，一边重传。接收方随意。</p>
+<p>固定大小，可变大小，通用缓存池</p>
+<h4 id="流控"><a href="#流控" class="headerlink" title="流控"></a>流控</h4><p>用可变滑动窗口，即窗口大小根据接收方的缓存情况给出（协商）。应该周期性发TPDU。</p>
+<h3 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h3><p>字节流，端到端，连接，可靠</p>
+<p>双方都套接字，作为TSAP，IP地址+端口。256被保留。点到点双工用两个套接字表示。不支持组播广播，消息边界不保留。</p>
+<p>PUSH标记不缓存，强迫发送</p>
+<p>URGENT紧急数据</p>
+<p>按照字节分配序号</p>
+<p>TPDU叫做SEGment</p>
+<p>20B头+选项+数据；段不超过65535的IP数据包，不超过数据链路层的MTU，以太网1500MTU</p>
+<p>滑动窗口，确认序号是接收方希望接受的下一个序号；</p>
+<h4 id="TCP头"><a href="#TCP头" class="headerlink" title="TCP头"></a>TCP头</h4><p><img src="/assets/2022Fall-net-final.assets/image-20230220100858916.png" alt="image-20230220100858916"></p>
+<p>头长度 4b，用几个word表示，包含option。</p>
+<p>RST用来不可恢复的错误重置连接</p>
+<p>SYN 连接建立指示 FIN释放连接指示</p>
+<p>ECN explicit congestion notification显式拥塞通知时，ECE表示ECN Echo，让发送端放慢速度。发送端设置CWR给接收端表示已经放慢停止ECE</p>
+<p>window size 从确认号开始可以再发多大字节流</p>
+<p>checksum对TCP头 数据和伪头（addr+-+protocol+TCP段长）计算校验和</p>
+<p>选项</p>
+<h4 id="三次握手建立"><a href="#三次握手建立" class="headerlink" title="三次握手建立"></a>三次握手建立</h4><ul>
+<li>服务器listen+accept 开始监听</li>
+<li>客户端connect 产生syn1 ack0 seq100的tcp segment</li>
+<li>服务器检查服务进程<ul>
+<li>没有监听，回答RST重置连接</li>
+<li>有监听，服务进程选择接受。SYN1 ack1（101） seq300接受。</li>
+<li>客户方syn0 ack301 seq101 确认</li>
+</ul>
+</li>
+</ul>
+<p>服务机listen直接收到send，则去尝试SYN连接</p>
+<p>SYNSENT后也在listen，收到SYN发送SYNACK到SYNRCVD</p>
+<h4 id="对称释放连接"><a href="#对称释放连接" class="headerlink" title="对称释放连接"></a>对称释放连接</h4><p>双方都可以FIN释放，但是只是一方不再发送。所以FIN ACK共2对才能释放，可以中间既FIN又ACK而3段释放。可能会同时发送FIN，那么单独确认后关闭。</p>
+<p>主动fin，进入finwait1。被对面ack自己的fin进入finwait2。常规。</p>
+<p>主动fin在wait1时，同时收到对面fin，发送ack进入closing。等待ack即可timewait。</p>
+<p>主动fin后被对面ack+fin，则自己应答ack进入timewait。</p>
+<p>被动fin，发送ack进入close wait，等待自己发完。自己这边发完了就主动fin进入等待最后的last ack，等到对面ack就成功释放。</p>
+<h4 id="传送策略"><a href="#传送策略" class="headerlink" title="传送策略"></a>传送策略</h4><p>在WIN0时候。紧急数据仍然可以发送，1字节端强迫接收端重新宣告ack和win叫做window probe窗口探测</p>
+<ul>
+<li>发送方缓存数据等待大段发出</li>
+<li>接收方期待捎带而非单独发</li>
+<li>Nagle 发一个字节，然后每次等到ack后发送全部</li>
+<li>Clark 解决傻窗口。应用层读一个造成window&#x3D;1，至少多一点buffer再告诉发送方。比如一半buf或者最大段长</li>
+</ul>
+<h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>原因：网络慢buffer大（拥塞窗口，慢启动，避免拥塞），快网络小buffer（随时window调整），按照最小值发送</p>
+<h5 id="慢启动"><a href="#慢启动" class="headerlink" title="慢启动"></a>慢启动</h5><p>拥塞窗口congwin，初始值为最大段长MSS。先发最大段长，正确确认后拥塞窗口变为2个最大段长。被正确确认后加倍。直到超时or大于阈值threshold（64K）。也就是收到一个ack加一个段。</p>
+<h5 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h5><p>大于阈值后线性增长，一个RTT周期增长一个段长。直到丢包超时。</p>
+<p>如果超时则阈值阈值减半，窗口变为1个段长。开始慢启动</p>
+<p><strong>快速丢包超时——快速重传</strong> 超时or三个重复ack，直接认定超时。阈值减半窗口回1.</p>
+<p>以上三个技术最早在<strong>Tahoe</strong>版本实现</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230220110822797.png" alt="image-20230220110822797"></p>
+<h5 id="快速恢复？？"><a href="#快速恢复？？" class="headerlink" title="快速恢复？？"></a>快速恢复？？</h5><p>TCP Reno会把当前的<code>ssthresh</code>的值设置为当前<code>cwnd</code>的一半，但是并不会回到<code>slow start</code>阶段，而是将<code>cwnd</code>设置为（更新后的）<code>ssthresh</code>+3MSS，之后<code>cwnd</code>呈线性增长。</p>
+<p>有人说超时到慢启动，快速重传触发快速恢复。每接收到一个冗余的确认报文，cwnd就增加1MSS</p>
+<p>快速回复再超时，慢启动。</p>
+<p>非冗余ack，新ack，cwnd回到ssthresh开始拥塞避免</p>
+<h5 id="多用户竞争瓶颈链路带宽问题"><a href="#多用户竞争瓶颈链路带宽问题" class="headerlink" title="多用户竞争瓶颈链路带宽问题"></a>多用户竞争瓶颈链路带宽问题</h5><p>有效性+公平性</p>
+<p>M 与原点连线，A正规斜线？？</p>
+<p><strong>MIAD</strong> 不稳定（需要初始带宽相同，且…），震荡；不公平收敛，大带宽全要；有效性不收敛</p>
+<p><strong>AIAD</strong> 稳定在ad&#x3D;&#x3D;ai；不公平收敛；不有效</p>
+<p><strong>MIMD</strong> 稳定，来回震荡；不公平收敛；有效收敛（系数符合）</p>
+<p><strong>AIMD</strong> 公平收敛 有效收敛，越来越靠近y&#x3D;x</p>
+<h3 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h3><p>无连接，端到端</p>
+<p>更快、简单、小头、没有拥塞。但是可能乱序丢失，每个都独立。用于流媒体（可以丢包但是速度延迟很重要）</p>
+<p>其他应用：RIP发送路由信息 DNS SNMP（网关信息）</p>
+<h4 id="头-1"><a href="#头-1" class="headerlink" title="头"></a>头</h4><p> <img src="/assets/2022Fall-net-final.assets/image-20230220112940790.png" alt="image-20230220112940790"></p>
+<p>端口长度校验和</p>
+<h2 id="Ch9-网络应用-68-1"><a href="#Ch9-网络应用-68-1" class="headerlink" title="Ch9 网络应用 68 1"></a>Ch9 网络应用 68 1</h2><h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>进程、线程通过os提供的IPC通信。不同主机则使用应用层协议通信。</p>
+<p>用户代理user agent指的是用户和网络应用程序间的接口，如web浏览器，播放器</p>
+<p>socket就是Internet API，两个进程读写socket通信。IP地址指明主机，端口指明进程。</p>
+<p>TCP：email+smtp; remote terminal access+telnet; Web+Http; ftp;  流媒体+proprietary; remote file server+NFS;</p>
+<p>UDP: 流媒体+proprietary; remote file server+NFS; Internet telephony+Skype； DNS</p>
+<p>流媒体，远程文件服务器，网络电话</p>
+<h3 id="CS模型"><a href="#CS模型" class="headerlink" title="CS模型"></a>CS模型</h3><p>请求——响应</p>
+<p>服务器具备并发性，为每个客户建立进程or线程处理通信。一部分用于接受请求创建进程，另一部分负责实际处理和通信。可以同时使用tcpudp</p>
+<h3 id="域名服务-DNS"><a href="#域名服务-DNS" class="headerlink" title="域名服务 DNS"></a>域名服务 DNS</h3><p>domain name service</p>
+<p>小网络只需要查一个文件就可以对应主机和地址，但是大网络就不行</p>
+<p>app调用解析器resolver，向本地域名服务器请求，以<strong>udp</strong>发送；本地域名服务器尝试解析，如果失败继续向上级域名服务器查询…直到解析完响应</p>
+<h4 id="名称空间"><a href="#名称空间" class="headerlink" title="名称空间"></a>名称空间</h4><p>顶级域名由ICANN管理，over250个顶级域名，不断被划分成一棵树</p>
+<p>顶级域名分为组织结构通用域名和地理结构国家地区两种，下面有子域名.</p>
+<p>大小写无关，每部分最长63字符，整体最长255字符。是从底下向上到根节点。这样前面一样也并不会冲突。</p>
+<p>新的细分域名（新域）要被上级的管理员认可。</p>
+<h4 id="DNS数据库"><a href="#DNS数据库" class="headerlink" title="DNS数据库"></a>DNS数据库</h4><p>每个域都有一组关联的五元组资源记录，</p>
+<p>域名——有关的资源记录</p>
+<p>域名（可能有多个记录）；生存时间；type；class（IN表示internet）；value</p>
+<ul>
+<li>type<ul>
+<li>SOA 名字管理员的电子邮件，域的基本信息</li>
+<li>A or AAAA quadA 主机名——主机地址</li>
+<li>MX name对应邮件服务器的hostname，通过@后面的地址找到邮箱服务器</li>
+<li>NS 域名——权威域名服务器（地址）名字，所在域和子域的名字服务器，用于域名查询处理。</li>
+<li>CNAME 规范名称别名——规范名称</li>
+</ul>
+</li>
+</ul>
+<p>DNS划分域名空间到很多zone，边界由人工设置。edu.cn 和 tsinghua.edu.cn为不同的zone，有各自的域名服务器。主和备份域名服务器，备份从主服务器获得信息。。。</p>
+<h4 id="多层DNS-query-example"><a href="#多层DNS-query-example" class="headerlink" title="多层DNS query example"></a>多层DNS query example</h4><p><img src="/assets/2022Fall-net-final.assets/image-20230220115725503.png" alt="image-20230220115725503"></p>
+<p>查本地直接查，如果查外地。本地域名服务器联系根服务器（很强），然后逐渐往下联系。查询robot.cs.washington.edu</p>
+<p>本地——根——edu——washington.edu–查英语系直接获得答案，计算机系需要再往下找到cs.washington.edu</p>
+<p>本地不能返回部分答案，需要<strong>递归查询（负责到底）</strong>。根服务器返回部分答案给本地，<strong>迭代查询（我不知道，你问他吧）</strong>。</p>
+<p><strong>引入缓存</strong> 在本地域名服务器缓存一些常见的域名和IP，以及其权威域名服务器。不过缓存答案不一定及时更新（过期）</p>
+<h3 id="简单网络管理协议-SNMP"><a href="#简单网络管理协议-SNMP" class="headerlink" title="简单网络管理协议 SNMP"></a>简单网络管理协议 SNMP</h3><p>功能：性能、故障、配置、记账和安全管理。基于<strong>UDP</strong></p>
+<h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><p>被管理节点（主机路由器等网络设备）：运行snmp agent维护本地数据库，描述自己的状态历史等，影响运行。</p>
+<p>管理工作站：运行manager  使用管理协议与代理通信，维护管理信息库</p>
+<p>管理信息：每个站点用多个变量（对象object）描述自己的状态，组成MIB管理信息库</p>
+<p>管理协议：用于manager查询修改被管理节点状态。被管理节点也可以向管理站产生trap报告</p>
+<h4 id="抽象语法表示法-ASN-1"><a href="#抽象语法表示法-ASN-1" class="headerlink" title="抽象语法表示法 ASN.1"></a>抽象语法表示法 ASN.1</h4><p>MIB采用树形结构，根在最上面。在不同计算机之间的对象描述和传输。分为<strong>数据描述定义</strong>和<strong>传输语法定义</strong></p>
+<h5 id="5数据类型"><a href="#5数据类型" class="headerlink" title="5数据类型"></a>5数据类型</h5><p>int  bitstring  octetstring（无符号字节）   null    object-identifier</p>
+<h5 id="任何标准中的对象都用对象命名树可以表示"><a href="#任何标准中的对象都用对象命名树可以表示" class="headerlink" title="任何标准中的对象都用对象命名树可以表示"></a>任何标准中的对象都用对象命名树可以表示</h5><p>比如tcp 1 3 6 1 2 1 6</p>
+<p>构造新类型的方法：seq seq of (1type) set set of     choice(union)</p>
+<p>也可以通过标记新老的类型来创建新类型，四类标签…</p>
+<h4 id="传输语法-编码规则BER"><a href="#传输语法-编码规则BER" class="headerlink" title="传输语法 编码规则BER"></a>传输语法 编码规则BER</h4><p>标志符 + 数据长度域  + 数据域</p>
+<ul>
+<li><p>标志符：2Tag|1type|5number 大于30的num第五位11111用后面字节表示</p>
+<ul>
+<li>00 universal  01app  10 上下文特制 11private</li>
+<li>0 primitive原始类型 1constructed</li>
+</ul>
+</li>
+<li><p>数据长度域 </p>
+<ul>
+<li>&lt;128 一个字节，高位0</li>
+<li>更大时候第一字节高位1然后后面是表示长度的字节个数</li>
+</ul>
+</li>
+<li><p>数据域</p>
+<ul>
+<li><p>int 直接二进制编码</p>
+</li>
+<li><p>bit str 头部第一个字节是最后不用的位数，比如0x07</p>
+</li>
+<li><p>octet不变</p>
+</li>
+<li><p>null 长度0 无数据</p>
+</li>
+<li><p>objident 命名树编码整数序列。前两个数用一个字节40a+b 如1361</p>
+<p>编码为4 数据长度域 3 6 1</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="SMI和MIB"><a href="#SMI和MIB" class="headerlink" title="SMI和MIB"></a>SMI和MIB</h4><p>SNMP在ASN1上定义了4个宏和八个新数据类型来定义数据结构，叫做SMI</p>
+<p>变量叫做object，相关对象叫group，group汇集成module</p>
+<p>MIB包含十个组，管理站通过SNMP向站点agent查询这些对象的值</p>
+<p>object属性：类型（名字）、语法（数据类型）、存取（access ro wo rw non）、状态（实现需要，比如必备实现，可以实现和废弃）</p>
+<p><img src="/assets/2022Fall-net-final.assets/image-20230220195522793.png" alt="image-20230220195522793"></p>
+<h3 id="电子邮件SMTP协议"><a href="#电子邮件SMTP协议" class="headerlink" title="电子邮件SMTP协议"></a>电子邮件SMTP协议</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>用户代理（用户进程）——消息传输代理（邮件服务器，OS后台进程，从源发到目的端）——简单邮件传输协议SMTP</p>
+<p>基本功能和进阶功能：</p>
+<p>撰写、传输、报告、显示、处理</p>
+<p>自动转发、自动回复、收件箱、抄送、加密、优先级、群发的mailing list比如<a href="mailto:&#115;&#x74;&#x75;&#100;&#x65;&#110;&#x74;&#115;&#64;&#99;&#115;&#x2e;&#116;&#x73;&#105;&#110;&#103;&#x68;&#x75;&#x61;&#x2e;&#x65;&#x64;&#117;&#46;&#x63;&#110;">&#115;&#x74;&#x75;&#100;&#x65;&#110;&#x74;&#115;&#64;&#99;&#115;&#x2e;&#116;&#x73;&#105;&#110;&#103;&#x68;&#x75;&#x61;&#x2e;&#x65;&#x64;&#117;&#46;&#x63;&#110;</a></p>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p><strong>MIME 多用途因特网邮件扩展</strong> 多媒体支持，转换为ascii流发送</p>
+<ul>
+<li>信封：接收方信息，如名字地址，优先 安全</li>
+<li>邮件消息<ul>
+<li>邮件头：用户代理的控制信息,比如from</li>
+<li>邮件体：实际内容</li>
+</ul>
+</li>
+</ul>
+<p>X.400地址&#x2F;C&#x3D;US&#x2F;SP&#x3D;MASSACHUSETTS&#x2F;L&#x3D;CAMBRIDGE&#x2F;PA&#x3D;360 MEMORIAL DR.&#x2F;CN&#x3D;KEN SMITH&#x2F;  </p>
+<h4 id="SMTP描述"><a href="#SMTP描述" class="headerlink" title="SMTP描述"></a>SMTP描述</h4><ul>
+<li>25号端口，TCP连接</li>
+<li>接收方是服务器，首先发送<strong>准备接受</strong>消息</li>
+<li>客户发出<strong>Helo</strong> 消息，服务器回答<strong>Helo</strong>，开始传输</li>
+<li>首先发出<strong>From</strong> 和 <strong>RCPT</strong> To，服务器分别确定收信人存在，表示可以<strong>继续发送</strong></li>
+<li>客户发送<strong>DATA</strong>，以CRLF.CRLF结尾，服务器<strong>可以确认</strong></li>
+<li>服务器也会发送邮件给客户，过程相同。然后释放TCP连接<strong>QUIT</strong></li>
+</ul>
+<p>消息以7bit ascii为单位，特殊串如结束符不允许出现，可以base64编码之后</p>
+<p>持久连接</p>
+<p><strong>POP3</strong>  用户代理和邮箱不在同机器，使用pop3取回邮箱的信件。</p>
+<p><strong>IMAP</strong>  多个用户代理访问同样邮箱</p>
+<p><strong>PGP&#x2F;PEM</strong>  加密email</p>
+<h3 id="WWW"><a href="#WWW" class="headerlink" title="WWW"></a>WWW</h3><h4 id="模型-1"><a href="#模型-1" class="headerlink" title="模型"></a>模型</h4><ul>
+<li>Web页面<ul>
+<li>URL表示地址：协议+对象地址（域名orIP）+路径名</li>
+<li>对象object组成</li>
+<li>HTML+引用对象</li>
+</ul>
+</li>
+<li>browser 访问网页的客户端<ul>
+<li>MS IE</li>
+<li>Netscape Navigator</li>
+</ul>
+</li>
+<li>Web服务器，储存web对象<ul>
+<li>Apache</li>
+<li>Microsoft Internet Information Server</li>
+</ul>
+</li>
+<li>超文本传输协议HTTP</li>
+</ul>
+<h4 id="HTTP-hyper-text-transfer-protocol"><a href="#HTTP-hyper-text-transfer-protocol" class="headerlink" title="HTTP hyper text transfer protocol"></a>HTTP hyper text transfer protocol</h4><p><strong>TCP 80端口</strong> cs模型，无状态协议不保存客户信息。</p>
+<p>1.0 非持久连接 http1.0</p>
+<p>1.1 持久连接 </p>
+<p>2.0 多路复用  </p>
+<p>3.0 HTTPoverQUIC</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>建立连接——请求——响应一个页面——服务器关闭tcp——浏览器解析页面发现有十个引用的对象，再去请求对应的服务器</p>
+<h4 id="持久和非持久"><a href="#持久和非持久" class="headerlink" title="持久和非持久"></a>持久和非持久</h4><p><strong>非持久</strong> HTTP1.0 服务器响应后马上关闭连接，每个obj取得至少两个RTT，都需要慢启动</p>
+<p><strong>持久</strong> HTTP1.1 同一个TCP连接上，服务器解析请求响应，再解析新请求。客户端请求所有obj，较少RTT和慢启动。。</p>
+<h4 id="代理服务器缓存"><a href="#代理服务器缓存" class="headerlink" title="代理服务器缓存"></a>代理服务器缓存</h4><p>web缓存如果有，直接返回。否则申请原服务器。有更小的延迟和减轻远端流量</p>
+<h3 id="文件传输FTP协议"><a href="#文件传输FTP协议" class="headerlink" title="文件传输FTP协议"></a>文件传输FTP协议</h3><p><strong>tcp 21</strong> cs模式，并行的tcp连接。</p>
+<p>21端口用来控制，使用telnet。在protocol interpreter中</p>
+<p>20端口传输数据，数据连接可以双向，不一定始终存在，单独的数据传输进程。</p>
+<p>维护状态：当前目录、身份认证</p>
+<p>常用协议集</p>
+<ul>
+<li><p>体系结构</p>
+<p>- </p>
+</li>
+<li><p>物理层</p>
+<ul>
+<li>SONET&#x2F;SDH 光网络</li>
+</ul>
+</li>
+<li><p>链路层</p>
+<ul>
+<li>ATM</li>
+<li>面向字符：<strong>PPP</strong>字符填充，多协议多功能，改进SLIP，不滑动 DDCMP BSC BM XBM ，<strong>SLIP</strong>字符填充 原始IP包 标记字符定界</li>
+<li>面向bit：SDLC ASCCP <strong>HDLC</strong>（主、次、组合站，使用011111110定界 CRC校验 信息、监控、无序号帧） LAP <strong>LAPB</strong>（X.25，是HDLC子集）</li>
+<li></li>
+</ul>
+</li>
+<li><p>MAC+LLC（HDLC）逻辑链路控制子层</p>
+<ul>
+<li><p><strong>802.3：</strong>1-坚持CSMACD 10Base5… 曼彻斯特 </p>
+<p>前导7字节10101010和一字节10101011</p>
+</li>
+<li><p><strong>以太网</strong> MTU（前导8）46+18~1500+14+4B</p>
+<p>6字节地址 最短帧长大于2τ防止冲突</p>
+<p>100BaseT4 25MHz 8B6T编码 每对33.3Mbps</p>
+<p>10GE 只光纤 单模更好 不使用CSMACD 全双工</p>
+</li>
+<li><p><strong>802.5</strong> 令牌环 需要延迟容纳令牌 重负载100% 曼彻斯特编码 物理层违例定界；源路由网桥指定Lan序列</p>
+</li>
+<li><p><strong>FDDI</strong>  多模光纤 100M 4B5B编码 物理层违例定界 类似令牌环</p>
+</li>
+<li><p><strong>DPT|RPR</strong> 城域网双环 SRP</p>
+</li>
+<li><p><strong>802.11</strong> WIFI——<strong>MACA</strong>（RTS+CTS 二进制指数后退） W确认，载波监听</p>
+</li>
+<li><p>收发器：csma等</p>
+</li>
+<li><p>交换机：隔离卡内冲突域，卡间并行无冲突</p>
+</li>
+<li><p>网桥：互联lan，转帧格式，隔离冲突域；</p>
+<p>到根的最短路径为生成树，其他透明。</p>
+</li>
+</ul>
+</li>
+<li><p>网络层</p>
+<ul>
+<li><p>静态</p>
+<ul>
+<li>洪泛 DIj </li>
+<li>基于流量：剩余带包的导数</li>
+</ul>
+</li>
+<li><p>距离向量路由：无穷计算 水平分裂：从你学的不给你报告 Y失败</p>
+</li>
+<li><p>链路状态路由：Hello学地址，echo测开销；</p>
+<ul>
+<li>包：自己、Seq、Age(TTL、邻居代价</li>
+<li>Onlogn 可能震荡</li>
+</ul>
+</li>
+<li><p>TCPIP</p>
+</li>
+<li><p>IPV6 1280B分组，主机分片；双栈、翻译（NAT64）、隧道</p>
+</li>
+<li><p>ICMP 报告错误和测试</p>
+</li>
+<li><p>ARP RARP：MAC IP</p>
+</li>
+<li><p><strong>BOOTP</strong> 使用IP UDP，可以分配其他信息。可以转发到其他子网</p>
+</li>
+<li><p>CIDR 无类间域路由：解决ipv4不够，罪魁祸首B类——把剩余的C类分为大小可变的地址空间。</p>
+<p>不给B，多给几块C。世界上四段连续C类，</p>
+</li>
+<li><p>域内IGP</p>
+<ul>
+<li><p>RIP：UDP，距离向量；跳数为代价；30 180s</p>
+</li>
+<li><p>OSPF：链路状态 多种代价 </p>
+<p>分层路由：区域和主干0号区域。穿越主干。四类路由器：域内、多域、主干、边界</p>
+</li>
+<li><p>ISIS：链路状态</p>
+</li>
+</ul>
+</li>
+<li><p>域间EGP：需要定义策略，而非性能</p>
+<ul>
+<li>BGP：TCP 路径向量（类似距离向量）</li>
+</ul>
+</li>
+<li><p>拥塞控制</p>
+<ul>
+<li>开环：漏桶（字节计数）、令牌桶</li>
+<li>虚电路：流说明、准入控制、资源预留</li>
+<li>数据包子网：抑制、逐跳抑制</li>
+<li>公平队列算法、加权公平队列——分组轮询到字节轮询</li>
+</ul>
+</li>
+<li><p>分片：出口重组or目的重组</p>
+</li>
+<li><p>路由器：网络接口、内部交换、转发引擎、路由表、路由引擎；完成路由查找 和 内部交换</p>
+</li>
+</ul>
+</li>
+<li><p>传输层</p>
+<ul>
+<li>berkeley sockets 对称释放连接</li>
+<li>TCP<ul>
+<li>三次握手建立SYN，对称式关闭FIN（三次握手+定时）</li>
+<li>20字节开头，满足MTU</li>
+<li>可变窗口</li>
+<li>Nagle:1 + all + all改善发送 Clark改善window</li>
+<li>不保证延迟和带宽</li>
+</ul>
+</li>
+<li>UDP，不握手，只有len和check</li>
+</ul>
+</li>
+<li><p>应用层</p>
+<ul>
+<li>FTP 控制tcp21+数据tcp</li>
+<li>SNMP udp<ul>
+<li>性能、故障、配置、安全、记账</li>
+<li>背管节点、工作站、管理信息MIB、管理协议SNMP</li>
+<li>ASN1抽象表示，构造新类型，SMI管理信息结构。obj-grp-mod 10grp</li>
+<li>obj：类型、语法、存取、状态</li>
+<li>传输语法：BER规则<ul>
+<li>标志符 tag type tag，可以后延，最后一个首1</li>
+<li>数据长度域：高位0直接写，高位1表示有多少字节</li>
+<li>数据域：<ul>
+<li>Int 二进制直接传</li>
+<li>bitstring 第一个串为最后不用的个数</li>
+<li>octet str直接传</li>
+<li>命名树放编码，两个数合并40a+b</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>WWW结构框架HTTP tcp</li>
+<li>Email：SMTP tcp<ul>
+<li>撰写、传输、报告、显示、处理</li>
+<li>信封接收方 信头用户代理的控制信息 信体</li>
+<li>MIME多媒体扩展</li>
+<li>POP3 IMAP PGP PEM 给用户收件</li>
+</ul>
+</li>
+<li>DNS udp<ul>
+<li>资源记录，type中A MX主机 NS CNAME SOA</li>
+<li>ICANN管理顶级域名</li>
+<li>递归负责到底，迭代你问问它，本地服务器负责到底</li>
+</ul>
+</li>
+<li>Telnet tcp</li>
+</ul>
+</li>
+</ul>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/02/25/2022Fall-compile-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2022秋季学期 编译原理 期末复习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/02/23/2022Fall-organization-final/"><span class="level-item">2022秋季学期 计算机组成原理 期末复习笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

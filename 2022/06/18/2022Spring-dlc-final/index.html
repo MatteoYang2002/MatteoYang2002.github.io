@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>2022纯季学期 数字逻辑电路 期末复习笔记 - MatteoYang&#039;s Space</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MatteoYang&#039;s Space"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MatteoYang&#039;s Space"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="markdown丢失图片，可直接下载pdf版 Lect02码制8421 BCD 有权 权为8421 后六个数不允许出现表示十进制 一个一个转 5421 有权 5 &amp;#x3D; 1000 一半以后首位是1 2421 有权 只能表示0-9 一半以后首位是1 4&amp;#x3D;0100 5&amp;#x3D;1011 余3 无权 &amp;#x3D; 8421+0011 相加时注意和减3 进位则加3 为什么？4位才是1个1"><meta property="og:type" content="blog"><meta property="og:title" content="2022纯季学期 数字逻辑电路 期末复习笔记"><meta property="og:url" content="matteoyang.space"><meta property="og:site_name" content="MatteoYang&#039;s Space"><meta property="og:description" content="markdown丢失图片，可直接下载pdf版 Lect02码制8421 BCD 有权 权为8421 后六个数不允许出现表示十进制 一个一个转 5421 有权 5 &amp;#x3D; 1000 一半以后首位是1 2421 有权 只能表示0-9 一半以后首位是1 4&amp;#x3D;0100 5&amp;#x3D;1011 余3 无权 &amp;#x3D; 8421+0011 相加时注意和减3 进位则加3 为什么？4位才是1个1"><meta property="og:locale" content="en_US"><meta property="og:image" content="/typora-user-images%5Cimage-20220616131433804.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616131548032.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616132840673.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616132931893.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616133125129.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616133249173.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616133257627.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616133306312.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616133840636.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616134142961.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616134816149.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616135237721.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616135753628.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616135958004.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616140236012.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616140635842.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616142053976.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616142149598.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616142221118.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616142628182.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618003455536.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616144721117.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616145231140.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616145244231.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616145717602.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616145728437.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616153400455.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616160909702.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616162236841.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616162641950.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616162750720.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616163615413.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616164943718.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616170240473.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616170229738.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616171058380.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616171348134.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616203353864.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616205002210.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616205221331.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616210038402.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616212115268.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616212022099.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616213053380.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616214011685.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616214429147.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616214811608.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616215017114.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616215522846.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616215540150.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616221302739.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616221251932.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616221619605.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616222527657.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220616235817684.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617000835894.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617000932548.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617001909754.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617213002511.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617213053734.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617213105154.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617215202117.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617215926900.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617220126799.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617220230542.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617221115739.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617221951564.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617222131649.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617230222268.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617230300567.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220617232606708.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618001545343.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618001311015.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618001649022.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618003756551.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618004258361.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618002457731.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618002518601.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618004358354.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618004541188.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618010035888.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618010124271.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618010230692.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618010422524.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618093822452.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618093958084.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618143223330.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618143159958.png"><meta property="og:image" content="/typora-user-images%5Cimage-20220618175655568.png"><meta property="article:published_time" content="2022-06-18T08:42:00.000Z"><meta property="article:modified_time" content="2024-10-01T11:01:40.488Z"><meta property="article:author" content="Matteo Yang"><meta property="article:tag" content="Blog"><meta property="article:tag" content="Computer Science"><meta property="article:tag" content="Technology"><meta property="article:tag" content="Daily Life"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="/typora-user-images%5Cimage-20220616131433804.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://matteoyang.space/2022/06/18/2022Spring-dlc-final/"},"headline":"2022纯季学期 数字逻辑电路 期末复习笔记","image":["https://matteoyang.space/typora-user-images%5Cimage-20220616131433804.png","https://matteoyang.space/typora-user-images%5Cimage-20220616131548032.png","https://matteoyang.space/typora-user-images%5Cimage-20220616132840673.png","https://matteoyang.space/typora-user-images%5Cimage-20220616132931893.png","https://matteoyang.space/typora-user-images%5Cimage-20220616133125129.png","https://matteoyang.space/typora-user-images%5Cimage-20220616133249173.png","https://matteoyang.space/typora-user-images%5Cimage-20220616133257627.png","https://matteoyang.space/typora-user-images%5Cimage-20220616133306312.png","https://matteoyang.space/typora-user-images%5Cimage-20220616133840636.png","https://matteoyang.space/typora-user-images%5Cimage-20220616134142961.png","https://matteoyang.space/typora-user-images%5Cimage-20220616134816149.png","https://matteoyang.space/typora-user-images%5Cimage-20220616135237721.png","https://matteoyang.space/typora-user-images%5Cimage-20220616135753628.png","https://matteoyang.space/typora-user-images%5Cimage-20220616135958004.png","https://matteoyang.space/typora-user-images%5Cimage-20220616140236012.png","https://matteoyang.space/typora-user-images%5Cimage-20220616140635842.png","https://matteoyang.space/typora-user-images%5Cimage-20220616142053976.png","https://matteoyang.space/typora-user-images%5Cimage-20220616142149598.png","https://matteoyang.space/typora-user-images%5Cimage-20220616142221118.png","https://matteoyang.space/typora-user-images%5Cimage-20220616142628182.png","https://matteoyang.space/typora-user-images%5Cimage-20220618003455536.png","https://matteoyang.space/typora-user-images%5Cimage-20220616144721117.png","https://matteoyang.space/typora-user-images%5Cimage-20220616145231140.png","https://matteoyang.space/typora-user-images%5Cimage-20220616145244231.png","https://matteoyang.space/typora-user-images%5Cimage-20220616145717602.png","https://matteoyang.space/typora-user-images%5Cimage-20220616145728437.png","https://matteoyang.space/typora-user-images%5Cimage-20220616153400455.png","https://matteoyang.space/typora-user-images%5Cimage-20220616160909702.png","https://matteoyang.space/typora-user-images%5Cimage-20220616162236841.png","https://matteoyang.space/typora-user-images%5Cimage-20220616162641950.png","https://matteoyang.space/typora-user-images%5Cimage-20220616162750720.png","https://matteoyang.space/typora-user-images%5Cimage-20220616163615413.png","https://matteoyang.space/typora-user-images%5Cimage-20220616164943718.png","https://matteoyang.space/typora-user-images%5Cimage-20220616170240473.png","https://matteoyang.space/typora-user-images%5Cimage-20220616170229738.png","https://matteoyang.space/typora-user-images%5Cimage-20220616171058380.png","https://matteoyang.space/typora-user-images%5Cimage-20220616171348134.png","https://matteoyang.space/typora-user-images%5Cimage-20220616203353864.png","https://matteoyang.space/typora-user-images%5Cimage-20220616205002210.png","https://matteoyang.space/typora-user-images%5Cimage-20220616205221331.png","https://matteoyang.space/typora-user-images%5Cimage-20220616210038402.png","https://matteoyang.space/typora-user-images%5Cimage-20220616212115268.png","https://matteoyang.space/typora-user-images%5Cimage-20220616212022099.png","https://matteoyang.space/typora-user-images%5Cimage-20220616213053380.png","https://matteoyang.space/typora-user-images%5Cimage-20220616214011685.png","https://matteoyang.space/typora-user-images%5Cimage-20220616214429147.png","https://matteoyang.space/typora-user-images%5Cimage-20220616214811608.png","https://matteoyang.space/typora-user-images%5Cimage-20220616215017114.png","https://matteoyang.space/typora-user-images%5Cimage-20220616215522846.png","https://matteoyang.space/typora-user-images%5Cimage-20220616215540150.png","https://matteoyang.space/typora-user-images%5Cimage-20220616221302739.png","https://matteoyang.space/typora-user-images%5Cimage-20220616221251932.png","https://matteoyang.space/typora-user-images%5Cimage-20220616221619605.png","https://matteoyang.space/typora-user-images%5Cimage-20220616222527657.png","https://matteoyang.space/typora-user-images%5Cimage-20220616235817684.png","https://matteoyang.space/typora-user-images%5Cimage-20220617000835894.png","https://matteoyang.space/typora-user-images%5Cimage-20220617000932548.png","https://matteoyang.space/typora-user-images%5Cimage-20220617001909754.png","https://matteoyang.space/typora-user-images%5Cimage-20220617213002511.png","https://matteoyang.space/typora-user-images%5Cimage-20220617213053734.png","https://matteoyang.space/typora-user-images%5Cimage-20220617213105154.png","https://matteoyang.space/typora-user-images%5Cimage-20220617215202117.png","https://matteoyang.space/typora-user-images%5Cimage-20220617215926900.png","https://matteoyang.space/typora-user-images%5Cimage-20220617220126799.png","https://matteoyang.space/typora-user-images%5Cimage-20220617220230542.png","https://matteoyang.space/typora-user-images%5Cimage-20220617221115739.png","https://matteoyang.space/typora-user-images%5Cimage-20220617221951564.png","https://matteoyang.space/typora-user-images%5Cimage-20220617222131649.png","https://matteoyang.space/typora-user-images%5Cimage-20220617230222268.png","https://matteoyang.space/typora-user-images%5Cimage-20220617230300567.png","https://matteoyang.space/typora-user-images%5Cimage-20220617232606708.png","https://matteoyang.space/typora-user-images%5Cimage-20220618001545343.png","https://matteoyang.space/typora-user-images%5Cimage-20220618001311015.png","https://matteoyang.space/typora-user-images%5Cimage-20220618001649022.png","https://matteoyang.space/typora-user-images%5Cimage-20220618003756551.png","https://matteoyang.space/typora-user-images%5Cimage-20220618004258361.png","https://matteoyang.space/typora-user-images%5Cimage-20220618002457731.png","https://matteoyang.space/typora-user-images%5Cimage-20220618002518601.png","https://matteoyang.space/typora-user-images%5Cimage-20220618004358354.png","https://matteoyang.space/typora-user-images%5Cimage-20220618004541188.png","https://matteoyang.space/typora-user-images%5Cimage-20220618010035888.png","https://matteoyang.space/typora-user-images%5Cimage-20220618010124271.png","https://matteoyang.space/typora-user-images%5Cimage-20220618010230692.png","https://matteoyang.space/typora-user-images%5Cimage-20220618010422524.png","https://matteoyang.space/typora-user-images%5Cimage-20220618093822452.png","https://matteoyang.space/typora-user-images%5Cimage-20220618093958084.png","https://matteoyang.space/typora-user-images%5Cimage-20220618143223330.png","https://matteoyang.space/typora-user-images%5Cimage-20220618143159958.png","https://matteoyang.space/typora-user-images%5Cimage-20220618175655568.png"],"datePublished":"2022-06-18T08:42:00.000Z","dateModified":"2024-10-01T11:01:40.488Z","author":{"@type":"Person","name":"Matteo Yang"},"publisher":{"@type":"Organization","name":"MatteoYang's Space","logo":{"@type":"ImageObject","url":"https://matteoyang.space/img/avatar.jpg"}},"description":"markdown丢失图片，可直接下载pdf版 Lect02码制8421 BCD 有权 权为8421 后六个数不允许出现表示十进制 一个一个转 5421 有权 5 &#x3D; 1000 一半以后首位是1 2421 有权 只能表示0-9 一半以后首位是1 4&#x3D;0100 5&#x3D;1011 余3 无权 &#x3D; 8421+0011 相加时注意和减3 进位则加3 为什么？4位才是1个1"}</script><link rel="canonical" href="https://matteoyang.space/2022/06/18/2022Spring-dlc-final/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/about_Englishss">About</a><a class="navbar-item" href="/about_Chinese">关于</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-18T08:42:00.000Z" title="2022/6/18 16:42:00">2022-06-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-10-01T11:01:40.488Z" title="2024/10/1 19:01:40">2024-10-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Course/">Course</a></span><span class="level-item">an hour read (About 9355 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">2022纯季学期 数字逻辑电路 期末复习笔记</h1><div class="content"><p><strong>markdown丢失图片，可直接下载<a href="/pdf/2022Spring-dlc-final.pdf">pdf版</a></strong></p>
+<h3 id="Lect02"><a href="#Lect02" class="headerlink" title="Lect02"></a>Lect02</h3><h4 id="码制"><a href="#码制" class="headerlink" title="码制"></a>码制</h4><p><strong>8421 BCD 有权</strong> 权为8421 后六个数不允许出现表示十进制 一个一个转</p>
+<p><strong>5421 有权</strong> 5 &#x3D; 1000 一半以后首位是1</p>
+<p><strong>2421 有权</strong> 只能表示0-9 一半以后首位是1 4&#x3D;0100 5&#x3D;1011</p>
+<p><strong>余3</strong> 无权 &#x3D; 8421+0011 相加时注意和减3 进位则加3</p>
+<p>为什么？4位才是1个10进制位 直接相加并没有道理 其他有权码甚至不能正确判断相加的进位。余3因为两个余3就是一个6,10+6&#x3D;16可以进位并且抵消低位的余3<img src="/typora-user-images%5Cimage-20220616131433804.png" alt="image-20220616131433804"></p>
+<p><strong>格雷码</strong> 无权码 多形式 ：任何相邻的十进制数格雷码仅有1位不同</p>
+<p>减少代码变化中电路书瞬间产生的错误，可靠性高<img src="/typora-user-images%5Cimage-20220616131548032.png" alt="image-20220616131548032"></p>
+<p>典型格雷不能9回1，修改格雷不从0000开始</p>
+<ul>
+<li><p>格雷码1：除最高位之外中线对称 45 36 27 18 90</p>
+</li>
+<li><p>典型格雷码：对任意长的二进制数编码（除10进制是对BCD）</p>
+<p>G&#x3D;B_i+1 xor Bi 每个位都是<strong>自己异或高位</strong> 最高位直接拿来用（或者假设虚高位是0）</p>
+<p>解码？</p>
+</li>
+<li><p>修改格雷码：从余3开始编典型格雷码，为了前后循环 3和12衔接，也可满足中线对称。</p>
+</li>
+</ul>
+<p>字符编码</p>
+<p><strong>7位ASCII</strong> 教材P13	高3位区分控制字符、数字符号、大写英文、小写</p>
+<h3 id="Chap-2-逻辑代数"><a href="#Chap-2-逻辑代数" class="headerlink" title="Chap 2 逻辑代数"></a>Chap 2 逻辑代数</h3><h4 id="2-1-基本运算公式"><a href="#2-1-基本运算公式" class="headerlink" title="2.1 基本运算公式"></a>2.1 基本运算公式</h4><ul>
+<li>n输入的不同逻辑共有多少种？</li>
+</ul>
+<p>​		相当于对于定义域在所有输入组合上，有多少种不同的函数关系？<strong>2^2^n</strong> </p>
+<p>同或：not（xor） 相同取1，不同为0 AB+!A!B</p>
+<p><img src="/typora-user-images%5Cimage-20220616132840673.png" alt="image-20220616132840673"></p>
+<p><img src="/typora-user-images%5Cimage-20220616132931893.png" alt="image-20220616132931893"></p>
+<p>互补——A与!A 1律 0律 重叠律A A 双非（对合）</p>
+<p>交换 结合 分配 不加括号也是&amp;先算，即使在后面也可以&amp;对|分配<br><img src="/typora-user-images%5Cimage-20220616133125129.png" alt="image-20220616133125129"></p>
+<p>自己+自己求反&amp;条件B &#x3D; 自己+条件B<br>自己+自己&amp;条件B &#x3D; 自己<br><img src="/typora-user-images%5Cimage-20220616133249173.png" alt="image-20220616133249173"></p>
+<p><img src="/typora-user-images%5Cimage-20220616133257627.png" alt="image-20220616133257627"></p>
+<p><img src="/typora-user-images%5Cimage-20220616133306312.png" alt="image-20220616133306312"><img src="/typora-user-images%5Cimage-20220616133840636.png" alt="image-20220616133840636"></p>
+<p><strong>反演规则反函数</strong> 与或互换；变量求反；01互换即可 得到反函数</p>
+<p><strong>对偶规则</strong> 与或互换；01互换；得到对偶式 （F’’&#x3D;F; F&#x3D;G &#x3D;&gt; F’ &#x3D; G’)</p>
+<h4 id="2-2-公式法化简——吸收！包含！"><a href="#2-2-公式法化简——吸收！包含！" class="headerlink" title="2.2 公式法化简——吸收！包含！"></a>2.2 公式法化简——吸收！包含！</h4><p><img src="/typora-user-images%5Cimage-20220616134142961.png" alt="image-20220616134142961"></p>
+<p><img src="/typora-user-images%5Cimage-20220616134816149.png" alt="image-20220616134816149"></p>
+<p>貌似还是用与或去化简然后狄摩根成或与。。</p>
+<p>化简不动的时候试试拆分一个假1变成A+!A的形式：</p>
+<p>尤其是在很对称工整的形式里面化简，化成不对称不公整但是可以凑一起的形式</p>
+<p><img src="/typora-user-images%5Cimage-20220616135237721.png" alt="image-20220616135237721"></p>
+<p><img src="/typora-user-images%5Cimage-20220616135753628.png" alt="image-20220616135753628"></p>
+<h3 id="Lect-3"><a href="#Lect-3" class="headerlink" title="Lect 3"></a>Lect 3</h3><p><strong>最小项</strong> n个变量与 从000开始到111排序 三变量0-7 C是最高位</p>
+<p>只有一组取值为1剩下都是0 任何逻辑函数表示为唯一一组最小项的或</p>
+<p>某个最小项不是在F中就是在F的反函数中，用m_i 来表示 下图0-7 <img src="/typora-user-images%5Cimage-20220616135958004.png" alt="image-20220616135958004"></p>
+<p><strong>最大项</strong> n个变量或一起，唯一一组为0 从0到7 C最高位 </p>
+<p>任何F都是最大项之积（与），标准或与 大家与一起必为0</p>
+<p><img src="/typora-user-images%5Cimage-20220616140236012.png" alt="image-20220616140236012"></p>
+<p>m和M之间是求反的关系 M_i &#x3D; ! m_i</p>
+<p>而sigmami和paiMi为对偶式</p>
+<p><img src="/typora-user-images%5Cimage-20220616140635842.png" alt="image-20220616140635842"></p>
+<p>按循环码顺序，首尾满足格雷性质，00 01 11 10 110 111 101 100</p>
+<ol>
+<li>画图</li>
+<li>填数</li>
+<li>合并</li>
+<li>先大后小，能大就大——多检查上下左右边界</li>
+<li>不重不漏</li>
+</ol>
+<p>多输出化简：在与或中尽量找公共或项让多个函数共享，容易最简，并不是单个最简</p>
+<p>无关项：打X，可以1</p>
+<h3 id="Lect4-与非门与外特征"><a href="#Lect4-与非门与外特征" class="headerlink" title="Lect4 与非门与外特征"></a>Lect4 与非门与外特征</h3><h4 id="3-1-引言"><a href="#3-1-引言" class="headerlink" title="3.1 引言"></a>3.1 引言</h4><p>输出取决于输入逻辑组合，和过去状态无关，只有关于当前</p>
+<p>实际情况：前后沿存在延迟且不相等</p>
+<p><img src="/typora-user-images%5Cimage-20220616142053976.png" alt="image-20220616142053976"></p>
+<p>集成电路？<img src="/typora-user-images%5Cimage-20220616142149598.png" alt="image-20220616142149598"></p>
+<p><img src="/typora-user-images%5Cimage-20220616142221118.png" alt="image-20220616142221118"></p>
+<p>集成度18月翻一番（Moore Law）XXSI 0S\12 M\100 L\10,000 VL \1,000,000 UL</p>
+<p>三维集成延续摩尔定律——功耗太高（电力、热问题、延迟、可靠性</p>
+<p>系统功耗是关键因素，低功耗设计环节，优化、封装</p>
+<h4 id="3-2-门电路"><a href="#3-2-门电路" class="headerlink" title="3.2 门电路"></a>3.2 门电路</h4><p>74LSXX元件速查 00 30<img src="/typora-user-images%5Cimage-20220616142628182.png" alt="image-20220616142628182"></p>
+<p>74LS139 138 154 LECT5 P37</p>
+<p>74LS85 四位比较器 2*4bitAB输入，前面大小等于输入以及后面大小等于输出</p>
+<p>76163 标准四位二进制计数器<img src="/typora-user-images%5Cimage-20220618003455536.png" alt="image-20220618003455536"></p>
+<p>与非门的封锁 0即封锁为1</p>
+<p>与或非门的封锁 1即封锁为0</p>
+<p>与或非的数据选择，在两路数据分别与上C和!C即可控制，1为选择端</p>
+<p>正逻辑和负逻辑，用1表示高电平为正逻辑</p>
+<p><strong>简单二值逻辑</strong></p>
+<ul>
+<li>开关：闭合为L 打开H 输出在Vcc一侧</li>
+<li>晶体管：截止、放大、饱和、倒置（不用）<strong>Lect4 P50</strong></li>
+</ul>
+<p><strong>与非门的外部特性</strong> </p>
+<ul>
+<li><p>开关特性：扇入（可用输入）、扇出（驱动数）、传输延迟（输入传输到输出的时间，速度和最大传输延迟反比）、功耗</p>
+<ul>
+<li>传输延迟：一般参考HL的中间电平来参考时间点，t_PHL t_PLH不同，t_pd&#x3D;max(t_PHL, t_PLH)</li>
+<li>测量延迟时间？一个输入即可，tpd &#x3D; （tpd1+tpd2）&#x2F;2n</li>
+<li>自激励震荡电路：奇数个非门串联，周期为n*单个总延迟</li>
+</ul>
+</li>
+<li><p>转移特性：门电路中输出电压随输入电压的变化特性Vin-Vout</p>
+<ul>
+<li>Vout急剧改变的门槛电压、阈值电压VT</li>
+</ul>
+</li>
+<li><p>直流参数：0输入电流&lt;&#x3D;1.6mA 1输出IOH&lt;&#x3D;400uA Voh&gt;&#x3D;3V…</p>
+<p>一般高电压H的时候要求的电流比较小，在几十几百uA左右 输入电流比输入小上十倍差不多（因为正常负载能力在10）</p>
+</li>
+<li><p>*技术参数：噪音容限</p>
+<ul>
+<li><p>叠加到正常输入的外部噪声电压，不会造成不可预料变化</p>
+<p><img src="/typora-user-images%5Cimage-20220616144721117.png" alt="image-20220616144721117"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>与非门电路级联</strong> </p>
+<ul>
+<li><p>负载计算</p>
+<ul>
+<li><p>计算负载能力？N&#x3D;IOH&#x2F;IIH &#x3D; 400uA&#x2F;40uA &#x3D; 10 输出1的情况</p>
+<p>输入0 则IOL&#x2F;IIL &#x3D; 16&#x2F;1.6mA &#x3D; 10 输出0的情况，电流方向反</p>
+</li>
+<li><p>负载太大？非正常 低电平变高 高电平变低整个逻辑工作异常</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>电路设计的“线与”问题</strong> 需要多个外设输出连接一个输入总线，要求一个发送数据D时候其他都为1，线与在一起为1*1*D 即可</p>
+<p>普通与非门：不能线与，Vcc和GND形成通路有50mA的电流损坏T4,5</p>
+<p>图腾结构不能线与的理解：有H有L会有大电流流过烧坏</p>
+<ol>
+<li><p>使用OC门（集电极开路输出的门电路）？？？速度慢</p>
+</li>
+<li><p>三态门TSC 保留totem输出结构但是可以输出线与的特点，速度快</p>
+<p><img src="/typora-user-images%5Cimage-20220616145231140.png" alt="image-20220616145231140"></p>
+</li>
+</ol>
+<p><img src="/typora-user-images%5Cimage-20220616145244231.png" alt="image-20220616145244231"></p>
+<p>叫G非的控制端，为0的时候切换为高组态，平时1的时候正常与非门</p>
+<p>有的时候G非为0阻断，有时候是1阻断切换高阻态，看有无圈圈。总的来说是在与门接受0的时候阻断</p>
+<p>多个三台门线与的时候：要先都到高阻态再有个别到正常态否则出现“浪涌电流”影响工作<img src="/typora-user-images%5Cimage-20220616145717602.png" alt="image-20220616145717602"></p>
+<p><img src="/typora-user-images%5Cimage-20220616145728437.png" alt="image-20220616145728437"></p>
+<p>电流方向！&#x3D;数据流向</p>
+<h3 id="Lect5-译码器-数据选择器"><a href="#Lect5-译码器-数据选择器" class="headerlink" title="Lect5 译码器 数据选择器"></a>Lect5 译码器 数据选择器</h3><h4 id="3-3-常用的中规模组合逻辑电路"><a href="#3-3-常用的中规模组合逻辑电路" class="headerlink" title="3.3 常用的中规模组合逻辑电路"></a>3.3 常用的中规模组合逻辑电路</h4><p><strong>3.3.1 译码器</strong> 变量译码（所有组合2-4 3-8 4-16)、码制译码、显示译码</p>
+<p><strong>变量译码器</strong> 只有一个输入为0 </p>
+<p><img src="/typora-user-images%5Cimage-20220616153400455.png" alt="image-20220616153400455">输入只能接1个负载，所以加1级缓冲之后再译码。用的都是与非门所以化简之后的表达式要加大非。</p>
+<p><strong>应用</strong> CPU2bit控制信号到译码器，连接4bit控制信号到4个设备上</p>
+<p><strong>有使能端的2-4译码</strong> E非&#x3D;1时 所有Y为1 E非的时候为disable而不是enable 则输入为1时候连到与门里面是0封锁 ——扩展、选通</p>
+<p><strong>多片2-4扩展3-8</strong> 高位输入C选片 AB译码</p>
+<p><strong>5片2-4扩展4-16</strong> 用高位CD来接入2-4选片，剩下AB译码</p>
+<p><strong>选通——解决竞争与冒险</strong> A和A非输入，与非产生负向<strong>尖峰Spike</strong> 或非会出现正向<strong>尖峰</strong>：用EN解决</p>
+<p>有时还会有<strong>“0”重叠Overlap</strong>现象，就同一时刻选择器中产生两个0，因为A’B’这种会有两极延迟相比于AB，导致AB和A’B’产生0重叠的危险</p>
+<p>注意画尖峰的时候不光前面的延迟，产生尖峰本身也要有延迟</p>
+<p><img src="/typora-user-images%5Cimage-20220616160909702.png" alt="image-20220616160909702"></p>
+<p>如果AB的改变没有同时到来存在skew的偏移，尖峰更宽 overlap两段</p>
+<p>t_spike &#x3D; t_skew+delay*1		t_overlap &#x3D; delay*1<img src="/typora-user-images%5Cimage-20220616162236841.png" alt="image-20220616162236841"></p>
+<p>用使能端消除 AB变化中覆盖变化的EN非 &#x3D; 1 强制Y0 &#x3D; Y3 &#x3D; 1 消干扰</p>
+<p>这个使能信号要早于等于变量变化到来，对晚变化的信号至少滞后1级门延迟<img src="/typora-user-images%5Cimage-20220616162641950.png" alt="image-20220616162641950"></p>
+<p><img src="/typora-user-images%5Cimage-20220616162750720.png" alt="image-20220616162750720">记得覆盖掉变化，但是会使得输出有效波形变窄（有效时间短)</p>
+<p><strong>3-8译码器</strong> 一样的写ABC连接三输入与非门即可</p>
+<p>扩展4-16？ 用高位D选片，低三位译码。。</p>
+<p>多使能端的译码器？3EN的3-8：E2A+E2B为使不能1封锁&#x2F;&#x2F;E1是使能0封锁</p>
+<p>这样的选片更方便，直接使能和使不能连接高位D，总的使不能连接到分片的使不能上。</p>
+<p><strong>3-8译码分配地址</strong>0<del>7 256 CPU地址换算到每个ROM中的0</del>4共32地址空间</p>
+<p>cpu高三位用来选片（CE非），低5位用来寻址</p>
+<p><img src="/typora-user-images%5Cimage-20220616163615413.png" alt="image-20220616163615413"></p>
+<p><strong>译码器作为数据分配器（一分多）</strong> 使能端为Data，C1C2控制多输出</p>
+<p>Data变，C1C2选择把当前位分配给哪一个通道，如果通道恒1则被封锁</p>
+<p><strong>4-16译码器</strong> 真值表&#x2F;功能表 组合逻辑中差不多，列所有输入和对应的输出</p>
+<p>有两个使不能端，有一个1就锁死全1</p>
+<p>问题：负载大，A非要负载9（2^n&#x2F;2+1)个门，A要负载8个门2^n&#x2F;2，使能端负载16门2^n</p>
+<p>当输入变量增多，单级译码器不好实现，负载太大了。一般采用<strong>多级译码</strong></p>
+<p><strong>4-16的多级译码，先前后翻译两个</strong> </p>
+<p>先把四位输入翻译成EFGH WXYZ的两组合共8种有效值，再解码2-4</p>
+<p><img src="/typora-user-images%5Cimage-20220616164943718.png" alt="image-20220616164943718"></p>
+<p>每个A只有4个负载降低了一半，每个与门也是4负载。相当于先粗分类成4+4类打包，然后讨论这4+4的两两组合每个对应一种结果</p>
+<p><strong>8-256的分级？</strong> 划分为（4-4）对四输入粗分类成（16-16）然后讨论16*16的组合结果 每个A带8个负载 A非带9个 每个与门16个</p>
+<p><strong>码制译码器</strong> 编码换编码，如二换十进制译码（8421BCD to 1 bit Dec)</p>
+<p>不完全译码比较简单，有不少X项用来化简但是完全的必须每个连4位</p>
+<p><strong>显示译码器</strong> 以共阳极，Low亮为例 4bit BCD转换为7bit亮灯（码制）对每一个输出都化简表达式即得。。</p>
+<h4 id="3-3-2-数据选择器（多选一-多选多）"><a href="#3-3-2-数据选择器（多选一-多选多）" class="headerlink" title="3.3.2 数据选择器（多选一\多选多）"></a>3.3.2 数据选择器（多选一\多选多）</h4><p><strong>4选1 四个D 两个控制S 一个输出Y</strong> 写出（化简）Y 连接即得</p>
+<p>EN为1的时候使不能，输出恒为0<img src="/typora-user-images%5Cimage-20220616170240473.png" alt="image-20220616170240473"></p>
+<p><img src="/typora-user-images%5Cimage-20220616170229738.png" alt="image-20220616170229738"></p>
+<p>有两个EN的双4选1，提供正反两个输出，用3个双4选1得到一个16选4<img src="/typora-user-images%5Cimage-20220616171058380.png" alt="image-20220616171058380"></p>
+<p>16路输入，4个控制，这个选择 的过程是从输出到入的。从1分成4然后每个都是一个1分4（无EN）<img src="/typora-user-images%5Cimage-20220616171348134.png" alt="image-20220616171348134"></p>
+<p>有使能端时候，S23译码成四个选择器的EN，然后同时3个使不能，这样四个四选一其中三个都是0，如果三态门可以直接“线与”</p>
+<p><strong>总线发送控制</strong> </p>
+<p>译码器是CPU往多个外设分配信息，这个是多个外设向CPU发送数据选择</p>
+<p><strong>译码器</strong>：看成N个输入组成的2^N个最小项。加一层与非即可实现与或逻辑</p>
+<p>可以实现与或表达式的逻辑 一个译码器选择几个最小项接入与非即可</p>
+<p><strong>数据选择器</strong> 逻辑是与或表达 N个控制端的2^N最小项 和2^N个输入组成的与或，可以用数据来调节01。只需把含有的最小项对应的D进1就好。</p>
+<p>甚至8选1可以实现四变量函数：三个控制+一个数据输入</p>
+<p>把对应的ABC代入函数得到1 0 或者D D非，然后把这个结果放到对应Di上</p>
+<h3 id="Lect6-编码器-比较器-奇偶校验"><a href="#Lect6-编码器-比较器-奇偶校验" class="headerlink" title="Lect6 编码器 比较器 奇偶校验"></a>Lect6 编码器 比较器 奇偶校验</h3><h4 id="3-3-3编码器"><a href="#3-3-3编码器" class="headerlink" title="3.3.3编码器"></a>3.3.3编码器</h4><ul>
+<li>编码器原理</li>
+</ul>
+<p>反向译码，对应编码如4-2 8-3 10-BCD等等</p>
+<p><strong>应用</strong>在CPU控制端告诉那个外设在上传数据（只一个0 其他都1）</p>
+<p>键盘的输入检测，哪个键被按下…</p>
+<p><img src="/typora-user-images%5Cimage-20220616203353864.png" alt="image-20220616203353864"></p>
+<p>2-4编码的时候，如果取大非可以直接对里面的取补 8-3类似？？？</p>
+<p>8421编码器 0-9的十个信号转成4 bit 8421码 L6 P12</p>
+<p>A+B+C+D &#x3D; AB或非 CD或非再与非到一起</p>
+<ul>
+<li>优先编码器：两条及以上为0的时候，优先输出高位编码</li>
+</ul>
+<p><img src="/typora-user-images%5Cimage-20220616205002210.png" alt="image-20220616205002210"></p>
+<p>模拟键盘，如果同时被按下输出高位编码，以3-8编码为例</p>
+<p>除了8个输入，还需要 <strong>使不能Ei非</strong>，</p>
+<p><strong>输出有效Gs</strong>（当本八位有有效输出的时候为0，可以区分是0被按下还是没有按键被按下的状态），<strong>输出级联E0</strong>（如果是0则允许级联，意思是没有按键被按下且没有使不能）</p>
+<p>如果7是0则剩下无所谓，一定翻译000出去（反码编码，平时111）</p>
+<p>由于反码编码，化简表达式也是化简Ai非&#x3D;找0行</p>
+<p><strong>级联</strong> 高位板子允许低位级联把Eo连到低位Ei使不能 允许0的时候低位使能正常工作。<strong>高位级联接低位使能</strong> <strong>两个有效与为总的有效</strong></p>
+<p>注意还是个3-8编码，编码结果只能接低三位，高位要高位板子的是否按下的有效Gs判断。切换的是提供低三位的片<img src="/typora-user-images%5Cimage-20220616205221331.png" alt="image-20220616205221331"></p>
+<p><strong>应用</strong> 按照优先级编码，中断相应，键盘输入读取等</p>
+<h4 id="3-3-4数据比较器"><a href="#3-3-4数据比较器" class="headerlink" title="3.3.4数据比较器"></a>3.3.4数据比较器</h4><p><img src="/typora-user-images%5Cimage-20220616210038402.png" alt="image-20220616210038402">可以级联，以4位为例，高位比不出来才比低位</p>
+<p>单bit比较：&gt;10  &lt;01 not xor同或为1</p>
+<p>设计的级联是低位连接高位，即最高的四位作为最终输出</p>
+<p>如果当前片比不出来才会去读取输入结果，否则以当前片结果为准</p>
+<h4 id="3-3-5-奇偶校验"><a href="#3-3-5-奇偶校验" class="headerlink" title="3.3.5 奇偶校验"></a>3.3.5 奇偶校验</h4><p>8个输入xor到4个xor到2个xor到一个即为结果，1是奇数 如果多位则在对应层级补进去</p>
+<h4 id="组合逻辑电路的竞争冒险"><a href="#组合逻辑电路的竞争冒险" class="headerlink" title="组合逻辑电路的竞争冒险"></a>组合逻辑电路的竞争冒险</h4><p><strong>竞争</strong> 输入信号由于延迟，走不同路影响到输出的时间不同。</p>
+<ul>
+<li>非临界 不产生错误输出 临界 产生错误输出</li>
+</ul>
+<p><strong>冒险</strong> 由竞争导致了错误信号</p>
+<p>！组合电路中的险象是瞬态、暂时的尖脉冲，稳定后可恢复正常逻辑关系</p>
+<p><strong>判断存在险象</strong> <strong>代数法</strong>：函数表达式可能存在X和X非 尝试消除其他变量得到X+X非或者X*X非的形式</p>
+<p><strong>卡诺图</strong> 把函数表达式化成卡诺圈进去，如果有圈相切（相邻但是不被同圈包含) 那这两个相邻项就是危险的</p>
+<p><strong>避免险象</strong> </p>
+<ul>
+<li><p><strong>增加冗余项</strong> 卡诺圈相切的时候手动把他们圈一起，冗余项可以保证当只有一个输入量变化的时候不再产生险象。在代数上理解是：把化简到A+A非 时候限制的其他条件加这么一项</p>
+</li>
+<li><p><strong>电容滤波</strong> 过滤高频信号 要求惯性环节时间常数τ大于尖脉冲 不要太大否则畸变严重 <img src="/typora-user-images%5Cimage-20220616212115268.png" alt="image-20220616212115268"><img src="/typora-user-images%5Cimage-20220616212022099.png" alt="image-20220616212022099"></p>
+</li>
+<li><p><strong>选通</strong> 在最终结果的与门上再增加一路选通脉冲的输入，我只在电路稳定之后出现选通高电平脉冲，避开险象脉冲</p>
+</li>
+</ul>
+<h4 id="3-3-6-可编程逻辑器件PLD"><a href="#3-3-6-可编程逻辑器件PLD" class="headerlink" title="3.3.6 可编程逻辑器件PLD"></a>3.3.6 可编程逻辑器件PLD</h4><p>包括ROM PLA逻辑阵列 PAL 阵列逻辑 GAL通用阵列逻辑 ）<strong>L6 P60</strong></p>
+<ul>
+<li>ROM 写入后只读（简单、规律、大容量） 区别可读可写RAM</li>
+</ul>
+<p>与阵列+或阵列，输入后与阵列附近只有一条是1的其他都0</p>
+<p>然后每个输出都是或阵列，可以直接出</p>
+<p>其实本质上是对不同输入的分情况讨论，上面按照从小到大排列输入，下面每一列都是一种输出结果。讨论好标上对应点出去就好了<img src="/typora-user-images%5Cimage-20220616213053380.png" alt="image-20220616213053380"></p>
+<p><strong>应用</strong> 比如翻译8421到格雷码之类 </p>
+<p>3输入4输出的rom为8<em>4的rom 可以*<em>实现0-7的平方</em></em></p>
+<p>储存计算机程序，每个地址（一列）为一个字节8bit</p>
+<ul>
+<li>PLA可编程逻辑阵列 逻辑压缩 PROM或阵列可编程 </li>
+<li>PAL是与阵列可编程或阵列固定，分组合的和时序的</li>
+<li>GAL是可以同时实现组合+时序的芯片</li>
+</ul>
+<p>rom是完全讨论的，输入相当于是地址需要完全寻址2^N</p>
+<p>PLA是压缩的，逻辑函数需要什么我们才保留什么，我们需要最简与或表达式。</p>
+<p>每一列代表输出中的一项，上面是项的与表示，下面输出的或<img src="/typora-user-images%5Cimage-20220616214011685.png" alt="image-20220616214011685"></p>
+<p>储存讨论的信息的时候也可以压缩最简单的输出项表达式，然后用每一列代表一个乘积项最后或在一起。一组地址多个P ok<img src="/typora-user-images%5Cimage-20220616214429147.png" alt="image-20220616214429147"></p>
+<h3 id="Lect7-运算器"><a href="#Lect7-运算器" class="headerlink" title="Lect7 运算器"></a>Lect7 运算器</h3><h4 id="3-3-6-加法器"><a href="#3-3-6-加法器" class="headerlink" title="3.3.6 加法器"></a>3.3.6 加法器</h4><p>半加器：不考虑进位，异或就好了</p>
+<p><strong>一位全加器</strong> 写出表达式不化简直接得<img src="/typora-user-images%5Cimage-20220616214811608.png" alt="image-20220616214811608"></p>
+<p>卡诺图化简一下 都表示成与非、与或非等形式。直接找的是F非和C非（找0）这样都是2级门延迟<img src="/typora-user-images%5Cimage-20220616215017114.png" alt="image-20220616215017114"></p>
+<p>尝试用Cn表示Fn，即先把Cn算出来之后用其结果和ABC组合得Fn</p>
+<p>注意这里一种思路是写Cn和Fn，另一种是写Cn非和Fn非</p>
+<p><img src="/typora-user-images%5Cimage-20220616215522846.png" alt="image-20220616215522846"></p>
+<p><img src="/typora-user-images%5Cimage-20220616215540150.png" alt="image-20220616215540150"></p>
+<p><strong>四位串行加法器</strong> </p>
+<p>如果都用方案2 最终F4 C4都是8级门延迟</p>
+<p>都用方案3，最终为F4 9级 C4 8级</p>
+<p>方案34 交叉串联呢？C1两级但是C1非其实1级就好直接扔D得到C2也是2级。C3非一级就好C3  C4都是4级 那么C5就是5级</p>
+<p>这种方式主要是交替利用C和C非作为传递使得C的计算飞快。F总是当前的C+1级即可</p>
+<p><strong>超前进位加法器</strong> 提前算出C1234 在表达式中看出：</p>
+<p>搞一个产生进位函数G&#x3D;XY 传递进位函数P&#x3D;X+Y 记得写表达式的时候直接找C &#x3D; 大非（XXX） XXX为C非的表达式<img src="/typora-user-images%5Cimage-20220616221302739.png" alt="image-20220616221302739"><img src="/typora-user-images%5Cimage-20220616221251932.png" alt="image-20220616221251932"><img src="/typora-user-images%5Cimage-20220616221619605.png" alt="image-20220616221619605"></p>
+<p>Ci都是2级 Fi都是3级</p>
+<p><strong>16位加法器</strong> 记得算延迟都要先算各级的C再算F</p>
+<p>4个超前进位4位加法器也可以再加一个超前进位器 P34为构成方法</p>
+<p>这时C4 8 12 16的延迟都是3 F1-4是3 后面都是6级<img src="/typora-user-images%5Cimage-20220616222527657.png" alt="image-20220616222527657"></p>
+<p>p146 SN74182 超前进位扩展器专用器件</p>
+<h4 id="3-3-7-算术运算逻辑单元-4位"><a href="#3-3-7-算术运算逻辑单元-4位" class="headerlink" title="3.3.7 算术运算逻辑单元 4位"></a>3.3.7 算术运算逻辑单元 4位</h4><p>功能控制：加减 比较 与或非 移位 核心是四位并行加法器</p>
+<ul>
+<li>控制进位逻辑（简单但少<ul>
+<li>10得同或结果时：X+Y （非00即可）和 !(XY) （非11即可）与 然后和1进行异或。</li>
+<li>11得与结果时： !(XY) 和1取异或</li>
+</ul>
+</li>
+<li>改变Gi 和 Pi获得多种运算能力（多但复杂<ul>
+<li>四个S是控制如何产生Gi和Pi的</li>
+<li>M状态控制 ，是否进行逻辑运算</li>
+</ul>
+</li>
+</ul>
+<p>L7 P51 有各种16种的运算 书P141 的元件74181</p>
+<h3 id="Lect9"><a href="#Lect9" class="headerlink" title="Lect9"></a>Lect9</h3><p>RS基本触发器 问题：0 0时非正常状态（本时刻一定是11，下一时刻如果11读取 就为不定状态了） 11读取 两个与非交叉</p>
+<p><img src="/typora-user-images%5Cimage-20220616235817684.png" alt="image-20220616235817684"></p>
+<p>时钟控制方式：电位触发、边沿触发、主从触发器</p>
+<p>功能分类：D、R-S、J-K、T（Toggle）</p>
+<p>重点：边沿触发的D和JK触发器</p>
+<p>如何解决00时的异常？限制输入or保持稳定不坏</p>
+<h4 id="电位方式触发-Clock-Pulse"><a href="#电位方式触发-Clock-Pulse" class="headerlink" title="电位方式触发 Clock Pulse"></a>电位方式触发 Clock Pulse</h4><p>修改R-S的输入，增加使能端，就EN&#x3D;1的时候一定是保持状态，优化成与非，E成为真正使能，0的时候一定是11保持</p>
+<p>这时候的修改RS电位触发器变成了00保持 11异常</p>
+<p>改进？单端输入，一定控制两个输入是相反的，改成D<img src="/typora-user-images%5Cimage-20220617000835894.png" alt="image-20220617000835894"></p>
+<p>但是延迟太大了吧，D到Q非最大要4级，再改进得到</p>
+<p><strong>电位D触发器</strong>  E仍然是使能，0的时候是保持（读取）<img src="/typora-user-images%5Cimage-20220617000932548.png" alt="image-20220617000932548"></p>
+<p>问题：抗干扰差 使能脉冲某个跳变来时，输出才变化为输入的值</p>
+<p><strong>正边沿D触发器</strong> 某个约定跳变来才接受数据，没约定跳变就保持</p>
+<p><img src="/typora-user-images%5Cimage-20220617001909754.png" alt="image-20220617001909754"></p>
+<p>CP &#x3D; 0 时 上面为基本RS的11状态，保持</p>
+<p>如果正边沿到来，在信号到来产生一级门作用的时候改变状态</p>
+<p><img src="/typora-user-images%5Cimage-20220617213002511.png" alt="image-20220617213002511"></p>
+<p><img src="/typora-user-images%5Cimage-20220617213053734.png" alt="image-20220617213053734"><img src="/typora-user-images%5Cimage-20220617213105154.png" alt="image-20220617213105154"></p>
+<p>其余情况在CP &#x3D; 1 的时候D发生两种改变都不能改变上面的电路状态。分别由两根锁死<strong>阻塞线</strong>来限制</p>
+<p>CP负边沿跳变的时候，34门都输出11为传统RS的保持状态</p>
+<p><strong>开关特性</strong> </p>
+<ul>
+<li><p>数据建立时间tsu &#x3D; set up</p>
+<p>数据接受的时候要稳定保证门3、4接受好数据(尤其门4要56处理完之后），有tsu&gt;&#x3D;tpd5+tpd6 2*delay</p>
+</li>
+<li><p>数据保持时间th &#x3D; hold 要等待阻塞线正常工作之后才能撤除这个有效的Data值</p>
+<p>如D &#x3D; 1，必须等门4的阻塞线封锁住3和6才好则</p>
+<p>th&gt;&#x3D;max(tpd3,tpd4) 1*delay</p>
+</li>
+<li><p>传输延迟参数tpd &#x3D; pass delay</p>
+<p>分别讨论输出HL还是LH CP到Q还是Q非 共四种</p>
+</li>
+<li><p>主要看两条阻塞线，CP&#x3D;1时有一条为0则代表一种状态，D只能被阻塞在5或者6门。当低电平两条线都是1时候56都打开才允许数据进入。</p>
+<p>故低电平要保证D通过5和6就位在34门口，低电平&gt;&#x3D;tsu且tsu只能在低电平区间</p>
+<p>高电平要保证thold形成好封锁&gt;&#x3D;thold在高电平期间</p>
+<p>tpd cpQ 也需要在高电平时间，在高电平让输出稳定下来47 为的是给下一个器件就位比如下一个触发器的输入就位。所以如果两个触发器之间有组合逻辑电路，这里的延迟仍需要算在tpdcp-&gt;Q上。</p>
+</li>
+</ul>
+<p><strong>多个FF最高时钟频率？</strong> </p>
+<p>Tcp-min &#x3D; tsu</p>
+<p>Tcp+min &#x3D; max(th , tpdcp-&gt;Q+tpdG（组合逻辑电路延迟）)</p>
+<h3 id="Lect10-负边沿JK，主从触发器"><a href="#Lect10-负边沿JK，主从触发器" class="headerlink" title="Lect10 负边沿JK，主从触发器"></a>Lect10 负边沿JK，主从触发器</h3><p><img src="/typora-user-images%5Cimage-20220617215202117.png" alt="image-20220617215202117"></p>
+<p>00保持11翻转 JK分别为Set Reset P4-P9 为操作的结构原理</p>
+<p>异步是不需要等CP的强制清零，0是选中态，正常为11</p>
+<p><strong>主从触发器</strong> 两极电位串联	CP&#x3D;1主触发器接受从封锁(+电位)</p>
+<p>负跳变主封锁从触发器接受主触发器的状态（负跳变）</p>
+<p><strong>主从RS触发器</strong> 17为加入异步 21有划归到主从RS的方法</p>
+<p><img src="/typora-user-images%5Cimage-20220617215926900.png" alt="image-20220617215926900"></p>
+<p><img src="/typora-user-images%5Cimage-20220617220126799.png" alt="image-20220617220126799"></p>
+<p><img src="/typora-user-images%5Cimage-20220617220230542.png" alt="image-20220617220230542"></p>
+<p>主从JK功能表与主从RS相同，只是11支持翻转</p>
+<p>只是在正时钟周期中JK不变化的前提下给出，不然能不满足功能表，<strong>抗干扰差</strong></p>
+<p><strong>主从VS边沿</strong> 主从似乎是负边沿因为正边沿接受负跳变才状态变化，但是触发方式不同。主从在负跳变时反应的是从触发器的状态可不一定是JK等输入的状态</p>
+<p>经常从触发器在负边沿读主的时候，反应的是正边沿中的第一次<strong>变化</strong>（第二次有时候由于从触发器QQ非没变导致JQ非&#x3D;0 KQ&#x3D;0而不发生变化，即<strong>最多可以发生和原来Q不同的一次变化</strong>比如把Q的1换成0，但是不能变第二次了会hold） 分析具体变化看下面这张图（注意从的之前状态）<img src="/typora-user-images%5Cimage-20220617221115739.png" alt="image-20220617221115739"></p>
+<p>所以主从适合正脉冲窄，短高电平的情况</p>
+<p><strong>T触发器 Trigger</strong> cp来就翻转，一般都是边沿（由DorJK构成）</p>
+<p>D的翻转需要Q非接D		JK&#x3D;11自带翻转</p>
+<p>CP由功能控制T和真实时钟cp与成，T&#x3D;1时Toggle模式</p>
+<p><strong>触发器的功能互换？</strong> 功能需求&#x3D;》用卡诺图写出Qn+1与Qn和输入之间的关系，再转换成激励表达式接入电路即可。</p>
+<p>D转JK<img src="/typora-user-images%5Cimage-20220617221951564.png" alt="image-20220617221951564"></p>
+<h3 id="Lect11-同步时序电路的分析与设计"><a href="#Lect11-同步时序电路的分析与设计" class="headerlink" title="Lect11 同步时序电路的分析与设计"></a>Lect11 同步时序电路的分析与设计</h3><p><img src="/typora-user-images%5Cimage-20220617222131649.png" alt="image-20220617222131649"></p>
+<p>统一CP，约定脉冲改变整体的状态且只改变一次</p>
+<p><strong>功能表（含Q真值表）</strong> 输入（激励）+Qn	得到	输出+Qn+1</p>
+<p>现在的状态+不同的激励能造成什么样的结果（未来状态）</p>
+<p><strong>状态表</strong> 卡诺图中一维是激励，一维是Qn  表中内容是Qn+1</p>
+<p>现在状态+不同的激励造成什么样的未来状态</p>
+<p><strong>状态图</strong> 圈里面是状态（Qn）转移边上有	输入&#x2F;输出</p>
+<p><strong>状态方程</strong> Qn+1 &#x3D; 激励条件（D)</p>
+<p>下一个状态的决定方程</p>
+<p><strong>激励表</strong>Qn Qn+1	得到	激励项（例如D、JK）</p>
+<p>状态的不同转移需要什么样的激励条件</p>
+<p>逻辑图——状态图——文字描述（设计为逆）</p>
+<h3 id="同步时序电路分析"><a href="#同步时序电路分析" class="headerlink" title="同步时序电路分析"></a>同步时序电路分析</h3><ol>
+<li><p>根据电路图列出触发器激励函数表达式<strong>D&#x3D;</strong> 和电路输出函数**F&#x3D;**f（Q)</p>
+<p>输入怎么影响D Q怎么影响输出</p>
+</li>
+<li><p>建立<strong>Qn+1</strong>表达式（根据上面的激励）以及<strong>状态表</strong>（类似真值功能表，Qn和输入得到激励得到次态和输出的表格）</p>
+<p>常用Qn+1 &#x3D; D	&#x2F;&#x2F;	Qn+1 &#x3D; J !Qn + !K Qn</p>
+</li>
+<li><p><strong>状态（转移）图</strong> 记得画完整</p>
+</li>
+<li><p>由状态图和次态、输出表达式带来的<strong>时序图</strong>（规定cp和输入，画Qn和输出的波形）</p>
+</li>
+<li><p>分析输出和输入的关系说明逻辑功能</p>
+</li>
+</ol>
+<p>可以先明确里面状态、中间态的含义（如保存上一位的进位结果）</p>
+<p>不完全的（6状态集合）也可以叫<strong>3位格雷码计数器</strong> 两个状态互换为clk的2分频 这样属于<strong>不能自启动</strong>的格雷码计数器（<strong>不保证一定能进入主循环</strong>）</p>
+<p>这是<strong>能够自启动的4位二进制计数器</strong> JK更方便实现“取反“<img src="/typora-user-images%5Cimage-20220617230222268.png" alt="image-20220617230222268"><img src="/typora-user-images%5Cimage-20220617230300567.png" alt="image-20220617230300567"></p>
+<p>把几个D触发器串行接好，低Q进高D，最高！Q进最低D得计数器 <strong>如何修复自启动？？？</strong></p>
+<h3 id="同步时序电路设计"><a href="#同步时序电路设计" class="headerlink" title="同步时序电路设计"></a>同步时序电路设计</h3><ol>
+<li><p>确定输入输出变量</p>
+</li>
+<li><p>原始状态图和状态表（可能并不最简）状态表：<img src="/typora-user-images%5Cimage-20220617232606708.png" alt="image-20220617232606708"></p>
+</li>
+<li><p>状态化简，画出最简的<strong>状态图</strong>和<strong>状态表</strong></p>
+<p>对于完全相同的行，合并其状态，直至不能这么做，</p>
+<p>状态表和状态图：一般每个转移边对应表中一行</p>
+</li>
+<li><p>状态分配：给每个状态用一串<strong>二进制来编码</strong></p>
+</li>
+<li><p>求出<strong>激励函数</strong>和<strong>输出函数</strong> 化简前就检查好能否自启动</p>
+<p>根据状态图	画一个<strong>大号的功能表</strong>（真值）分别为</p>
+<p>输入 Qn| Qn+1|激励DorJK（由Qn+1）|输出（由Qn和输入）</p>
+<p>根据后两列可以求出激励的表达式和Z的表达式</p>
+<p>这时候可以用<strong>卡诺图</strong>来化简 横纵二维都是输入和各位Qn，里面是各个Qn+1。能直接写出来的就直接写<img src="/typora-user-images%5Cimage-20220618001545343.png" alt="image-20220618001545343"></p>
+</li>
+<li><p>画（电路）逻辑图</p>
+</li>
+</ol>
+<h4 id="计数器-对CP脉冲计数，每次变化一次状态"><a href="#计数器-对CP脉冲计数，每次变化一次状态" class="headerlink" title="计数器 对CP脉冲计数，每次变化一次状态"></a>计数器 对CP脉冲计数，每次变化一次状态</h4><p>同步、异步；加法、减法、可逆；二进制、十进制、任意进制；</p>
+<p><strong>同步四位二进制计数器</strong> 偶尔需要“实用” 这里的Q0Q1都是二、四分频</p>
+<p><img src="/typora-user-images%5Cimage-20220618001311015.png" alt="image-20220618001311015">用JK触发器设计时，经常统一JK即可，而<img src="/typora-user-images%5Cimage-20220618001649022.png" alt="image-20220618001649022"></p>
+<p><strong>十进制计数器</strong></p>
+<p>编码、化简即可</p>
+<p><strong>可逆计数器</strong>		一个输入X表示是否正向计数  满1111之后进位Z为1</p>
+<p>用X表示模式的时候，经常可以两边化简完之后用XF1+!XF2来调节</p>
+<p><strong>设计计数器的问题——自启动</strong>	修正状态图，改变激励表</p>
+<h3 id="Lect13-集成化的4位二进制计数器"><a href="#Lect13-集成化的4位二进制计数器" class="headerlink" title="Lect13 集成化的4位二进制计数器"></a>Lect13 集成化的4位二进制计数器</h3><p>需要：异步、同步清零；同步置数；计数；保持；扩展；进位</p>
+<p>仍然是0是确认态，常态为111 RC是进位在1111or1001时，这样下一时刻cp来了可以一起动。</p>
+<p>T 串行控制：低位RC接入高位的T，常态是0即FFHold状态</p>
+<p>片间的进位RC逐片传递导致计数频率不能太高，RC每一片都要延迟<img src="/typora-user-images%5Cimage-20220618003756551.png" alt="image-20220618003756551"></p>
+<p>P并行控制：即快速扩展，分析进位条件是所有低位片都是1111</p>
+<p>只有当TP都是1的时候本片才进位，最低位RC连各个P，然后T都是RC（次低片可以直接1）当最低片1111（RC&#x3D;1）且上一位RC&#x3D;1时本片进入进位预备状态。</p>
+<p>这样就是除了最低位，每片到1111之后就已经在RC—HighT预备好了</p>
+<p>随时等待最低位的1111就位得到P&#x3D;1时候进入预备，只需一个延迟</p>
+<p>但是最高位的RC并不代表整体的进位。。</p>
+<p><img src="/typora-user-images%5Cimage-20220618004258361.png" alt="image-20220618004258361"></p>
+<p>集成化的标准计数器接口与功能表：</p>
+<p><img src="/typora-user-images%5Cimage-20220618002457731.png" alt="image-20220618002457731"><img src="/typora-user-images%5Cimage-20220618002518601.png" alt="image-20220618002518601"></p>
+<p>Rd!：触发器提供or（谨慎）组合逻辑直接清零Rd*Q这种</p>
+<p>CLR：从激励方程入手，直接在D上修改，下次检测就可以改了</p>
+<p>Load：接着改激励方程，L!(输入)+L（Q）</p>
+<p>TP:接着改激励方程记得改RC，保持的时候D取自己的Q</p>
+<p><img src="/typora-user-images%5Cimage-20220618004358354.png" alt="image-20220618004358354"></p>
+<p><strong>用76163自动循环状态</strong>  在到一定值之后启动置数预备Load，置0000<img src="/typora-user-images%5Cimage-20220618004541188.png" alt="image-20220618004541188"></p>
+<p><strong>产生固定序列信号如101001</strong> </p>
+<ol>
+<li><p>用上面自动循环状态的计数器</p>
+</li>
+<li><p>常规方法，用DorJK</p>
+</li>
+<li><p>循环移位设计，用QQQ表示长3子串然后循环起来（记得循环到下一个的前三位），注意不能一对多 101001101001</p>
+<p>输出随便接其中一个Q即可</p>
+</li>
+</ol>
+<h3 id="Lect14-1-寄存器——存储"><a href="#Lect14-1-寄存器——存储" class="headerlink" title="Lect14-1 寄存器——存储"></a>Lect14-1 寄存器——存储</h3><h4 id="基本寄存器"><a href="#基本寄存器" class="headerlink" title="基本寄存器"></a>基本寄存器</h4><ul>
+<li><p>基本4D寄存器，需要异步清零（!Rd&#x3D;0）和置数（!Rd&#x3D;1) </p>
+<p>记得减少对外负载，但是数据不在的时候不能保留了呜呜呜</p>
+</li>
+<li><p>!Rd异步清零 !E置数 CP时钟 11的时候Qn+1 &#x3D; Qn否则Dn<img src="/typora-user-images%5Cimage-20220618010035888.png" alt="image-20220618010035888"><img src="/typora-user-images%5Cimage-20220618010124271.png" alt="image-20220618010124271"></p>
+</li>
+<li><p>置数、保持还能选择？加Select输入可以选择数据源<img src="/typora-user-images%5Cimage-20220618010230692.png" alt="image-20220618010230692"></p>
+</li>
+<li><p>再加个使不能 !OE &#x3D; 1的时候为高阻态P13</p>
+</li>
+</ul>
+<p>两个相反的寄存器作为输入输出，让两个E和OE相反来控制<img src="/typora-user-images%5Cimage-20220618010422524.png" alt="image-20220618010422524"></p>
+<h4 id="移位寄存器"><a href="#移位寄存器" class="headerlink" title="移位寄存器"></a>移位寄存器</h4><p>需要寄存器有移位功能，每一个cp脉冲，寄存器数据顺序向左（右）移动一位，要采用边沿触发（or主从触发器）</p>
+<p><strong>串入变并出的移位</strong>，每一个Q接高位D，但是不循环移位（叫右移其实是左移。。）</p>
+<p><strong>并入并出的双向移位Reg</strong> 双向用S0S1控制	1就是哪个方向，11置数<img src="/typora-user-images%5Cimage-20220618093822452.png" alt="image-20220618093822452"><img src="/typora-user-images%5Cimage-20220618093958084.png" alt="image-20220618093958084"></p>
+<p><strong>应用：用移位寄存器设计信号发生器101000</strong> 选用串进并出的</p>
+<p>取n&#x3D;3得到 101 010 100 000 001 010有重复010无法区分，增加位数</p>
+<p>n&#x3D;4得到 1010 0100 1000 0001 0010 0101无重复，每次通过Q0123讨论出一个下一位要移进去的数字，做出6&#x2F;16的卡诺图化简D，下一个是Q0讨论即可。</p>
+<p>发现<strong>并不能自启动</strong>。有3个非工作循环。对非工作循环中任取一个状态，让次态进入工作循环比如0000&#x3D;&gt;0001进入（移入1）卡诺图7&#x2F;16</p>
+<p>记得考虑怎么样比较好<strong>通过移位方式进入工作循环</strong></p>
+<h3 id="Lect14-2-Ch5可编程逻辑电路"><a href="#Lect14-2-Ch5可编程逻辑电路" class="headerlink" title="Lect14-2 Ch5可编程逻辑电路"></a>Lect14-2 Ch5可编程逻辑电路</h3><h4 id="ROM只读存储器-40"><a href="#ROM只读存储器-40" class="headerlink" title="ROM只读存储器 40"></a>ROM只读存储器 40</h4><p>PROM与阵列固定（地址译码固定）或可编程（储存信息可以改）</p>
+<p>就是全部的输入情况来<strong>分情况讨论</strong> 计算点数的时候记得与阵列算非</p>
+<h4 id="PLA可编程逻辑阵列-47-与或均可编程-组合逻辑表示D"><a href="#PLA可编程逻辑阵列-47-与或均可编程-组合逻辑表示D" class="headerlink" title="PLA可编程逻辑阵列 47 与或均可编程 组合逻辑表示D"></a>PLA可编程逻辑阵列 47 与或均可编程 组合逻辑表示D</h4><p>压缩，只表示最小项甚至只表示<strong>乘积项</strong>即可，不是最小项</p>
+<p>先找Fi的最简与或表达式然后找乘积项，一条竖线表示一个乘积项上面与上乘积项的表达式。下面每个输出（一行）自取乘积的sum</p>
+<p>计算点数（交叉）：2*输入*P+输出*P</p>
+<p>计算容量：输入数目* P项数目*输出数 4*</p>
+<h4 id="PAL可编程阵列逻辑-与可编程或固定-72"><a href="#PAL可编程阵列逻辑-与可编程或固定-72" class="headerlink" title="PAL可编程阵列逻辑 与可编程或固定 72"></a>PAL可编程阵列逻辑 与可编程或固定 72</h4><p>决定好了每个输出取哪几个P项然后自己编写P项</p>
+<p>有反馈的寄存器PAL可以实现时序逻辑但不能组合</p>
+<p>演变过程P78</p>
+<h4 id="GAL通用可编程阵列逻辑-80-与可编程或固定"><a href="#GAL通用可编程阵列逻辑-80-与可编程或固定" class="headerlink" title="GAL通用可编程阵列逻辑 80 与可编程或固定"></a>GAL通用可编程阵列逻辑 80 与可编程或固定</h4><p>输出控制OLMC+反馈结构+多次可编程+集成度++</p>
+<p>需要：输入、输出、与阵列、输出逻辑宏单元</p>
+<p>GAL16V8@20pin 16入（右侧8个在OLMC下通用出入）</p>
+<p>8出 8个OLMC（或阵列in it）	P86逻辑图 </p>
+<h2 id="总的电路经验"><a href="#总的电路经验" class="headerlink" title="总的电路经验"></a>总的电路经验</h2><p> <strong>xor</strong>：想逐位加法、01个数等等，化简的时候多用xor简化，逐位判同（尤其是计数、加法）</p>
+<p>每两位xor：典型<strong>格雷码</strong></p>
+<p>分析组合电路：不一定顺着看输入，试试<strong>顺着看输出</strong>？</p>
+<p>模式控制：多在激励方程上之际修改，如置数、清零、数据选择。优先的放外面</p>
+<p>组合逻辑电路分析与设计：表达式、功能表、描述</p>
+<p>对BCD分级译码：先译AD，因为1xx0和1xx1唯一为8和9</p>
+<p>分级选数据和分级译码都一样，一定看好怎么分、分谁</p>
+<p>比如S3210选D0~9，可以先用S3区别0123和89XX互换 </p>
+<p>其实BCD译码和数据选择都是对控制端的讨论和翻译</p>
+<p>组合电路的开关参数：XX输入到XX输出的延时</p>
+<p>2个四选一模拟3输入函数？<img src="/typora-user-images%5Cimage-20220618143223330.png" alt="image-20220618143223330"><img src="/typora-user-images%5Cimage-20220618143159958.png" alt="image-20220618143159958"></p>
+<p>16并4并1：算大PG需2，算C4 8 12 16需3 各片算C需要2 算F1共6</p>
+<p>状态表：</p>
+<p><img src="/typora-user-images%5Cimage-20220618175655568.png" alt="image-20220618175655568"></p>
+<p>时序图没有初始状态就假设一个</p>
+</div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/12/07/2022Fall-netsecintro-final/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">2022秋季学期 计算机网络安全技术 期末复习笔记</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/01/06/2021Fall-FLA-final/"><span class="level-item">2021秋季学期 形式语言与自动机 期末复习</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="MatteoYang 杨天傲"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">MatteoYang 杨天傲</p><p class="is-size-6 is-block">Undergraduate Student of CST</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Beijing, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/matteoyang2002" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="bilibili" href="https://space.bilibili.com/28551965"><i class="fab fa-bilibili"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Zhihu" href="https://www.zhihu.com/people/matteoyang"><i class="fab fa-zhihu"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="WeChat" href="/contact_wechat"><i class="fab fa-weixin"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://www.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">University</span></span><span class="level-right"><span class="level-item tag">www.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://www.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Department</span></span><span class="level-right"><span class="level-item tag">www.cs.tsinghua.edu.cn</span></span></a></li><li><a class="level is-mobile" href="https://storage.cs.tsinghua.edu.cn" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Research Group</span></span><span class="level-right"><span class="level-item tag">storage.cs.tsinghua.edu.cn</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Auto/"><span class="level-start"><span class="level-item">Auto</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Course/"><span class="level-start"><span class="level-item">Course</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Daily/"><span class="level-start"><span class="level-item">Daily</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202305DLTCache/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-03T11:06:30.000Z">2023-09-03</time></p><p class="title"><a href="/2023/09/03/202309-Diary/">2023年9月记</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-02T08:01:36.000Z">2023-09-02</time></p><p class="title"><a href="/2023/09/02/hello-world/">Hello World</a></p><p class="categories"><a href="/categories/Daily/">Daily</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-15T02:33:36.000Z">2023-06-15</time></p><p class="title"><a href="/2023/06/15/2023Spring-ca-final/">2023春季学期 计算机系统结构 期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-06-13T04:01:36.000Z">2023-06-13</time></p><p class="title"><a href="/2023/06/13/2023Spring-os-final/">2023春季学期 操作系统 期中期末复习笔记</a></p><p class="categories"><a href="/categories/Course/">Course</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/1970/"><span class="level-start"><span class="level-item">1970</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/avatar.jpg" alt="MatteoYang&#039;s Space" height="28"></a><p class="is-size-7"><span>&copy; 2025 Matteo Yang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2002-2023 From Birth To Present</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/matteoyang2002"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
